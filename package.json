@@ -1,0 +1,60 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "gatsby": "^4.23.1",
+    "gatsby-plugin-emotion": "^7.23.0",
+    "gatsby-plugin-image": "^2.23.1",
+    "gatsby-plugin-react-helmet": "^5.23.0",
+    "gatsby-plugin-sharp": "^4.23.1",
+    "gatsby-plugin-typescript": "^4.23.0",
+    "gatsby-remark-copy-linked-files": "^5.23.0",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^6.23.1",
+    "gatsby-remark-prismjs": "^6.23.0",
+    "gatsby-remark-smartypants": "^5.23.0",
+    "gatsby-source-filesystem": "^4.23.0",
+    "gatsby-transformer-remark": "^5.23.1",
+    "gatsby-transformer-sharp": "^4.23.1",
+    "prismjs": "^1.29.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "packageManager": "yarn@3.2.3"
+}
