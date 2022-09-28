@@ -1,25 +1,26 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+// import { IGatsbyImageData } from 'gatsby-plugin-image'
 import ProfileImage from 'components/Main/ProfileImage'
 
 type IntroductionProps = {
-  profileImage: IGatsbyImageData
+  profileImage: string
 }
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  color: #ffffff;
+  height: 140px;
+  background-image: linear-gradient(60deg, #f1f3f5 0%, #c6daf0 100%);
+  color: #black;
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 768px;
-  height: 400px;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 100vh;
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
 `
 
 const SubTitle = styled.div`
+  margin-top: 5px;
   font-size: 20px;
   font-weight: 400;
 
@@ -39,13 +41,13 @@ const SubTitle = styled.div`
 `
 
 const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
+  margin-top: 0px;
+  font-size: 20px;
   font-weight: 700;
 
   @media (max-width: 768px) {
     font-size: 25px;
-  }
+  } 
 `
 
 const Introduction: FunctionComponent<IntroductionProps> = function ({
@@ -56,10 +58,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
       <Wrapper>
         <ProfileImage profileImage={profileImage} />
 
-        <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Junior Frontend Developer Hyun.</Title>
-        </div>
+        <Title>HIPPO DEV</Title>
+        <SubTitle>개발 일기장</SubTitle>
       </Wrapper>
     </Background>
   )

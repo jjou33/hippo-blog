@@ -3,13 +3,14 @@ import CategoryList from 'components/Main/CategoryList'
 import Introduction from 'components/Main/Introduction'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+// import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostListItemType } from 'types/PostItem.types'
 import queryString, { ParsedQuery } from 'query-string'
 import { CategoryListProps } from 'components/Main/CategoryList'
 import { PostType } from 'components/Main/PostList'
 import Template from 'components/Common/Template'
-
+import styled from '@emotion/styled'
+import Footer from 'components/Common/Footer'
 type IndexPageProps = {
   location: {
     search: string
@@ -26,14 +27,24 @@ type IndexPageProps = {
       edges: PostListItemType[]
     }
     file: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData
-      }
       publicURL: string
     }
   }
 }
 
+const SideContainer = styled.div`
+  flex: 0.8;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+const ContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+`
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -42,11 +53,12 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
     allMarkdownRemark: { edges },
     file: {
-      childImageSharp: { gatsbyImageData },
+      // childImageSharp: { gatsbyImageData },
       publicURL,
     },
   },
 }) {
+  console.log('edges : ' ,edges)
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
@@ -79,6 +91,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ),
     [],
   )
+
   return (
     <Template
       title={title}
@@ -86,12 +99,18 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <Introduction profileImage={gatsbyImageData} />
-      <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      />
-      <PostList selectedCategory={selectedCategory} posts={edges} />
+      <SideContainer>
+        <Introduction profileImage={publicURL} />
+        <CategoryList
+          selectedCategory={selectedCategory}
+          categoryList={categoryList}
+        />
+      </SideContainer>
+      <ContentsWrapper>
+
+        <PostList selectedCategory={selectedCategory} posts={edges} />
+        <Footer />
+      </ContentsWrapper>
     </Template>
   )
 }
@@ -130,10 +149,7 @@ export const getPostList = graphql`
         }
       }
     }
-    file(name: { eq: "profile-image" }) {
-      childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
-      }
+    file(relativePath: { eq: "profile-image.svg" }) {
       publicURL
     }
   }

@@ -1,7 +1,9 @@
 {
+  "root": true,
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
@@ -17,7 +19,7 @@
     },
     "ecmaVersion": 12,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
   },
   "plugins": ["react", "@typescript-eslint"],
   "ignorePatterns": ["dist/", "node_modules/"],

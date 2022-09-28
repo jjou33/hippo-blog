@@ -12,14 +12,15 @@
     "paths": {
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],
-      "hooks/*": ["./hooks/*"]
+      "hooks/*": ["./hooks/*"],
+      "style/*": ["./style/*"],
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.tsx"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
 

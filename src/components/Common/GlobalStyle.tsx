@@ -1,15 +1,27 @@
 import React, { FunctionComponent } from 'react'
 import { Global, css } from '@emotion/react'
-
+import MaplestoryLight from '../../font/MaplestoryLight.ttf'
+import JetBrainMono from '../../font/JetBrainsMono-Bold.ttf'
 const defaultStyle = css`
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
-
+  @font-face {
+    font-family: 'MaplestoryLight';
+    src: local('MaplestoryLight'), local('MaplestoryLight');
+    font-style: normal;
+    src: url(${MaplestoryLight}) format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: local('JetBrainsMono'), local('JetBrainsMono');
+    font-style: normal;
+    src: url(${JetBrainMono}) format('truetype');
+  }
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: MaplestoryLight;
   }
+
 
   html,
   body,
