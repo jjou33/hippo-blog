@@ -32,6 +32,13 @@ type IndexPageProps = {
   }
 }
 
+export interface Item {
+  [key: string]: number
+}
+
+export interface CategoryItems {
+  [key: string]: Item
+}
 const SideContainer = styled.div`
   flex: 0.8;
 
@@ -58,7 +65,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
-  console.log('edges : ' ,edges)
+  console.log('edges : ', edges)
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
@@ -71,27 +78,33 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     () =>
       edges.reduce(
         (
-          list: CategoryListProps['categoryList'],
+          list: CategoryItems,
           {
             node: {
-              frontmatter: { categories },
+              frontmatter: { categories, domain, sideTitle },
             },
           }: PostType,
         ) => {
-          categories.forEach(category => {
-            if (list[category] === undefined) list[category] = 1
-            else list[category]++
-          })
-
+          if (list[domain] === undefined) {
+            console.log('unf : ', domain)
+            list[domain] = new Object()
+            list[domain][sideTitle] = 1
+          } else {
+            if (list[domain][sideTitle] === undefined) {
+              list[domain][sideTitle] = 1
+            } else {
+              list[domain][sideTitle] += 1
+            }
+          }
           list['All']++
-
+          // console.log(list)
           return list
         },
         { All: 0 },
       ),
     [],
   )
-
+  console.log('end : ', categoryList)
   return (
     <Template
       title={title}
@@ -107,7 +120,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         />
       </SideContainer>
       <ContentsWrapper>
-
         <PostList selectedCategory={selectedCategory} posts={edges} />
         <Footer />
       </ContentsWrapper>
@@ -140,6 +152,8 @@ export const getPostList = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
+            domain
+            sideTitle
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 768, height: 400)

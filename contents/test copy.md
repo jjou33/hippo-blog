@@ -2,6 +2,8 @@
 date: '2020-08-12'
 title: 'Test12'
 categories: ['Web', 'SEO', 'Optimization']
+domain: 'Webpack'
+sideTitle: 'SEO'
 summary: '호호호호후후후'
 thumbnail: './sumnail.png'
 ---
