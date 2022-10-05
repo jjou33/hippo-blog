@@ -11,7 +11,7 @@ const Background = styled.div`
   width: 100%;
   height: 140px;
   background-image: linear-gradient(60deg, #f1f3f5 0%, #c6daf0 100%);
-  color: #black;
+  color: black;
 `
 
 const Wrapper = styled.div`
@@ -47,7 +47,7 @@ const Title = styled.div`
 
   @media (max-width: 768px) {
     font-size: 25px;
-  } 
+  }
 `
 
 const Introduction: FunctionComponent<IntroductionProps> = function ({

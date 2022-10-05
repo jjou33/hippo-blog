@@ -77,11 +77,15 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
             },
           }: PostType,
         ) => {
-          // const { childImageSharp } = categoryIcon
+          console.log('icon : ', categoryIcon.childImageSharp)
           if (list[domain] === undefined) {
-            list[domain] = [sideTitle]
+            list[domain] = {
+              title: [sideTitle],
+              image: [categoryIcon.childImageSharp],
+            }
           } else {
-            list[domain].push(sideTitle)
+            list[domain]['title'].push(sideTitle)
+            list[domain]['image'].push(categoryIcon.childImageSharp)
           }
           return list
         },

@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import { CategoryItemListProps } from './CategoryList'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -47,24 +48,29 @@ const CategoryItemWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `
-
+const CategoryTitleIcon = styled(GatsbyImage)`
+  width: 50px;
+  height: 50px;
+`
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
+  image,
 }) {
-  console.log('cateL : ', categoryList)
+  // console.log('cate : ', image)
   return (
     <>
-      {categoryList.map((val, idx): JSX.Element => {
-        console.log('val : ', val)
+      {categoryList.map((categoryItem, idx): JSX.Element => {
+        console.log('image : ', image[idx])
         return (
           <CategoryItemWrapper key={idx}>
+            <CategoryTitleIcon image={image[idx]} alt="icon" />
             <CategoryItem
-              to={`/?category=${val}`}
-              active={val === selectedCategory}
-              key={val}
+              to={`/?category=${categoryItem}`}
+              active={categoryItem === selectedCategory}
+              key={categoryItem}
             >
-              {val}
+              {categoryItem}
             </CategoryItem>
           </CategoryItemWrapper>
         )
