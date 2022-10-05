@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react'
-import { CategoryListProps } from './CategoryList'
+import { CategoryItemListProps } from './CategoryList'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -33,40 +33,39 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   }
 `
 
-const CategoryCount = styled.div`
-  border-radius: 20%;
-  color: red;
-  font-size: 3px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-`
+// const CategoryCount = styled.div`
+//   border-radius: 20%;
+//   color: red;
+//   font-size: 3px;
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+//   flex-direction: row;
+// `
 
 const CategoryItemWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `
 
-const CategoryItems: FunctionComponent<CategoryListProps> = function ({
+const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
 }) {
-  console.log('rc1 : ', categoryList)
+  console.log('cateL : ', categoryList)
   return (
     <>
-      {Object.entries(categoryList).map((val, idx): any => {
-        console.log('in : ', val[0])
+      {categoryList.map((val, idx): JSX.Element => {
+        console.log('val : ', val)
         return (
-          <CategoryItemWrapper>
+          <CategoryItemWrapper key={idx}>
             <CategoryItem
-              to={`/?category=${val[0]}`}
-              active={val[0] === selectedCategory}
-              key={val[0]}
+              to={`/?category=${val}`}
+              active={val === selectedCategory}
+              key={val}
             >
-              {val[0]}
+              {val}
             </CategoryItem>
-            <CategoryCount>({val[1]})</CategoryCount>
           </CategoryItemWrapper>
         )
       })}
@@ -75,12 +74,3 @@ const CategoryItems: FunctionComponent<CategoryListProps> = function ({
 }
 
 export default CategoryItems
-{
-  /* <CategoryItem
-  to={`/?category=${name}`}
-  active={name === selectedCategory}
-  key={name}
->
-  #{name}({count})
-</CategoryItem> */
-}

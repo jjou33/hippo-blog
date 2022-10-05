@@ -32,14 +32,7 @@ type IndexPageProps = {
   }
 }
 
-export interface Item {
-  [key: string]: number
-}
-
-export interface CategoryItems {
-  [key: string]: Item
-}
-const SideContainer = styled.div`
+const SideWrapper = styled.div`
   flex: 0.8;
 
   @media (max-width: 768px) {
@@ -65,7 +58,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
-  console.log('edges : ', edges)
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
@@ -78,33 +70,26 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     () =>
       edges.reduce(
         (
-          list: CategoryItems,
+          list: CategoryListProps['categoryList'],
           {
             node: {
-              frontmatter: { categories, domain, sideTitle },
+              frontmatter: { domain, sideTitle, categoryIcon },
             },
           }: PostType,
         ) => {
+          // const { childImageSharp } = categoryIcon
           if (list[domain] === undefined) {
-            console.log('unf : ', domain)
-            list[domain] = new Object()
-            list[domain][sideTitle] = 1
+            list[domain] = [sideTitle]
           } else {
-            if (list[domain][sideTitle] === undefined) {
-              list[domain][sideTitle] = 1
-            } else {
-              list[domain][sideTitle] += 1
-            }
+            list[domain].push(sideTitle)
           }
-          list['All']++
-          // console.log(list)
           return list
         },
-        { All: 0 },
+        {},
       ),
     [],
   )
-  console.log('end : ', categoryList)
+  console.log('cate : ', categoryList)
   return (
     <Template
       title={title}
@@ -112,13 +97,13 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <SideContainer>
+      <SideWrapper>
         <Introduction profileImage={publicURL} />
         <CategoryList
-          selectedCategory={selectedCategory}
           categoryList={categoryList}
+          selectedCategory={selectedCategory}
         />
-      </SideContainer>
+      </SideWrapper>
       <ContentsWrapper>
         <PostList selectedCategory={selectedCategory} posts={edges} />
         <Footer />
@@ -157,6 +142,11 @@ export const getPostList = graphql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 768, height: 400)
+              }
+            }
+            categoryIcon {
+              childImageSharp {
+                gatsbyImageData(width: 50, height: 50)
               }
             }
           }

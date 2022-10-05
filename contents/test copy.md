@@ -6,6 +6,7 @@ domain: 'Webpack'
 sideTitle: 'SEO'
 summary: '호호호호후후후'
 thumbnail: './sumnail.png'
+categoryIcon: './sumnail.png'
 ---
 
 ### 1. Help Google Bot to Find My Contents

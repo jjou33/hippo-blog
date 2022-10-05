@@ -1,13 +1,20 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import CategoryItems from './CategoryItems'
-export type CategoryListProps = {
+export interface CategoryListProps {
   selectedCategory: string
   categoryList: {
-    [key: string]: number
+    [key: string]: string[]
   }
 }
 
+export interface CategoryItemListProps {
+  selectedCategory: string
+  categoryList: string[]
+}
+export interface temp {
+  title: string
+}
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,22 +36,21 @@ const CategoryTitle = styled.span`
   justify-content: center;
   font-size: 25px;
 `
+
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
 }) {
-  // console.log('cate : ', categoryList['Webpack'])
   return (
     <CategoryListWrapper>
-      {Object.entries(categoryList).map((val, idx): any => {
-        console.log('rv : ', val)
+      {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
-          <CategoryTitle>
-            {val[0]}
-            {val[0] === 'All' ? ` (${val[1]})` : ''}
+          <CategoryTitle key={categoryItems[0]}>
+            {categoryItems[0]}
             <CategoryItems
+              key={idx}
               selectedCategory={selectedCategory}
-              categoryList={val[1]}
+              categoryList={categoryItems[1]}
             />
           </CategoryTitle>
         )
@@ -54,13 +60,3 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
 }
 
 export default CategoryList
-
-{
-  /* <CategoryItem
-  to={`/?category=${name}`}
-  active={name === selectedCategory}
-  key={name}
->
-  #{name}({count})
-</CategoryItem> */
-}
