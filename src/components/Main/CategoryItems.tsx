@@ -46,10 +46,16 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
 
 const CategoryItemWrapper = styled.div`
   display: flex;
+  /* margin-top: 10px; */
 `
 const CategoryTitleIcon = styled(GatsbyImage)`
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
+  margin: 7px 10px 0px 5px;
+`
+
+const CategoryItemContainer = styled.div`
+  margin-top: 15px;
 `
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
@@ -58,7 +64,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
 }) {
   // console.log('cate : ', image)
   return (
-    <>
+    <CategoryItemContainer>
       {categoryList.map((categoryItem, idx): JSX.Element => {
         return (
           <CategoryItemWrapper key={idx}>
@@ -73,7 +79,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
           </CategoryItemWrapper>
         )
       })}
-    </>
+    </CategoryItemContainer>
   )
 }
 

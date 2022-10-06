@@ -23,9 +23,9 @@ const CategoryListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: float;
+  /* align-items: float; */
   width: 100%;
-  margin: 120px 0px 0px 30px;
+  margin: 120px 0px 0px 80px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -39,6 +39,7 @@ const CategoryTitle = styled.span`
   flex-direction: column;
   justify-content: center;
   font-size: 25px;
+  margin-top: 15px;
 `
 
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
@@ -49,15 +50,17 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
     <CategoryListWrapper>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
-          <CategoryTitle key={categoryItems[0]}>
-            {categoryItems[0]}
+          <>
+            <CategoryTitle key={categoryItems[0]}>
+              {categoryItems[0]}
+            </CategoryTitle>
             <CategoryItems
               key={idx}
               selectedCategory={selectedCategory}
               categoryList={categoryItems[1]['title']}
               image={categoryItems[1]['image']}
             />
-          </CategoryTitle>
+          </>
         )
       })}
     </CategoryListWrapper>
