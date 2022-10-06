@@ -5,6 +5,7 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
+import styled from '@emotion/styled'
 type PostTemplateProps = {
   data: {
     allMarkdownRemark: {
@@ -13,9 +14,14 @@ type PostTemplateProps = {
   }
   location: {
     href: string
+    search: string
   }
 }
-
+const PostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+`
 export type PostPageItemType = {
   node: {
     html: string
@@ -46,14 +52,16 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
-      <PostHead
-        title={title}
-        date={date}
-        categories={categories}
-        thumbnail={gatsbyImageData}
-      />
-      <PostContent html={html} />
-      <CommentWidget />
+      <PostWrapper>
+        <PostHead
+          title={title}
+          date={date}
+          categories={categories}
+          thumbnail={gatsbyImageData}
+        />
+        <PostContent html={html} />
+        <CommentWidget />
+      </PostWrapper>
     </Template>
   )
 }
@@ -71,6 +79,8 @@ export const queryMarkdownDataBySlug = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
+            domain
+            sideTitle
             thumbnail {
               childImageSharp {
                 gatsbyImageData

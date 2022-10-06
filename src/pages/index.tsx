@@ -32,18 +32,16 @@ type IndexPageProps = {
   }
 }
 
-const SideWrapper = styled.div`
-  flex: 0.8;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
-
 const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 4;
+`
+const SideWrapper = styled.div`
+  flex: 0.8;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
@@ -77,15 +75,15 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
             },
           }: PostType,
         ) => {
-          console.log('icon : ', categoryIcon.childImageSharp)
+          const { gatsbyImageData } = categoryIcon.childImageSharp
           if (list[domain] === undefined) {
             list[domain] = {
               title: [sideTitle],
-              image: [categoryIcon.childImageSharp],
+              image: [gatsbyImageData],
             }
           } else {
             list[domain]['title'].push(sideTitle)
-            list[domain]['image'].push(categoryIcon.childImageSharp)
+            list[domain]['image'].push(gatsbyImageData)
           }
           return list
         },
@@ -93,7 +91,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ),
     [],
   )
-  console.log('cate : ', categoryList)
+
   return (
     <Template
       title={title}
@@ -150,7 +148,7 @@ export const getPostList = graphql`
             }
             categoryIcon {
               childImageSharp {
-                gatsbyImageData(width: 50, height: 50)
+                gatsbyImageData(width: 10, height: 10)
               }
             }
           }

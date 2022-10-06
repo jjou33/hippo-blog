@@ -1,12 +1,15 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import CategoryItems from './CategoryItems'
-import { IGatsbyImageData, GatsbyImage } from 'gatsby-plugin-image'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 export interface CategoryListProps {
   selectedCategory: string
   categoryList: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: { [key: string]: any[] }
+    [key: string]: {
+      image: IGatsbyImageData[]
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      [key: string]: any[]
+    }
   }
 }
 
@@ -15,14 +18,7 @@ export interface CategoryItemListProps {
   categoryList: string[]
   image: IGatsbyImageData[]
 }
-export interface temp {
-  categoryIcon: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
-    publicURL: string
-  }
-}
+
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,7 +48,6 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
   return (
     <CategoryListWrapper>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
-        console.log('item : ', categoryItems)
         return (
           <CategoryTitle key={categoryItems[0]}>
             {categoryItems[0]}

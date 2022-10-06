@@ -46,11 +46,10 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
 
 const CategoryItemWrapper = styled.div`
   display: flex;
-  flex-direction: row;
 `
 const CategoryTitleIcon = styled(GatsbyImage)`
-  width: 50px;
-  height: 50px;
+  width: 18px;
+  height: 18px;
 `
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
@@ -61,7 +60,6 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   return (
     <>
       {categoryList.map((categoryItem, idx): JSX.Element => {
-        console.log('image : ', image[idx])
         return (
           <CategoryItemWrapper key={idx}>
             <CategoryTitleIcon image={image[idx]} alt="icon" />
