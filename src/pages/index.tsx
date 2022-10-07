@@ -44,6 +44,10 @@ const SideWrapper = styled.div`
     display: none;
   }
 `
+const Temp = styled.div`
+  width: 100px;
+  height: 100px;
+`
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -57,6 +61,14 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
+  const script1 = document.createElement('script')
+  script1.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'
+  script1.type = 'module'
+  const script2 = document.createElement('script')
+  script2.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
+  script2.type = 'nomodule'
+  document.body.appendChild(script1)
+  document.body.appendChild(script2)
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
@@ -100,16 +112,16 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <div>
-        {menuList.map(({ name, icon }) => {
+      <Temp>
+        {menuList.map(({ name, icon }, idx) => {
           console.log('name : ', name)
           return (
-            <div>
-              <div>{icon('20', '20')}</div>
+            <div key={idx}>
+              <div>{icon()}</div>
             </div>
           )
         })}
-      </div>
+      </Temp>
       <SideWrapper>
         <Introduction profileImage={publicURL} />
         <CategoryList

@@ -26,7 +26,7 @@ const CategoryListContainer = styled.div`
   /* align-items: float; */
   width: 100%;
   margin: 120px 0px 0px 80px;
-  background-image: url(./src/assets/bal.svg);
+
   @media (max-width: 768px) {
     width: 100%;
     margin-top: 50px;
