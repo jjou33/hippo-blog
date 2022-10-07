@@ -11,6 +11,7 @@ import { PostType } from 'components/Main/PostList'
 import Template from 'components/Common/Template'
 import styled from '@emotion/styled'
 import Footer from 'components/Common/Footer'
+import { menuList } from 'components/Sider/SideNavItemList'
 type IndexPageProps = {
   location: {
     search: string
@@ -99,6 +100,16 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
+      <div>
+        {menuList.map(({ name, icon }) => {
+          console.log('name : ', name)
+          return (
+            <div>
+              <div>{icon('20', '20')}</div>
+            </div>
+          )
+        })}
+      </div>
       <SideWrapper>
         <Introduction profileImage={publicURL} />
         <CategoryList
@@ -126,7 +137,10 @@ export const getPostList = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      sort: {
+        order: ASC
+        fields: [frontmatter___index, frontmatter___date, frontmatter___title]
+      }
     ) {
       edges {
         node {
@@ -139,6 +153,7 @@ export const getPostList = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
+            index
             domain
             sideTitle
             thumbnail {

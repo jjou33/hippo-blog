@@ -2,6 +2,7 @@
 date: '2020-08-12'
 title: 'Test12'
 categories: ['Web', 'SEO', 'Optimization']
+index: 5
 domain: 'Webpack'
 sideTitle: 'SEO'
 summary: '호호호호후후후'

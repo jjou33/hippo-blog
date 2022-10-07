@@ -19,26 +19,26 @@ export interface CategoryItemListProps {
   image: IGatsbyImageData[]
 }
 
-const CategoryListWrapper = styled.div`
+const CategoryListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* align-items: float; */
   width: 100%;
   margin: 120px 0px 0px 80px;
-
+  background-image: url(./src/assets/bal.svg);
   @media (max-width: 768px) {
     width: 100%;
     margin-top: 50px;
     padding: 0 20px;
   }
 `
-
-const CategoryTitle = styled.span`
+// TODO: 드롭다운으로 변경하기 위해 Styled 태그 변경필요
+const CategoryItemWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 25px;
+  font-size: 15px;
   margin-top: 15px;
 `
 
@@ -47,23 +47,21 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
   categoryList,
 }) {
   return (
-    <CategoryListWrapper>
+    <CategoryListContainer>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
-          <>
-            <CategoryTitle key={categoryItems[0]}>
-              {categoryItems[0]}
-            </CategoryTitle>
+          <CategoryItemWrapper key={categoryItems[0]}>
+            {categoryItems[0]}
             <CategoryItems
               key={idx}
               selectedCategory={selectedCategory}
               categoryList={categoryItems[1]['title']}
               image={categoryItems[1]['image']}
             />
-          </>
+          </CategoryItemWrapper>
         )
       })}
-    </CategoryListWrapper>
+    </CategoryListContainer>
   )
 }
 
