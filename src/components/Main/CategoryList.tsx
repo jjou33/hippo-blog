@@ -11,6 +11,7 @@ export interface CategoryListProps {
       [key: string]: any[]
     }
   }
+  menuList: object[]
 }
 
 export interface CategoryItemListProps {
@@ -45,10 +46,12 @@ const CategoryItemWrapper = styled.ul`
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
+  menuList,
 }) {
   return (
     <CategoryListContainer>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
+        console.log('menu : ', menuList)
         return (
           <CategoryItemWrapper key={categoryItems[0]}>
             {categoryItems[0]}
