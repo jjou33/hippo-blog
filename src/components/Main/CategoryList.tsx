@@ -16,7 +16,7 @@ export interface CategoryListProps {
   }
 }
 
-type funcType = () => ReactNode
+type funcType = (width: string, height: string, color?: string) => ReactNode
 
 export interface CategoryItemListProps {
   selectedCategory: string
@@ -66,7 +66,7 @@ const CategoryTitleWrapper = styled.div`
   width: 12rem;
   height: 3rem;
   border-width: 1px;
-  background-color: #edfafd;
+  background-color: #fdf1ed;
 `
 const CategoryTitle = styled.span``
 const CategoryList: FunctionComponent<CategoryListProps> = function ({

@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 type TemplateProps = {
   title: string
@@ -13,7 +14,6 @@ type TemplateProps = {
 
 const Container = styled.div`
   display: flex;
-  height: 100vh;
 `
 
 const Template: FunctionComponent<TemplateProps> = function ({

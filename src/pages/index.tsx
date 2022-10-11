@@ -12,6 +12,7 @@ import Template from 'components/Common/Template'
 import styled from '@emotion/styled'
 import Footer from 'components/Common/Footer'
 import { sideBarIcon } from 'components/Sider/SideNavItemList'
+import { useCategoryMetadata } from 'components/Sider/tempSide'
 type IndexPageProps = {
   location: {
     search: string
@@ -41,7 +42,6 @@ const ContentsWrapper = styled.div`
 const SideWrapper = styled.div`
   flex: 0.6;
   box-shadow: 1px 2px 4px 0px;
-  height: 100%;
   @media (max-width: 768px) {
     display: none;
   }
@@ -71,6 +71,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   fontawesome.src = 'https://kit.fontawesome.com/8c8829426d.js'
   fontawesome.crossOrigin = 'anonymous'
   document.body.appendChild(fontawesome)
+
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
