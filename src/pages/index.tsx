@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useMemo } from 'react'
-import CategoryList from 'components/Main/CategoryList'
-import Introduction from 'components/Main/Introduction'
+
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 // import { IGatsbyImageData } from 'gatsby-plugin-image'
@@ -39,13 +38,7 @@ const ContentsWrapper = styled.div`
   flex-direction: column;
   flex: 4;
 `
-const SideWrapper = styled.div`
-  flex: 0.6;
-  box-shadow: 1px 2px 4px 0px;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
+
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -80,37 +73,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ? 'All'
       : parsed.category
 
-  const categoryList = useMemo(
-    () =>
-      edges.reduce(
-        (
-          list: CategoryListProps['categoryList'],
-          {
-            node: {
-              frontmatter: { domain, sideTitle },
-            },
-          }: PostType,
-        ) => {
-          // console.log('domain : ', domain)
-          // console.log('sideTitle : ', sideTitle)
-          // const { gatsbyImageData } = categoryIcon.childImageSharp
-          if (list[domain] === undefined) {
-            list[domain] = {
-              title: domain,
-              children: [sideTitle],
-            }
-          } else {
-            if (list[domain]['children'] !== undefined) {
-              list[domain]['children'].push(sideTitle)
-            }
-          }
-          return list
-        },
-        {},
-      ),
-    [],
-  )
-
   return (
     <Template
       title={title}
@@ -118,14 +80,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <SideWrapper>
-        <Introduction profileImage={publicURL} />
-        <CategoryList
-          categoryList={categoryList}
-          selectedCategory={selectedCategory}
-          sideBarIcon={sideBarIcon}
-        />
-      </SideWrapper>
       <ContentsWrapper>
         <PostList selectedCategory={selectedCategory} posts={edges} />
         <Footer />

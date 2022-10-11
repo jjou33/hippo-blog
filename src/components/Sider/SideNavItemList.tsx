@@ -18,9 +18,9 @@ export const sideBarIcon = {
         <path
           fill="none"
           stroke={color}
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="32"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="32"
           d="M160 368L32 256l128-112M352 368l128-112-128-112M304 96l-96 320"
         />
       </svg>

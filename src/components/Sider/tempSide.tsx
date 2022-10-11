@@ -35,6 +35,9 @@ export const useCategoryMetadata = () => {
             }
           }
         }
+        file(relativePath: { eq: "profile-image.svg" }) {
+          publicURL
+        }
       }
     `,
   )
