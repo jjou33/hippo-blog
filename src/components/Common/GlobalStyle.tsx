@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Global, css } from '@emotion/react'
 import MaplestoryLight from '../../font/MaplestoryLight.ttf'
+import MaplestoryBold from '../../font/MaplestoryBold.ttf'
 import JetBrainMono from '../../font/JetBrainsMono-Bold.ttf'
 const defaultStyle = css`
   @font-face {
@@ -8,6 +9,12 @@ const defaultStyle = css`
     src: local('MaplestoryLight'), local('MaplestoryLight');
     font-style: normal;
     src: url(${MaplestoryLight}) format('truetype');
+  }
+  @font-face {
+    font-family: 'MaplestoryBold';
+    src: local('MaplestoryBold'), local('MaplestoryBold');
+    font-style: normal;
+    src: url(${MaplestoryBold}) format('truetype');
   }
   @font-face {
     font-family: 'JetBrainsMono';
@@ -21,7 +28,6 @@ const defaultStyle = css`
     box-sizing: border-box;
     font-family: MaplestoryLight;
   }
-
 
   html,
   body,

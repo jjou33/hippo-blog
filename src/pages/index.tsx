@@ -11,7 +11,7 @@ import { PostType } from 'components/Main/PostList'
 import Template from 'components/Common/Template'
 import styled from '@emotion/styled'
 import Footer from 'components/Common/Footer'
-import { menuList } from 'components/Sider/SideNavItemList'
+import { sideBarIcon } from 'components/Sider/SideNavItemList'
 type IndexPageProps = {
   location: {
     search: string
@@ -39,14 +39,12 @@ const ContentsWrapper = styled.div`
   flex: 4;
 `
 const SideWrapper = styled.div`
-  flex: 0.8;
+  flex: 0.6;
+  box-shadow: 1px 2px 4px 0px;
+  height: 100%;
   @media (max-width: 768px) {
     display: none;
   }
-`
-const Temp = styled.div`
-  width: 100px;
-  height: 100px;
 `
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
@@ -69,6 +67,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   script2.type = 'nomodule'
   document.body.appendChild(script1)
   document.body.appendChild(script2)
+  const fontawesome = document.createElement('script')
+  fontawesome.src = 'https://kit.fontawesome.com/8c8829426d.js'
+  fontawesome.crossOrigin = 'anonymous'
+  document.body.appendChild(fontawesome)
   // ?category=Optimization -> {category: 'Optimization'}
   const parsed: ParsedQuery<string> = queryString.parse(search)
 
@@ -84,19 +86,22 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
           list: CategoryListProps['categoryList'],
           {
             node: {
-              frontmatter: { domain, sideTitle, categoryIcon },
+              frontmatter: { domain, sideTitle },
             },
           }: PostType,
         ) => {
-          const { gatsbyImageData } = categoryIcon.childImageSharp
+          // console.log('domain : ', domain)
+          // console.log('sideTitle : ', sideTitle)
+          // const { gatsbyImageData } = categoryIcon.childImageSharp
           if (list[domain] === undefined) {
             list[domain] = {
-              title: [sideTitle],
-              image: [gatsbyImageData],
+              title: domain,
+              children: [sideTitle],
             }
           } else {
-            list[domain]['title'].push(sideTitle)
-            list[domain]['image'].push(gatsbyImageData)
+            if (list[domain]['children'] !== undefined) {
+              list[domain]['children'].push(sideTitle)
+            }
           }
           return list
         },
@@ -112,21 +117,12 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <Temp>
-        {menuList.map(({ name, icon }, idx) => {
-          console.log('name : ', name)
-          return (
-            <div key={idx}>
-              <div>{icon()}</div>
-            </div>
-          )
-        })}
-      </Temp>
       <SideWrapper>
         <Introduction profileImage={publicURL} />
         <CategoryList
           categoryList={categoryList}
           selectedCategory={selectedCategory}
+          sideBarIcon={sideBarIcon}
         />
       </SideWrapper>
       <ContentsWrapper>
@@ -148,12 +144,7 @@ export const getPostList = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(
-      sort: {
-        order: ASC
-        fields: [frontmatter___index, frontmatter___date, frontmatter___title]
-      }
-    ) {
+    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
       edges {
         node {
           id

@@ -1,9 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import { CategoryItemListProps } from './CategoryList'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-
 type CategoryItemProps = {
   active: boolean
 }
@@ -19,9 +17,10 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`
   margin-right: 20px;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
   padding: 5px 0;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
 
@@ -46,29 +45,42 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
 
 const CategoryItemWrapper = styled.li`
   display: flex;
+  align-items: center;
   /* margin-top: 10px; */
 `
-const CategoryTitleIcon = styled(GatsbyImage)`
+const CategoryTitleIcon = styled.div`
   width: 15px;
   height: 15px;
-  margin: 7px 10px 0px 5px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
 `
-
+const CategoryItemArrow = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0px 20px 0px 15px;
+`
 // const CategoryItemContainer = styled.li`
 //   margin-top: 15px;
 // `
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
-  image,
+  sideBarIcon,
 }) {
-  console.log('catego : ', categoryList)
   return (
     <>
       {categoryList.map((categoryItem, idx): JSX.Element => {
         return (
           <CategoryItemWrapper key={idx}>
-            <CategoryTitleIcon image={image[idx]} alt="icon" />
+            <CategoryItemArrow>
+              {sideBarIcon['Arrow'].icon('10', '20')}
+            </CategoryItemArrow>
+            <CategoryTitleIcon>
+              {sideBarIcon[categoryItem] !== undefined
+                ? sideBarIcon[categoryItem].icon()
+                : ''}
+            </CategoryTitleIcon>
             <CategoryItem
               to={`/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}
