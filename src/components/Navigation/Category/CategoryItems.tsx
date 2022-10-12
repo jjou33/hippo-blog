@@ -33,21 +33,9 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
     font-size: 15px;
   }
 `
-
-// const CategoryCount = styled.div`
-//   border-radius: 20%;
-//   color: red;
-//   font-size: 3px;
-//   justify-content: center;
-//   align-items: center;
-//   display: flex;
-//   flex-direction: row;
-// `
-
 const CategoryItemWrapper = styled.li`
   display: flex;
   align-items: center;
-  /* margin-top: 10px; */
 `
 const CategoryTitleIcon = styled.div`
   width: 15px;

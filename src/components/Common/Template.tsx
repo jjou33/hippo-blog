@@ -38,6 +38,7 @@ const Header = styled.header`
     color: black;
   }
   border-style: solid;
+  border-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 10rem;
 `

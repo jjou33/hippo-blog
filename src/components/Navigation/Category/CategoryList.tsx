@@ -1,8 +1,9 @@
 import React, { FunctionComponent, ReactNode, useState } from 'react'
 import styled from '@emotion/styled'
+import css from '@emotion/react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
-import Dropdown from 'components/Common/utils/DropDown/DropDown'
+import { useDetectClose } from 'hooks/useDetectClose'
 type funcType = (width: string, height: string, color?: string) => ReactNode
 
 export interface CategoryNavIconProps {
@@ -50,27 +51,51 @@ const CategoryItemWrapper = styled.div`
   font-size: 15px;
   margin: 10px 20px;
 `
+const DropDownButton = styled.div`
+  cursor: pointer;
+`
+interface DropProps {
+  isDropped: boolean
+}
 
+const DropContents = styled.div(
+  {
+    opacity: 0,
+    visibility: 'hidden',
+  },
+  (props: DropProps) => ({
+    opacity: 1,
+    visibility: props.isDropped ? 'visible' : 'visible',
+    transform: 'translate(-50%, 0)',
+    left: '50%',
+  }),
+)
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
   navIconSet,
 }) {
+  const [codeIsOpen, codeRef, codeHandler] = useDetectClose(false)
+  console.log('code : ', codeIsOpen)
   return (
     <CategoryListContainer>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>
-            <CategoryTitle
-              categoryTitle={categoryItems[0]}
-              navIconSet={navIconSet}
-            ></CategoryTitle>
-            <CategoryItems
-              key={idx}
-              selectedCategory={selectedCategory}
-              categoryList={categoryItems[1]['children']}
-              navIconSet={navIconSet}
-            />
+            <DropDownButton onClick={codeHandler} ref={codeRef}>
+              <CategoryTitle
+                categoryTitle={categoryItems[0]}
+                navIconSet={navIconSet}
+              ></CategoryTitle>
+            </DropDownButton>
+            <DropContents isDropped={codeIsOpen}>
+              <CategoryItems
+                key={idx}
+                selectedCategory={selectedCategory}
+                categoryList={categoryItems[1]['children']}
+                navIconSet={navIconSet}
+              />
+            </DropContents>
           </CategoryItemWrapper>
         )
       })}
