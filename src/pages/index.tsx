@@ -1,17 +1,12 @@
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent } from 'react'
 
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
-// import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostListItemType } from 'types/PostItem.types'
-import queryString, { ParsedQuery } from 'query-string'
-import { CategoryListProps } from 'components/Main/CategoryList'
-import { PostType } from 'components/Main/PostList'
+import { getSelectedCategory } from 'components/Common/utils/Category/Category'
 import Template from 'components/Common/Template'
 import styled from '@emotion/styled'
-import Footer from 'components/Common/Footer'
-import { sideBarIcon } from 'components/Sider/SideNavItemList'
-import { useCategoryMetadata } from 'components/Sider/tempSide'
+
 type IndexPageProps = {
   location: {
     search: string
@@ -46,32 +41,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       siteMetadata: { title, description, siteUrl },
     },
     allMarkdownRemark: { edges },
-    file: {
-      // childImageSharp: { gatsbyImageData },
-      publicURL,
-    },
+    file: { publicURL },
   },
 }) {
-  const script1 = document.createElement('script')
-  script1.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'
-  script1.type = 'module'
-  const script2 = document.createElement('script')
-  script2.src = 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
-  script2.type = 'nomodule'
-  document.body.appendChild(script1)
-  document.body.appendChild(script2)
-  const fontawesome = document.createElement('script')
-  fontawesome.src = 'https://kit.fontawesome.com/8c8829426d.js'
-  fontawesome.crossOrigin = 'anonymous'
-  document.body.appendChild(fontawesome)
-
-  // ?category=Optimization -> {category: 'Optimization'}
-  const parsed: ParsedQuery<string> = queryString.parse(search)
-
-  const selectedCategory: string =
-    typeof parsed.category !== 'string' || !parsed.category
-      ? 'All'
-      : parsed.category
+  const selectedCategory: string = getSelectedCategory(search)
 
   return (
     <Template
@@ -82,7 +55,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     >
       <ContentsWrapper>
         <PostList selectedCategory={selectedCategory} posts={edges} />
-        <Footer />
       </ContentsWrapper>
     </Template>
   )

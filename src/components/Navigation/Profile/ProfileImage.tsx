@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-// import { GatsbyImage } from 'gatsby-plugin-image'
-// import {} from '../../../static/profile-image.pn'
-import { useCategoryMetadata } from 'components/Sider/tempSide'
+
 type ProfileImageProps = {
   profileImage: string
 }

@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react'
 import { CategoryItemListProps } from './CategoryList'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+
 type CategoryItemProps = {
   active: boolean
 }
@@ -60,25 +61,24 @@ const CategoryItemArrow = styled.div`
   align-items: center;
   margin: 0px 20px 0px 15px;
 `
-// const CategoryItemContainer = styled.li`
-//   margin-top: 15px;
-// `
+
+const CategoryItemContainer = styled.ul``
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
-  sideBarIcon,
+  navIconSet,
 }) {
   return (
-    <>
+    <CategoryItemContainer>
       {categoryList.map((categoryItem, idx): JSX.Element => {
         return (
           <CategoryItemWrapper key={idx}>
             <CategoryItemArrow>
-              {sideBarIcon['Arrow'].icon('10', '20')}
+              {navIconSet['Arrow'].icon('10', '20')}
             </CategoryItemArrow>
             <CategoryTitleIcon>
-              {sideBarIcon[categoryItem] !== undefined
-                ? sideBarIcon[categoryItem].icon()
+              {navIconSet[categoryItem] !== undefined
+                ? navIconSet[categoryItem].icon('18px', '18px')
                 : ''}
             </CategoryTitleIcon>
             <CategoryItem
@@ -91,7 +91,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
           </CategoryItemWrapper>
         )
       })}
-    </>
+    </CategoryItemContainer>
   )
 }
 

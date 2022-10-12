@@ -1,34 +1,45 @@
-import React, { FunctionComponent, ReactNode, useMemo } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
+import CategoryList from 'components/Navigation/Category/CategoryList'
+import Introduction from 'components/Navigation/Profile/Introduction'
+import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
-import { useCategoryMetadata } from 'components/Sider/tempSide'
-import CategoryList from 'components/Main/CategoryList'
-import Introduction from 'components/Main/Introduction'
-import queryString, { ParsedQuery } from 'query-string'
-import { sideBarIcon } from 'components/Sider/SideNavItemList'
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
+import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
+import {
+  getSelectedCategory,
+  getCategoryList,
+} from 'components/Common/utils/Category/Category'
+
 type TemplateProps = {
-  location: {
-    search: string
-  }
   title: string
   description: string
   url: string
   image: string
   children: ReactNode
 }
-const RContainer = styled.div`
+const Container = styled.div`
   display: flex;
 `
-const Container = styled.div`
+const Main = styled.main`
   flex: 4;
 `
-const SideWrapper = styled.div`
+const Navigation = styled.nav`
   flex: 0.6;
   box-shadow: 1px 2px 4px 0px;
   @media (max-width: 768px) {
     display: none;
   }
+`
+
+const Header = styled.header`
+  h1 {
+    color: black;
+  }
+  border-style: solid;
+  width: 100%;
+  height: 10rem;
 `
 const Template: FunctionComponent<TemplateProps> = function ({
   title,
@@ -37,50 +48,23 @@ const Template: FunctionComponent<TemplateProps> = function ({
   image,
   children,
 }) {
-  const { edges } = useCategoryMetadata().allMarkdownRemark
-  const { publicURL } = useCategoryMetadata().file
-  console.log(edges)
-  const categoryList = useMemo(
-    () =>
-      edges.reduce(
-        (
-          list: CategoryListProps['categoryList'],
-          {
-            node: {
-              frontmatter: { domain, sideTitle },
-            },
-          }: PostType,
-        ) => {
-          // console.log('domain : ', domain)
-          // console.log('sideTitle : ', sideTitle)
-          // const { gatsbyImageData } = categoryIcon.childImageSharp
-          if (list[domain] === undefined) {
-            list[domain] = {
-              title: domain,
-              children: [sideTitle],
-            }
-          } else {
-            if (list[domain]['children'] !== undefined) {
-              list[domain]['children'].push(sideTitle)
-            }
-          }
-          return list
-        },
-        {},
-      ),
-    [],
-  )
+  const { file, allMarkdownRemark } = useCategoryMetadata()
+
+  const selectedCategory: string = getSelectedCategory(location.search)
+
+  const categoryList = getCategoryList(allMarkdownRemark)
+
   return (
-    <RContainer>
-      <SideWrapper>
-        <Introduction profileImage={publicURL} />
+    <Container>
+      <Navigation>
+        <Introduction profileImage={file.publicURL} />
         <CategoryList
           categoryList={categoryList}
-          // selectedCategory={selectedCategory}
-          sideBarIcon={sideBarIcon}
+          selectedCategory={selectedCategory}
+          navIconSet={navIconSet}
         />
-      </SideWrapper>
-      <Container>
+      </Navigation>
+      <Main>
         <Helmet>
           <title>{title}</title>
 
@@ -107,9 +91,11 @@ const Template: FunctionComponent<TemplateProps> = function ({
         </Helmet>
 
         <GlobalStyle />
+        <Header>asdfa</Header>
         {children}
-      </Container>
-    </RContainer>
+        <Footer />
+      </Main>
+    </Container>
   )
 }
 

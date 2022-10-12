@@ -17,7 +17,7 @@ export interface PostFrontmatterType {
   categoryIcon: ImageType
 }
 
-export type PostListItemType = {
+export interface PostListItemType {
   node: {
     id: string
     fields: {
@@ -25,4 +25,8 @@ export type PostListItemType = {
     }
     frontmatter: PostFrontmatterType
   }
+}
+
+export interface CategortListType {
+  edges: PostListItemType[]
 }

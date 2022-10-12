@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-export const sideBarIcon = {
+export const navIconSet = {
   Algorithm: {
     icon: (
       width: string,
@@ -7,8 +7,8 @@ export const sideBarIcon = {
       color = 'rgba(0, 0, 0, 0.5)',
     ): ReactNode => (
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="ionicon"
+        // xmlns="http://www.w3.org/2000/svg"
+        // className="ionicon"
         viewBox="0 0 512 512"
         width={width}
         height={height}
@@ -27,8 +27,29 @@ export const sideBarIcon = {
     ),
   },
   LifeCycle: {
-    icon: (): ReactNode => (
-      <ion-icon name="american-football-outline"></ion-icon>
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(0, 0, 0, 0.5)',
+    ): ReactNode => (
+      <svg
+        // xmlns="http://www.w3.org/2000/svg"
+        // className="ionicon"
+        viewBox="0 0 512 512"
+        width={width}
+        height={height}
+        fill="rgba(0, 0, 0, 0.5)"
+      >
+        <title>Code Slash</title>
+        <path
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="32"
+          d="M160 368L32 256l128-112M352 368l128-112-128-112M304 96l-96 320"
+        />
+      </svg>
     ),
   },
   Arrow: {
@@ -43,7 +64,7 @@ export const sideBarIcon = {
         viewBox="0 0 512 512"
         width={width}
         height={height}
-        fill="rgba(0, 0, 0, 0.5)"
+        fill={color}
       >
         <path d="M190.06 414l163.12-139.78a24 24 0 000-36.44L190.06 98c-15.57-13.34-39.62-2.28-39.62 18.22v279.6c0 20.5 24.05 31.56 39.62 18.18z" />
       </svg>

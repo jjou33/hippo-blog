@@ -1,7 +1,7 @@
-import { useStaticQuery, graphql, StaticQueryDocument } from 'gatsby'
-
+import { useStaticQuery, graphql } from 'gatsby'
+import { useCategoryMetadataType } from 'types/Category.types'
 export const useCategoryMetadata = () => {
-  const data: StaticQueryDocument = useStaticQuery(
+  const data: useCategoryMetadataType = useStaticQuery(
     graphql`
       query getCategoryList {
         allMarkdownRemark(
