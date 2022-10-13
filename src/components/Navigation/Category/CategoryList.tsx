@@ -1,9 +1,10 @@
 import React, { FunctionComponent, ReactNode, useState } from 'react'
 import styled from '@emotion/styled'
-import css from '@emotion/react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
-import { useDetectClose } from 'hooks/useDetectClose'
+import Dropdown from 'components/Common/utils/DropDown/DropDown'
+import { atom, useRecoilState, useSetRecoilState } from 'recoil'
+
 type funcType = (width: string, height: string, color?: string) => ReactNode
 
 export interface CategoryNavIconProps {
@@ -29,6 +30,10 @@ export interface CategoryItemListProps extends CategoryNavIconProps {
   categoryList: string[]
 }
 
+export const dropDownState = atom({
+  key: 'dropDownState',
+  default: '',
+})
 const CategoryListContainer = styled.article`
   /* display: flex;
   flex-direction: column; */
@@ -54,48 +59,40 @@ const CategoryItemWrapper = styled.div`
 const DropDownButton = styled.div`
   cursor: pointer;
 `
-interface DropProps {
-  isDropped: boolean
-}
-
-const DropContents = styled.div(
-  {
-    opacity: 0,
-    visibility: 'hidden',
-  },
-  (props: DropProps) => ({
-    opacity: 1,
-    visibility: props.isDropped ? 'visible' : 'visible',
-    transform: 'translate(-50%, 0)',
-    left: '50%',
-  }),
-)
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
   navIconSet,
 }) {
-  const [codeIsOpen, codeRef, codeHandler] = useDetectClose(false)
-  console.log('code : ', codeIsOpen)
+  const setFocusCategory = useSetRecoilState(dropDownState)
+  const [dropdownVisibility, setDropdownVisibility] = React.useState(false)
   return (
     <CategoryListContainer>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>
-            <DropDownButton onClick={codeHandler} ref={codeRef}>
+            <DropDownButton
+              onClick={e => {
+                setFocusCategory(categoryItems[0])
+                setDropdownVisibility(!dropdownVisibility)
+              }}
+            >
               <CategoryTitle
                 categoryTitle={categoryItems[0]}
                 navIconSet={navIconSet}
               ></CategoryTitle>
             </DropDownButton>
-            <DropContents isDropped={codeIsOpen}>
+            <Dropdown
+              visibility={dropdownVisibility}
+              selectedCategory={categoryItems[0]}
+            >
               <CategoryItems
                 key={idx}
                 selectedCategory={selectedCategory}
                 categoryList={categoryItems[1]['children']}
                 navIconSet={navIconSet}
               />
-            </DropContents>
+            </Dropdown>
           </CategoryItemWrapper>
         )
       })}
