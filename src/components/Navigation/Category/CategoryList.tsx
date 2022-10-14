@@ -1,9 +1,9 @@
 import React, { FunctionComponent, ReactNode, useState } from 'react'
 import styled from '@emotion/styled'
 import CategoryItems from './CategoryItems'
-import CategoryTitle from './CategoryTitle'
-import Dropdown from 'components/Common/utils/DropDown/DropDown'
+import Dropdown from 'components/Common/utils/DropDown/DropdownTitle'
 import { atom, useRecoilState, useSetRecoilState } from 'recoil'
+import { useDetectClose } from 'hooks/useDetectClose'
 
 type funcType = (width: string, height: string, color?: string) => ReactNode
 
@@ -56,35 +56,20 @@ const CategoryItemWrapper = styled.div`
   font-size: 15px;
   margin: 10px 20px;
 `
-const DropDownButton = styled.div`
-  cursor: pointer;
-`
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
   navIconSet,
 }) {
-  const setFocusCategory = useSetRecoilState(dropDownState)
-  const [dropdownVisibility, setDropdownVisibility] = React.useState(false)
   return (
     <CategoryListContainer>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>
-            <DropDownButton
-              onClick={e => {
-                setFocusCategory(categoryItems[0])
-                setDropdownVisibility(!dropdownVisibility)
-              }}
-            >
-              <CategoryTitle
-                categoryTitle={categoryItems[0]}
-                navIconSet={navIconSet}
-              ></CategoryTitle>
-            </DropDownButton>
             <Dropdown
-              visibility={dropdownVisibility}
-              selectedCategory={categoryItems[0]}
+              categoryItem={categoryItems[0]}
+              navIconSet={navIconSet}
+              onOpen={() => console.log(`Opening ${categoryItems[0]}`)}
             >
               <CategoryItems
                 key={idx}
