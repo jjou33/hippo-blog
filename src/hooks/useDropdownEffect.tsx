@@ -13,6 +13,7 @@ export interface useDropdownEffectType {
 }
 export const useDropdownEffect = () => {
   const [isOpen, setIsOpen] = useState(false)
+
   const titleRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
 

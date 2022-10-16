@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import { CategoryNavIconProps } from 'types/Category.types'
@@ -49,16 +49,19 @@ const CategoryTitleIconWrapper = styled.div`
   align-items: center;
 `
 
-const Temp = styled.div`
+type DropdownPropsType = {
+  isOpen: boolean
+}
+const DropdownWrapper = styled.article`
   overflow: hidden;
   ul {
-    animation: ${props =>
+    animation: ${(props: DropdownPropsType) =>
       props.isOpen
         ? css`
-            ${dropdown_in_animation} .6s ease;
+            ${dropdown_in_animation} .4s ease;
           `
         : css`
-            ${dropdown_out_animation} .6s ease;
+            ${dropdown_out_animation} .4s ease;
           `};
   }
 `
@@ -67,7 +70,22 @@ const CategoryTitle = ({
   categoryItem,
   navIconSet,
 }: CategoryTitleProps) => {
+  // Hook 을 활용하여 각 Title 에 Ref 설정 및 Open/Close Effect 추가
   const { isOpen, toggleTitle, titleRef } = useDropdownEffect()
+
+  // Dropdown Animation 을 위한 Props
+  const [isAnimation, setIsAnimation] = useState(false)
+
+  // isOpen 이 변경될 경우 isAnimation 은 Delay 를 가지고 변경
+  useEffect(() => {
+    if (isOpen) {
+      setIsAnimation(true)
+    } else {
+      setTimeout(() => {
+        setIsAnimation(false)
+      }, 400)
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -79,7 +97,9 @@ const CategoryTitle = ({
         </CategoryTitleIconWrapper>
         {categoryItem}
       </CategoryTitleContainer>
-      <Temp isOpen={isOpen}>{isOpen && children}</Temp>
+      <DropdownWrapper isOpen={isOpen}>
+        {isAnimation && children}
+      </DropdownWrapper>
     </>
   )
 }

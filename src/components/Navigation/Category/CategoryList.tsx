@@ -4,7 +4,7 @@ import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import { CategoryListProps } from 'types/Category.types'
 
-const CategoryListContainer = styled.article`
+const CategoryListContainer = styled.div`
   justify-content: center;
   align-items: float;
   width: 100%;
