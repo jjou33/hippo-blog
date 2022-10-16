@@ -5,7 +5,10 @@ export const useCategoryMetadata = () => {
     graphql`
       query getCategoryList {
         allMarkdownRemark(
-          sort: { order: ASC, fields: [frontmatter___domain] }
+          sort: {
+            order: ASC
+            fields: [frontmatter___domain, frontmatter___sideTitle]
+          }
         ) {
           edges {
             node {

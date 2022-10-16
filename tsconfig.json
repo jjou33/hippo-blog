@@ -14,13 +14,14 @@
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"],
       "style/*": ["./style/*"],
+      "types/*": ["./types/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/custom.d.ts" ],
+  "include": ["src", "src/types/declare/custom.d.ts" ],
   "exclude": ["node_modules"]
 }
 

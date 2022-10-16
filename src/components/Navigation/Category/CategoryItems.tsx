@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react'
-import { CategoryItemListProps } from './CategoryList'
+import { CategoryItemListProps } from 'types/Category.types'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -58,7 +58,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
 }) {
   return (
     <CategoryItemContainer>
-      {categoryList.map((categoryItem, idx): JSX.Element => {
+      {categoryList.map((categoryItem, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>
             <CategoryItemArrow>
