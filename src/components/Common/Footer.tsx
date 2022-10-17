@@ -9,6 +9,8 @@ const FooterWrapper = styled.div`
   font-size: 15px;
   text-align: center;
   line-height: 1.5;
+  border: 3px;
+  border-style: dashed;
 
   @media (max-width: 768px) {
     font-size: 13px;

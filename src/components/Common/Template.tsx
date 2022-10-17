@@ -7,12 +7,14 @@ import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
+import { CategortListType } from 'types/PostItem.types'
 import {
   getSelectedCategory,
   getCategoryList,
 } from 'components/Common/utils/Category/Category'
 import { RecoilRoot } from 'recoil'
-type TemplateProps = {
+
+interface TemplateProps {
   title: string
   description: string
   url: string
@@ -40,7 +42,7 @@ const Header = styled.header`
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 10rem;
+  height: rem;
 `
 const Template: FunctionComponent<TemplateProps> = function ({
   title,
@@ -56,49 +58,54 @@ const Template: FunctionComponent<TemplateProps> = function ({
   const categoryList = getCategoryList(allMarkdownRemark)
 
   return (
-    <Container>
-      <RecoilRoot>
-        <Navigation>
-          <Introduction profileImage={file.publicURL} />
-          <CategoryList
-            categoryList={categoryList}
-            selectedCategory={selectedCategory}
-            navIconSet={navIconSet}
-          />
-        </Navigation>
-        <Main>
-          <Helmet>
-            <title>{title}</title>
-
-            <meta name="description" content={description} />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
+    <>
+      <Container>
+        <RecoilRoot>
+          <Navigation>
+            <Introduction profileImage={file.publicURL} />
+            <CategoryList
+              categoryList={categoryList}
+              selectedCategory={selectedCategory}
+              navIconSet={navIconSet}
             />
-            <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
+          </Navigation>
+          <Main>
+            <Helmet>
+              <title>{title}</title>
 
-            <meta property="og:type" content="website" />
-            <meta property="og:title" content={title} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content={image} />
-            <meta property="og:url" content={url} />
-            <meta property="og:site_name" content={title} />
+              <meta name="description" content={description} />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
+              <meta
+                httpEquiv="Content-Type"
+                content="text/html;charset=UTF-8"
+              />
 
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content={title} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={image} />
-            <meta name="twitter:site" content="@사용자이름" />
-            <meta name="twitter:creator" content="@사용자이름" />
-          </Helmet>
+              <meta property="og:type" content="website" />
+              <meta property="og:title" content={title} />
+              <meta property="og:description" content={description} />
+              <meta property="og:image" content={image} />
+              <meta property="og:url" content={url} />
+              <meta property="og:site_name" content={title} />
 
-          <GlobalStyle />
-          <Header>asdfa</Header>
-          {children}
-          <Footer />
-        </Main>
-      </RecoilRoot>
-    </Container>
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:title" content={title} />
+              <meta name="twitter:description" content={description} />
+              <meta name="twitter:image" content={image} />
+              <meta name="twitter:site" content="@사용자이름" />
+              <meta name="twitter:creator" content="@사용자이름" />
+            </Helmet>
+
+            <GlobalStyle />
+            <Header>asdfa</Header>
+            {children}
+          </Main>
+        </RecoilRoot>
+      </Container>
+      <Footer />
+    </>
   )
 }
 
