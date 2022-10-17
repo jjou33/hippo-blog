@@ -40,6 +40,9 @@ const CategoryTitleContainer = styled.div`
   background-color: #fdf1ed;
 `
 
+const CartegoryTitleText = styled.p`
+  cursor: pointer;
+`
 const CategoryTitleIconWrapper = styled.div`
   width: 20px;
   height: 20px;
@@ -58,10 +61,10 @@ const DropdownWrapper = styled.article`
     animation: ${(props: DropdownPropsType) =>
       props.isOpen
         ? css`
-            ${dropdown_in_animation} .4s ease;
+            ${dropdown_in_animation} .5s ease;
           `
         : css`
-            ${dropdown_out_animation} .4s ease;
+            ${dropdown_out_animation} .5s ease;
           `};
   }
 `
@@ -83,7 +86,7 @@ const CategoryTitle = ({
     } else {
       setTimeout(() => {
         setIsAnimation(false)
-      }, 400)
+      }, 250)
     }
   }, [isOpen])
 
@@ -95,7 +98,7 @@ const CategoryTitle = ({
             ? navIconSet[categoryItem].icon('18', '18')
             : ''}
         </CategoryTitleIconWrapper>
-        {categoryItem}
+        <CartegoryTitleText>{categoryItem}</CartegoryTitleText>
       </CategoryTitleContainer>
       <DropdownWrapper isOpen={isOpen}>
         {isAnimation && children}

@@ -1,5 +1,5 @@
 import queryString, { ParsedQuery } from 'query-string'
-import { CategoryListProps } from 'components/Navigation/Category/CategoryList'
+import { CategoryListProps } from 'types/Category.types'
 import { PostType } from 'components/Main/PostList'
 import { CategortListType } from 'types/PostItem.types'
 
