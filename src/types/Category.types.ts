@@ -4,12 +4,17 @@ import { PostListItemType } from './PostItem.types'
 /**
  * MetaData Hooks
  */
+
 export interface useCategoryMetadataType {
   allMarkdownRemark: {
     edges: PostListItemType[]
   }
-  file: {
-    publicURL: string
+  allFile: {
+    edges: {
+      node: {
+        [key: string]: string
+      }
+    }[]
   }
 }
 

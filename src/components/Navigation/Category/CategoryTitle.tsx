@@ -37,7 +37,14 @@ const CategoryTitleContainer = styled.div`
   width: 12rem;
   height: 3rem;
   border-width: 1px;
-  background-color: #fdf1ed;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  transition: background, 1s;
+  &:hover {
+    background-color: #dfebdb;
+    color: black;
+  }
 `
 
 const CartegoryTitleText = styled.p`

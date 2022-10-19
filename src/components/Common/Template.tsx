@@ -7,13 +7,12 @@ import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
-import { CategortListType } from 'types/PostItem.types'
 import {
   getSelectedCategory,
   getCategoryList,
 } from 'components/Common/utils/Category/Category'
 import { RecoilRoot } from 'recoil'
-
+import { useCategoryMetadataType } from 'types/Category.types'
 interface TemplateProps {
   title: string
   description: string
@@ -25,7 +24,7 @@ const Container = styled.div`
   display: flex;
 `
 const Main = styled.main`
-  flex: 4;
+  flex: 3.5;
 `
 const Navigation = styled.nav`
   flex: 0.6;
@@ -34,7 +33,17 @@ const Navigation = styled.nav`
     display: none;
   }
 `
+const StickBox = styled.div`
+  position: sticky;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  overflow: scroll;
+  height: 1000px;
 
+  top: 0px;
+  z-index: 1;
+`
 const Header = styled.header`
   h1 {
     color: black;
@@ -42,8 +51,11 @@ const Header = styled.header`
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: rem;
+  height: 5rem;
 `
+export interface objectType {
+  [key: string]: string
+}
 const Template: FunctionComponent<TemplateProps> = function ({
   title,
   description,
@@ -51,7 +63,17 @@ const Template: FunctionComponent<TemplateProps> = function ({
   image,
   children,
 }) {
-  const { file, allMarkdownRemark } = useCategoryMetadata()
+  const {
+    allFile: { edges },
+    allMarkdownRemark,
+  }: useCategoryMetadataType = useCategoryMetadata()
+
+  const imageObject: objectType = {}
+
+  edges.map(item => {
+    imageObject[item.node.publicURL.split('/')[3].split('.')[0]] =
+      item.node.publicURL
+  })
 
   const selectedCategory: string = getSelectedCategory(location.search)
 
@@ -62,12 +84,17 @@ const Template: FunctionComponent<TemplateProps> = function ({
       <Container>
         <RecoilRoot>
           <Navigation>
-            <Introduction profileImage={file.publicURL} />
-            <CategoryList
-              categoryList={categoryList}
-              selectedCategory={selectedCategory}
-              navIconSet={navIconSet}
-            />
+            <StickBox>
+              <Introduction
+                profileImage={imageObject['profile-image']}
+                logo={imageObject['logo']}
+              />
+              <CategoryList
+                categoryList={categoryList}
+                selectedCategory={selectedCategory}
+                navIconSet={navIconSet}
+              />
+            </StickBox>
           </Navigation>
           <Main>
             <Helmet>
@@ -99,7 +126,10 @@ const Template: FunctionComponent<TemplateProps> = function ({
             </Helmet>
 
             <GlobalStyle />
-            <Header>asdfa</Header>
+            <Header>
+              <img src={imageObject['logo']} alt="logo" width="200px" />
+              asdfa
+            </Header>
             {children}
           </Main>
         </RecoilRoot>

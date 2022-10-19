@@ -38,11 +38,24 @@ export const useCategoryMetadata = () => {
             }
           }
         }
-        file(relativePath: { eq: "profile-image.svg" }) {
-          publicURL
+        allFile(
+          filter: {
+            extension: { regex: "/(jpg)|(png)|(svg)/" }
+            sourceInstanceName: { eq: "images" }
+          }
+        ) {
+          edges {
+            node {
+              extension
+              sourceInstanceName
+              id
+              publicURL
+            }
+          }
         }
       }
     `,
   )
+
   return data
 }

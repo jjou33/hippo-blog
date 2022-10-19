@@ -21,7 +21,7 @@ const CategoryItemWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   font-size: 15px;
-  margin: 10px 20px;
+  margin: 10px 20px 0px 30px;
 `
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,

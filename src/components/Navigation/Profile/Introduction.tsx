@@ -10,7 +10,7 @@ type IntroductionProps = {
 const Background = styled.div`
   width: 100%;
   height: 350px;
-  background-image: linear-gradient(60deg, #f1f3f5 0%, #c6daf0 100%);
+  background-image: linear-gradient(60deg, #c3dcd2 0%, #cddff2 100%);
   color: black;
 `
 
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   /* justify-content: center; */
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 116px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -50,15 +50,25 @@ const Title = styled.div`
   }
 `
 
+const Logo = styled.img`
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 30px;
+`
+
 const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImage,
+  logo,
 }) {
   return (
     <Background>
       <Wrapper>
         <ProfileImage profileImage={profileImage} />
 
-        <Title>HIPPO DEV</Title>
+        <Title>
+          <Logo src={logo}></Logo>
+        </Title>
         <SubTitle>개발 일기장</SubTitle>
       </Wrapper>
     </Background>

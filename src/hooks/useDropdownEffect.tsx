@@ -34,9 +34,9 @@ export const useDropdownEffect = () => {
   //   }, [isOpen])
 
   useEffect(() => {
-    window.addEventListener('mousedown', onMouseDown)
+    window.addEventListener('mouseenter', onMouseDown)
 
-    return () => window.removeEventListener('mousedown', onMouseDown)
+    return () => window.removeEventListener('mouseleave', onMouseDown)
   }, [onMouseDown])
 
   const toggleTitle = () => {
