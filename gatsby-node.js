@@ -12,9 +12,21 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         components: path.resolve(__dirname, 'src/components'),
         utils: path.resolve(__dirname, 'src/utils'),
         hooks: path.resolve(__dirname, 'src/hooks'),
-        types: path.resolve(__dirname, 'src/types')
+        types: path.resolve(__dirname, 'src/types'),
+        assets: path.resolve(__dirname, 'src/assets')
       },
     },
+    module:{
+      rules: [
+        {
+          test: /\.(png|svg|jpe?g|bin|gif|glb|gltf)$/,
+          loader: "file-loader",
+          options: {
+            esModule: false
+          }
+        }
+      ]
+    }
   });
 };
 

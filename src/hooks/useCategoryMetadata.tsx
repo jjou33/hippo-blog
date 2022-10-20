@@ -40,7 +40,7 @@ export const useCategoryMetadata = () => {
         }
         allFile(
           filter: {
-            extension: { regex: "/(jpg)|(png)|(svg)/" }
+            extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
             sourceInstanceName: { eq: "images" }
           }
         ) {

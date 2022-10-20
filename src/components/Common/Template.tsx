@@ -13,6 +13,7 @@ import {
 } from 'components/Common/utils/Category/Category'
 import { RecoilRoot } from 'recoil'
 import { useCategoryMetadataType } from 'types/Category.types'
+import ComputerModel from 'components/Common/ComputerGraphic'
 interface TemplateProps {
   title: string
   description: string
@@ -78,17 +79,15 @@ const Template: FunctionComponent<TemplateProps> = function ({
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
-
+  const temp = document.getElementById('canvas')
+  console.log('temp : ', temp)
   return (
     <>
       <Container>
         <RecoilRoot>
           <Navigation>
             <StickBox>
-              <Introduction
-                profileImage={imageObject['profile-image']}
-                logo={imageObject['logo']}
-              />
+              <Introduction profileImage={imageObject['profile-image']} />
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
@@ -126,10 +125,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
             </Helmet>
 
             <GlobalStyle />
-            <Header>
-              <img src={imageObject['logo']} alt="logo" width="200px" />
-              asdfa
-            </Header>
+            <Header>asdfa</Header>
             {children}
           </Main>
         </RecoilRoot>

@@ -11,3 +11,6 @@ declare namespace JSX {
     'ion-icon': any
   }
 }
+
+declare module '*.gltf'
+declare module '*.png'
