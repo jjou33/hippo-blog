@@ -9,7 +9,7 @@ const ComputerModel = () => {
   useEffect(() => {
     if (canvasRef.current) {
       const scene = new THREE.Scene()
-      scene.background = new THREE.Color(0xff0000)
+
       const renderer = new THREE.WebGLRenderer({
         canvas: canvasRef.current,
         antialias: true,
@@ -17,7 +17,7 @@ const ComputerModel = () => {
 
       renderer.outputEncoding = THREE.sRGBEncoding
       const camera = new THREE.PerspectiveCamera(30, 1)
-      camera.position.set(0, 0, 3)
+      camera.position.set(0.2, 0.3, 3)
       const loader = new GLTFLoader()
       scene.background = new THREE.Color('white')
       const light = new THREE.DirectionalLight(0xffff00, 10)
@@ -26,6 +26,7 @@ const ComputerModel = () => {
       loader.load('../../../ComputerModel/scene.gltf', object => {
         scene.add(object.scene)
         // renderer.render(scene, camera)
+        scene.background = new THREE.Color('white')
         function animate() {
           requestAnimationFrame(animate)
           object.scene.rotation.y += 0.01
@@ -36,7 +37,7 @@ const ComputerModel = () => {
     }
   }, [canvasRef])
 
-  return canvasRef
+  return <canvas ref={canvasRef} id="canvas" width="70" height="70"></canvas>
 }
 
 export default ComputerModel

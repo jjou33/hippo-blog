@@ -14,6 +14,7 @@ import {
 import { RecoilRoot } from 'recoil'
 import { useCategoryMetadataType } from 'types/Category.types'
 import ComputerModel from 'components/Common/ComputerGraphic'
+import Header from './Header'
 interface TemplateProps {
   title: string
   description: string
@@ -28,7 +29,7 @@ const Main = styled.main`
   flex: 3.5;
 `
 const Navigation = styled.nav`
-  flex: 0.6;
+  flex: 0.8;
   box-shadow: 1px 2px 4px 0px;
   @media (max-width: 768px) {
     display: none;
@@ -45,15 +46,7 @@ const StickBox = styled.div`
   top: 0px;
   z-index: 1;
 `
-const Header = styled.header`
-  h1 {
-    color: black;
-  }
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 5rem;
-`
+
 export interface objectType {
   [key: string]: string
 }
@@ -125,7 +118,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
             </Helmet>
 
             <GlobalStyle />
-            <Header>asdfa</Header>
+            <Header />
             {children}
           </Main>
         </RecoilRoot>
