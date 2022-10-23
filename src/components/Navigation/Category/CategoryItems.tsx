@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import { CategoryItemListProps } from 'types/Category.types'
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 import { Link } from 'gatsby'
 
 type CategoryItemProps = {
@@ -13,6 +14,29 @@ type GatsbyLinkProps = {
   to: string
 } & CategoryItemProps
 
+const shaking_in_animation = keyframes`
+  0% {
+    transform: rotate(15deg);
+  }
+
+  30% {
+    transform: rotate(-15deg);
+  }
+
+  70% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+`
+const CategoryTitleIcon = styled.div`
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+`
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
@@ -32,18 +56,17 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   @media (max-width: 768px) {
     font-size: 15px;
   }
+  &:hover {
+    ${CategoryTitleIcon} {
+      animation: ${shaking_in_animation} 0.5s ease;
+    }
+  }
 `
 const CategoryItemWrapper = styled.li`
   display: flex;
   align-items: center;
 `
-const CategoryTitleIcon = styled.div`
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-`
+
 const CategoryItemArrow = styled.div`
   display: flex;
   align-items: center;

@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import NavtigationTabItem from './NavigationTabItems'
+import NavigationSample from './NavigationTabItemsSample'
 const Container = styled.div`
   margin-top: 70px;
 `
@@ -33,9 +34,9 @@ const NavigationTabMenu: FunctionComponent = function () {
   return (
     <Container>
       <Wrapper>
-        <NavtigationTabItem title="Home" />
-        <NavtigationTabItem title="Github" />
-        <NavtigationTabItem title="Profile" />
+        <NavigationSample title="Home" />
+        <NavigationSample title="Github" />
+        <NavigationSample title="Profile" />
       </Wrapper>
     </Container>
   )

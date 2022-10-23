@@ -28,6 +28,30 @@ const dropdown_out_animation = keyframes`
     transform: translateY(-100%);
   }
 `
+const shaking_in_animation = keyframes`
+  0% {
+    transform: rotate(15deg);
+  }
+
+  30% {
+    transform: rotate(-15deg);
+  }
+
+  70% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+`
+const CategoryTitleIconWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+`
 
 const CategoryTitleContainer = styled.div`
   display: flex;
@@ -42,21 +66,14 @@ const CategoryTitleContainer = styled.div`
   background-color: white;
   transition: background, 1s;
   &:hover {
-    background-color: #dfebdb;
-    color: black;
+    ${CategoryTitleIconWrapper} {
+      animation: ${shaking_in_animation} 0.4s ease;
+    }
   }
 `
 
 const CartegoryTitleText = styled.p`
   cursor: pointer;
-`
-const CategoryTitleIconWrapper = styled.div`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
 `
 
 type DropdownPropsType = {

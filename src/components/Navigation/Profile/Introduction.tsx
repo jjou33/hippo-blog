@@ -10,7 +10,7 @@ type IntroductionProps = {
 const Background = styled.div`
   width: 100%;
   height: 350px;
-  background-image: linear-gradient(0deg, #ceacac 30%, #f5f6c8 45%);
+  background-image: linear-gradient(0deg, #2f363e 40%, #f5f5ef 45%);
   color: black;
 `
 

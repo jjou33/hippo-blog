@@ -28,9 +28,9 @@ export const useToggleTabMenu = () => {
   }, [isActive])
 
   useEffect(() => {
-    window.addEventListener('click', onMouseClick)
+    window.addEventListener('mouseenter', onMouseClick)
 
-    return () => window.removeEventListener('click', onMouseClick)
+    return () => window.removeEventListener('mouseleave', onMouseClick)
   }, [onMouseClick])
 
   const toggleTab = () => {
