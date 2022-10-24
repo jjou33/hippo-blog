@@ -10,7 +10,7 @@ type IntroductionProps = {
 const Background = styled.div`
   width: 100%;
   height: 350px;
-  background-image: linear-gradient(0deg, #2f363e 40%, #f5f5ef 45%);
+  background-image: linear-gradient(0deg, #ebeff4 20%, #b4d5f2 45%);
   color: black;
 `
 
@@ -53,13 +53,6 @@ const Title = styled.div`
   @media (max-width: 768px) {
     font-size: 25px;
   }
-`
-
-const Logo = styled.img`
-  display: flex;
-  justify-content: center;
-  width: 200px;
-  height: 30px;
 `
 
 const Introduction: FunctionComponent<IntroductionProps> = function ({

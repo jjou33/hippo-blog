@@ -58,10 +58,12 @@ const Template: FunctionComponent<TemplateProps> = function ({
   children,
 }) {
   const {
-    allFile: { edges },
-    allMarkdownRemark,
+    data: {
+      allFile: { edges },
+      allMarkdownRemark,
+    },
+    categoryCount,
   }: useCategoryMetadataType = useCategoryMetadata()
-
   const imageObject: objectType = {}
 
   edges.map(item => {
@@ -72,8 +74,9 @@ const Template: FunctionComponent<TemplateProps> = function ({
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
+
   const temp = document.getElementById('canvas')
-  console.log('temp : ', temp)
+
   return (
     <>
       <Container>
@@ -85,6 +88,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
                 navIconSet={navIconSet}
+                categoryCount={categoryCount}
               />
             </StickBox>
           </Navigation>

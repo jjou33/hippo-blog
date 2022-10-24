@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import { navTabMenuIconSet } from 'components/Common/utils/Svg/NavTabMenuIconSet'
-import { useToggleTabMenu } from 'hooks/useToggleTabMenu'
+import { keyframes } from '@emotion/react'
+import { CategoryNavIconProps } from 'types/Category.types'
 
 const TabMenuItemsIcon = styled.span`
   position: absolute;
@@ -24,13 +23,13 @@ const TabMenuItemsIcon = styled.span`
 const TabMenuItemsTitle = styled.span`
   position: absolute;
   font-size: 13px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: #2f363e;
   opacity: 0;
   border-radius: 15px;
   transform: translateY(15px);
   padding: 5px 10px;
-  background: white;
+  background: #ecf0f3;
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
     inset 2px 2px 3px rgba(255, 255, 255, 0.25),
     inset -3px -3px 5px rgba(0, 0, 0, 0.5);
@@ -42,58 +41,22 @@ const TabMenuItems = styled.li`
   list-style: none;
   width: 80px;
   margin: 0 5px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 48%;
-    width: 3px;
-    height: 3px;
-    background: #222;
-    border-radius: 50%;
-    transition: 0.5s;
+`
+const shaking_in_animation = keyframes`
+  0% {
+    transform: rotate(10deg);
   }
 
-  ${TabMenuItemsIcon}::before {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-      inset 2px 2px 3px rgba(255, 255, 255, 0.25),
-      inset -3px -3px 5px rgba(0, 0, 0, 0.5);
-    transform: scale(0);
-    transition: 0.4s;
+  30% {
+    transform: rotate(-10deg);
   }
-  ${({ isActive }) => {
-    return isActive
-      ? css`
-          &::before {
-            background: #0bef1a;
-            box-shadow: 0 0 3px #0bef1a, 0 0 6px #0bef1a, 0 0 9px #0bef1a;
-          }
-          ${TabMenuItemsIcon} {
-            background-color: #ceacac;
-            transform: translateY(-55px);
-            box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
-              inset 2px 2px 3px rgba(255, 255, 255, 0.25),
-              inset -3px -3px 5px rgba(0, 0, 0, 0.5);
-            transition-delay: 0s;
-          }
-          ${TabMenuItemsIcon}::before {
-            transform: scale(1);
-          }
 
-          ${TabMenuItemsTitle} {
-            opacity: 1;
-            transform: translateY(10px);
-            transition-delay: 0.2s;
-          }
-        `
-      : ''
-  }}
+  70% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 `
 const TabMenuItemsAnchor = styled.a`
   display: flex;
@@ -101,20 +64,30 @@ const TabMenuItemsAnchor = styled.a`
   justify-content: center;
   flex-direction: column;
   text-decoration: none;
+  transition: all ease 1s;
+  &:hover {
+    animation: ${shaking_in_animation} 0.4s ease;
+  }
 `
-
-const NavigationTabMenu: FunctionComponent = function ({ title }) {
-  const { isActive, toggleTab, tabMenuRef } = useToggleTabMenu()
+interface navTabPropsType extends CategoryNavIconProps {
+  title: string
+  href: string
+}
+const NavigationTabMenu: FunctionComponent<navTabPropsType> = function ({
+  title,
+  navIconSet,
+  href,
+}) {
   return (
     // <TabMenuItems ref={tabMenuRef} isActive={isActive} onClick={toggleTab}>
     <TabMenuItems>
-      <TabMenuItemsAnchor src="http://localhost:8000">
+      <TabMenuItemsAnchor href={href} target="_blank">
         <TabMenuItemsIcon>
-          {navTabMenuIconSet[title] !== undefined
-            ? navTabMenuIconSet[title].icon('30', '30')
+          {navIconSet[title] !== undefined
+            ? navIconSet[title].icon('30', '30')
             : ''}
         </TabMenuItemsIcon>
-        <TabMenuItemsTitle>{title}</TabMenuItemsTitle>
+        {/* <TabMenuItemsTitle>{title}</TabMenuItemsTitle> */}
       </TabMenuItemsAnchor>
     </TabMenuItems>
   )

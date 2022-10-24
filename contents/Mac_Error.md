@@ -1,7 +1,7 @@
 ---
 date: '2020-07-29'
 title: 'Test'
-categories: ['Mobile', 'SEO', 'Optimization']
+categories: ['Error', 'SEO', 'Optimization']
 index: 1
 domain: 'Mac'
 sideTitle: 'Error'

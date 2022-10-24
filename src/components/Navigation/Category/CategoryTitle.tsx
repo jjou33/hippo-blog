@@ -3,7 +3,7 @@ import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import { CategoryNavIconProps } from 'types/Category.types'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
-
+import { CategoryItem } from './CategoryItems'
 interface CategoryTitleProps extends CategoryNavIconProps {
   children: ReactNode
   categoryItem: string
@@ -69,9 +69,11 @@ const CategoryTitleContainer = styled.div`
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;
     }
+    background-color: black;
   }
 `
 
+const CategoryTitleAll = styled.div``
 const CartegoryTitleText = styled.p`
   cursor: pointer;
 `

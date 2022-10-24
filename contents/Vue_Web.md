@@ -1,7 +1,7 @@
 ---
 date: '2020-07-29'
 title: 'Tes1t'
-categories: ['Web', 'SEO', 'Optimization']
+categories: ['Web']
 index: 6
 domain: 'Vue'
 sideTitle: 'Web'

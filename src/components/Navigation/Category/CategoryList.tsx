@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import { CategoryListProps } from 'types/Category.types'
-
+import { CategoryItem } from './CategoryItems'
 const CategoryListContainer = styled.div`
   justify-content: center;
   align-items: float;
@@ -27,9 +27,11 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
   categoryList,
   navIconSet,
+  categoryCount,
 }) {
   return (
     <CategoryListContainer>
+      <CategoryItem to={`/?category=All`}>All</CategoryItem>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>
@@ -42,6 +44,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
                 selectedCategory={selectedCategory}
                 categoryList={categoryItems[1]['children']}
                 navIconSet={navIconSet}
+                categoryCount={categoryCount}
               />
             </CategoryTitle>
           </CategoryItemWrapper>

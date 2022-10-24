@@ -45,7 +45,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   },
 }) {
   const selectedCategory: string = getSelectedCategory(search)
-
   return (
     <Template
       title={title}

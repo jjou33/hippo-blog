@@ -38,7 +38,7 @@ const CategoryTitleIcon = styled.div`
   align-items: center;
 `
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
+export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`
   margin-right: 20px;
@@ -78,6 +78,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
   navIconSet,
+  categoryCount,
 }) {
   return (
     <CategoryItemContainer>
@@ -98,6 +99,9 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
               key={categoryItem}
             >
               {categoryItem}
+              {categoryCount[categoryItem] !== undefined
+                ? ` (${categoryCount[categoryItem]})`
+                : ''}
             </CategoryItem>
           </CategoryItemWrapper>
         )

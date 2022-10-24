@@ -25,10 +25,11 @@ const useInfiniteScroll = function (
           node: {
             frontmatter: { categories },
           },
-        }: PostListItemType) =>
-          selectedCategory !== 'All'
+        }: PostListItemType) => {
+          return selectedCategory !== 'All'
             ? categories.includes(selectedCategory)
-            : true,
+            : true
+        },
       ),
     [selectedCategory],
   )

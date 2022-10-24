@@ -23,7 +23,6 @@ export const useToggleTabMenu = () => {
 
   useEffect(() => {
     if (isActive) {
-      console.log('hh')
     }
   }, [isActive])
 

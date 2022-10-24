@@ -1,7 +1,7 @@
 ---
 date: '2020-07-29'
 title: 'Test'
-categories: ['Web', 'SEO', 'Optimization']
+categories: ['Flex']
 index: 2
 domain: 'CSS'
 sideTitle: 'Flex'

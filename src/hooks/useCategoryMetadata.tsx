@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useCategoryMetadataType } from 'types/Category.types'
 export const useCategoryMetadata = () => {
@@ -57,5 +58,39 @@ export const useCategoryMetadata = () => {
     `,
   )
 
-  return data
+  const categoryCount = useMemo(
+    () =>
+      data.allMarkdownRemark.edges.reduce(
+        (
+          list: any,
+          {
+            node: {
+              frontmatter: { sideTitle },
+            },
+          },
+        ) => {
+          data.allMarkdownRemark.edges.map(
+            ({
+              node: {
+                frontmatter: { categories },
+              },
+            }) => {
+              if (categories.includes(sideTitle)) {
+                if (list[sideTitle] === undefined) {
+                  list[sideTitle] = 1
+                } else {
+                  list[sideTitle]++
+                }
+              }
+            },
+          )
+          list['All']++
+          return list
+        },
+        { All: 0 },
+      ),
+    [],
+  )
+
+  return { data, categoryCount }
 }

@@ -1,7 +1,7 @@
 ---
 date: '2020-07-29'
 title: 'Test'
-categories: ['Web', 'SEO', 'Optimization']
+categories: ['example']
 index: 5
 domain: 'Webpack'
 sideTitle: 'example'
