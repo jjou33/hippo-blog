@@ -73,6 +73,7 @@ const CategoryItemArrow = styled.div`
   margin: 0px 20px 0px 15px;
 `
 
+const CategoryItemOpenArrow = styled.div``
 const CategoryItemContainer = styled.ul``
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,

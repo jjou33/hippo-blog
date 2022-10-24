@@ -44,6 +44,26 @@ const shaking_in_animation = keyframes`
     transform: rotate(-15deg);
   }
 `
+const open_close_rotate_animation = keyframes`
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(100%);
+  }
+`
+
+const close_open_rotate_animation = keyframes`
+  0% {
+    transform: rotate(100%);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+`
+
 const CategoryTitleIconWrapper = styled.div`
   width: 20px;
   height: 20px;
@@ -65,19 +85,32 @@ const CategoryTitleContainer = styled.div`
   border-color: black;
   background-color: white;
   transition: background, 1s;
+
   &:hover {
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;
     }
-    background-color: black;
+    background-color: #c2f8f5;
   }
 `
 
 const CategoryTitleAll = styled.div``
 const CartegoryTitleText = styled.p`
   cursor: pointer;
+  flex-grow: 1;
 `
-
+const CategoryItemOpenArrow = styled.div`
+  margin-right: 10px;
+  /* animation: ${open_close_rotate_animation} 0.5s ease; */
+  transform: ${(props: any) =>
+    props.isOpen
+      ? css`
+          ${open_close_rotate_animation} 0.5s ease;
+        `
+      : css`
+          ${close_open_rotate_animation} 0.5s ease;
+        `};
+`
 type DropdownPropsType = {
   isOpen: boolean
 }
@@ -125,6 +158,11 @@ const CategoryTitle = ({
             : ''}
         </CategoryTitleIconWrapper>
         <CartegoryTitleText>{categoryItem}</CartegoryTitleText>
+        <CategoryItemOpenArrow isOpen={isOpen}>
+          {navIconSet['OpenArrow'] !== undefined
+            ? navIconSet['OpenArrow'].icon('14', '14')
+            : ''}
+        </CategoryItemOpenArrow>
       </CategoryTitleContainer>
       <DropdownWrapper isOpen={isOpen}>
         {isAnimation && children}

@@ -4,6 +4,7 @@ import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import { CategoryListProps } from 'types/Category.types'
 import { CategoryItem } from './CategoryItems'
+import { GatsbyLinkProps, Link } from 'gatsby'
 const CategoryListContainer = styled.div`
   justify-content: center;
   align-items: float;
@@ -21,7 +22,19 @@ const CategoryItemWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   font-size: 15px;
-  margin: 10px 20px 0px 30px;
+  margin: 10px 20px 0px 15px;
+`
+
+const CategoryRootWrapper = styled.div`
+  display: flex;
+  margin: 15px 10px 10px 10px;
+  &:hover {
+    color: red;
+  }
+`
+const CategoryRootItem = styled(({ ...props }: any) => <Link {...props} />)``
+const CategoryRootIcon = styled.div`
+  margin: 0px 10px 10px 10px;
 `
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
   selectedCategory,
@@ -31,7 +44,16 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
 }) {
   return (
     <CategoryListContainer>
-      <CategoryItem to={`/?category=All`}>All</CategoryItem>
+      <CategoryRootWrapper>
+        <CategoryRootIcon>
+          {navIconSet['All'] !== undefined
+            ? navIconSet['All'].icon('18', '18')
+            : ''}
+        </CategoryRootIcon>
+        <CategoryRootItem to={`/?category=All`}>
+          Root ({categoryCount['All']})
+        </CategoryRootItem>
+      </CategoryRootWrapper>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <CategoryItemWrapper key={idx}>

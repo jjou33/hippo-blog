@@ -1,5 +1,57 @@
 import { ReactNode } from 'react'
 export const navIconSet = {
+  All: {
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(0, 0, 0, 0.5)',
+    ): ReactNode => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        fill={color}
+        width={width}
+        height={height}
+      >
+        <title>Rainy</title>
+        <path
+          d="M114.61 162.85A16.07 16.07 0 00128 149.6C140.09 76.17 193.63 32 256 32c57.93 0 96.62 37.75 112.2 77.74a15.84 15.84 0 0012.2 9.87c50 8.15 91.6 41.54 91.6 99.59 0 59.4-48.6 100.8-108 100.8H130c-49.5 0-90-24.7-90-79.2 0-48.47 38.67-72.22 74.61-77.95z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="32"
+        />
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="32"
+          d="M144 384l-32 48M224 384l-64 96M304 384l-32 48M384 384l-64 96"
+        />
+      </svg>
+    ),
+  },
+  OpenArrow: {
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(0, 0, 0, 0.5)',
+    ): ReactNode => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        fill={color}
+        width={width}
+        height={height}
+      >
+        <title>Caret Down</title>
+        <path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" />
+      </svg>
+    ),
+  },
   Algorithm: {
     icon: (
       width: string,
@@ -7,8 +59,8 @@ export const navIconSet = {
       color = 'rgba(0, 0, 0, 0.5)',
     ): ReactNode => (
       <svg
-        // xmlns="http://www.w3.org/2000/svg"
-        // className="ionicon"
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
         viewBox="0 0 512 512"
         width={width}
         height={height}
@@ -33,8 +85,8 @@ export const navIconSet = {
       color = 'rgba(0, 0, 0, 0.5)',
     ): ReactNode => (
       <svg
-        // xmlns="http://www.w3.org/2000/svg"
-        // className="ionicon"
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
         viewBox="0 0 512 512"
         width={width}
         height={height}
