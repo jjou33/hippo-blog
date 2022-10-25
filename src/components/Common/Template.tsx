@@ -12,8 +12,8 @@ import {
   getCategoryList,
 } from 'components/Common/utils/Category/Category'
 import { RecoilRoot } from 'recoil'
-import { useCategoryMetadataType } from 'types/Category.types'
-import ComputerModel from 'components/Common/ComputerGraphic'
+import { CategoryMetadataType } from 'types/Category.types'
+// import ComputerModel from 'components/Common/ComputerGraphic'
 import Header from './Header'
 interface TemplateProps {
   title: string
@@ -29,7 +29,7 @@ const Main = styled.main`
   flex: 3.5;
 `
 const Navigation = styled.nav`
-  flex: 0.8;
+  flex: 0.6;
   box-shadow: 1px 2px 4px 0px;
   @media (max-width: 768px) {
     display: none;
@@ -42,7 +42,7 @@ const StickBox = styled.div`
   }
   overflow: scroll;
   height: 1000px;
-
+  background: linear-gradient(0deg, #e4ebf0 5%, #f7f9fb 45%);
   top: 0px;
   z-index: 1;
 `
@@ -63,10 +63,10 @@ const Template: FunctionComponent<TemplateProps> = function ({
       allMarkdownRemark,
     },
     categoryCount,
-  }: useCategoryMetadataType = useCategoryMetadata()
+  }: CategoryMetadataType = useCategoryMetadata()
   const imageObject: objectType = {}
 
-  edges.map(item => {
+  edges.forEach(item => {
     imageObject[item.node.publicURL.split('/')[3].split('.')[0]] =
       item.node.publicURL
   })

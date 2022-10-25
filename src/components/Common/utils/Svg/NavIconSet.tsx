@@ -1,5 +1,73 @@
 import { ReactNode } from 'react'
 export const navIconSet = {
+  Ghost: {
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(140, 235, 236, 0.5)',
+    ): ReactNode => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        fill={color}
+        width={width}
+        height={height}
+      >
+        <title>Logo Snapchat</title>
+        <path
+          stroke="black"
+          strokeWidth="32"
+          d="M496 347.21a190.31 190.31 0 01-32.79-5.31c-27.28-6.63-54.84-24.26-68.12-52.43-6.9-14.63-2.64-18.59 11.86-24 14.18-5.27 29.8-7.72 36.86-23 5.89-12.76 1.13-27.76-10.41-35.49-15.71-10.53-30.35-.21-46.62 2.07 3.73-46.66 8.66-88.57-22.67-127.73C338.14 48.86 297.34 32 256.29 32s-81.86 16.86-107.81 49.33c-31.38 39.26-26.4 81.18-22.67 127.92-16.32-2.25-30.81-12.79-46.63-2.18-14.72 9.85-17 29.76-5.44 43s31.64 9.5 43.45 20.6c6.49 6.09 3.49 12.61-.35 20.14-14.48 28.4-39.26 45.74-69.84 51.56-4 .76-22.31 2.87-31 3.65 0 9.28.52 16.78 1.63 21.73 2.94 13.06 12.32 23.58 23.69 30.1 11.18 6.4 35.48 6.43 41.68 15.51 3 4.48 1.76 12.28 5.33 17.38a23.8 23.8 0 0015.37 9.75c18.61 3.61 37.32-7.2 56.42-2.1 14.85 3.95 26.52 15.87 39.26 24 15.51 9.85 32.34 16.42 50.83 17.49 38.1 2.21 59.93-18.91 90.58-36.42 19.5-11.14 38.15-3.86 58.88-2.68 20.1 1.15 23.53-9.25 29.62-24.88a27.37 27.37 0 001.54-4.85 10.52 10.52 0 002.28-1.47c2-1.57 10.55-2.34 12.76-2.86 10.28-2.44 20.34-5.15 29.17-11.2 11.31-7.76 17.65-18.5 19.58-32.64a93.73 93.73 0 001.38-15.67zM208 128c8.84 0 16 10.74 16 24s-7.16 24-16 24-16-10.74-16-24 7.16-24 16-24zm103.62 77.7c-15.25 15-35 23.3-55.62 23.3a78.37 78.37 0 01-55.66-23.34 8 8 0 0111.32-11.32A62.46 62.46 0 00256 213c16.39 0 32.15-6.64 44.39-18.7a8 8 0 0111.23 11.4zM304 176c-8.84 0-16-10.75-16-24s7.16-24 16-24 16 10.75 16 24-7.16 24-16 24z"
+        />
+      </svg>
+    ),
+  },
+  Dot: {
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(156, 154, 154, 0.5)',
+    ): ReactNode => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        fill={color}
+        width={width}
+        height={height}
+      >
+        <title>Ellipsis Horizontal</title>
+        <circle
+          cx="256"
+          cy="256"
+          r="32"
+          fill={color}
+          stroke={color}
+          strokeMiterlimit="10"
+          strokeWidth="32"
+        />
+        <circle
+          cx="416"
+          cy="256"
+          r="32"
+          fill={color}
+          stroke={color}
+          strokeMiterlimit="10"
+          strokeWidth="32"
+        />
+        <circle
+          cx="96"
+          cy="256"
+          r="32"
+          fill={color}
+          stroke={color}
+          strokeMiterlimit="10"
+          strokeWidth="32"
+        />
+      </svg>
+    ),
+  },
   All: {
     icon: (
       width: string,
@@ -19,15 +87,15 @@ export const navIconSet = {
           d="M114.61 162.85A16.07 16.07 0 00128 149.6C140.09 76.17 193.63 32 256 32c57.93 0 96.62 37.75 112.2 77.74a15.84 15.84 0 0012.2 9.87c50 8.15 91.6 41.54 91.6 99.59 0 59.4-48.6 100.8-108 100.8H130c-49.5 0-90-24.7-90-79.2 0-48.47 38.67-72.22 74.61-77.95z"
           fill="none"
           stroke="currentColor"
-          stroke-linejoin="round"
-          stroke-width="32"
+          strokeLinejoin="round"
+          strokeWidth="32"
         />
         <path
           fill="none"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="32"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="32"
           d="M144 384l-32 48M224 384l-64 96M304 384l-32 48M384 384l-64 96"
         />
       </svg>

@@ -5,10 +5,11 @@ import { PostListItemType } from './PostItem.types'
  * MetaData Hooks
  */
 
+export interface CategoryTypes {
+  [key: string]: number
+}
+
 export interface useCategoryMetadataType {
-  allMarkdownRemark: {
-    edges: PostListItemType[]
-  }
   allFile: {
     edges: {
       node: {
@@ -16,8 +17,15 @@ export interface useCategoryMetadataType {
       }
     }[]
   }
+  allMarkdownRemark: {
+    edges: PostListItemType[]
+  }
 }
 
+export interface CategoryMetadataType {
+  data: useCategoryMetadataType
+  categoryCount: CategoryTypes
+}
 /**
  * CategoryIcon 공통 타입
  */
@@ -44,9 +52,11 @@ export interface CategoryListProps extends CategoryNavIconProps {
       children: string[]
     }
   }
+  categoryCount: CategoryTypes
 }
 
 export interface CategoryItemListProps extends CategoryNavIconProps {
   selectedCategory: string
   categoryList: string[]
+  categoryCount: CategoryTypes
 }

@@ -11,7 +11,7 @@ export interface useDropdownEffectType {
   toggleTitle: () => void
   titleRef: MutableRefObject<HTMLDivElement | null>
 }
-export const useDropdownEffect = () => {
+export const useDropdownEffect = (isRoot: any = false) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const titleRef: MutableRefObject<HTMLDivElement | null> =
@@ -19,24 +19,26 @@ export const useDropdownEffect = () => {
 
   const onMouseDown = useCallback(
     (e: Event) => {
-      //   if (ref.current && !ref.current.contains(e.target)) {
-      //     setIsOpen(false)
-      //   }
+      // if (titleRef.current && !titleRef.current.contains(e.target)) {
+      //   // setIsOpen(false)
+      //   console.log('e : ', titleRef.current)
+      // }
     },
     [titleRef, setIsOpen],
   )
 
   // Click 시 Callback 함수 필요 할 경우
-  //   useEffect(() => {
-  //     if (isOpen) {
-  //       onOpen()
-  //     }
-  //   }, [isOpen])
+  // useEffect(() => {
+  //   console.log('isRoot : ', isRoot)
+  //   if (isRoot) {
+  //     setIsOpen(false)
+  //   }
+  // }, [isOpen])
 
   useEffect(() => {
-    window.addEventListener('mouseenter', onMouseDown)
+    window.addEventListener('click', onMouseDown)
 
-    return () => window.removeEventListener('mouseleave', onMouseDown)
+    return () => window.removeEventListener('click', onMouseDown)
   }, [onMouseDown])
 
   const toggleTitle = () => {

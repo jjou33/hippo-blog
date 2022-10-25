@@ -3,7 +3,7 @@ import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import { CategoryNavIconProps } from 'types/Category.types'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
-import { CategoryItem } from './CategoryItems'
+
 interface CategoryTitleProps extends CategoryNavIconProps {
   children: ReactNode
   categoryItem: string
@@ -44,25 +44,6 @@ const shaking_in_animation = keyframes`
     transform: rotate(-15deg);
   }
 `
-const open_close_rotate_animation = keyframes`
-  0% {
-    transform: scaleY(0);
-  }
-
-  100% {
-    transform: scaleY(100%);
-  }
-`
-
-const close_open_rotate_animation = keyframes`
-  0% {
-    transform: rotate(100%);
-  }
-
-  100% {
-    transform: rotate(0);
-  }
-`
 
 const CategoryTitleIconWrapper = styled.div`
   width: 20px;
@@ -72,25 +53,41 @@ const CategoryTitleIconWrapper = styled.div`
   display: flex;
   align-items: center;
 `
-
+const CategoryItemOpenArrow = styled.div`
+  margin-right: 10px;
+  scale: 0;
+  cursor: pointer;
+  ${(props: DropdownPropsType) =>
+    props.isOpen
+      ? css`
+          transform: scaleY(-1);
+        `
+      : css`
+          transform: scaleY(1);
+          padding-top: 8px;
+        `};
+`
+const HoverEffect = styled.div``
 const CategoryTitleContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  width: 12rem;
-  height: 3rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  background-color: white;
-  transition: background, 1s;
+  justify-content: center;
+  /* margin-bottom: 10px; */
+  /* border-radius: 10px; */
+  width: 187px;
+  height: 40px;
+  margin: 0 auto;
+  /* transition: background, 1s; */
 
   &:hover {
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;
     }
-    background-color: #c2f8f5;
+    ${CategoryItemOpenArrow} {
+      scale: 1;
+      transition: 0.5s;
+    }
   }
 `
 
@@ -99,23 +96,14 @@ const CartegoryTitleText = styled.p`
   cursor: pointer;
   flex-grow: 1;
 `
-const CategoryItemOpenArrow = styled.div`
-  margin-right: 10px;
-  /* animation: ${open_close_rotate_animation} 0.5s ease; */
-  transform: ${(props: any) =>
-    props.isOpen
-      ? css`
-          ${open_close_rotate_animation} 0.5s ease;
-        `
-      : css`
-          ${close_open_rotate_animation} 0.5s ease;
-        `};
-`
+
 type DropdownPropsType = {
   isOpen: boolean
 }
+
 const DropdownWrapper = styled.article`
   overflow: hidden;
+  margin-left: 30px;
   ul {
     animation: ${(props: DropdownPropsType) =>
       props.isOpen
@@ -127,13 +115,14 @@ const DropdownWrapper = styled.article`
           `};
   }
 `
+
 const CategoryTitle = ({
   children,
   categoryItem,
   navIconSet,
 }: CategoryTitleProps) => {
   // Hook 을 활용하여 각 Title 에 Ref 설정 및 Open/Close Effect 추가
-  const { isOpen, toggleTitle, titleRef } = useDropdownEffect()
+  const { isOpen, toggleTitle, titleRef } = useDropdownEffect(false)
 
   // Dropdown Animation 을 위한 Props
   const [isAnimation, setIsAnimation] = useState(false)
@@ -152,6 +141,10 @@ const CategoryTitle = ({
   return (
     <>
       <CategoryTitleContainer ref={titleRef} onClick={toggleTitle}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <CategoryTitleIconWrapper>
           {navIconSet[categoryItem] !== undefined
             ? navIconSet[categoryItem].icon('18', '18')
@@ -164,6 +157,7 @@ const CategoryTitle = ({
             : ''}
         </CategoryItemOpenArrow>
       </CategoryTitleContainer>
+
       <DropdownWrapper isOpen={isOpen}>
         {isAnimation && children}
       </DropdownWrapper>

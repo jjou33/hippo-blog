@@ -6,7 +6,7 @@ const Container = styled.div`
   margin-top: 70px;
 `
 const SubContainer = styled.div`
-  background-color: #c6def3;
+  background-color: #a8c0d2;
   border-radius: 30px;
   width: 251px;
   height: 60px;
@@ -17,7 +17,7 @@ const SubContainer = styled.div`
 const Wrapper = styled.ul`
   position: relative;
   width: 240px;
-  background-color: #f7f7ee;
+  background-color: #ebeff4;
   height: 50px;
   /* box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
     10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5),
