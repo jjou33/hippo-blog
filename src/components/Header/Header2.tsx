@@ -100,15 +100,28 @@ const ProgressBar = styled.div`
 `
 
 const Icon = styled.div`
+  position: absolute;
   width: 30px;
   height: 30px;
   background: black;
+  transition: 0.2s;
+  margin-top: 20px;
+  z-index: 1500;
+  ${props =>
+    props.scroll !== ''
+      ? css`
+          left: ${props.scroll * 1000}px;
+        `
+      : css`
+          left: ${props.scroll * 1000}px;
+        `};
 `
 const HeaderWrapper = styled.div`
   float: right;
 `
 const Header = () => {
   const scroll = useScrollStateBar()
+  console.log('scroll : ', scroll)
   return (
     <HeaderContainer>
       <Background>
@@ -117,8 +130,9 @@ const Header = () => {
         <WaveAnimation></WaveAnimation>
         <WaveAnimation></WaveAnimation>
         <WaveAnimation></WaveAnimation>
+        <Icon scroll={scroll}></Icon>
       </Background>
-      <Icon style={{ left: `${scroll}` }}></Icon>
+
       <ProgressBarContainer>
         <ProgressBar
           style={{

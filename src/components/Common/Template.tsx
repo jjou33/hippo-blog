@@ -29,11 +29,12 @@ const Container = styled.div`
   display: flex;
 `
 const Main = styled.main`
-  flex: 3.5;
+  flex: 4;
 `
 const Navigation = styled.nav`
-  flex: 0.6;
+  flex: 0.4;
   box-shadow: 1px 2px 4px 0px;
+  background: linear-gradient(0deg, #c6dcf0 20%, #ebeff4 45%);
   @media (max-width: 768px) {
     display: none;
   }
@@ -102,7 +103,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <RecoilRoot>
           <Navigation>
             <StickBox>
-              <Introduction profileImage={imageObject['profile-logo']} />
+              <Introduction profileImage={imageObject['profile-image']} />
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
