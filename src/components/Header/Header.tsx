@@ -1,6 +1,6 @@
 import ComputerModel from 'components/Common/ComputerGraphic'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 const HeaderContainer = styled.header`
   h1 {
     color: black;
@@ -10,15 +10,16 @@ const HeaderContainer = styled.header`
   width: 100%;
   height: 5rem;
 `
+
 const HeaderWrapper = styled.div`
   float: right;
 `
+
+const Background = styled.section``
 const Header = () => {
   return (
     <HeaderContainer>
-      <HeaderWrapper>
-        <ComputerModel />
-      </HeaderWrapper>
+      <Background></Background>
     </HeaderContainer>
   )
 }

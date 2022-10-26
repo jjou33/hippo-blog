@@ -45,6 +45,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   display: flex;
   align-items: center;
   padding: 5px 0;
+  color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
@@ -60,6 +61,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
     ${CategoryTitleIcon} {
       animation: ${shaking_in_animation} 0.5s ease;
     }
+    color: black;
   }
 `
 const CategoryItemWrapper = styled.li`
@@ -72,7 +74,10 @@ const CategoryItemArrow = styled.div`
   align-items: center;
   margin: 0px 20px 0px 15px;
 `
-
+const CategoryItemCount = styled.div`
+  color: #e75454;
+  margin-left: 5px;
+`
 const CategoryItemOpenArrow = styled.div``
 const CategoryItemContainer = styled.ul``
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
@@ -87,7 +92,7 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
         return (
           <CategoryItemWrapper key={idx}>
             <CategoryItemArrow>
-              {navIconSet['Arrow'].icon('10', '20')}
+              {navIconSet['Dot'].icon('10', '10')}
             </CategoryItemArrow>
             <CategoryTitleIcon>
               {navIconSet[categoryItem] !== undefined
@@ -100,10 +105,12 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
               key={categoryItem}
             >
               {categoryItem}
+            </CategoryItem>
+            <CategoryItemCount>
               {categoryCount[categoryItem] !== undefined
                 ? ` (${categoryCount[categoryItem]})`
                 : ''}
-            </CategoryItem>
+            </CategoryItemCount>
           </CategoryItemWrapper>
         )
       })}

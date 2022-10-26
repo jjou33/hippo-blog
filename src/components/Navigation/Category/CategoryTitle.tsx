@@ -44,7 +44,32 @@ const shaking_in_animation = keyframes`
     transform: rotate(-15deg);
   }
 `
+const motion = css`
+  position: relative;
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 
+  -webkit-text-stroke: 1px rgba(5, 4, 4, 0.5);
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    color: black;
+    width: 0;
+    overflow: hidden;
+    transition: 1.5s;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      /* -webkit-text-stroke: 1px #00ade1; */
+      filter: drop-shadow(0 0 15px #00ade1);
+    }
+  }
+`
 const CategoryTitleIconWrapper = styled.div`
   width: 20px;
   height: 20px;
@@ -54,9 +79,9 @@ const CategoryTitleIconWrapper = styled.div`
   align-items: center;
 `
 const CategoryItemOpenArrow = styled.div`
-  margin-right: 10px;
-  scale: 0;
+  float: right;
   cursor: pointer;
+
   ${(props: DropdownPropsType) =>
     props.isOpen
       ? css`
@@ -66,13 +91,14 @@ const CategoryItemOpenArrow = styled.div`
           transform: scaleY(1);
           padding-top: 8px;
         `};
+  ${motion}
 `
 const HoverEffect = styled.div``
 const CategoryTitleContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+
   /* margin-bottom: 10px; */
   /* border-radius: 10px; */
   width: 187px;
@@ -92,11 +118,17 @@ const CategoryTitleContainer = styled.div`
 `
 
 const CategoryTitleAll = styled.div``
+
 const CartegoryTitleText = styled.p`
   cursor: pointer;
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 13px;
+  /* color: transparent; */
+  ${motion}
 `
-
 type DropdownPropsType = {
   isOpen: boolean
 }
@@ -141,16 +173,14 @@ const CategoryTitle = ({
   return (
     <>
       <CategoryTitleContainer ref={titleRef} onClick={toggleTitle}>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
         <CategoryTitleIconWrapper>
           {navIconSet[categoryItem] !== undefined
             ? navIconSet[categoryItem].icon('18', '18')
             : ''}
         </CategoryTitleIconWrapper>
-        <CartegoryTitleText>{categoryItem}</CartegoryTitleText>
+        <CartegoryTitleText data-text={categoryItem}>
+          {categoryItem}
+        </CartegoryTitleText>
         <CategoryItemOpenArrow isOpen={isOpen}>
           {navIconSet['OpenArrow'] !== undefined
             ? navIconSet['OpenArrow'].icon('14', '14')

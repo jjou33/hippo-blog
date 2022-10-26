@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
@@ -7,6 +8,8 @@ import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
+import Header from 'components/Header/Header2'
+import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import {
   getSelectedCategory,
   getCategoryList,
@@ -14,7 +17,7 @@ import {
 import { RecoilRoot } from 'recoil'
 import { CategoryMetadataType } from 'types/Category.types'
 // import ComputerModel from 'components/Common/ComputerGraphic'
-import Header from './Header'
+
 interface TemplateProps {
   title: string
   description: string
@@ -42,11 +45,27 @@ const StickBox = styled.div`
   }
   overflow: scroll;
   height: 1000px;
-  background: linear-gradient(0deg, #e4ebf0 5%, #f7f9fb 45%);
+  background: linear-gradient(0deg, #c6dcf0 20%, #ebeff4 45%);
   top: 0px;
   z-index: 1;
 `
+const ProgressBarContainer = styled.div`
+  position: fixed;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  height: 10px;
+  top: 0;
+  left: 0;
+`
 
+const ProgressBar = styled.div`
+  background: linear-gradient(to left, red, violet);
+  transform-origin: top left;
+  transform: scale(0, 0);
+  height: 10px;
+  opacity: 0;
+`
 export interface objectType {
   [key: string]: string
 }
@@ -70,11 +89,11 @@ const Template: FunctionComponent<TemplateProps> = function ({
     imageObject[item.node.publicURL.split('/')[3].split('.')[0]] =
       item.node.publicURL
   })
-
+  const scroll = useScrollStateBar()
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
-
+  // console.log('image : ', imageObject)
   const temp = document.getElementById('canvas')
 
   return (
@@ -83,7 +102,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <RecoilRoot>
           <Navigation>
             <StickBox>
-              <Introduction profileImage={imageObject['profile-image']} />
+              <Introduction profileImage={imageObject['profile-logo']} />
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
@@ -122,11 +141,13 @@ const Template: FunctionComponent<TemplateProps> = function ({
             </Helmet>
 
             <GlobalStyle />
+
             <Header />
             {children}
           </Main>
         </RecoilRoot>
       </Container>
+
       <Footer />
     </>
   )

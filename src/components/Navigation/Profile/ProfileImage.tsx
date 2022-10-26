@@ -6,8 +6,8 @@ type ProfileImageProps = {
 }
 
 const ProfileImageWrapper = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 170px;
+  height: 170px;
   margin: 40px 0px 5px 0px;
 
   @media (max-width: 768px) {

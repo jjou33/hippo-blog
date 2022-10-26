@@ -27,7 +27,8 @@ export const navIconSet = {
     icon: (
       width: string,
       height: string,
-      color = 'rgba(156, 154, 154, 0.5)',
+      color = 'rgba(2, 2, 2, 0.5)',
+      // color: 'black',
     ): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -69,11 +70,7 @@ export const navIconSet = {
     ),
   },
   All: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ionicon"
@@ -102,11 +99,7 @@ export const navIconSet = {
     ),
   },
   OpenArrow: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ionicon"
@@ -121,18 +114,14 @@ export const navIconSet = {
     ),
   },
   Algorithm: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ionicon"
         viewBox="0 0 512 512"
         width={width}
         height={height}
-        fill="rgba(0, 0, 0, 0.5)"
+        fill="black"
       >
         <title>Code Slash</title>
         <path
@@ -140,7 +129,7 @@ export const navIconSet = {
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="32"
+          strokeWidth="40"
           d="M160 368L32 256l128-112M352 368l128-112-128-112M304 96l-96 320"
         />
       </svg>
@@ -150,7 +139,7 @@ export const navIconSet = {
     icon: (
       width: string,
       height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
+      color = 'rgba(234, 15, 15, 0.5)',
     ): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +147,7 @@ export const navIconSet = {
         viewBox="0 0 512 512"
         width={width}
         height={height}
-        fill="rgba(0, 0, 0, 0.5)"
+        fill="rgba(234, 15, 15, 0.5)"
       >
         <title>Code Slash</title>
         <path
@@ -166,18 +155,14 @@ export const navIconSet = {
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="32"
+          strokeWidth="50"
           d="M160 368L32 256l128-112M352 368l128-112-128-112M304 96l-96 320"
         />
       </svg>
     ),
   },
   Arrow: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ionicon"
@@ -191,11 +176,7 @@ export const navIconSet = {
     ),
   },
   CSS: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
@@ -208,11 +189,7 @@ export const navIconSet = {
     ),
   },
   Webpack: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         fill={color}
         width={width}
@@ -225,11 +202,7 @@ export const navIconSet = {
     ),
   },
   Vue: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         fill={color}
         width={width}
@@ -245,11 +218,7 @@ export const navIconSet = {
     icon: (): ReactNode => <ion-icon name="bandage-outline"></ion-icon>,
   },
   Mac: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         fill={color}
         width={width}
@@ -262,11 +231,7 @@ export const navIconSet = {
     ),
   },
   Javascript: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         fill={color}
         width={width}

@@ -43,7 +43,10 @@ const CategoryRootWrapper = styled.div`
   }
 `
 const CategoryRootItem = styled(({ ...props }: any) => <Link {...props} />)``
-
+const CategoryRootCount = styled.div`
+  margin-left: 5px;
+  color: #e75454;
+`
 const CategoryRootIcon = styled.div`
   margin: 0px 10px 10px 10px;
   animation: ${motion} 0.6s infinite ease-in-out alternate;
@@ -66,9 +69,10 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
             ? navIconSet['Ghost'].icon('18', '18')
             : ''}
         </CategoryRootIcon>
-        <CategoryRootItem to={`/?category=All`}>
-          Root ({categoryCount !== undefined ? categoryCount['All'] : ''})
-        </CategoryRootItem>
+        <CategoryRootItem to={`/?category=All`}>Root</CategoryRootItem>
+        <CategoryRootCount>
+          ({categoryCount !== undefined ? categoryCount['All'] : ''})
+        </CategoryRootCount>
       </CategoryRootWrapper>
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (

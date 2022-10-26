@@ -30,11 +30,7 @@ export const navTabMenuIconSet = {
     ),
   },
   Github: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: (width: string, height: string, color = 'black'): ReactNode => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ionicon"
