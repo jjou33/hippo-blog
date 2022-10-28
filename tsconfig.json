@@ -13,7 +13,7 @@
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"],
-      "style/*": ["./style/*"],
+      "styles/*": ["./styles/*"],
       "types/*": ["./types/*"],
       "assets/*": ["./assets/*"]
     },

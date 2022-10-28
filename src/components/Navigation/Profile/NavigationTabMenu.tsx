@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import NavigationItems from './NavigationTabItems'
-import { navTabMenuIconSet } from 'components/Common/utils/Svg/NavTabMenuIconSet'
+import { navTabMenuIconSet } from 'assets/Svg/NavTabMenuIconSet'
 const Container = styled.div`
   margin-top: 70px;
 `

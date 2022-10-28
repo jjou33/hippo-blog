@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
-import { getSelectedCategory } from 'components/Common/utils/Category/Category'
+import { getSelectedCategory } from 'utils/Category/Category'
 import Template from 'components/Common/Template'
 import styled from '@emotion/styled'
 

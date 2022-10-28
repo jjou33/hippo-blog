@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useRef, MutableRefObject } from 'react'
-import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
+import { navIconSet } from 'assets/Svg/NavIconSet'
 const HeaderContainer = styled.header`
   position: sticky;
   display: flex;

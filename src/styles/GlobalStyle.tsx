@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import { Global, css } from '@emotion/react'
-import MaplestoryLight from '../../font/MaplestoryLight.ttf'
-import MaplestoryBold from '../../font/MaplestoryBold.ttf'
-import JetBrainMono from '../../font/JetBrainsMono-Bold.ttf'
-import GmarketSansTTFMedium from '../../font/GmarketSansTTFMedium.ttf'
-import GmarketSansTTFLight from '../../font/GmarketSansTTFLight.ttf'
-import GmarketSansTTFBold from '../../font/GmarketSansTTFBold.ttf'
+import MaplestoryLight from '../assets/font/MaplestoryLight.ttf'
+import MaplestoryBold from '../assets/font/MaplestoryBold.ttf'
+import JetBrainMono from '../assets/font/JetBrainsMono-Bold.ttf'
+import GmarketSansTTFMedium from '../assets/font/GmarketSansTTFMedium.ttf'
+import GmarketSansTTFLight from '../assets/font/GmarketSansTTFLight.ttf'
+import GmarketSansTTFBold from '../assets/font/GmarketSansTTFBold.ttf'
 const defaultStyle = css`
   @font-face {
     font-family: 'GmarketSansTTFLight';

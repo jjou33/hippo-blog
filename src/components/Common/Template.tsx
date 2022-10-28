@@ -5,20 +5,16 @@ import React, {
   MutableRefObject,
 } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import GlobalStyle from 'components/Common/GlobalStyle'
+import GlobalStyle from 'styles/GlobalStyle'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
 import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
+import { navIconSet } from 'assets/Svg/NavIconSet'
 import Header from 'components/Header/Header'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
-import {
-  getSelectedCategory,
-  getCategoryList,
-} from 'components/Common/utils/Category/Category'
+import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 import { RecoilRoot } from 'recoil'
 import { CategoryMetadataType } from 'types/Category.types'
 // import ComputerModel from 'components/Common/ComputerGraphic'
