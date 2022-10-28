@@ -2,6 +2,7 @@ import ComputerModel from 'components/Common/ComputerGraphic'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
+import { useRef, MutableRefObject } from 'react'
 const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
@@ -107,30 +108,51 @@ const Icon = styled.div`
   transition: 0.2s;
   margin-top: 20px;
   z-index: 1500;
+  /* left: 45%; */
+  transform: translateX(1404px);
   ${props =>
     props.scroll !== ''
       ? css`
-          left: ${props.scroll * 1000}px;
+          /* left: ${props.scroll}px; */
+          transform: translateX(${props.scroll}px);
         `
       : css`
-          left: ${props.scroll * 1000}px;
+          left: ${props.scroll}px;
         `};
 `
 const HeaderWrapper = styled.div`
   float: right;
 `
-const Header = () => {
+const Header = props => {
   const scroll = useScrollStateBar()
-  console.log('scroll : ', scroll)
+  console.log('stickyWidth : ', props.stickyWidth)
+  const headerRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const iconRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const headerWidth = headerRef.current?.clientWidth
+  const iconWidth = iconRef.current?.clientWidth
+  // console.log('scroll : ', scroll)
+  // console.log('size : ', window.innerWidth)
+  // console.log('scroll: ', headerRef.current?.offsetLeft)
+  console.log('header x: ', headerRef.current?.clientWidth)
+  // console.log(
+  //   'header width: ',
+  //   document.documentElement.getBoundingClientRect().width,
+  // )
+  console.log('header + sticky : ', props.stickyWidth + headerWidth)
+  console.log('icon width : ', iconWidth)
+  const xScroll = (headerWidth - iconWidth) * 1
+
   return (
-    <HeaderContainer>
+    <HeaderContainer ref={headerRef}>
       <Background>
         {/* <ComputerModel /> */}
         <WaveAnimation></WaveAnimation>
         <WaveAnimation></WaveAnimation>
         <WaveAnimation></WaveAnimation>
         <WaveAnimation></WaveAnimation>
-        <Icon scroll={scroll}></Icon>
+        <Icon ref={iconRef} scroll={xScroll * scroll}></Icon>
       </Background>
 
       <ProgressBarContainer>

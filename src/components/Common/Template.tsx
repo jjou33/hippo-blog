@@ -1,4 +1,9 @@
-import React, { FunctionComponent, ReactNode } from 'react'
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useRef,
+  MutableRefObject,
+} from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import GlobalStyle from 'components/Common/GlobalStyle'
@@ -8,7 +13,7 @@ import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { navIconSet } from 'components/Common/utils/Svg/NavIconSet'
-import Header from 'components/Header/Header2'
+import Header from 'components/Header/Header'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import {
   getSelectedCategory,
@@ -50,23 +55,6 @@ const StickBox = styled.div`
   top: 0px;
   z-index: 1;
 `
-const ProgressBarContainer = styled.div`
-  position: fixed;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.05);
-  width: 100%;
-  height: 10px;
-  top: 0;
-  left: 0;
-`
-
-const ProgressBar = styled.div`
-  background: linear-gradient(to left, red, violet);
-  transform-origin: top left;
-  transform: scale(0, 0);
-  height: 10px;
-  opacity: 0;
-`
 export interface objectType {
   [key: string]: string
 }
@@ -92,17 +80,23 @@ const Template: FunctionComponent<TemplateProps> = function ({
   })
   const scroll = useScrollStateBar()
   const selectedCategory: string = getSelectedCategory(location.search)
+  const headerRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const stickyRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const stickyWidth = stickyRef.current?.clientWidth
+
+  console.log('headerRef : ', headerRef.current?.clientWidth)
+  console.log('stickyRef : ', stickyRef.current?.clientWidth)
 
   const categoryList = getCategoryList(allMarkdownRemark)
-  // console.log('image : ', imageObject)
-  const temp = document.getElementById('canvas')
 
   return (
     <>
       <Container>
         <RecoilRoot>
           <Navigation>
-            <StickBox>
+            <StickBox ref={stickyRef}>
               <Introduction profileImage={imageObject['profile-image']} />
               <CategoryList
                 categoryList={categoryList}
@@ -143,7 +137,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
 
             <GlobalStyle />
 
-            <Header />
+            <Header stickyWidth={stickyWidth} />
             {children}
           </Main>
         </RecoilRoot>
