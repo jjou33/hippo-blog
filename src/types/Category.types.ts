@@ -5,27 +5,29 @@ import { PostListItemType } from './PostItem.types'
  * MetaData Hooks
  */
 
-export interface CategoryTypes {
-  [key: string]: number
-}
-
-export interface useCategoryMetadataType {
-  allFile: {
-    edges: {
-      node: {
-        [key: string]: string
-      }
-    }[]
-  }
-  allMarkdownRemark: {
-    edges: PostListItemType[]
+export interface CategoryCount {
+  categoryCount: {
+    [key: string]: number
   }
 }
 
-export interface CategoryMetadataType {
-  data: useCategoryMetadataType
-  categoryCount: CategoryTypes
+export interface CategoryEdgeType {
+  edges: {
+    node: {
+      [key: string]: string
+    }
+  }[]
 }
+
+export interface CategoryMetadataType extends CategoryCount {
+  data: {
+    allFile: CategoryEdgeType
+    allMarkdownRemark: {
+      edges: PostListItemType[]
+    }
+  }
+}
+
 /**
  * CategoryIcon 공통 타입
  */
@@ -42,9 +44,17 @@ export interface CategoryNavIconProps {
 }
 
 /**
+ * CategoryTitle 타입
+ */
+export interface CategoryTitleProps extends CategoryNavIconProps {
+  children: ReactNode
+  categoryItem: string
+}
+
+/**
  * CategoryList 타입
  */
-export interface CategoryListProps extends CategoryNavIconProps {
+export interface CategoryListProps extends CategoryNavIconProps, CategoryCount {
   selectedCategory: string
   categoryList: {
     [key: string]: {
@@ -52,11 +62,11 @@ export interface CategoryListProps extends CategoryNavIconProps {
       children: string[]
     }
   }
-  categoryCount: CategoryTypes
 }
 
-export interface CategoryItemListProps extends CategoryNavIconProps {
+export interface CategoryItemListProps
+  extends CategoryNavIconProps,
+    CategoryCount {
   selectedCategory: string
   categoryList: string[]
-  categoryCount: CategoryTypes
 }

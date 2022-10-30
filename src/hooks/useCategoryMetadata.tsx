@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { useCategoryMetadataType, CategoryTypes } from 'types/Category.types'
-
+import { CategoryMetadataType } from 'types/Category.types'
+import { IndexSignatureType } from 'types/index'
 export const useCategoryMetadata = () => {
-  const data: useCategoryMetadataType = useStaticQuery(
+  const data: CategoryMetadataType['data'] = useStaticQuery(
     graphql`
       query getCategoryList {
         allMarkdownRemark(
@@ -63,7 +63,7 @@ export const useCategoryMetadata = () => {
     () =>
       data.allMarkdownRemark.edges.reduce(
         (
-          list: CategoryTypes,
+          list: IndexSignatureType['stringAndNumber'],
           {
             node: {
               frontmatter: { sideTitle },

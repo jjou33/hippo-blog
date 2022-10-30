@@ -1,13 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
-import { CategoryNavIconProps } from 'types/Category.types'
+import { CategoryTitleProps } from 'types/Category.types'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
-
-interface CategoryTitleProps extends CategoryNavIconProps {
-  children: ReactNode
-  categoryItem: string
-}
 
 const dropdown_in_animation = keyframes`
   0% {

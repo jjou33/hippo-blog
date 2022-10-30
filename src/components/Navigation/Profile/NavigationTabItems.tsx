@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 import { CategoryNavIconProps } from 'types/Category.types'
-
+import { IconPropsType } from 'types/index'
 const TabMenuItemsIcon = styled.span`
   position: absolute;
   font-size: 1.75em;
@@ -69,7 +69,7 @@ const TabMenuItemsAnchor = styled.a`
     animation: ${shaking_in_animation} 0.4s ease;
   }
 `
-interface navTabPropsType extends CategoryNavIconProps {
+interface navTabPropsType extends IconPropsType {
   title: string
   href: string
 }
