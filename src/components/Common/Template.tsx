@@ -1,24 +1,17 @@
-import React, {
-  FunctionComponent,
-  ReactNode,
-  useRef,
-  MutableRefObject,
-} from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from 'styles/GlobalStyle'
+import Header from 'components/Header/Header'
+import Footer from 'components/Common/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
-import Footer from 'components/Common/Footer'
+
 import { Helmet } from 'react-helmet'
-import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-import { navIconSet } from 'assets/Svg/NavIconSet'
-import Header from 'components/Header/Header'
-import { useScrollStateBar } from 'hooks/useScrollStateBar'
-import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 import { RecoilRoot } from 'recoil'
-import { CategoryMetadataType } from 'types/Category.types'
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getImagePathSetList } from 'utils/Template/Template'
-// import ComputerModel from 'components/Common/ComputerGraphic'
+import { CategoryMetadataType } from 'types/Category.types'
+import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 
 interface TemplateProps {
   title: string
@@ -109,7 +102,6 @@ const Template: FunctionComponent<TemplateProps> = function ({
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
-                navIconSet={navIconSet}
                 categoryCount={categoryCount}
               />
             </NavigationWrapper>

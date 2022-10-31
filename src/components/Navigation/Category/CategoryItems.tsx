@@ -1,35 +1,25 @@
 import React, { FunctionComponent, ReactNode } from 'react'
-import { CategoryItemListProps } from 'types/Category.types'
+import { CategoryCount } from 'types/Category.types'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
 import { Link } from 'gatsby'
+import { getSvgJSXElement } from 'utils/Common/Common'
+import { shaking_in_animation } from 'styles/AnimationKeyframes'
 
-type CategoryItemProps = {
+interface CategoryItemProps {
   active: boolean
 }
 
-type GatsbyLinkProps = {
+interface GatsbyLinkProps extends CategoryItemProps {
   children: ReactNode
   className?: string
   to: string
-} & CategoryItemProps
+}
 
-const shaking_in_animation = keyframes`
-  0% {
-    transform: rotate(15deg);
-  }
+interface CategoryItemListProps extends CategoryCount {
+  selectedCategory: string
+  categoryList: string[]
+}
 
-  30% {
-    transform: rotate(-15deg);
-  }
-
-  70% {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(-15deg);
-  }
-`
 const CategoryTitleIcon = styled.div`
   width: 15px;
   height: 15px;
@@ -41,9 +31,9 @@ const CategoryTitleIcon = styled.div`
 export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`
-  margin-right: 20px;
   display: flex;
   align-items: center;
+  margin-right: 20px;
   padding: 5px 0;
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
@@ -78,12 +68,11 @@ const CategoryItemCount = styled.div`
   color: #e75454;
   margin-left: 5px;
 `
-const CategoryItemOpenArrow = styled.div``
 const CategoryItemContainer = styled.ul``
+
 const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
   selectedCategory,
   categoryList,
-  navIconSet,
   categoryCount,
 }) {
   return (
@@ -92,12 +81,10 @@ const CategoryItems: FunctionComponent<CategoryItemListProps> = function ({
         return (
           <CategoryItemWrapper key={idx}>
             <CategoryItemArrow>
-              {navIconSet['Dot'].icon('10', '10')}
+              {getSvgJSXElement('Dot', '18')}
             </CategoryItemArrow>
             <CategoryTitleIcon>
-              {navIconSet[categoryItem] !== undefined
-                ? navIconSet[categoryItem].icon('18px', '18px')
-                : ''}
+              {getSvgJSXElement(categoryItem, '18')}
             </CategoryTitleIcon>
             <CategoryItem
               to={`/?category=${categoryItem}`}

@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 
-type ProfileImageProps = {
+interface ProfileImageProps {
   profileImage: string
 }
 
 const ProfileImageWrapper = styled.img`
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   margin: 40px 0px 5px 0px;
 
   @media (max-width: 768px) {

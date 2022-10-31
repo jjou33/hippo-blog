@@ -1,5 +1,18 @@
 import { ReactNode } from 'react'
-export const navIconSet = {
+
+interface IconPropsType {
+  iconSet: {
+    [key: string]: {
+      [key: string]: (
+        width: string,
+        height: string,
+        color?: string,
+      ) => ReactNode
+    }
+  }
+}
+
+export const navIconSet: IconPropsType['iconSet'] = {
   Car: {
     icon: (
       width: string,

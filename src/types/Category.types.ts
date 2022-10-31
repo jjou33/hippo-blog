@@ -1,9 +1,4 @@
-import { ReactNode } from 'react'
 import { PostListItemType } from './PostItem.types'
-
-/**
- * MetaData Hooks
- */
 
 export interface CategoryCount {
   categoryCount: {
@@ -28,33 +23,7 @@ export interface CategoryMetadataType extends CategoryCount {
   }
 }
 
-/**
- * CategoryIcon 공통 타입
- */
-export interface CategoryNavIconProps {
-  navIconSet: {
-    [key: string]: {
-      [key: string]: (
-        width: string,
-        height: string,
-        color?: string,
-      ) => ReactNode
-    }
-  }
-}
-
-/**
- * CategoryTitle 타입
- */
-export interface CategoryTitleProps extends CategoryNavIconProps {
-  children: ReactNode
-  categoryItem: string
-}
-
-/**
- * CategoryList 타입
- */
-export interface CategoryListProps extends CategoryNavIconProps, CategoryCount {
+export interface CategoryListProps extends CategoryCount {
   selectedCategory: string
   categoryList: {
     [key: string]: {
@@ -62,11 +31,4 @@ export interface CategoryListProps extends CategoryNavIconProps, CategoryCount {
       children: string[]
     }
   }
-}
-
-export interface CategoryItemListProps
-  extends CategoryNavIconProps,
-    CategoryCount {
-  selectedCategory: string
-  categoryList: string[]
 }
