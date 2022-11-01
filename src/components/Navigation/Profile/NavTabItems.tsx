@@ -1,8 +1,4 @@
-import {
-  NavTabMenuItemContainer,
-  NavTabMenuItemIcon,
-  NavTabMenuItemWrapper,
-} from './style/NavTabItemsStyled'
+import * as Styled from './style/NavTabItemsStyled'
 import { getSvgJSXElement } from 'utils/Common/Common'
 
 interface NavTabPropsType {
@@ -12,11 +8,13 @@ interface NavTabPropsType {
 
 const NavigationTabMenu = ({ title, href }: NavTabPropsType) => {
   return (
-    <NavTabMenuItemContainer>
-      <NavTabMenuItemWrapper href={href} target="_blank">
-        <NavTabMenuItemIcon>{getSvgJSXElement(title, '30')}</NavTabMenuItemIcon>
-      </NavTabMenuItemWrapper>
-    </NavTabMenuItemContainer>
+    <Styled.NavTabMenuItemContainer>
+      <Styled.NavTabMenuItemWrapper href={href} target="_blank">
+        <Styled.NavTabMenuItemIcon>
+          {getSvgJSXElement(title, '20')}
+        </Styled.NavTabMenuItemIcon>
+      </Styled.NavTabMenuItemWrapper>
+    </Styled.NavTabMenuItemContainer>
   )
 }
 

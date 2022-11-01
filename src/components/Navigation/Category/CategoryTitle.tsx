@@ -1,13 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
 import { getSvgJSXElement } from 'utils/Common/Common'
-import {
-  CartegoryTitleText,
-  CategoryItemOpenArrow,
-  CategoryTitleContainer,
-  CategoryTitleIconWrapper,
-  DropdownWrapper,
-} from './style/CategoryTitleStyled'
+import * as Styled from './style/CategoryTitleStyled'
 
 /**
  * @description CategoryTitle 타입
@@ -34,21 +28,25 @@ const CategoryTitle = ({ children, categoryItem }: CategoryTitleProps) => {
 
   return (
     <>
-      <CategoryTitleContainer ref={titleRef} onClick={toggleTitle}>
-        <CategoryTitleIconWrapper>
+      <Styled.CategoryTitleContainer
+        isOpen={isOpen}
+        ref={titleRef}
+        onClick={toggleTitle}
+      >
+        <Styled.CategoryTitleIconWrapper>
           {getSvgJSXElement(categoryItem, '18')}
-        </CategoryTitleIconWrapper>
-        <CartegoryTitleText data-text={categoryItem}>
+        </Styled.CategoryTitleIconWrapper>
+        <Styled.CartegoryTitleText data-text={categoryItem}>
           {categoryItem}
-        </CartegoryTitleText>
-        <CategoryItemOpenArrow isOpen={isOpen}>
-          {getSvgJSXElement('OpenArrow', '18')}
-        </CategoryItemOpenArrow>
-      </CategoryTitleContainer>
+        </Styled.CartegoryTitleText>
+        <Styled.CategoryItemOpenArrow isOpen={isOpen}>
+          {getSvgJSXElement('NonFilledArrow', '14')}
+        </Styled.CategoryItemOpenArrow>
+      </Styled.CategoryTitleContainer>
 
-      <DropdownWrapper isOpen={isOpen}>
+      <Styled.DropdownWrapper isOpen={isOpen}>
         {isAnimation && children}
-      </DropdownWrapper>
+      </Styled.DropdownWrapper>
     </>
   )
 }

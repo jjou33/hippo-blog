@@ -1,10 +1,10 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import styled from '@emotion/styled'
+import React, { ReactNode } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Header from 'components/Header/Header'
 import Footer from 'components/Common/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
+import * as Styled from './style/TemplateStyled'
 
 import { Helmet } from 'react-helmet'
 import { RecoilRoot } from 'recoil'
@@ -20,32 +20,6 @@ interface TemplateProps {
   image: string
   children: ReactNode
 }
-const Container = styled.div`
-  display: flex;
-`
-const MainContainer = styled.main`
-  flex: 4;
-`
-const NavigationContainer = styled.nav`
-  flex: 0.4;
-  box-shadow: 1px 2px 4px 0px;
-  background: linear-gradient(0deg, #c6dcf0 20%, #ebeff4 45%);
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
-const NavigationWrapper = styled.div`
-  position: sticky;
-  top: 0px;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  overflow: scroll;
-  height: 1000px;
-  background: linear-gradient(0deg, #c6dcf0 20%, #ebeff4 45%);
-
-  z-index: 1;
-`
 
 const Template = ({
   title,
@@ -69,7 +43,7 @@ const Template = ({
 
   return (
     <>
-      <Container>
+      <Styled.Container>
         <RecoilRoot>
           <GlobalStyle />
           <Helmet>
@@ -96,22 +70,22 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          <NavigationContainer>
-            <NavigationWrapper>
+          <Styled.NavigationContainer>
+            <Styled.NavigationWrapper>
               <Introduction profileImage={imagePathList['profile-image']} />
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
                 categoryCount={categoryCount}
               />
-            </NavigationWrapper>
-          </NavigationContainer>
-          <MainContainer>
+            </Styled.NavigationWrapper>
+          </Styled.NavigationContainer>
+          <Styled.MainContainer>
             <Header />
             {children}
-          </MainContainer>
+          </Styled.MainContainer>
         </RecoilRoot>
-      </Container>
+      </Styled.Container>
       <Footer />
     </>
   )

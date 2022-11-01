@@ -1,14 +1,7 @@
 import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
-import {
-  CategoryItem,
-  CategoryItemArrow,
-  CategoryItemContainer,
-  CategoryItemCount,
-  CategoryItemWrapper,
-  CategoryTitleIcon,
-} from './style/CategoryItemsStyled'
+import * as Styled from './style/CategoryItemsStyled'
 
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
@@ -21,32 +14,28 @@ const CategoryItems = ({
   categoryCount,
 }: CategoryItemListProps) => {
   return (
-    <CategoryItemContainer>
+    <Styled.CategoryItemContainer>
       {categoryList.map((categoryItem, idx): ReactNode => {
         return (
-          <CategoryItemWrapper key={idx}>
-            <CategoryItemArrow>
-              {getSvgJSXElement('Dot', '18')}
-            </CategoryItemArrow>
-            <CategoryTitleIcon>
+          <Styled.CategoryItemWrapper key={idx}>
+            <Styled.CategoryItemArrow>{getSvgJSXElement('Dot', '18')}</Styled.CategoryItemArrow>
+            <Styled.CategoryTitleIcon>
               {getSvgJSXElement(categoryItem, '18')}
-            </CategoryTitleIcon>
-            <CategoryItem
+            </Styled.CategoryTitleIcon>
+            <Styled.CategoryItem
               to={`/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}
               key={categoryItem}
             >
               {categoryItem}
-            </CategoryItem>
-            <CategoryItemCount>
-              {categoryCount[categoryItem] !== undefined
-                ? ` (${categoryCount[categoryItem]})`
-                : ''}
-            </CategoryItemCount>
-          </CategoryItemWrapper>
+            </Styled.CategoryItem>
+            <Styled.CategoryItemCount>
+              {categoryCount[categoryItem] !== undefined ? ` (${categoryCount[categoryItem]})` : ''}
+            </Styled.CategoryItemCount>
+          </Styled.CategoryItemWrapper>
         )
       })}
-    </CategoryItemContainer>
+    </Styled.CategoryItemContainer>
   )
 }
 

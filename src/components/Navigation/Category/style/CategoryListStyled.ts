@@ -13,5 +13,5 @@ export const CategoryListContainer = styled.div`
 export const CategoryItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 10px 0 0 0;
 `

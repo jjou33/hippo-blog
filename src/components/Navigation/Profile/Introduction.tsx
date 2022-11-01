@@ -1,11 +1,7 @@
 import React from 'react'
 import ProfileImage from './ProfileImage'
 import NavTabMenu from './NavTabMenu'
-import {
-  IntroductionContainer,
-  IntroductionWrapper,
-  SubTitle,
-} from './style/IntroductionStyled'
+import * as Styled from './style/IntroductionStyled'
 
 interface IntroductionProps {
   profileImage: string
@@ -13,13 +9,13 @@ interface IntroductionProps {
 
 const Introduction = ({ profileImage }: IntroductionProps) => {
   return (
-    <IntroductionContainer>
-      <IntroductionWrapper>
+    <Styled.IntroductionContainer>
+      <Styled.IntroductionWrapper>
         <ProfileImage profileImage={profileImage} />
-        <SubTitle>Hippo's Dev</SubTitle>
+        <Styled.SubTitle>Hippo's Dev</Styled.SubTitle>
         <NavTabMenu />
-      </IntroductionWrapper>
-    </IntroductionContainer>
+      </Styled.IntroductionWrapper>
+    </Styled.IntroductionContainer>
   )
 }
 

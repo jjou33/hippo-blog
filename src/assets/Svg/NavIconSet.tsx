@@ -1,18 +1,38 @@
 import { ReactNode } from 'react'
 
 interface IconPropsType {
-  iconSet: {
-    [key: string]: {
-      [key: string]: (
-        width: string,
-        height: string,
-        color?: string,
-      ) => ReactNode
-    }
+  [key: string]: {
+    icon: (width: string, height: string, color?: string) => ReactNode
   }
 }
 
-export const navIconSet: IconPropsType['iconSet'] = {
+export const navIconSet: IconPropsType = {
+  NonFilledArrow: {
+    icon: (
+      width: string,
+      height: string,
+      color = 'rgba(0, 0, 0, 0.5)',
+    ): ReactNode => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="ionicon"
+        viewBox="0 0 512 512"
+        fill={color}
+        width={width}
+        height={height}
+      >
+        <title>Chevron Forward</title>
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="48"
+          d="M184 112l144 144-144 144"
+        />
+      </svg>
+    ),
+  },
   Home: {
     icon: (
       width: string,

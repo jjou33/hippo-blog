@@ -30,3 +30,10 @@ export interface PostListItemType {
 export interface CategortListType {
   edges: PostListItemType[]
 }
+
+export type PostPageItemType = {
+  node: {
+    html: string
+    frontmatter: PostFrontmatterType
+  }
+}

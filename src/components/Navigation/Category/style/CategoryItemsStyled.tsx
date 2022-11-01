@@ -29,7 +29,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   margin-right: 20px;
   padding: 5px 0;
   color: rgba(0, 0, 0, 0.5);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
 
@@ -50,6 +50,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
 export const CategoryItemWrapper = styled.li`
   display: flex;
   align-items: center;
+  margin-top: 5px;
 `
 
 export const CategoryItemArrow = styled.div`

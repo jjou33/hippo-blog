@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { PostFrontmatterType } from 'types/PostItem.types' // 바로 아래에서 정의할 것입니다
+import { PostPageItemType } from 'types/PostItem.types' // 바로 아래에서 정의할 것입니다
 import Template from 'components/Common/Template'
 import PostHead from 'components/Main/Post/PostHead'
 import PostContent from 'components/Main/Post/PostContent'
 import CommentWidget from 'components/Main/Post/CommentWidget'
 import styled from '@emotion/styled'
-type PostTemplateProps = {
+interface PostTemplateProps {
   data: {
     allMarkdownRemark: {
       edges: PostPageItemType[]
@@ -22,12 +22,7 @@ const PostWrapper = styled.div`
   flex-direction: column;
   flex: 4;
 `
-export type PostPageItemType = {
-  node: {
-    html: string
-    frontmatter: PostFrontmatterType
-  }
-}
+
 const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
@@ -53,12 +48,7 @@ const PostTemplate = ({
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
       <PostWrapper>
-        <PostHead
-          title={title}
-          date={date}
-          categories={categories}
-          thumbnail={gatsbyImageData}
-        />
+        <PostHead title={title} date={date} categories={categories} thumbnail={gatsbyImageData} />
         <PostContent html={html} />
         <CommentWidget />
       </PostWrapper>

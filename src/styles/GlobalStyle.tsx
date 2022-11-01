@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { Global, css } from '@emotion/react'
 import MaplestoryLight from '../assets/font/MaplestoryLight.ttf'
 import MaplestoryBold from '../assets/font/MaplestoryBold.ttf'
@@ -64,7 +64,7 @@ const defaultStyle = css`
   }
 `
 
-const GlobalStyle: FunctionComponent = function () {
+const GlobalStyle = () => {
   return <Global styles={defaultStyle} />
 }
 

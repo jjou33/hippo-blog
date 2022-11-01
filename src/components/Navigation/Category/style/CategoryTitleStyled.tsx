@@ -28,7 +28,7 @@ export const dropdown_out_animation = keyframes`
 
 export const textHighlightAnimation = css`
   position: relative;
-  font-size: 13px;
+  font-size: 10px;
   text-decoration: none;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -51,40 +51,55 @@ export const textHighlightAnimation = css`
     }
   }
 `
-
 export const CategoryTitleIconWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 20px;
   height: 20px;
-  margin: 0 8px 0 5px;
+  margin: 0 8px 0 10px;
 `
 
 export const CategoryItemOpenArrow = styled.div`
   float: right;
   cursor: pointer;
-
+  margin-right: 10px;
   ${(props: DropdownPropsType) =>
     props.isOpen
       ? css`
-          transform: scaleY(-1);
+          transform: rotate(90deg);
         `
       : css`
-          transform: scaleY(1);
-          padding-top: 8px;
+          transform: rotate(0deg);
+          padding-top: 4px;
         `};
   ${textHighlightAnimation}
 `
+
+interface HighlightPropsType {
+  isOpen: boolean
+}
+
 export const CategoryTitleContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 
-  width: 187px;
+  width: 230px;
   height: 40px;
   margin: 0 auto;
+  border-radius: 10px;
+  transition: all ease 0.5s 0s;
+  ${(props: HighlightPropsType) =>
+    props.isOpen
+      ? css`
+          background: #def2f2;
+          box-shadow: 1px 1px 1px #aecbcb, inset 0px 0px 1px #aecbcb;
+        `
+      : css``}
 
   &:hover {
+    background: #def2f2;
+    box-shadow: 1px 1px 1px gray, inset 0px 0px 1px gray;
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;
     }
@@ -102,7 +117,7 @@ export const CartegoryTitleText = styled.p`
   align-items: center;
   position: relative;
   font-size: 13px;
-  ${textHighlightAnimation}
+  /* ${textHighlightAnimation} */
 `
 
 export const DropdownWrapper = styled.article`

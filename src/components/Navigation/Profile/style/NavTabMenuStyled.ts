@@ -12,10 +12,12 @@ export const NavTabMenuContainer = styled.div`
 `
 export const NavTabMenuWrapper = styled.ul`
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin: 50px 10px auto;
   width: 240px;
   background-color: #ebeff4;
   height: 50px;
   border-radius: 30px;
+  box-shadow: 3px 3px 3px gray, inset 0 0 5px gray, 0 0 5px gray;
 `
