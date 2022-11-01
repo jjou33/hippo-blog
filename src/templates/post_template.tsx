@@ -28,12 +28,12 @@ export type PostPageItemType = {
     frontmatter: PostFrontmatterType
   }
 }
-const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
+const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
   },
   location: { href },
-}) {
+}: PostTemplateProps) => {
   const {
     node: {
       html,

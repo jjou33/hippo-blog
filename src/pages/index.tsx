@@ -34,7 +34,7 @@ const ContentsWrapper = styled.div`
   flex: 4;
 `
 
-const IndexPage: FunctionComponent<IndexPageProps> = function ({
+const IndexPage = ({
   location: { search },
   data: {
     site: {
@@ -43,7 +43,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     allMarkdownRemark: { edges },
     file: { publicURL },
   },
-}) {
+}: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
   return (
     <Template

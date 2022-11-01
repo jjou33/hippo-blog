@@ -19,7 +19,7 @@ const UtterancesWrapper = styled.div`
   }
 `
 
-const CommentWidget: FunctionComponent = function () {
+const CommentWidget = () => {
   const element = createRef<HTMLDivElement>()
 
   useEffect(() => {

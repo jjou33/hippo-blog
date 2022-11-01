@@ -47,13 +47,13 @@ const NavigationWrapper = styled.div`
   z-index: 1;
 `
 
-const Template: FunctionComponent<TemplateProps> = function ({
+const Template = ({
   title,
   description,
   url,
   image,
   children,
-}) {
+}: TemplateProps) => {
   const {
     data: {
       allFile: { edges },

@@ -75,11 +75,7 @@ const PostData = styled.div`
     font-weight: 400;
   }
 `
-const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
-  title,
-  date,
-  categories,
-}) {
+const PostHeadInfo = ({ title, date, categories }: PostHeadInfoProps) => {
   const goBackPage = () => window.history.back()
 
   return (

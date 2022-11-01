@@ -1,34 +1,23 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import styled from '@emotion/styled'
+import React, { ReactNode } from 'react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import CategoryRootTitle from './CategoryRootTitle'
+import {
+  CategoryItemWrapper,
+  CategoryListContainer,
+} from './style/CategoryListStyled'
+
 import type { CategoryListProps } from 'types/Category.types'
 
 /**----------------------------------------------------
  * @description Navigation Side Bar List 의 최상위 컴포넌트
  ------------------------------------------------------*/
 
-const CategoryListContainer = styled.div`
-  width: 100%;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 50px;
-    padding: 0 20px;
-  }
-`
-
-const CategoryItemWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px auto;
-`
-const CategoryList: FunctionComponent<CategoryListProps> = function ({
+const CategoryList = ({
   selectedCategory,
   categoryList,
   categoryCount,
-}) {
+}: CategoryListProps) => {
   return (
     <CategoryListContainer>
       <CategoryRootTitle categoryCount={categoryCount} />

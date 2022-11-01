@@ -17,7 +17,7 @@ const FooterWrapper = styled.div`
   }
 `
 
-const Footer: FunctionComponent = function () {
+const Footer = () => {
   return (
     <FooterWrapper>
       Thank You for Visiting My Blog, Have a Good Day 😆

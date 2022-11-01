@@ -1,45 +1,7 @@
-import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/react'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useRef, MutableRefObject } from 'react'
 import { navIconSet } from 'assets/Svg/NavIconSet'
-import { upDownAnimation } from 'styles/AnimationKeyframes'
-const HeaderContainer = styled.header`
-  position: sticky;
-  display: flex;
-  top: 0;
-  z-index: 999;
-  background: white;
-
-  h1 {
-    color: black;
-  }
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 90px;
-`
-
-interface ScrollStateIconType {
-  scroll: number
-}
-const Icon = styled.div`
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  transition: 0.2s;
-  margin-top: 60px;
-  ${(props: ScrollStateIconType) =>
-    props.scroll !== undefined
-      ? css`
-          transform: translateX(${props.scroll}px);
-        `
-      : ''};
-`
-
-const IconWrapper = styled.div`
-  animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
-`
+import { HeaderContainer, Icon, IconWrapper } from './style/HeaderStyled'
 
 const Header = () => {
   const headerRef: MutableRefObject<HTMLDivElement | null> =

@@ -82,7 +82,7 @@ const Summary = styled.div`
   opacity: 0.8;
 `
 
-const PostItem: FunctionComponent<PostItemProps> = function ({
+const PostItem = ({
   title,
   date,
   categories,
@@ -91,7 +91,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
     childImageSharp: { gatsbyImageData },
   },
   link,
-}) {
+}: PostItemProps) => {
   return (
     <PostItemWrapper to={link}>
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />

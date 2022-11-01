@@ -127,7 +127,7 @@ const MarkdownRenderer = styled.div`
     }
   }
 `
-const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {
+const PostContent = ({ html }: PostContentProps) => {
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
 }
 
