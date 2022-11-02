@@ -5,11 +5,12 @@ export const Container = styled.div`
 `
 export const MainContainer = styled.main`
   flex: 4;
+  transition: all 0.5s ease;
 `
 export const NavigationContainer = styled.nav`
   flex: 0.4;
-  box-shadow: 1px 2px 4px 0px;
-  background: linear-gradient(0deg, #dce1e7 20%, #ebeff4 45%);
+  box-shadow: 0px 0px 4px 0px;
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -22,6 +23,6 @@ export const NavigationWrapper = styled.div`
   }
   overflow: scroll;
   height: 1000px;
-  background: linear-gradient(0deg, #e2e9f0 20%, #ebeff4 45%);
+  background: white;
   z-index: 1;
 `

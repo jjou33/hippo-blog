@@ -1,9 +1,27 @@
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 
+const animate = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200vh);
+  }
+`
 export const IntroductionContainer = styled.div`
   width: 100%;
   height: 350px;
-  background-image: linear-gradient(0deg, #ebeff4 20%, #c6dcf0 45%);
+  border-width: 0 0 0.5px 0;
+  border-style: solid;
+  /* background-image: linear-gradient(0deg, white 20%, #fdf3db 45%); */
+  background: black;
+  i {
+    position: absolute;
+    top: -250px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: ${animate} linear infinite;
+  }
 `
 
 export const IntroductionWrapper = styled.div`

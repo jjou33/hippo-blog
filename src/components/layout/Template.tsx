@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
-import Header from 'components/Header/Header'
-import Footer from 'components/Common/Footer'
+import Header from 'components/layout/Header'
+import Footer from 'components/layout/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
 import * as Styled from './style/TemplateStyled'
@@ -72,7 +72,10 @@ const Template = ({
           </Helmet>
           <Styled.NavigationContainer>
             <Styled.NavigationWrapper>
-              <Introduction profileImage={imagePathList['profile-image']} />
+              <Introduction
+                profileImage={imagePathList['superHero']}
+                roketImage={imagePathList['rocket']}
+              />
               <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}

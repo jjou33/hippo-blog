@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
-import { shaking_in_animation } from 'styles/AnimationKeyframes'
-
+import ConterBadge from 'components/Common/CounterBadge'
 interface CategoryItemProps {
   active: boolean
 }
@@ -28,8 +28,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   align-items: center;
   margin-right: 20px;
   padding: 5px 0;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
 
@@ -40,26 +39,27 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   @media (max-width: 768px) {
     font-size: 15px;
   }
-  &:hover {
-    ${CategoryTitleIcon} {
-      animation: ${shaking_in_animation} 0.5s ease;
-    }
-    color: black;
-  }
 `
 export const CategoryItemWrapper = styled.li`
   display: flex;
   align-items: center;
   margin-top: 5px;
+  width: 200px;
+  border-radius: 5px;
+  transition: background, 0.5s;
+  &:hover {
+    background: #ebfeff;
+    color: black;
+  }
 `
 
 export const CategoryItemArrow = styled.div`
   display: flex;
   align-items: center;
-  margin: 0px 20px 0px 15px;
+  margin: 0px 10px 0px 10px;
 `
+
 export const CategoryItemCount = styled.div`
-  color: #e75454;
-  margin-left: 5px;
+  margin-left: 7px;
 `
 export const CategoryItemContainer = styled.ul``

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
 import * as Styled from './style/CategoryItemsStyled'
-
+import ConterBadge from 'components/Common/CounterBadge'
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
   categoryList: string[]
@@ -18,7 +18,10 @@ const CategoryItems = ({
       {categoryList.map((categoryItem, idx): ReactNode => {
         return (
           <Styled.CategoryItemWrapper key={idx}>
-            <Styled.CategoryItemArrow>{getSvgJSXElement('Dot', '18')}</Styled.CategoryItemArrow>
+            <span></span>
+            <Styled.CategoryItemArrow>
+              {getSvgJSXElement('NonFilledArrow', '10')}
+            </Styled.CategoryItemArrow>
             <Styled.CategoryTitleIcon>
               {getSvgJSXElement(categoryItem, '18')}
             </Styled.CategoryTitleIcon>
@@ -30,7 +33,13 @@ const CategoryItems = ({
               {categoryItem}
             </Styled.CategoryItem>
             <Styled.CategoryItemCount>
-              {categoryCount[categoryItem] !== undefined ? ` (${categoryCount[categoryItem]})` : ''}
+              {categoryCount[categoryItem] !== undefined ? (
+                <ConterBadge color="red">
+                  {categoryCount[categoryItem]}
+                </ConterBadge>
+              ) : (
+                ''
+              )}
             </Styled.CategoryItemCount>
           </Styled.CategoryItemWrapper>
         )

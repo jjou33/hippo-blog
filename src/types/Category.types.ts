@@ -2,7 +2,7 @@ import { PostListItemType } from './PostItem.types'
 
 export interface CategoryCount {
   categoryCount: {
-    [key: string]: number
+    [key: string]: number | string
   }
 }
 

@@ -4,7 +4,7 @@ import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory } from 'utils/Category/Category'
-import Template from 'components/Common/Template'
+import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
 
 type IndexPageProps = {

@@ -4,8 +4,10 @@ import { navIconSet } from 'assets/Svg/NavIconSet'
 import * as Styled from './style/HeaderStyled'
 
 const Header = () => {
-  const headerRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
-  const iconRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
+  const headerRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const iconRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
 
   const scroll = useScrollStateBar()
 

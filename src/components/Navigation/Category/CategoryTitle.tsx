@@ -33,6 +33,7 @@ const CategoryTitle = ({ children, categoryItem }: CategoryTitleProps) => {
         ref={titleRef}
         onClick={toggleTitle}
       >
+        <span></span>
         <Styled.CategoryTitleIconWrapper>
           {getSvgJSXElement(categoryItem, '18')}
         </Styled.CategoryTitleIconWrapper>
