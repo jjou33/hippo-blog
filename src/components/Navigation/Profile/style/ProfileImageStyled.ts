@@ -3,10 +3,9 @@ import { keyframes } from '@emotion/react'
 export const ProfileImageWrapper = styled.img`
   width: 100px;
   height: 100px;
-  margin: 20px 0px 0px 140px;
-  background-color: black;
-  border-radius: 50px;
-  z-index: 999;
+  margin: 20px 0px 0px 0px;
+  border-radius: 15px;
+
   @media (max-width: 768px) {
     width: 80px;
     height: 80px;

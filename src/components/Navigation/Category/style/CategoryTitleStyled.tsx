@@ -78,12 +78,12 @@ export const CategoryTitleContainer = styled.div`
   ${(props: IsOpenPropsType) =>
     props.isOpen
       ? css`
-          background: #ebfeff;
+          background: #fff9ec;
         `
       : css``}
 
   &:hover {
-    background: #ebfeff;
+    background: #fff9ec;
 
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;

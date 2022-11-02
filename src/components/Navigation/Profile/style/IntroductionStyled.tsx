@@ -11,11 +11,10 @@ const animate = keyframes`
 `
 export const IntroductionContainer = styled.div`
   width: 100%;
-  height: 350px;
+  height: 280px;
   border-width: 0 0 0.5px 0;
   border-style: solid;
-  /* background-image: linear-gradient(0deg, white 20%, #fdf3db 45%); */
-  background: black;
+  background-image: linear-gradient(0deg, white 20%, #fdf3db 45%);
   i {
     position: absolute;
     top: -250px;

@@ -21,8 +21,6 @@ const ProfileImage = ({ profileImage, roketImage }: ProfileImageProps) => {
       >
         <ProfileImageWrapper src={profileImage} alt="Profile Image" />
       </a>
-
-      <RoketImageWrapper>{getSvgJSXElement('Rocket', '40')}</RoketImageWrapper>
     </>
   )
 }

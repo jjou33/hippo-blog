@@ -11,7 +11,7 @@ const CounterBadgeStyle = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 6px;
-  border-style: solid;
+  border: 1px #f65660cc solid;
   border-radius: 8px;
   width: 20px;
   height: 15px;
