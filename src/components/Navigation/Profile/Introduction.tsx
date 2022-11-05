@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import ProfileImage from './ProfileImage'
 import NavTabMenu from './NavTabMenu'
-import { useStarEffect } from 'hooks/useStarEffect'
+
 import * as Styled from './style/IntroductionStyled'
 
 interface IntroductionProps {
@@ -10,8 +10,6 @@ interface IntroductionProps {
 }
 
 const Introduction = ({ profileImage, roketImage }: IntroductionProps) => {
-  // const sceneRef = useStarEffect()
-
   return (
     <Styled.IntroductionContainer>
       <Styled.IntroductionWrapper>

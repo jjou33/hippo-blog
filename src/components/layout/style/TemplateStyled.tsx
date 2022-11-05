@@ -5,7 +5,6 @@ export const Container = styled.div`
 `
 export const MainContainer = styled.main`
   flex: 4;
-  transition: all 0.5s ease;
 `
 export const NavigationContainer = styled.nav`
   flex: 0.4;
@@ -23,6 +22,5 @@ export const NavigationWrapper = styled.div`
   }
   overflow: scroll;
   height: 1000px;
-  background: white;
   z-index: 1;
 `

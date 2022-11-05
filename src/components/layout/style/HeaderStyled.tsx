@@ -38,4 +38,8 @@ export const Icon = styled.div`
           transform: translateX(${props.scroll}px);
         `
       : ''};
+
+  svg {
+    transform: rotate(45deg);
+  }
 `

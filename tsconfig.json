@@ -15,7 +15,8 @@
       "hooks/*": ["./hooks/*"],
       "styles/*": ["./styles/*"],
       "types/*": ["./types/*"],
-      "assets/*": ["./assets/*"]
+      "assets/*": ["./assets/*"],
+      "state/*": ["./states/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

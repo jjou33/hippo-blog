@@ -39,6 +39,7 @@
     "react-dom": "^18.1.0",
     "react-sticky-box": "^1.0.2",
     "recoil": "^0.7.6",
+    "recoil-persist": "^4.2.0",
     "three": "^0.145.0"
   },
   "devDependencies": {

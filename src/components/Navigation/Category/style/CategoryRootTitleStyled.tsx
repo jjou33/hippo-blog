@@ -55,6 +55,5 @@ export const CategoryRootIcon = styled.div`
 `
 
 export const CategoryRootItem = styled(({ ...props }: RootItemPropsType) => {
-  console.log('props: ', props)
   return <Link {...props} />
 })``

@@ -1,6 +1,7 @@
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useRef, MutableRefObject } from 'react'
 import { navIconSet } from 'assets/Svg/NavIconSet'
+
 import * as Styled from './style/HeaderStyled'
 
 const Header = () => {
@@ -20,7 +21,7 @@ const Header = () => {
     <Styled.HeaderContainer ref={headerRef}>
       <Styled.IconWrapper>
         <Styled.Icon ref={iconRef} scroll={xScroll * scroll}>
-          {navIconSet['Car'].icon('30', '30')}
+          {navIconSet['Rocket'].icon('15', '15')}
         </Styled.Icon>
       </Styled.IconWrapper>
     </Styled.HeaderContainer>

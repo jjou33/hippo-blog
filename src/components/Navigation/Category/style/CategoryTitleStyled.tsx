@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 import { css } from '@emotion/react'
 import { shaking_in_animation } from 'styles/AnimationKeyframes'
+import SkeletonUI from 'styles/SkeletonUI'
 interface IsOpenPropsType {
   isOpen: boolean
 }
@@ -58,7 +59,6 @@ export const CategoryTitleContainer = styled.div`
   height: 40px;
   margin: 0 auto;
   border-radius: 5px;
-  transition: all ease 1s 0s;
 
   span {
     display: block;
@@ -118,10 +118,10 @@ export const DropdownWrapper = styled.article`
     animation: ${(props: IsOpenPropsType) =>
       props.isOpen
         ? css`
-            ${dropdown_in_animation} .4s ease;
+            ${dropdown_in_animation} .5s ease;
           `
         : css`
-            ${dropdown_out_animation} .4s ease;
+            ${dropdown_out_animation} .5s ease;
           `};
   }
 `

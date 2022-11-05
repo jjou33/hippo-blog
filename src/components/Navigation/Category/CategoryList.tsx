@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import CategoryRootTitle from './CategoryRootTitle'
@@ -15,6 +15,13 @@ const CategoryList = ({
   categoryList,
   categoryCount,
 }: CategoryListProps) => {
+  useEffect(() => {
+    console.log('CategoryList Mount')
+
+    return () => {
+      console.log('CategoryList UnMount')
+    }
+  })
   return (
     <Styled.CategoryListContainer>
       <CategoryRootTitle categoryCount={categoryCount} />

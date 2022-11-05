@@ -48,6 +48,7 @@ const defaultStyle = css`
     margin: 0;
     box-sizing: border-box;
     font-family: GmarketSansTTFMedium;
+    shape-rendering: auto;
   }
 
   html,

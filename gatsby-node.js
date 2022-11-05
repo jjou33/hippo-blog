@@ -15,6 +15,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         types: path.resolve(__dirname, 'src/types'),
         assets: path.resolve(__dirname, 'src/assets'),
         styles: path.resolve(__dirname, 'src/styles'),
+        states:path.resolve(__dirname, 'src/states')
       },
     },
     module:{

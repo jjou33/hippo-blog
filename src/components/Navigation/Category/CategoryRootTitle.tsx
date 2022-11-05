@@ -10,7 +10,7 @@ import type { CategoryCount } from 'types/Category.types'
 
 const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
   const { toggleTitle, titleRef } = useDropdownEffect(true)
-  console.log('cate : ', typeof categoryCount['All'])
+
   return (
     <Styled.RootTitleWrapper ref={titleRef} onClick={toggleTitle}>
       {getSvgJSXElement('Dot', '18')}
