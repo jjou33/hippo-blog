@@ -4,13 +4,10 @@ import { recoilPersist } from 'recoil-persist'
 const sessionStorage =
   typeof window !== 'undefined' ? window.sessionStorage : undefined
 
-const { persistAtom } = recoilPersist({
-  key: '내맘대로 정하는 키 이름',
-  storage: sessionStorage,
-})
+const { persistAtom } = recoilPersist()
 
 export const recoilDropdownState = atom({
   key: 'recoilDropdownState',
-  default: [],
+  default: {},
   effects_UNSTABLE: [persistAtom],
 })

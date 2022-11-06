@@ -16,21 +16,22 @@ interface CategoryTitleProps {
 }
 
 const CategoryTitle = ({ children, categoryItem }: CategoryTitleProps) => {
-  const { isOpen, toggleTitle, titleRef } = useDropdownEffect(false)
-  const [isAnimation, setIsAnimation] = useState(false)
-
   const [state, setState] = useRecoilState(recoilDropdownState)
 
+  const { isOpen, toggleTitle, titleRef } = useDropdownEffect(categoryItem)
+  const [isAnimation, setIsAnimation] = useState(false)
+
+  const isOpenFilter = state => {
+    // console.log('state : ', state[categoryItem])
+    return state[categoryItem] === true ? true : false
+  }
+
   useEffect(() => {
-    console.log('CategoryTitle Mount')
-    if (isOpen) {
-      setIsAnimation(true)
-      setState(oldState => {
-        return [...oldState, categoryItem]
-      })
+    if (isOpenFilter(state)) {
+      // setIsAnimation(true)
     } else {
       setTimeout(() => {
-        setIsAnimation(false)
+        // setIsAnimation(false)
       }, 250)
     }
   }, [isOpen])
@@ -47,12 +48,12 @@ const CategoryTitle = ({ children, categoryItem }: CategoryTitleProps) => {
           {getSvgJSXElement(categoryItem, '18')}
         </Styled.CategoryTitleIconWrapper>
         <Styled.CartegoryTitleText>{categoryItem}</Styled.CartegoryTitleText>
-        <Styled.CategoryItemOpenArrow isOpen={isOpen}>
+        <Styled.CategoryItemOpenArrow isOpen={isOpenFilter(state)}>
           {getSvgJSXElement('NonFilledArrow', '14')}
         </Styled.CategoryItemOpenArrow>
       </Styled.CategoryTitleContainer>
-      <Styled.DropdownWrapper isOpen={isOpen}>
-        {isAnimation && children}
+      <Styled.DropdownWrapper isOpen={isOpenFilter(state)}>
+        {isOpenFilter(state) && children}
       </Styled.DropdownWrapper>
     </>
   )

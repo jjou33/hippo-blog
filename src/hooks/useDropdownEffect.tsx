@@ -6,12 +6,15 @@ import {
   useState,
 } from 'react'
 
+import { useRecoilState, atom } from 'recoil'
+import { recoilDropdownState } from 'states/recoilDropdownState'
 export interface useDropdownEffectType {
   isOpen: boolean
   toggleTitle: () => void
   titleRef: MutableRefObject<HTMLDivElement | null>
 }
-export const useDropdownEffect = (isRoot: any = false) => {
+export const useDropdownEffect = (categoryItem: string) => {
+  const [state, setState] = useRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
 
   const titleRef: MutableRefObject<HTMLDivElement | null> =
@@ -41,9 +44,26 @@ export const useDropdownEffect = (isRoot: any = false) => {
     return () => window.removeEventListener('click', onMouseDown)
   }, [onMouseDown])
 
+  const isOpenFilter = state => {
+    // console.log('state : ', state[categoryItem])
+    return state[categoryItem] === true ? true : false
+  }
+
   const toggleTitle = () => {
     setIsOpen(!isOpen)
+    // console.log('cate : ', categoryItem)
+    setState((oldCategory: object) => {
+      const tmpObj = { ...oldCategory }
+      tmpObj[categoryItem] = !tmpObj[categoryItem]
+
+      return tmpObj
+    })
+    // console.log('cate : ', state)
   }
 
   return { isOpen, toggleTitle, titleRef }
 }
+
+/**
+ * 클릭 -> toggleTitle 에서 전역 상태 추가 ->
+ */

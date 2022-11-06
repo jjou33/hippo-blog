@@ -2,6 +2,8 @@ import React, { ReactNode, useEffect } from 'react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import CategoryRootTitle from './CategoryRootTitle'
+import { useRecoilState } from 'recoil'
+import { recoilDropdownState } from 'states/recoilDropdownState'
 import * as Styled from './style/CategoryListStyled'
 
 import type { CategoryListProps } from 'types/Category.types'
@@ -15,13 +17,6 @@ const CategoryList = ({
   categoryList,
   categoryCount,
 }: CategoryListProps) => {
-  useEffect(() => {
-    console.log('CategoryList Mount')
-
-    return () => {
-      console.log('CategoryList UnMount')
-    }
-  })
   return (
     <Styled.CategoryListContainer>
       <CategoryRootTitle categoryCount={categoryCount} />
