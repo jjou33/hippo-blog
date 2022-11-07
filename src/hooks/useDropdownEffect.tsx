@@ -6,15 +6,19 @@ import {
   useState,
 } from 'react'
 
-import { useRecoilState, atom } from 'recoil'
+import { useRecoilState, atom, useSetRecoilState } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
 export interface useDropdownEffectType {
   isOpen: boolean
   toggleTitle: () => void
   titleRef: MutableRefObject<HTMLDivElement | null>
 }
+
+interface OpenStateType {
+  [key: string]: boolean
+}
 export const useDropdownEffect = (categoryItem: string) => {
-  const [state, setState] = useRecoilState(recoilDropdownState)
+  const setState = useSetRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
 
   const titleRef: MutableRefObject<HTMLDivElement | null> =
@@ -44,21 +48,13 @@ export const useDropdownEffect = (categoryItem: string) => {
     return () => window.removeEventListener('click', onMouseDown)
   }, [onMouseDown])
 
-  const isOpenFilter = state => {
-    // console.log('state : ', state[categoryItem])
-    return state[categoryItem] === true ? true : false
-  }
-
   const toggleTitle = () => {
     setIsOpen(!isOpen)
-    // console.log('cate : ', categoryItem)
-    setState((oldCategory: object) => {
-      const tmpObj = { ...oldCategory }
-      tmpObj[categoryItem] = !tmpObj[categoryItem]
-
-      return tmpObj
+    setState((oldOpenState: OpenStateType) => {
+      const newOpenState: OpenStateType = { ...oldOpenState }
+      newOpenState[categoryItem] = !newOpenState[categoryItem]
+      return newOpenState
     })
-    // console.log('cate : ', state)
   }
 
   return { isOpen, toggleTitle, titleRef }

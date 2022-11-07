@@ -28,10 +28,12 @@ export const getCategoryList = (allMarkdownRemark: CategortListType) => {
         list[domain] = {
           title: domain,
           children: [sideTitle],
+          childrenCount: 1,
         }
       } else {
         if (list[domain]['children'] !== undefined) {
           list[domain]['children'].push(sideTitle)
+          list[domain]['childrenCount'] += 1
         }
       }
       return list

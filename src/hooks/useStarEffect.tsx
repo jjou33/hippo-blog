@@ -18,7 +18,7 @@ export const useStarEffect = () => {
   useEffect(() => {
     for (let i = 0; i < count; i++) {
       const star = document.createElement('i')
-      console.log(scene.current?.clientWidth)
+
       const x = Math.floor(Math.random() * scene.current?.clientWidth)
 
       const duration = Math.random() * 1

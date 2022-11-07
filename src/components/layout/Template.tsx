@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
@@ -7,12 +7,17 @@ import Introduction from 'components/Navigation/Profile/Introduction'
 import * as Styled from './style/TemplateStyled'
 
 import { Helmet } from 'react-helmet'
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot, useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getImagePathSetList } from 'utils/Template/Template'
 import { CategoryMetadataType } from 'types/Category.types'
-import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
-
+import { templateMountState } from 'states/templateMountState'
+import {
+  getSelectedCategory,
+  getCategoryList,
+  getItemsCount,
+} from 'utils/Category/Category'
+import SkeletonUI from 'components/Navigation/Category/style/skeletonUI/SkeletonUI'
 interface TemplateProps {
   title: string
   description: string
@@ -35,11 +40,18 @@ const Template = ({
     },
     categoryCount,
   }: CategoryMetadataType = useCategoryMetadata()
+  const [mount, isMount] = useState(false)
 
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
+
   const imagePathList = getImagePathSetList(edges)
+  useEffect(() => {
+    setTimeout(() => {
+      isMount(true)
+    }, 1000)
+  }, [])
 
   return (
     <>
@@ -76,11 +88,21 @@ const Template = ({
                 profileImage={imagePathList['superHero']}
                 roketImage={imagePathList['rocket']}
               />
-              <CategoryList
+              {mount ? (
+                <CategoryList
+                  categoryList={categoryList}
+                  selectedCategory={selectedCategory}
+                  categoryCount={categoryCount}
+                />
+              ) : (
+                <SkeletonUI categoryList={categoryList}></SkeletonUI>
+              )}
+
+              {/* <CategoryList
                 categoryList={categoryList}
                 selectedCategory={selectedCategory}
                 categoryCount={categoryCount}
-              />
+              /> */}
             </Styled.NavigationWrapper>
           </Styled.NavigationContainer>
           <Styled.MainContainer>

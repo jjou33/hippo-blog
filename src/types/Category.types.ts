@@ -29,6 +29,7 @@ export interface CategoryListProps extends CategoryCount {
     [key: string]: {
       title: string
       children: string[]
+      childrenCount: number
     }
   }
 }

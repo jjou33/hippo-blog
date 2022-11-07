@@ -5,13 +5,13 @@ import { shaking_in_animation } from 'styles/AnimationKeyframes'
 import SkeletonUI from 'styles/SkeletonUI'
 interface IsOpenPropsType {
   isOpen: boolean
+  categoryItemCount: number
 }
 
 export const dropdown_in_animation = keyframes`
   0% {
     transform: translateY(-100%);
   }
-
   100% {
     transform: translateY(0);
   }
@@ -24,6 +24,7 @@ export const dropdown_out_animation = keyframes`
 
   100% {
     transform: translateY(-100%);
+    
   }
 `
 
@@ -53,10 +54,11 @@ export const CategoryItemOpenArrow = styled.div`
 export const CategoryTitleContainer = styled.div`
   position: relative;
   display: flex;
+
   align-items: center;
 
   width: 230px;
-  height: 40px;
+  height: 30px;
   margin: 0 auto;
   border-radius: 5px;
 
@@ -113,15 +115,25 @@ export const CartegoryTitleText = styled.p`
 export const DropdownWrapper = styled.article`
   overflow: hidden;
   margin-left: 30px;
-
-  ul {
+  height: 0;
+  transition: height ease-in-out 0.3s;
+  ${(props: IsOpenPropsType) =>
+    props.isOpen
+      ? css`
+          height: ${props.categoryItemCount * 25 + 10}px;
+        `
+      : css`
+          height: 0px;
+        `}/* ul {
     animation: ${(props: IsOpenPropsType) =>
-      props.isOpen
-        ? css`
-            ${dropdown_in_animation} .5s ease;
-          `
-        : css`
-            ${dropdown_out_animation} .5s ease;
-          `};
-  }
+    props.isOpen
+      ? css`
+          ${dropdown_in_animation} .5s ease-in-out;
+        `
+      : css`
+          ${dropdown_out_animation} .5s ease-out;
+        `};
+  } */
 `
+
+export const TempTitle = styled.div``

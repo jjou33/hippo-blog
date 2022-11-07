@@ -27,7 +27,7 @@ const SkeletonItem = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    animation: skeleton-gradient 1.5s infinite ease-in-out;
+    animation: skeleton-gradient 0.8s infinite ease-in-out;
   }
 `
 
