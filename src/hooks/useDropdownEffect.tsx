@@ -6,7 +6,7 @@ import {
   useState,
 } from 'react'
 
-import { useRecoilState, atom, useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
 export interface useDropdownEffectType {
   isOpen: boolean
@@ -17,7 +17,7 @@ export interface useDropdownEffectType {
 interface OpenStateType {
   [key: string]: boolean
 }
-export const useDropdownEffect = (categoryItem: string) => {
+export const useDropdownEffect = () => {
   const setState = useSetRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -48,7 +48,7 @@ export const useDropdownEffect = (categoryItem: string) => {
     return () => window.removeEventListener('click', onMouseDown)
   }, [onMouseDown])
 
-  const toggleTitle = () => {
+  const toggleTitle = (categoryItem: string) => {
     setIsOpen(!isOpen)
     setState((oldOpenState: OpenStateType) => {
       const newOpenState: OpenStateType = { ...oldOpenState }

@@ -7,17 +7,12 @@ import Introduction from 'components/Navigation/Profile/Introduction'
 import * as Styled from './style/TemplateStyled'
 
 import { Helmet } from 'react-helmet'
-import { RecoilRoot, useSetRecoilState } from 'recoil'
+import { RecoilRoot } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getImagePathSetList } from 'utils/Template/Template'
 import { CategoryMetadataType } from 'types/Category.types'
-import { templateMountState } from 'states/templateMountState'
-import {
-  getSelectedCategory,
-  getCategoryList,
-  getItemsCount,
-} from 'utils/Category/Category'
-import SkeletonUI from 'components/Navigation/Category/style/skeletonUI/SkeletonUI'
+import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
+import CategorySkeleton from 'components/Navigation/Category/CategorySkeleton'
 interface TemplateProps {
   title: string
   description: string
@@ -47,6 +42,7 @@ const Template = ({
   const categoryList = getCategoryList(allMarkdownRemark)
 
   const imagePathList = getImagePathSetList(edges)
+
   useEffect(() => {
     setTimeout(() => {
       isMount(true)
@@ -95,14 +91,8 @@ const Template = ({
                   categoryCount={categoryCount}
                 />
               ) : (
-                <SkeletonUI categoryList={categoryList}></SkeletonUI>
+                <CategorySkeleton categoryList={categoryList} />
               )}
-
-              {/* <CategoryList
-                categoryList={categoryList}
-                selectedCategory={selectedCategory}
-                categoryCount={categoryCount}
-              /> */}
             </Styled.NavigationWrapper>
           </Styled.NavigationContainer>
           <Styled.MainContainer>

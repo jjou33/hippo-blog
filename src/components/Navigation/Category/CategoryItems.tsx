@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
-import * as Styled from './style/CategoryItemsStyled'
+
+import * as S from './Styles'
 import ConterBadge from 'components/Common/CounterBadge'
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
@@ -14,25 +15,25 @@ const CategoryItems = ({
   categoryCount,
 }: CategoryItemListProps) => {
   return (
-    <Styled.CategoryItemContainer>
+    <S.CategoryItemContainer>
       {categoryList.map((categoryItem, idx): ReactNode => {
         return (
-          <Styled.CategoryItemWrapper key={idx}>
+          <S.CategoryItemWrapper key={idx}>
             <span></span>
-            <Styled.CategoryItemArrow>
+            <S.CategoryItemArrow>
               {getSvgJSXElement('NonFilledArrow', '10')}
-            </Styled.CategoryItemArrow>
-            <Styled.CategoryTitleIcon>
+            </S.CategoryItemArrow>
+            <S.CategoryTitleIcon>
               {getSvgJSXElement(categoryItem, '18')}
-            </Styled.CategoryTitleIcon>
-            <Styled.CategoryItem
+            </S.CategoryTitleIcon>
+            <S.CategoryItem
               to={`/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}
               key={categoryItem}
             >
               {categoryItem}
-            </Styled.CategoryItem>
-            <Styled.CategoryItemCount>
+            </S.CategoryItem>
+            <S.CategoryItemCount>
               {categoryCount[categoryItem] !== undefined ? (
                 <ConterBadge color="red">
                   {categoryCount[categoryItem]}
@@ -40,11 +41,11 @@ const CategoryItems = ({
               ) : (
                 ''
               )}
-            </Styled.CategoryItemCount>
-          </Styled.CategoryItemWrapper>
+            </S.CategoryItemCount>
+          </S.CategoryItemWrapper>
         )
       })}
-    </Styled.CategoryItemContainer>
+    </S.CategoryItemContainer>
   )
 }
 

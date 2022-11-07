@@ -1,7 +1,8 @@
+import * as S from './Styles'
+import CounterBadge from 'components/Common/CounterBadge'
 import { getSvgJSXElement } from 'utils/Common/Common'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
-import * as Styled from './style/CategoryRootTitleStyled'
-import CounterBadge from 'components/Common/CounterBadge'
+
 import type { CategoryCount } from 'types/Category.types'
 
 /**
@@ -9,26 +10,20 @@ import type { CategoryCount } from 'types/Category.types'
  */
 
 const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
-  const { toggleTitle, titleRef } = useDropdownEffect(true)
-
   return (
-    <Styled.RootTitleWrapper ref={titleRef} onClick={toggleTitle}>
+    <S.RootTitleWrapper>
       {getSvgJSXElement('Dot', '18')}
-      <Styled.CategoryRootIcon>
-        {getSvgJSXElement('Ghost', '18')}
-      </Styled.CategoryRootIcon>
+      <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '18')}</S.CategoryRootIcon>
       <span></span>
-      <Styled.CategoryRootItem to={`/?category=All`}>
-        Root
-      </Styled.CategoryRootItem>
-      <Styled.CategoryRootCount>
+      <S.CategoryRootItem to={`/?category=All`}>Root</S.CategoryRootItem>
+      <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (
           <CounterBadge>{categoryCount['All']}</CounterBadge>
         ) : (
           ''
         )}
-      </Styled.CategoryRootCount>
-    </Styled.RootTitleWrapper>
+      </S.CategoryRootCount>
+    </S.RootTitleWrapper>
   )
 }
 
