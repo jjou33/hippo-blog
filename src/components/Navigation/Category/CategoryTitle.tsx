@@ -26,7 +26,7 @@ const CategoryTitle = ({
 }: CategoryTitleProps) => {
   const state = useRecoilValue<RecoilToggleStateType>(recoilDropdownState)
 
-  const { isOpen, toggleTitle, titleRef } = useDropdownEffect()
+  const { isOpen, toggleTitle, titleRef } = useDropdownEffect(categoryItem)
   const [isAnimation, setIsAnimation] = useState(false)
 
   const isOpenFilter = (state: RecoilToggleStateType) => {

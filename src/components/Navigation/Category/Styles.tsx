@@ -146,7 +146,7 @@ export const CategoryTitleContainer = styled.div`
   align-items: center;
 
   width: 230px;
-  height: 30px;
+  height: 40px;
   margin: 0 auto;
   border-radius: 5px;
 
@@ -168,12 +168,12 @@ export const CategoryTitleContainer = styled.div`
   ${(props: IsOpenPropsType) =>
     props.isOpen
       ? css`
-          background: #fff9ec;
+          background: #dcfbed;
         `
       : css``}
 
   &:hover {
-    background: #fff9ec;
+    background: #dcfbed;
 
     ${CategoryTitleIconWrapper} {
       animation: ${shaking_in_animation} 0.4s ease;
@@ -208,7 +208,7 @@ export const DropdownWrapper = styled.article`
   ${(props: IsOpenPropsType) =>
     props.isOpen
       ? css`
-          height: ${(props.categoryItemCount as number) * 25 + 10}px;
+          height: ${(props.categoryItemCount as number) * 30 + 10}px;
         `
       : css`
           height: 0px;

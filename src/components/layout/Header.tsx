@@ -2,9 +2,12 @@ import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useRef, MutableRefObject } from 'react'
 import { navIconSet } from 'assets/Svg/NavIconSet'
 
-import * as Styled from './style/HeaderStyled'
+import * as S from './Styles'
 
-const Header = () => {
+export interface HeaderPropsType {
+  backgroundImg: string
+}
+const Header = (props: HeaderPropsType) => {
   const headerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
   const iconRef: MutableRefObject<HTMLDivElement | null> =
@@ -18,13 +21,15 @@ const Header = () => {
   const xScroll = (headerWidth - iconWidth) * 1
 
   return (
-    <Styled.HeaderContainer ref={headerRef}>
-      <Styled.IconWrapper>
-        <Styled.Icon ref={iconRef} scroll={xScroll * scroll}>
-          {navIconSet['Rocket'].icon('15', '15')}
-        </Styled.Icon>
-      </Styled.IconWrapper>
-    </Styled.HeaderContainer>
+    <S.HeaderContainer ref={headerRef} backgroundImg={props.backgroundImg}>
+      <S.HeaderBackgroundImg>
+        <S.IconWrapper>
+          <S.Icon ref={iconRef} scroll={xScroll * scroll}>
+            {navIconSet['Rocket'].icon('15', '15')}
+          </S.Icon>
+        </S.IconWrapper>
+      </S.HeaderBackgroundImg>
+    </S.HeaderContainer>
   )
 }
 

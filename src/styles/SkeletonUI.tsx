@@ -8,15 +8,13 @@ const SkeletonItem = styled.div`
   overflow: hidden;
   border-radius: 4px;
 
-  @keyframes skeleton-gradient {
+  @keyframes loading {
     0% {
-      background-color: rgba(165, 165, 165, 0.1);
+      transform: translateX(0);
     }
-    50% {
-      background-color: rgba(165, 165, 165, 0.3);
-    }
+    50%,
     100% {
-      background-color: rgba(165, 165, 165, 0.1);
+      transform: translateX(460px);
     }
   }
 
@@ -27,7 +25,8 @@ const SkeletonItem = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    animation: skeleton-gradient 0.8s infinite ease-in-out;
+    background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+    animation: loading 2s infinite linear;
   }
 `
 

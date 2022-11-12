@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import ProfileImage from './ProfileImage'
 import NavTabMenu from './NavTabMenu'
 
-import * as Styled from './style/IntroductionStyled'
+import * as S from './Styles'
 
 interface IntroductionProps {
   profileImage: string
@@ -11,13 +11,13 @@ interface IntroductionProps {
 
 const Introduction = ({ profileImage, roketImage }: IntroductionProps) => {
   return (
-    <Styled.IntroductionContainer>
-      <Styled.IntroductionWrapper>
+    <S.IntroductionContainer>
+      <S.IntroductionWrapper>
         <ProfileImage profileImage={profileImage} roketImage={roketImage} />
-        <Styled.SubTitle>Hippo's Dev</Styled.SubTitle>
+        <S.SubTitle>Hippo's Dev</S.SubTitle>
         <NavTabMenu />
-      </Styled.IntroductionWrapper>
-    </Styled.IntroductionContainer>
+      </S.IntroductionWrapper>
+    </S.IntroductionContainer>
   )
 }
 

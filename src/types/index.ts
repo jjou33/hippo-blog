@@ -11,3 +11,7 @@ export interface IconPropsType {
     }
   }
 }
+
+export interface HeaderPropsType {
+  backgroundImg: string
+}

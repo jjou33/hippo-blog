@@ -4,8 +4,8 @@ import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
-import * as Styled from './style/TemplateStyled'
 
+import * as S from './Styles'
 import { Helmet } from 'react-helmet'
 import { RecoilRoot } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
@@ -46,12 +46,12 @@ const Template = ({
   useEffect(() => {
     setTimeout(() => {
       isMount(true)
-    }, 1000)
+    }, 600)
   }, [])
 
   return (
     <>
-      <Styled.Container>
+      <S.Container>
         <RecoilRoot>
           <GlobalStyle />
           <Helmet>
@@ -78,8 +78,8 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          <Styled.NavigationContainer>
-            <Styled.NavigationWrapper>
+          <S.NavigationContainer>
+            <S.NavigationWrapper>
               <Introduction
                 profileImage={imagePathList['superHero']}
                 roketImage={imagePathList['rocket']}
@@ -93,14 +93,14 @@ const Template = ({
               ) : (
                 <CategorySkeleton categoryList={categoryList} />
               )}
-            </Styled.NavigationWrapper>
-          </Styled.NavigationContainer>
-          <Styled.MainContainer>
-            <Header />
+            </S.NavigationWrapper>
+          </S.NavigationContainer>
+          <S.MainContainer>
+            <Header backgroundImg={imagePathList['sea']} />
             {children}
-          </Styled.MainContainer>
+          </S.MainContainer>
         </RecoilRoot>
-      </Styled.Container>
+      </S.Container>
       <Footer />
     </>
   )

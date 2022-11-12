@@ -1,17 +1,13 @@
 import React from 'react'
-import { getSvgJSXElement } from 'utils/Common/Common'
-import {
-  ProfileImageWrapper,
-  RoketImageWrapper,
-  RotateRocket,
-} from './style/ProfileImageStyled'
+
+import * as S from './Styles'
 
 interface ProfileImageProps {
   profileImage: string
   roketImage: string
 }
 
-const ProfileImage = ({ profileImage, roketImage }: ProfileImageProps) => {
+const ProfileImage = ({ profileImage }: ProfileImageProps) => {
   return (
     <>
       <a
@@ -19,7 +15,7 @@ const ProfileImage = ({ profileImage, roketImage }: ProfileImageProps) => {
         title="astronaut stickers"
         target="_blank"
       >
-        <ProfileImageWrapper src={profileImage} alt="Profile Image" />
+        <S.ProfileImageWrapper src={profileImage} alt="Profile Image" />
       </a>
     </>
   )

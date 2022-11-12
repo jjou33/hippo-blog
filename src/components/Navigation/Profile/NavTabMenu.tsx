@@ -1,15 +1,14 @@
 import NavTabItems from './NavTabItems'
-import * as Styled from './style/NavTabMenuStyled'
+
+import * as S from './Styles'
 
 const NavigationTabMenu = () => {
   return (
-    // <Styled.NavTabMenuContainer>
-    <Styled.NavTabMenuWrapper>
+    <S.NavTabMenuWrapper>
       <NavTabItems title="Home" href="http://localhost:8000" />
       <NavTabItems title="Github" href="https://github.com/jjou33" />
       <NavTabItems title="Profile" href="http://localhost:8080" />
-    </Styled.NavTabMenuWrapper>
-    // </Styled.NavTabMenuContainer>
+    </S.NavTabMenuWrapper>
   )
 }
 
