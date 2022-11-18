@@ -1,5 +1,5 @@
 import * as S from './Styles'
-import CounterBadge from 'components/Common/CounterBadge'
+import CounterBadge from 'components/Common/NavigationCounterBadge/CounterBadge'
 import { getSvgJSXElement } from 'utils/Common/Common'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
 
@@ -15,7 +15,7 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
       {getSvgJSXElement('Dot', '18')}
       <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '18')}</S.CategoryRootIcon>
       <span></span>
-      <S.CategoryRootItem to={`/?category=All`}>Root</S.CategoryRootItem>
+      <S.CategoryRootTitle to={`/?category=All`}>Root</S.CategoryRootTitle>
       <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (
           <CounterBadge>{categoryCount['All']}</CounterBadge>

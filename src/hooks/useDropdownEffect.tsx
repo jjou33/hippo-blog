@@ -25,14 +25,14 @@ export const useDropdownEffect = (categoryItem: any) => {
   const titleRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
 
-  // const onMouseDown = useCallback(
-  //   (e: Event) => {
-  //     // if (titleRef.current && !titleRef.current.contains(e.target)) {
-  //     //   // setIsOpen(false)
-  //     // }
-  //   },
-  //   [titleRef, setIsOpen],
-  // )
+  const onMouseDown = useCallback(
+    (e: Event) => {
+      // if (titleRef.current && !titleRef.current.contains(e.target)) {
+      //   // setIsOpen(false)
+      // }
+    },
+    [titleRef, setIsOpen],
+  )
 
   // Click 시 Callback 함수 필요 할 경우
   // useEffect(() => {
@@ -42,11 +42,11 @@ export const useDropdownEffect = (categoryItem: any) => {
   //   }
   // }, [isOpen])
 
-  // useEffect(() => {
-  //   window.addEventListener('click', onMouseDown)
+  useEffect(() => {
+    window.addEventListener('click', onMouseDown)
 
-  //   return () => window.removeEventListener('click', onMouseDown)
-  // }, [onMouseDown])
+    return () => window.removeEventListener('click', onMouseDown)
+  }, [onMouseDown])
 
   const toggleTitle = (categoryItem: string) => {
     setIsOpen(!isOpen)

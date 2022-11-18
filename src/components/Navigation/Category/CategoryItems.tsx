@@ -3,7 +3,7 @@ import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
 
 import * as S from './Styles'
-import ConterBadge from 'components/Common/CounterBadge'
+import ConterBadge from 'components/Common/NavigationCounterBadge/CounterBadge'
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
   categoryList: string[]

@@ -46,9 +46,20 @@ const PostTemplate = ({
   } = edges[0]
 
   return (
-    <Template title={title} description={summary} url={href} image={publicURL}>
+    <Template
+      isPost={true}
+      title={title}
+      description={summary}
+      url={href}
+      image={publicURL}
+    >
       <PostWrapper>
-        <PostHead title={title} date={date} categories={categories} thumbnail={gatsbyImageData} />
+        <PostHead
+          title={title}
+          date={date}
+          categories={categories}
+          thumbnail={gatsbyImageData}
+        />
         <PostContent html={html} />
         <CommentWidget />
       </PostWrapper>

@@ -82,7 +82,7 @@ export const CategoryRootIcon = styled.div`
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
 `
 
-export const CategoryRootItem = styled(({ ...props }: RootItemPropsType) => {
+export const CategoryRootTitle = styled(({ ...props }: RootItemPropsType) => {
   return <Link {...props} />
 })``
 

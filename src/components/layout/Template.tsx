@@ -4,8 +4,9 @@ import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
-
+import MainImage from 'components/layout/MainImage'
 import * as S from './Styles'
+import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { Helmet } from 'react-helmet'
 import { RecoilRoot } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
@@ -18,6 +19,7 @@ interface TemplateProps {
   description: string
   url: string
   image: string
+  isPost?: boolean
   children: ReactNode
 }
 
@@ -26,6 +28,7 @@ const Template = ({
   description,
   url,
   image,
+  isPost = false,
   children,
 }: TemplateProps) => {
   const {
@@ -42,6 +45,7 @@ const Template = ({
   const categoryList = getCategoryList(allMarkdownRemark)
 
   const imagePathList = getImagePathSetList(edges)
+  const scroll = useScrollStateBar()
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,6 +53,7 @@ const Template = ({
     }, 600)
   }, [])
 
+  const titleList = ['HTML', 'Javascript', 'CSS']
   return (
     <>
       <S.Container>
@@ -78,6 +83,7 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
+
           <S.NavigationContainer>
             <S.NavigationWrapper>
               <Introduction
@@ -96,7 +102,18 @@ const Template = ({
             </S.NavigationWrapper>
           </S.NavigationContainer>
           <S.MainContainer>
-            <Header backgroundImg={imagePathList['sea']} />
+            <S.ProgressBarContainer>
+              <S.ProgressBar scroll={scroll} />
+            </S.ProgressBarContainer>
+
+            {isPost ? (
+              ''
+            ) : (
+              <MainImage
+                backgroundImg={imagePathList['mainTitle']}
+                typeTitle={titleList}
+              />
+            )}
             {children}
           </S.MainContainer>
         </RecoilRoot>
