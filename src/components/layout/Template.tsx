@@ -105,7 +105,7 @@ const Template = ({
             <S.ProgressBarContainer>
               <S.ProgressBar scroll={scroll} />
             </S.ProgressBarContainer>
-
+            {/* 
             {isPost ? (
               ''
             ) : (
@@ -113,7 +113,7 @@ const Template = ({
                 backgroundImg={imagePathList['mainTitle']}
                 typeTitle={titleList}
               />
-            )}
+            )} */}
             {children}
           </S.MainContainer>
         </RecoilRoot>

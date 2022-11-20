@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react'
-
+import { getImagePathSetList } from 'utils/Template/Template'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory } from 'utils/Category/Category'
+import LandingPage from 'components/Main/LandingPage/landingPage'
 import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
 
@@ -40,11 +41,13 @@ const IndexPage = ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark: { edges },
+    // allMarkdownRemark: { edges },
     file: { publicURL },
+    allFile: { edges },
   },
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
+  const imagePathList = getImagePathSetList(edges)
   return (
     <Template
       title={title}
@@ -52,9 +55,7 @@ const IndexPage = ({
       url={siteUrl}
       image={publicURL}
     >
-      <ContentsWrapper>
-        <PostList selectedCategory={selectedCategory} posts={edges} />
-      </ContentsWrapper>
+      <LandingPage imageSet={imagePathList} />
     </Template>
   )
 }
@@ -101,6 +102,21 @@ export const getPostList = graphql`
     }
     file(relativePath: { eq: "profile-image.svg" }) {
       publicURL
+    }
+    allFile(
+      filter: {
+        extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
+        sourceInstanceName: { eq: "images" }
+      }
+    ) {
+      edges {
+        node {
+          extension
+          sourceInstanceName
+          id
+          publicURL
+        }
+      }
     }
   }
 `
