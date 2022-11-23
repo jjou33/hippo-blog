@@ -1,7 +1,14 @@
-import React, { FunctionComponent } from 'react'
+import React, {
+  FunctionComponent,
+  ForwardRefRenderFunction,
+  useEffect,
+  useState,
+} from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/PostItem.types'
 type PostItemProps = PostFrontmatterType & {
   link: string
@@ -13,6 +20,19 @@ const PostItemWrapper = styled(Link)`
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
+
+  ${(props: string) =>
+    props.inview
+      ? css`
+          opacity: 1;
+          transform: scale(100%);
+          transition: 2s;
+        `
+      : css`
+          opacity: 0;
+          transform: scale(85%);
+          transition: 2s;
+        `}
   cursor: pointer;
 
   &:hover {
@@ -92,8 +112,20 @@ const PostItem = ({
   },
   link,
 }: PostItemProps) => {
+  const [inViewState, setInViewState] = useState(false)
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  })
+
+  useEffect(() => {
+    if (!inViewState && inView) {
+      setInViewState(true)
+    }
+  }, [inView])
+
   return (
-    <PostItemWrapper to={link}>
+    <PostItemWrapper to={link} ref={ref} inview={`${inViewState}`}>
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
 
       <PostItemContent>

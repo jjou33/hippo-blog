@@ -2,9 +2,11 @@ import React, { FunctionComponent } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
+import Slider from 'components/Main/LandingPage/Slider'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory } from 'utils/Category/Category'
-import LandingPage from 'components/Main/LandingPage/landingPage'
+import LandingPage from 'components/Main/LandingPage/LandingPage'
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
 
@@ -23,9 +25,7 @@ type IndexPageProps = {
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
-    file: {
-      publicURL: string
-    }
+    allFile: string[]
   }
 }
 
@@ -33,29 +33,41 @@ const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 4;
+  align-items: center;
 `
 
+const ContentsTitle = styled.h1`
+  margin-top: 20px;
+  font-size: 50px;
+`
 const IndexPage = ({
   location: { search },
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    // allMarkdownRemark: { edges },
-    file: { publicURL },
-    allFile: { edges },
+    allMarkdownRemark: { edges },
+    allFile,
   },
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
-  const imagePathList = getImagePathSetList(edges)
+  const imagePathList = getImagePathSetList(allFile.edges)
+
+  console.log('cate : ', edges)
+
   return (
     <Template
       title={title}
       description={description}
       url={siteUrl}
-      image={publicURL}
+      image={imagePathList['profile-image']}
     >
-      <LandingPage imageSet={imagePathList} />
+      {/* <LandingPage imageSet={imagePathList} /> */}
+
+      <ContentsWrapper>
+        <ContentsTitle>ALL POST LIST</ContentsTitle>
+        <PostList selectedCategory={selectedCategory} posts={edges} />
+      </ContentsWrapper>
     </Template>
   )
 }
@@ -99,9 +111,6 @@ export const getPostList = graphql`
           }
         }
       }
-    }
-    file(relativePath: { eq: "profile-image.svg" }) {
-      publicURL
     }
     allFile(
       filter: {

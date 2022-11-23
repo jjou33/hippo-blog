@@ -92,7 +92,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: PostTemplateComponent,
       context: { slug },
     };
-
+    
     createPage(pageOptions);
   };
 

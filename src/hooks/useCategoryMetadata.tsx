@@ -84,12 +84,12 @@ export const useCategoryMetadata = () => {
                 if (list[sideTitle] === undefined) {
                   list[sideTitle] = 1
                 } else {
-                  list[sideTitle]++
+                  list[sideTitle] += 1
                 }
               }
             },
           )
-          list['All']++
+          list['All'] += 1
           return list
         },
         { All: 0 },

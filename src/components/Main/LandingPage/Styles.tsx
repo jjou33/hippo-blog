@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 export const LadingPageContainer = styled.div``
@@ -24,3 +25,45 @@ export const FirstTitle = styled.h1`
   font-size: 4rem;
   padding: 15px;
 `
+
+/**
+ * Slider
+ */
+
+export const SliderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 20px;
+
+  ${(props: string) =>
+    props.inview
+      ? css`
+          opacity: 1;
+          transform: scale(100%);
+          transition: 2s;
+        `
+      : css`
+          opacity: 0;
+          transform: scale(85%);
+          transition: 2s;
+        `}
+`
+
+export const SliderImg = styled.img`
+  alt: 'slider';
+  width: 60%;
+`
+export const SliderTitleWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+`
+
+export const SliderTitle = styled.h1`
+  text-align: center;
+`
+export const SliderSubTitle = styled.p``

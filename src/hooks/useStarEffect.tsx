@@ -29,7 +29,6 @@ export const useStarEffect = () => {
       star.style.height = `${20 + h}px`
       star.style.animationDuration = `${duration}s`
       scene.current?.appendChild(star)
-      console.log('hh')
     }
   })
 

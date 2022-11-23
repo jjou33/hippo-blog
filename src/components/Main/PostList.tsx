@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
+
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
 import useInfiniteScroll, {
   useInfiniteScrollType,
@@ -41,6 +42,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
     selectedCategory,
     posts,
   )
+  console.log('post : ', postList)
 
   return (
     <PostListWrapper ref={containerRef}>

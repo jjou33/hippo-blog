@@ -5,6 +5,7 @@ import Footer from 'components/layout/Footer'
 import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
 import MainImage from 'components/layout/MainImage'
+import LandingPage from 'components/Main/LandingPage/LandingPage'
 import * as S from './Styles'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { Helmet } from 'react-helmet'
@@ -43,8 +44,7 @@ const Template = ({
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
-
-  const imagePathList = getImagePathSetList(edges)
+  const imagePath = getImagePathSetList(edges)
   const scroll = useScrollStateBar()
 
   useEffect(() => {
@@ -53,7 +53,6 @@ const Template = ({
     }, 600)
   }, [])
 
-  const titleList = ['HTML', 'Javascript', 'CSS']
   return (
     <>
       <S.Container>
@@ -87,8 +86,8 @@ const Template = ({
           <S.NavigationContainer>
             <S.NavigationWrapper>
               <Introduction
-                profileImage={imagePathList['superHero']}
-                roketImage={imagePathList['rocket']}
+                profileImage={imagePath['superHero']}
+                roketImage={imagePath['rocket']}
               />
               {mount ? (
                 <CategoryList
@@ -105,15 +104,15 @@ const Template = ({
             <S.ProgressBarContainer>
               <S.ProgressBar scroll={scroll} />
             </S.ProgressBarContainer>
-            {/* 
+
             {isPost ? (
               ''
+            ) : selectedCategory === 'All' ? (
+              <LandingPage imageSet={imagePath} />
             ) : (
-              <MainImage
-                backgroundImg={imagePathList['mainTitle']}
-                typeTitle={titleList}
-              />
-            )} */}
+              <MainImage backgroundImg={imagePath['mainTitle']} />
+            )}
+
             {children}
           </S.MainContainer>
         </RecoilRoot>
