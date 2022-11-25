@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
-
+import Pagination from './Pagination'
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
 import useInfiniteScroll, {
   useInfiniteScrollType,
@@ -37,27 +37,47 @@ const PostListWrapper = styled.div`
   }
 `
 
+const PostListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const PostList = ({ selectedCategory, posts }: PostListProps) => {
+  const [post, setPosts] = useState([])
+  const [limit, setLimit] = useState(4)
+  const [page, setPage] = useState(1)
+  const offset = (page - 1) * limit
+
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
     selectedCategory,
     posts,
+    page,
+    limit,
+    setPosts,
+    offset,
   )
-  console.log('post : ', postList)
-
   return (
-    <PostListWrapper ref={containerRef}>
-      {postList.map(
-        ({
-          node: {
-            id,
-            fields: { slug },
-            frontmatter,
-          },
-        }: PostListItemType) => (
-          <PostItem {...frontmatter} link={slug} key={id} />
-        ),
-      )}
-    </PostListWrapper>
+    <PostListContainer>
+      <PostListWrapper ref={containerRef}>
+        {postList.slice(offset, offset + limit).map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }: PostListItemType) => (
+            <PostItem {...frontmatter} link={slug} key={id} />
+          ),
+        )}
+      </PostListWrapper>
+      <Pagination
+        total={postList.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
+    </PostListContainer>
   )
 }
 

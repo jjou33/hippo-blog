@@ -6,11 +6,15 @@ export type useInfiniteScrollType = {
   postList: PostListItemType[]
 }
 
-const NUMBER_OF_ITEMS_PER_PAGE = 10
+const NUMBER_OF_ITEMS_PER_PAGE = 2
 
 const useInfiniteScroll = function (
   selectedCategory: string,
   posts: PostListItemType[],
+  setPosts,
+  page,
+  limit,
+  offset,
 ): useInfiniteScrollType {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -58,6 +62,7 @@ const useInfiniteScroll = function (
       containerRef.current.children[containerRef.current.children.length - 1],
     )
   }, [count, selectedCategory])
+  console.log('pl : ', postListByCategory)
 
   return {
     containerRef,
