@@ -1,9 +1,15 @@
-import React, { ref } from 'react'
+import React from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import * as S from './Styles'
 
-const Slider = ({ imageSrc, title, subTitle, flipped }) => {
+interface SliderPropsType {
+  imageSrc: string
+  title: string
+  subTitle: string
+  flipped: boolean
+}
+const Slider = ({ imageSrc, title, subTitle, flipped }: SliderPropsType) => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0.2,

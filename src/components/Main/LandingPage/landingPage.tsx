@@ -1,7 +1,13 @@
 import React from 'react'
-import * as S from './Styles'
 import Slider from './Slider'
-const LandingPage = (props: any) => {
+import * as S from './Styles'
+
+interface ImagePropsType {
+  imageSet: {
+    [key: string]: string
+  }
+}
+const LandingPage = (props: ImagePropsType) => {
   return (
     <>
       <S.LadingPageContainer>
@@ -14,6 +20,7 @@ const LandingPage = (props: any) => {
         imageSrc={props.imageSet.beach}
         title="This is First Title"
         subTitle="It's my SubTitle"
+        flipped={false}
       ></Slider>
       <Slider
         imageSrc={props.imageSet.beach}

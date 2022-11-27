@@ -2,11 +2,8 @@ import React, { FunctionComponent } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
-import Slider from 'components/Main/LandingPage/Slider'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory } from 'utils/Category/Category'
-import LandingPage from 'components/Main/LandingPage/LandingPage'
-import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
 
@@ -25,7 +22,13 @@ type IndexPageProps = {
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
-    allFile: string[]
+    allFile: {
+      edges: {
+        node: {
+          [key: string]: string
+        }
+      }[]
+    }
   }
 }
 
@@ -53,8 +56,6 @@ const IndexPage = ({
   const selectedCategory: string = getSelectedCategory(search)
   const imagePathList = getImagePathSetList(allFile.edges)
 
-  console.log('cate : ', edges)
-
   return (
     <Template
       title={title}
@@ -62,10 +63,10 @@ const IndexPage = ({
       url={siteUrl}
       image={imagePathList['profile-image']}
     >
-      {/* <LandingPage imageSet={imagePathList} /> */}
-
       <ContentsWrapper>
-        <ContentsTitle>ALL POST LIST</ContentsTitle>
+        <ContentsTitle>
+          {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
+        </ContentsTitle>
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </ContentsWrapper>
     </Template>

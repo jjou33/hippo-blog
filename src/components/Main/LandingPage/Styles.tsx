@@ -1,3 +1,4 @@
+import { MutableRefObject } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
@@ -30,12 +31,16 @@ export const FirstTitle = styled.h1`
  * Slider
  */
 
+interface SliderContainerProps {
+  ref: (node?: Element | null) => void
+  inview: boolean
+}
 export const SliderContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 20px;
 
-  ${(props: string) =>
+  ${(props: SliderContainerProps) =>
     props.inview
       ? css`
           opacity: 1;
