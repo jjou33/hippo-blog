@@ -2,20 +2,26 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
 import Pagination from './Pagination'
+import { getSvgJSXElement } from 'utils/Common/Common'
+import * as S from './Styles'
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
-export type PostType = {
+
+export interface PostType {
   node: {
     id: string
     frontmatter: PostFrontmatterType
   }
 }
 
-type PostListProps = {
+interface PostListProps {
   selectedCategory: string
   posts: PostListItemType[]
+  imageSet: {
+    [key: string]: string
+  }
 }
 
 const PostListWrapper = styled.div`
@@ -42,7 +48,7 @@ const PostListContainer = styled.div`
   flex-direction: column;
 `
 
-const PostList = ({ selectedCategory, posts }: PostListProps) => {
+const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   const [post, setPosts] = useState([])
   const [limit, setLimit] = useState(4)
   const [page, setPage] = useState(1)
@@ -58,6 +64,26 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
   )
   return (
     <PostListContainer>
+      <S.FooterWrapper>
+        <S.FooterWaveStyle
+          src={imageSet.wave}
+          waveType="first"
+        ></S.FooterWaveStyle>
+        <S.FooterWaveStyle
+          src={imageSet.wave}
+          waveType="second"
+        ></S.FooterWaveStyle>
+        <S.FooterWaveStyle
+          src={imageSet.wave}
+          waveType="third"
+        ></S.FooterWaveStyle>
+        <S.FooterWaveStyle
+          src={imageSet.wave}
+          waveType="fourth"
+        ></S.FooterWaveStyle>
+        <S.BoatIcon>{getSvgJSXElement('Ship', '120', '120')}</S.BoatIcon>
+        <S.islandIcon>{getSvgJSXElement('Tree', '120', '120')}</S.islandIcon>
+      </S.FooterWrapper>
       <PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({
@@ -71,6 +97,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
           ),
         )}
       </PostListWrapper>
+
       <Pagination
         total={postList.length}
         limit={limit}

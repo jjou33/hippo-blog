@@ -7,7 +7,7 @@ import { getSelectedCategory } from 'utils/Category/Category'
 import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
 
-type IndexPageProps = {
+interface IndexPageProps {
   location: {
     search: string
   }
@@ -67,7 +67,11 @@ const IndexPage = ({
         <ContentsTitle>
           {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
         </ContentsTitle>
-        <PostList selectedCategory={selectedCategory} posts={edges} />
+        <PostList
+          selectedCategory={selectedCategory}
+          posts={edges}
+          imageSet={imagePathList}
+        />
       </ContentsWrapper>
     </Template>
   )

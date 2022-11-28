@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
@@ -7,7 +8,9 @@ const Nav = styled.nav`
   gap: 4px;
   margin: 16px;
 `
-
+interface ButtonPropsType {
+  current?: string | null
+}
 const Button = styled.button`
   border: none;
   border-radius: 8px;
@@ -29,15 +32,29 @@ const Button = styled.button`
     transform: revert;
   }
 
-  &[aria-current] {
+  ${(props: ButtonPropsType) =>
+    props.current === 'page'
+      ? css`
+          background: deeppink;
+          font-weight: bold;
+          cursor: revert;
+          transform: revert;
+        `
+      : ''}/* &[aria-current] {
     background: deeppink;
     font-weight: bold;
     cursor: revert;
     transform: revert;
-  }
+  } */
 `
 
-const Pagination = ({ total, limit, page, setPage }) => {
+interface PaginationPropsType {
+  total: number
+  limit: number
+  page: number
+  setPage: React.Dispatch<React.SetStateAction<number>>
+}
+const Pagination = ({ total, limit, page, setPage }: PaginationPropsType) => {
   const numPages = Math.ceil(total / limit)
 
   return (
@@ -47,18 +64,18 @@ const Pagination = ({ total, limit, page, setPage }) => {
           {`<`}
         </Button>
         {Array(numPages)
-          .fill()
+          .fill('')
           .map((_, i) => (
             <Button
               key={i + 1}
               onClick={() => setPage(i + 1)}
-              aria-current={page === i + 1 ? 'page' : null}
+              current={page === i + 1 ? 'page' : null}
             >
               {i + 1}
             </Button>
           ))}
         <Button onClick={() => setPage(page + 1)} disabled={page === numPages}>
-          >
+          {`>`}
         </Button>
       </Nav>
     </>

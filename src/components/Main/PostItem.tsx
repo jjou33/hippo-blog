@@ -14,14 +14,12 @@ type PostItemProps = PostFrontmatterType & {
   link: string
 }
 
-const PostItemWrapper = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-  transition: 0.3s box-shadow;
-
-  ${(props: string) =>
+interface PostItemContainerPropsType {
+  ref: (node?: Element | null) => void
+  inview: boolean
+}
+const PostItemContainer = styled.div`
+  ${(props: PostItemContainerPropsType) =>
     props.inview
       ? css`
           opacity: 1;
@@ -33,6 +31,14 @@ const PostItemWrapper = styled(Link)`
           transform: scale(85%);
           transition: 2s;
         `}
+`
+const PostItemWrapper = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  transition: 0.3s box-shadow;
+
   cursor: pointer;
 
   &:hover {
@@ -125,20 +131,22 @@ const PostItem = ({
   }, [inView])
 
   return (
-    <PostItemWrapper to={link} ref={ref} inview={`${inViewState}`}>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+    <PostItemContainer ref={ref} inview={inViewState}>
+      <PostItemWrapper to={link}>
+        <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
 
-      <PostItemContent>
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        <Category>
-          {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
-          ))}
-        </Category>
-        <Summary>{summary}</Summary>
-      </PostItemContent>
-    </PostItemWrapper>
+        <PostItemContent>
+          <Title>{title}</Title>
+          <Date>{date}</Date>
+          <Category>
+            {categories.map(category => (
+              <CategoryItem key={category}>{category}</CategoryItem>
+            ))}
+          </Category>
+          <Summary>{summary}</Summary>
+        </PostItemContent>
+      </PostItemWrapper>
+    </PostItemContainer>
   )
 }
 

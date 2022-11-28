@@ -93,28 +93,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Generate Post Page And Passing Slug Props for Query
   posts.forEach(generatePostPage);
 
-  // const post = queryAllMarkdownData.data.allMarkdownRemark.edges
-  // const postsPerPage = 4;
-  // const numPages = Math.ceil(post.length / postsPerPage)
+  const post = queryAllMarkdownData.data.allMarkdownRemark.edges
+  const postsPerPage = 4;
+  const numPages = Math.ceil(post.length / postsPerPage)
 
-  // const PostPaginationComponent = path.resolve(
-  //   __dirname,
-  //   'src/templates/post_pagination.tsx',
-  // );
+  const PostPaginationComponent = path.resolve(
+    __dirname,
+    'src/templates/post_pagination.tsx',
+  );
   
 
-  // Array.from({length: numPages}).forEach((_, i) => {
-  //   createPage({
-  //     path: i === 0 ? `/` : `/${i + 1}`,
-  //     component: PostPaginationComponent,
-  //     context: {
-  //       limit: postsPerPage,
-  //       skip: i * postsPerPage,
-  //       numPages,
-  //       currentPage: i + 1
-  //     }
-  //   })
-  // })
+  Array.from({length: numPages}).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: PostPaginationComponent,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1
+      }
+    })
+  })
 };
 
 // Generate a Slug Each Post Data

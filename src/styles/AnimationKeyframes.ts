@@ -31,3 +31,19 @@ export const shaking_in_animation = keyframes`
   transform: rotate(-15deg);
 }
 `
+
+/**
+ * @description Hover 혹은 Event 발생 시 양옆으로 흔들리는 Keyframes
+ */
+export const boat_in_animation = keyframes`
+ 0% {
+   transform: rotate(10deg);
+ }
+
+ 50% {
+   transform: rotate(-10deg);
+ }
+ 100% {
+   transform: rotate(10deg);
+ }
+ `
