@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 export const LadingPageContainer = styled.div`
   background: #cce3f1;
+  margin-left: 3px;
 `
 
 export const FirstSectionWrapper = styled.div`
@@ -29,7 +30,9 @@ export const FirstTitle = styled.h1`
   padding: 15px;
 `
 
-export const SecondSectionWrapper = styled.section``
+export const SecondSectionWrapper = styled.section`
+  background: black;
+`
 /**
  * Slider
  */
@@ -57,9 +60,15 @@ export const SliderContainer = styled.div`
         `}
 `
 
-export const SliderImg = styled.img`
+export const SliderImg = styled.embed`
   alt: 'slider';
   width: 60%;
+
+  path {
+    fill: none;
+    stroke: fff;
+    stroke-width: 3px;
+  }
 `
 export const SliderTitleWrapper = styled.div`
   flex: 1;
@@ -83,9 +92,9 @@ export const SliderSubTitle = styled.p``
 export const FooterWrapper = styled.div`
   position: relative;
   width: 100%;
-  margin-left: 3px;
+  /* margin-left: 2px; */
   height: 250px;
-  background: #cce3f1;
+  top: 100%;
   overflow: hidden;
 `
 
@@ -175,3 +184,79 @@ export const BoatIcon = styled.div`
   z-index: 1001;
   animation: ${boat_in_animation} 10s ease infinite;
 `
+
+/**
+ * ParallaxLandingPage Section
+ */
+export const ParallaxheaderText = styled.h2`
+  position: absolute;
+  color: #094b65;
+  font-size: 10vw;
+  text-align: center;
+  line-height: 0.8;
+  transform: translateY(-50%);
+`
+export const SpanTag = styled.span`
+  font-size: 0.2em;
+  letter-spacing: 2px;
+  font-weight: 400;
+`
+export const ButtonTag = styled.a`
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 30px;
+  background: #fff;
+  color: #094b65;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  transform: translateY(100px);
+`
+export const ParallaxConstainer = styled.section`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, #094b65, transparent);
+    z-index: 10;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+`
+export const ParallaxScrollingContainer = styled.div`
+  position: relative;
+  padding: 100px;
+  background: #094b65;
+`
+export const ParallaxScrollingHeader = styled.h2`
+  font-size: 3.5em;
+  color: #fff;
+  margin-bottom: 10px;
+`
+export const ParallaxScrollingP = styled.p`
+  font-size: 1em;
+  color: #fff;
+`
+
+export const ParallaxBirdImage1 = styled.img``
+export const ParallaxBirdImage2 = styled.img``
+export const ParallaxForestImage = styled.img``
+export const ParallaxRockImage = styled.img``
+export const ParallaxWaterImage = styled.img``

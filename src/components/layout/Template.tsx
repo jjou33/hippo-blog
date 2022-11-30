@@ -6,6 +6,8 @@ import CategoryList from 'components/Navigation/Category/CategoryList'
 import Introduction from 'components/Navigation/Profile/Introduction'
 import MainImage from 'components/layout/MainImage'
 import LandingPage from 'components/Main/LandingPage/LandingPage'
+import ParallaxLandingPage from 'components/Main/LandingPage/ParallaxLandingPage'
+import InteractiveLandingPage from 'components/Main/LandingPage/InteractiveLandingPage/InteractiveLandingPage'
 import * as S from './Styles'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { Helmet } from 'react-helmet'
@@ -94,6 +96,7 @@ const Template = ({
                   categoryList={categoryList}
                   selectedCategory={selectedCategory}
                   categoryCount={categoryCount}
+                  imagePathList={imagePath}
                 />
               ) : (
                 <CategorySkeleton categoryList={categoryList} />
@@ -108,7 +111,7 @@ const Template = ({
             {isPost ? (
               ''
             ) : selectedCategory === 'All' ? (
-              <LandingPage imageSet={imagePath} />
+              <InteractiveLandingPage imageSet={imagePath} />
             ) : (
               <MainImage backgroundImg={imagePath['mainTitle']} />
             )}

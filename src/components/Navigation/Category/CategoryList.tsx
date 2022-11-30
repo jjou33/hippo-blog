@@ -15,10 +15,14 @@ const CategoryList = ({
   selectedCategory,
   categoryList,
   categoryCount,
+  imagePathList,
 }: CategoryListProps) => {
   return (
     <S.CategoryListContainer>
-      <CategoryRootTitle categoryCount={categoryCount} />
+      <CategoryRootTitle
+        categoryCount={categoryCount}
+        imagePathList={imagePathList}
+      />
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <S.CategoryListWrapper key={idx}>

@@ -79,6 +79,8 @@ export const CategoryRootCount = styled.div`
 `
 export const CategoryRootIcon = styled.div`
   margin: 0px 10px 10px 10px;
+  width: 20px;
+  height: 20px;
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
 `
 

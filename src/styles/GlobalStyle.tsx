@@ -51,16 +51,23 @@ const defaultStyle = css`
     shape-rendering: auto;
   }
 
-  html,
+  html {
+    font-size: 14px;
+  }
   body,
   #___gatsby {
     height: 100%;
+    overflow-x: hidden;
+    color: rgb(29, 29, 31);
+    letter-spacing: -0.05px;
+    background: white;
   }
 
   a,
   a:hover {
     color: inherit;
     text-decoration: none;
+    color: rgb(29, 29, 31);
     cursor: pointer;
   }
 `
