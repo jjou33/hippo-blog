@@ -64,7 +64,7 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   )
   return (
     <PostListContainer>
-      <S.FooterWrapper>
+      {/* <S.FooterWrapper>
         <S.FooterWaveStyle
           src={imageSet.wave}
           waveType="first"
@@ -83,7 +83,7 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
         ></S.FooterWaveStyle>
         <S.BoatIcon>{getSvgJSXElement('Ship', '120', '120')}</S.BoatIcon>
         <S.islandIcon>{getSvgJSXElement('Tree', '120', '120')}</S.islandIcon>
-      </S.FooterWrapper>
+      </S.FooterWrapper> */}
       <PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({

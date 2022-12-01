@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+
 import * as S from './Styles'
 interface ImagePropsType {
   imageSet: {
@@ -15,30 +16,41 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <S.LinkItem href="#">TOTAL POST</S.LinkItem>
         </S.NavLinkItems>
       </S.HeaderNav>
-      <S.ScrollSection>
+      <S.ScrollSectionContainer1>
         <S.ScrollSectionTitle>Welcome Hippo Dev</S.ScrollSectionTitle>
-        <S.ScrollSectionSubTitleWrapper>
-          <S.ScrollSectionSubTitle>
-            프론트를 사랑하는 개발자입니다.
-          </S.ScrollSectionSubTitle>
-        </S.ScrollSectionSubTitleWrapper>
-        <S.ScrollSectionSubTitleWrapper>
-          <S.ScrollSectionSubTitle>즐겁게 개발하며</S.ScrollSectionSubTitle>
-        </S.ScrollSectionSubTitleWrapper>
-        <S.ScrollSectionSubTitleWrapper>
-          <S.ScrollSectionSubTitle>
-            행복하게 성장하는 개발자 입니다.
-          </S.ScrollSectionSubTitle>
-        </S.ScrollSectionSubTitleWrapper>
-        <S.ScrollSectionSubTitleWrapper>
-          <S.ScrollSectionSubTitle>
-            와주셔서 감사합니다.
-          </S.ScrollSectionSubTitle>
-        </S.ScrollSectionSubTitleWrapper>
-      </S.ScrollSection>
-      <S.ScrollSection>
-        <S.ScrollSectionSubTitle>
-          <strong>저의 이력은 이렀습니다.</strong>
+        <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
+        <S.ScrollStickElemMainMessage type="a">
+          <S.ScrollDefaultDesc>
+            온전히 빠져들게 하는
+            <br />
+            최고급 세라믹
+          </S.ScrollDefaultDesc>
+        </S.ScrollStickElemMainMessage>
+        <S.ScrollStickElemMainMessage type="b">
+          <S.ScrollDefaultDesc>
+            주변 맛을 느끼게 해주는
+            <br />
+            주변 맛 허용 모드
+          </S.ScrollDefaultDesc>
+        </S.ScrollStickElemMainMessage>
+        <S.ScrollStickElemMainMessage type="c">
+          <S.ScrollDefaultDesc>
+            온종일 편안한
+            <br />
+            맞춤형 손잡이
+          </S.ScrollDefaultDesc>
+        </S.ScrollStickElemMainMessage>
+        <S.ScrollStickElemMainMessage type="d">
+          <S.ScrollDefaultDesc>
+            새롭게 입가를
+            <br />
+            찾아온 매혹
+          </S.ScrollDefaultDesc>
+        </S.ScrollStickElemMainMessage>
+      </S.ScrollSectionContainer1>
+      <S.ScrollSectionContainer2>
+        <S.ScrollDescription>
+          <strong>보통 스크롤 영역</strong>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro
           debitis deserunt sapiente cumque rerum fugit? Culpa, cupiditate
           provident molestiae animi fugit sed velit fuga debitis quaerat omnis
@@ -62,8 +74,58 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           quaerat magni voluptatum pariatur numquam laborum, tenetur praesentium
           id quas totam tempore illo aliquid ratione amet natus at odit eos
           error, excepturi repellendus.
-        </S.ScrollSectionSubTitle>
-      </S.ScrollSection>
+        </S.ScrollDescription>
+      </S.ScrollSectionContainer2>
+      <S.ScrollSectionContainer3>
+        <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
+        <S.ScrollStickElemMainMessage type="a">
+          <S.ScrollDefaultDesc>
+            <small>편안한 촉감</small>
+            입과 하나 되다
+          </S.ScrollDefaultDesc>
+        </S.ScrollStickElemMainMessage>
+        <S.ScrollStickElemDescMessage type="b">
+          <S.ScrollDefaultDesc>
+            편안한 목넘김을 완성하는 디테일한 여러 구성 요소들, 우리는 이를
+            하나하나 새롭게 살피고 재구성하는 과정을 거쳐 새로운 수준의 머그,
+            AirMug Pro를 만들었습니다. 입에 뭔가 댔다는 감각은 어느새 사라지고
+            오롯이 당신과 음료만 남게 되죠.
+          </S.ScrollDefaultDesc>
+          <S.ScrollPin></S.ScrollPin>
+        </S.ScrollStickElemDescMessage>
+        <S.ScrollStickElemDescMessage type="c">
+          <S.ScrollDefaultDesc>
+            디자인 앤 퀄리티 오브 스웨덴,
+            <br />
+            메이드 인 차이나
+          </S.ScrollDefaultDesc>
+          <S.ScrollPin></S.ScrollPin>
+        </S.ScrollStickElemDescMessage>
+      </S.ScrollSectionContainer3>
+      <S.ScrollSectionContainer4>
+        <S.ScrollMidMessage>
+          <strong>Retina 머그</strong>
+          <br />
+          아이디어를 광활하게 펼칠
+          <br />
+          아름답고 부드러운 음료 공간.
+        </S.ScrollMidMessage>
+        {/* <S.ScrollImageBlendCanvas></S.ScrollImageBlendCanvas> */}
+        <S.ScrollCanvasCaption>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet at
+          fuga quae perspiciatis veniam impedit et, ratione est optio porro.
+          Incidunt aperiam nemo voluptas odit quisquam harum in mollitia.
+          Incidunt minima iusto in corporis, dolores velit. Autem, sit dolorum
+          inventore a rerum distinctio vero illo magni possimus temporibus
+          dolores neque adipisci, repudiandae repellat. Ducimus accusamus
+          similique quas earum laborum. Autem tempora repellendus asperiores
+          illum ex! Velit ea corporis odit? Ea, incidunt delectus. Sapiente
+          rerum neque error deleniti quis, et, quibusdam, est autem voluptate
+          rem voluptas. Ratione soluta similique harum nihil vel. Quas inventore
+          perferendis iusto explicabo animi eos ratione obcaecati.
+        </S.ScrollCanvasCaption>
+      </S.ScrollSectionContainer4>
+      <S.ScrollFooter>2020, 1분코딩</S.ScrollFooter>
     </S.LandingPageContainer>
   )
 }

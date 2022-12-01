@@ -40,12 +40,7 @@ const Button = styled.button`
           cursor: revert;
           transform: revert;
         `
-      : ''}/* &[aria-current] {
-    background: deeppink;
-    font-weight: bold;
-    cursor: revert;
-    transform: revert;
-  } */
+      : ''}
 `
 
 interface PaginationPropsType {

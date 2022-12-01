@@ -1,5 +1,6 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
+import Reset from './Reset'
 import MaplestoryLight from '../assets/font/MaplestoryLight.ttf'
 import MaplestoryBold from '../assets/font/MaplestoryBold.ttf'
 import JetBrainMono from '../assets/font/JetBrainsMono-Bold.ttf'
@@ -43,25 +44,29 @@ const defaultStyle = css`
     font-style: normal;
     src: url(${JetBrainMono}) format('truetype');
   }
-  * {
+  ${Reset}
+
+  #___gatsby {
+    height: 100%;
+    letter-spacing: -0.05px;
+  }
+  /* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: MaplestoryLight;
+    font-family: JetBrainsMono;
     shape-rendering: auto;
   }
 
-  html {
-    font-size: 14px;
-  }
+  html,
   body,
   #___gatsby {
     height: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden;
     color: rgb(29, 29, 31);
     letter-spacing: -0.05px;
-    background: white;
-  }
+    background: white; */
+  /* }
 
   a,
   a:hover {
@@ -69,7 +74,7 @@ const defaultStyle = css`
     text-decoration: none;
     color: rgb(29, 29, 31);
     cursor: pointer;
-  }
+  } */
 `
 
 const GlobalStyle = () => {

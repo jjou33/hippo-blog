@@ -29,7 +29,7 @@ export const NavigationWrapper = styled.div`
     display: none;
   }
   overflow: scroll;
-  height: 1000px;
+  height: 1500px;
   z-index: 1;
 `
 

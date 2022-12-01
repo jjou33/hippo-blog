@@ -2,10 +2,10 @@ import { css, keyframes } from '@emotion/react'
 import { boat_in_animation } from 'styles/AnimationKeyframes'
 import styled from '@emotion/styled'
 
-export const LandingPageContainer = styled.div``
 export const HeaderNav = styled.nav`
   height: 52px;
   border-bottom: 1px solid #ddd;
+  padding: 0 1rem;
 `
 
 export const TitleLinkItem = styled.a`
@@ -34,7 +34,152 @@ export const NavLinkItems = styled.div`
     font-weight: bold;
   }
 `
-export const ScrollSection = styled.section``
+const StickyStyle = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+`
 export const ScrollSectionTitle = styled.h1``
-export const ScrollSectionSubTitle = styled.p``
-export const ScrollSectionSubTitleWrapper = styled.div``
+export const ScrollStickElemCanvas = styled.div``
+export const ScrollStickElemMainMessage = styled.div`
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+  height: 3em;
+  font-size: 2.5rem;
+
+  ${StickyStyle}
+  p {
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  small {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+`
+export const ScrollStickElemDescMessage = styled.div`
+  ${StickyStyle}
+  font-weight: bold;
+  width: 50%;
+`
+export const ScrollDescription = styled.p`
+  font-size: 1.2rem;
+  color: #888;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1000px;
+
+  strong {
+    float: left;
+    margin-right: 0.2em;
+    font-size: 2.7rem;
+    color: rgb(29, 29, 31);
+  }
+`
+export const ScrollDefaultDesc = styled.p``
+
+export const ScrollPin = styled.div`
+  width: 1px;
+  height: 100px;
+  background: rgb(29, 29, 31);
+`
+export const ScrollMidMessage = styled.p`
+  font-size: 1.8rem;
+  color: #888;
+  padding: 0 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  strong {
+    color: rgb(29, 29, 31);
+  }
+`
+export const ScrollImageBlendCanvas = styled.canvas``
+export const ScrollCanvasCaption = styled.p`
+  color: #888;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+
+  max-width: 1000px;
+  margin: 0 auto;
+`
+export const ScrollFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+  background: #fff000;
+`
+// export const SectionText = styled.p``
+// export const ScrollSectionSubTitleWrapper = styled.div``
+// export const ScrollStickyWrapper = styled.div``
+// export const ScrollDescMessageWrapper = styled.div``
+export const ScrollSectionContainer1 = styled.section`
+  padding-top: 50vh;
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 7vw;
+    }
+  }
+`
+export const ScrollSectionContainer2 = styled.section`
+  padding-top: 50vh;
+
+  ${ScrollStickElemMainMessage} {
+    font-size: 6vw;
+  }
+`
+export const ScrollSectionContainer3 = styled.section`
+  padding-top: 50vh;
+
+  ${ScrollStickElemMainMessage} {
+    font-size: 3.5rem;
+  }
+`
+export const ScrollSectionContainer4 = styled.section`
+  padding-top: 50vh;
+`
+
+export const LandingPageContainer = styled.div`
+  @media (min-width: 1024px) {
+    ${ScrollStickElemMainMessage} {
+      font-size: 4vw;
+
+      small {
+        font-size: 1.5vw;
+      }
+    }
+
+    ${ScrollDescription} {
+      font-size: 2rem;
+
+      strong {
+        font-size: 6rem;
+      }
+    }
+
+    ${ScrollStickElemDescMessage} {
+      width: 20%;
+    }
+
+    ${ScrollMidMessage} {
+      font-size: 4vw;
+    }
+
+    ${ScrollCanvasCaption} {
+      font-size: 2rem;
+    }
+  }
+`
