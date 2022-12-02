@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-
+import React, { MutableRefObject, useRef, useState } from 'react'
+import { useShowScene } from 'hooks/useShowScene'
 import * as S from './Styles'
 interface ImagePropsType {
   imageSet: {
@@ -7,6 +7,25 @@ interface ImagePropsType {
   }
 }
 const InteractiveLandingPage = (props: ImagePropsType) => {
+  const [isShowScene, setShowScene] = useState('section-3')
+  const section1Ref: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const section2Ref: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const section3Ref: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const section4Ref: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+
+  const sectionObject = {
+    section1Ref,
+    section2Ref,
+    section3Ref,
+    section4Ref,
+  }
+
+  const currentScene = useShowScene(sectionObject)
+
   return (
     <S.LandingPageContainer>
       <S.HeaderNav>
@@ -16,7 +35,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <S.LinkItem href="#">TOTAL POST</S.LinkItem>
         </S.NavLinkItems>
       </S.HeaderNav>
-      <S.ScrollSectionContainer1>
+      <S.ScrollSectionContainer1 ref={section1Ref} currentScene={currentScene}>
         <S.ScrollSectionTitle>Welcome Hippo Dev</S.ScrollSectionTitle>
         <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
         <S.ScrollStickElemMainMessage type="a">
@@ -48,7 +67,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           </S.ScrollDefaultDesc>
         </S.ScrollStickElemMainMessage>
       </S.ScrollSectionContainer1>
-      <S.ScrollSectionContainer2>
+      <S.ScrollSectionContainer2 ref={section2Ref}>
         <S.ScrollDescription>
           <strong>보통 스크롤 영역</strong>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro
@@ -76,7 +95,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           error, excepturi repellendus.
         </S.ScrollDescription>
       </S.ScrollSectionContainer2>
-      <S.ScrollSectionContainer3>
+      <S.ScrollSectionContainer3 ref={section3Ref} currentScene={currentScene}>
         <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
         <S.ScrollStickElemMainMessage type="a">
           <S.ScrollDefaultDesc>
@@ -102,7 +121,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <S.ScrollPin></S.ScrollPin>
         </S.ScrollStickElemDescMessage>
       </S.ScrollSectionContainer3>
-      <S.ScrollSectionContainer4>
+      <S.ScrollSectionContainer4 ref={section4Ref}>
         <S.ScrollMidMessage>
           <strong>Retina 머그</strong>
           <br />

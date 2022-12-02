@@ -40,6 +40,10 @@ const StickyStyle = css`
   left: 0;
   width: 100%;
   display: none;
+
+  @media (min-width: 1024px) {
+    margin-left: 100px;
+  }
 `
 export const ScrollSectionTitle = styled.h1``
 export const ScrollStickElemCanvas = styled.div``
@@ -51,7 +55,6 @@ export const ScrollStickElemMainMessage = styled.div`
   margin: 5px 0;
   height: 3em;
   font-size: 2.5rem;
-
   ${StickyStyle}
   p {
     font-weight: bold;
@@ -123,6 +126,17 @@ export const ScrollFooter = styled.footer`
 // export const ScrollDescMessageWrapper = styled.div``
 export const ScrollSectionContainer1 = styled.section`
   padding-top: 50vh;
+  border: 3px solid red;
+  ${(props: any) => {
+    if (props.currentScene === 'section-1') {
+      return css`
+        ${ScrollStickElemMainMessage} {
+          display: block;
+        }
+      `
+    }
+    return css``
+  }}
   h1 {
     font-size: 4rem;
     text-align: center;
@@ -136,20 +150,35 @@ export const ScrollSectionContainer1 = styled.section`
 `
 export const ScrollSectionContainer2 = styled.section`
   padding-top: 50vh;
-
+  border: 3px solid red;
   ${ScrollStickElemMainMessage} {
     font-size: 6vw;
   }
 `
 export const ScrollSectionContainer3 = styled.section`
   padding-top: 50vh;
-
+  border: 3px solid red;
   ${ScrollStickElemMainMessage} {
     font-size: 3.5rem;
   }
+
+  ${(props: any) => {
+    if (props.currentScene === 'section-3') {
+      return css`
+        ${ScrollStickElemMainMessage} {
+          display: block;
+        }
+        ${ScrollStickElemDescMessage} {
+          display: block;
+        }
+      `
+    }
+    return css``
+  }}
 `
 export const ScrollSectionContainer4 = styled.section`
   padding-top: 50vh;
+  border: 3px solid red;
 `
 
 export const LandingPageContainer = styled.div`
