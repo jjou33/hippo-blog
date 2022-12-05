@@ -3,7 +3,12 @@ import { boat_in_animation } from 'styles/AnimationKeyframes'
 import styled from '@emotion/styled'
 
 export const HeaderNav = styled.nav`
-  height: 52px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 44px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
 `
@@ -40,10 +45,6 @@ const StickyStyle = css`
   left: 0;
   width: 100%;
   display: none;
-
-  @media (min-width: 1024px) {
-    margin-left: 100px;
-  }
 `
 export const ScrollSectionTitle = styled.h1``
 export const ScrollStickElemCanvas = styled.div``
@@ -182,6 +183,7 @@ export const ScrollSectionContainer4 = styled.section`
 `
 
 export const LandingPageContainer = styled.div`
+  width: 100vw;
   @media (min-width: 1024px) {
     ${ScrollStickElemMainMessage} {
       font-size: 4vw;

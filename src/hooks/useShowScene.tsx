@@ -1,4 +1,4 @@
-import { useRef, MutableRefObject, useEffect } from 'react'
+import React, { useRef, MutableRefObject, useEffect } from 'react'
 
 interface sectionObjectPropsType {
   [key: string]: MutableRefObject<HTMLDivElement | null>
@@ -10,12 +10,15 @@ interface scrollInfoType {
   objs: sectionObjectPropsType
 }
 
-export const useShowScene = ({
-  section1Ref,
-  section2Ref,
-  section3Ref,
-  section4Ref,
-}: sectionObjectPropsType) => {
+export const useShowScene = (
+  {
+    section1Ref,
+    section2Ref,
+    section3Ref,
+    section4Ref,
+  }: sectionObjectPropsType,
+  setShowScene: React.Dispatch<React.SetStateAction<string>>,
+) => {
   let yOffset = 0 // window.pageYOffset 대신 쓸 변수
   let prevScrollHeight = 0 //  현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
   let currentScene = 0 // 현재 호라성화된(눈 앞에 보고있는) 씬(scroll-section)
@@ -62,28 +65,32 @@ export const useShowScene = ({
     // 각 스크롤 섹션의 높이 세팅
     for (let i = 0; i < sceneInfo.length; i++) {
       const info = sceneInfo[i]
-      info.scrollHeight = sceneInfo[i].heightNum * innerHeight
+      info.scrollHeight = info.heightNum * window.innerHeight
 
       if (info.objs.container.current) {
-        info.objs.container.current.style.height = `${sceneInfo[i].scrollHeight}px`
+        info.objs.container.current.style.height = `${info.scrollHeight}px`
       }
     }
   }
 
   const scrollLoop = () => {
     prevScrollHeight = 0
+
     for (let i = 0; i < currentScene; i++) {
       prevScrollHeight += sceneInfo[i].scrollHeight
     }
 
     if (yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) {
-      currentScene++
+      if (currentScene < sceneInfo.length - 1) {
+        currentScene++
+      }
     }
 
     if (yOffset < prevScrollHeight) {
+      if (currentScene === 0) return // 브라우저 별 위로 스크롤 했을때 yOffset - 값으로 되는 현상 방지
       currentScene--
     }
-
+    setShowScene(`section-${currentScene}`)
     console.log(currentScene)
   }
   window.addEventListener('resize', setLayout)

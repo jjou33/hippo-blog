@@ -44,13 +44,13 @@ const defaultStyle = css`
     font-style: normal;
     src: url(${JetBrainMono}) format('truetype');
   }
-  ${Reset}
+  /* ${Reset} */
 
   #___gatsby {
     height: 100%;
     letter-spacing: -0.05px;
   }
-  /* * {
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -58,15 +58,13 @@ const defaultStyle = css`
     shape-rendering: auto;
   }
 
-  html,
-  body,
   #___gatsby {
     height: 100%;
     overflow-x: hidden;
     color: rgb(29, 29, 31);
     letter-spacing: -0.05px;
     background: white;
-  } */
+  }
 
   a,
   a:hover {

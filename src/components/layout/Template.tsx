@@ -84,40 +84,47 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
+          {isPost ? (
+            ''
+          ) : selectedCategory === 'Landing' ? (
+            <InteractiveLandingPage imageSet={imagePath} />
+          ) : (
+            <>
+              <S.NavigationContainer>
+                <S.NavigationWrapper>
+                  <Introduction
+                    profileImage={imagePath['superHero']}
+                    roketImage={imagePath['rocket']}
+                  />
+                  {mount ? (
+                    <CategoryList
+                      categoryList={categoryList}
+                      selectedCategory={selectedCategory}
+                      categoryCount={categoryCount}
+                      imagePathList={imagePath}
+                    />
+                  ) : (
+                    <CategorySkeleton categoryList={categoryList} />
+                  )}
+                </S.NavigationWrapper>
+              </S.NavigationContainer>
+              <S.MainContainer>
+                <S.ProgressBarContainer>
+                  <S.ProgressBar scroll={scroll} />
+                </S.ProgressBarContainer>
 
-          <S.NavigationContainer>
-            <S.NavigationWrapper>
-              <Introduction
-                profileImage={imagePath['superHero']}
-                roketImage={imagePath['rocket']}
-              />
-              {mount ? (
-                <CategoryList
-                  categoryList={categoryList}
-                  selectedCategory={selectedCategory}
-                  categoryCount={categoryCount}
-                  imagePathList={imagePath}
-                />
-              ) : (
-                <CategorySkeleton categoryList={categoryList} />
-              )}
-            </S.NavigationWrapper>
-          </S.NavigationContainer>
-          <S.MainContainer>
-            <S.ProgressBarContainer>
-              <S.ProgressBar scroll={scroll} />
-            </S.ProgressBarContainer>
-
-            {isPost ? (
+                {/* {isPost ? (
               ''
-            ) : selectedCategory === 'All' ? (
+            ) : selectedCategory === '' ? (
               <InteractiveLandingPage imageSet={imagePath} />
             ) : (
               <MainImage backgroundImg={imagePath['mainTitle']} />
-            )}
-
-            {children}
-          </S.MainContainer>
+            )} */}
+                <MainImage backgroundImg={imagePath['mainTitle']} />
+                {children}
+              </S.MainContainer>
+            </>
+          )}
         </RecoilRoot>
       </S.Container>
       <Footer />

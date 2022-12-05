@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useState } from 'react'
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { useShowScene } from 'hooks/useShowScene'
 import * as S from './Styles'
 interface ImagePropsType {
@@ -8,6 +8,7 @@ interface ImagePropsType {
 }
 const InteractiveLandingPage = (props: ImagePropsType) => {
   const [isShowScene, setShowScene] = useState('section-3')
+
   const section1Ref: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
   const section2Ref: MutableRefObject<HTMLDivElement | null> =
@@ -16,15 +17,19 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
     useRef<HTMLDivElement>(null)
   const section4Ref: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
+  const headerNavRef: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
 
-  const sectionObject = {
+  const useShowSceneProps = {
     section1Ref,
     section2Ref,
     section3Ref,
     section4Ref,
   }
 
-  const currentScene = useShowScene(sectionObject)
+  useEffect(() => {
+    useShowScene(useShowSceneProps, setShowScene)
+  }, [])
 
   return (
     <S.LandingPageContainer>
@@ -35,7 +40,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <S.LinkItem href="#">TOTAL POST</S.LinkItem>
         </S.NavLinkItems>
       </S.HeaderNav>
-      <S.ScrollSectionContainer1 ref={section1Ref} currentScene={currentScene}>
+      <S.ScrollSectionContainer1 ref={section1Ref} currentScene={isShowScene}>
         <S.ScrollSectionTitle>Welcome Hippo Dev</S.ScrollSectionTitle>
         <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
         <S.ScrollStickElemMainMessage type="a">
@@ -95,7 +100,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           error, excepturi repellendus.
         </S.ScrollDescription>
       </S.ScrollSectionContainer2>
-      <S.ScrollSectionContainer3 ref={section3Ref} currentScene={currentScene}>
+      <S.ScrollSectionContainer3 ref={section3Ref} currentScene={isShowScene}>
         <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
         <S.ScrollStickElemMainMessage type="a">
           <S.ScrollDefaultDesc>
@@ -144,7 +149,6 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           perferendis iusto explicabo animi eos ratione obcaecati.
         </S.ScrollCanvasCaption>
       </S.ScrollSectionContainer4>
-      <S.ScrollFooter>2020, 1분코딩</S.ScrollFooter>
     </S.LandingPageContainer>
   )
 }
