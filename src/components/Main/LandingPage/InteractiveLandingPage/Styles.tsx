@@ -21,8 +21,8 @@ export const LinkItem = styled.a``
 export const NavLinkItems = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  max-width: 1000px;
+
+  max-width: 1600px;
   height: 100%;
   margin: 0 auto;
 
@@ -41,7 +41,6 @@ export const NavLinkItems = styled.div`
 `
 const StickyStyle = css`
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   display: none;
@@ -50,9 +49,10 @@ export const ScrollSectionTitle = styled.h1``
 export const ScrollStickElemCanvas = styled.div``
 export const ScrollStickElemMainMessage = styled.div`
   display: flex;
-
+  opacity: 0;
   align-items: center;
   justify-content: center;
+  top: 35vh;
   margin: 5px 0;
   height: 3em;
   font-size: 2.5rem;
@@ -129,7 +129,7 @@ export const ScrollSectionContainer1 = styled.section`
   padding-top: 50vh;
   border: 3px solid red;
   ${(props: any) => {
-    if (props.currentScene === 'section-1') {
+    if (props.currentScene === 'section-0') {
       return css`
         ${ScrollStickElemMainMessage} {
           display: block;
@@ -164,7 +164,7 @@ export const ScrollSectionContainer3 = styled.section`
   }
 
   ${(props: any) => {
-    if (props.currentScene === 'section-3') {
+    if (props.currentScene === 'section-2') {
       return css`
         ${ScrollStickElemMainMessage} {
           display: block;
