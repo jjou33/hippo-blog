@@ -172,6 +172,15 @@ export const ScrollSectionContainer3 = styled.section`
         ${ScrollStickElemDescMessage} {
           display: block;
         }
+        .b {
+          top: 10%;
+          left: 40%;
+        }
+
+        .c {
+          top: 15%;
+          left: 45%;
+        }
       `
     }
     return css``
@@ -211,6 +220,17 @@ export const LandingPageContainer = styled.div`
 
     ${ScrollCanvasCaption} {
       font-size: 2rem;
+    }
+
+    ${ScrollSectionContainer3} {
+      .b {
+        top: 20%;
+        left: 53%;
+      }
+
+      .c {
+        left: 55%;
+      }
     }
   }
 `
