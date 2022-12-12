@@ -46,7 +46,18 @@ const StickyStyle = css`
   display: none;
 `
 export const ScrollSectionTitle = styled.h1``
-export const ScrollStickElemCanvas = styled.div``
+export const ScrollStickElemCanvasWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  width: 100%;
+  /* display: none; */
+  top: 0;
+  background: #ccc;
+`
+export const ScrollCanvas = styled.canvas`
+  width: 1920px;
+  height: 1080px;
+`
 export const ScrollStickElemMainMessage = styled.div`
   display: flex;
   opacity: 0;
@@ -172,6 +183,7 @@ export const ScrollSectionContainer3 = styled.section`
         ${ScrollStickElemDescMessage} {
           display: block;
         }
+
         .b {
           top: 10%;
           left: 40%;

@@ -37,6 +37,8 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
     useRef<HTMLDivElement>(null)
   const canvasCaption: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
+  const canvasElem: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
   const useShowSceneProps = {
     sectionRef: {
       section1,
@@ -60,10 +62,13 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
     fourthMainMessageRef: {
       canvasCaption,
     },
+    canvasRef: {
+      canvasElem,
+    },
   }
 
   useEffect(() => {
-    useShowScene(useShowSceneProps, setShowScene)
+    useShowScene(useShowSceneProps, setShowScene, props.imageSet)
   }, [])
 
   return (
@@ -75,9 +80,13 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <S.LinkItem href="#">TOTAL POST</S.LinkItem>
         </S.NavLinkItems>
       </S.HeaderNav>
+
       <S.ScrollSectionContainer1 ref={section1} currentScene={isShowScene}>
         <S.ScrollSectionTitle>Welcome Hippo Dev</S.ScrollSectionTitle>
-        <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
+        <S.ScrollStickElemCanvasWrapper>
+          <S.ScrollCanvas ref={canvasElem} id="canvas"></S.ScrollCanvas>
+        </S.ScrollStickElemCanvasWrapper>
+
         <S.ScrollStickElemMainMessage ref={mainMessage1}>
           <S.ScrollDefaultDesc>
             온전히 빠져들게 하는
@@ -136,7 +145,7 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
         </S.ScrollDescription>
       </S.ScrollSectionContainer2>
       <S.ScrollSectionContainer3 ref={section3} currentScene={isShowScene}>
-        <S.ScrollStickElemCanvas></S.ScrollStickElemCanvas>
+        <S.ScrollStickElemCanvasWrapper></S.ScrollStickElemCanvasWrapper>
         <S.ScrollStickElemMainMessage className="a" ref={thirdMainMessage1}>
           <S.ScrollDefaultDesc>
             <small>편안한 촉감</small>

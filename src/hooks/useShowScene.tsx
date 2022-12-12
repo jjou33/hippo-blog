@@ -1,4 +1,4 @@
-import React, { useRef, MutableRefObject, useEffect } from 'react'
+import React, { useRef, MutableRefObject, useEffect, useState } from 'react'
 
 interface sectionObjectPropsType {
   sectionRef: {
@@ -11,6 +11,9 @@ interface sectionObjectPropsType {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
   fourthMainMessageRef: {
+    [key: string]: MutableRefObject<HTMLDivElement | null>
+  }
+  canvasRef: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
 }
@@ -29,11 +32,14 @@ interface scrollInfoType {
 export const useShowScene = (
   props: sectionObjectPropsType,
   setShowScene: React.Dispatch<React.SetStateAction<string>>,
+  imageSet,
 ) => {
   let yOffset = 0 // window.pageYOffset 대신 쓸 변수
   let prevScrollHeight = 0 //  현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
   let currentScene = 0 // 현재 호라성화된(눈 앞에 보고있는) 씬(scroll-section)
   let enterNewScene = false // 새로운 scene 이 시작된 순간 true 로 변경
+  console.log(imageSet[`IMG_6726`])
+
   const sceneInfo: scrollInfoType[] = [
     {
       // 1
@@ -46,8 +52,13 @@ export const useShowScene = (
         messageB: props.mainMessageRef.mainMessage2,
         messageC: props.mainMessageRef.mainMessage3,
         messageD: props.mainMessageRef.mainMessage4,
+        canvas: props.canvasRef.canvasElem,
+        context: canvas.getContext('2d'),
+        videoImages: [],
       },
       values: {
+        videoImageCount: 300,
+        imageSequence: [0, 299],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
         messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
         messageC_opacity_in: [0, 1, { start: 0.5, end: 0.6 }],
@@ -120,6 +131,16 @@ export const useShowScene = (
     },
   ]
 
+  const setCanvasImages = () => {
+    let imgElem
+    for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
+      imgElem = new Image()
+      imgElem.src = imageSet[`IMG_${6726 + i}`]
+      sceneInfo[0].objs.videoImages.push(imgElem)
+    }
+  }
+  setCanvasImages()
+
   const setLayout = () => {
     // 각 스크롤 섹션의 높이 세팅ㄹ
     for (let i = 0; i < sceneInfo.length; i++) {
@@ -188,6 +209,17 @@ export const useShowScene = (
     switch (currentScene) {
       case 0:
         // console.log('0 play')
+        // console.log(objs.videoImages)
+
+        const sequence = Math.round(
+          calcValues(values.imageSequence, currentYOffset),
+        )
+        console.log(objs.videoImages[sequence])
+        console.log(objs.context)
+
+        if (sequence > 0) {
+          objs.context.drawImage(objs.videoImages[sequence], 0, 0, 300, 150)
+        }
 
         if (scrollRatio <= 0.22) {
           // in
@@ -279,9 +311,9 @@ export const useShowScene = (
 
         break
       case 2:
-        // console.log('2 play')
         if (scrollRatio <= 0.25) {
           // in
+
           objs.messageA.current.style.opacity = calcValues(
             values.messageA_opacity_in,
             currentYOffset,
@@ -371,6 +403,7 @@ export const useShowScene = (
   const scrollLoop = () => {
     prevScrollHeight = 0
     enterNewScene = false
+
     for (let i = 0; i < currentScene; i++) {
       prevScrollHeight += sceneInfo[i].scrollHeight
     }
@@ -380,6 +413,7 @@ export const useShowScene = (
         enterNewScene = true
         currentScene++
         // 스크롤 중 Section 을 넘어갔을때 상태 변경
+
         setShowScene(`section-${currentScene}`)
       }
     }
@@ -391,7 +425,9 @@ export const useShowScene = (
       // 스크롤 중 Section 을 넘어갔을때 상태 변경
       setShowScene(`section-${currentScene}`)
     }
-    if (enterNewScene) return
+
+    // if (enterNewScene) return
+
     playAnimation()
   }
 
