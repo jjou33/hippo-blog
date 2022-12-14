@@ -38,7 +38,6 @@ export const useShowScene = (
   let prevScrollHeight = 0 //  현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
   let currentScene = 0 // 현재 호라성화된(눈 앞에 보고있는) 씬(scroll-section)
   let enterNewScene = false // 새로운 scene 이 시작된 순간 true 로 변경
-  console.log(imageSet[`IMG_6726`])
 
   const sceneInfo: scrollInfoType[] = [
     {
@@ -53,12 +52,13 @@ export const useShowScene = (
         messageC: props.mainMessageRef.mainMessage3,
         messageD: props.mainMessageRef.mainMessage4,
         canvas: props.canvasRef.canvasElem,
-        context: canvas.getContext('2d'),
+        context: props.canvasRef.canvasElem.current.getContext('2d'),
         videoImages: [],
       },
       values: {
         videoImageCount: 300,
         imageSequence: [0, 299],
+        canvas_opacity: [1, 0, { start: 0.9, end: 1 }],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
         messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
         messageC_opacity_in: [0, 1, { start: 0.5, end: 0.6 }],
@@ -97,8 +97,15 @@ export const useShowScene = (
         messageC: props.thirdMainMessageRef.thirdMainMessage3,
         pinB: props.thirdMainMessageRef.thirdPinB,
         pinC: props.thirdMainMessageRef.thirdPinC,
+        canvas: props.canvasRef.canvasElem2,
+        context: props.canvasRef.canvasElem2.current.getContext('2d'),
+        videoImages: [],
       },
       values: {
+        videoImageCount: 960,
+        imageSequence: [0, 959],
+        canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
+        canvas_opacity_out: [1, 0, { start: 0.95, end: 1 }],
         messageA_translateY_in: [20, 0, { start: 0.15, end: 0.2 }],
         messageB_translateY_in: [30, 0, { start: 0.5, end: 0.55 }],
         messageC_translateY_in: [30, 0, { start: 0.72, end: 0.77 }],
@@ -127,7 +134,11 @@ export const useShowScene = (
       objs: {
         container: props.sectionRef.section4,
         canvasCaption: props.fourthMainMessageRef.canvasCaption,
+        canvas: props.canvasRef.canvasImage,
+        context: props.canvasRef.canvasImage.current.getContext('2d'),
+        imagesPath: [imageSet['blend-image-1'], imageSet['blend-image-2']],
       },
+      values: {},
     },
   ]
 
@@ -137,6 +148,13 @@ export const useShowScene = (
       imgElem = new Image()
       imgElem.src = imageSet[`IMG_${6726 + i}`]
       sceneInfo[0].objs.videoImages.push(imgElem)
+    }
+    let imgElem2
+    for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
+      imgElem2 = new Image()
+      imgElem2.src = imageSet[`IMG_${7027 + i}`]
+
+      sceneInfo[2].objs.videoImages.push(imgElem2)
     }
   }
   setCanvasImages()
@@ -165,6 +183,11 @@ export const useShowScene = (
         break
       }
     }
+
+    // canvas 를 브라우저 사이즈가 변경되더라도 항상 중앙 정렬 할 수 있도록 하는 소스
+    const heightRatio = window.innerHeight / 1080
+    sceneInfo[0].objs.canvas.current.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`
+    sceneInfo[2].objs.canvas.current.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`
   }
 
   const calcValues = (
@@ -214,11 +237,13 @@ export const useShowScene = (
         const sequence = Math.round(
           calcValues(values.imageSequence, currentYOffset),
         )
-        console.log(objs.videoImages[sequence])
-        console.log(objs.context)
 
         if (sequence > 0) {
-          objs.context.drawImage(objs.videoImages[sequence], 0, 0, 300, 150)
+          objs.context.drawImage(objs.videoImages[sequence], 0, 0)
+          objs.canvas.current.style.opacity = calcValues(
+            values.canvas_opacity,
+            currentYOffset,
+          )
         }
 
         if (scrollRatio <= 0.22) {
@@ -311,6 +336,27 @@ export const useShowScene = (
 
         break
       case 2:
+        const sequence2 = Math.round(
+          calcValues(values.imageSequence, currentYOffset),
+        )
+
+        if (sequence2 > 0) {
+          objs.context.drawImage(objs.videoImages[sequence2], 0, 0)
+        }
+
+        if (scrollRatio <= 0.5) {
+          // in
+          objs.canvas.current.style.opacity = calcValues(
+            values.canvas_opacity_in,
+            currentYOffset,
+          )
+        } else {
+          // out
+          objs.canvas.current.style.opacity = calcValues(
+            values.canvas_opacity_out,
+            currentYOffset,
+          )
+        }
         if (scrollRatio <= 0.25) {
           // in
 
@@ -397,6 +443,20 @@ export const useShowScene = (
         break
       case 3:
         // console.log('3 play')
+        // 가로/세로 모두 꽉차게 하기 위해서 여기에 셋팅(계산 필요)
+        const widthRatio = window.innerWidth / objs.canvas.current.width
+        const heightRatio = window.innerHeight / objs.canvas.current.height
+
+        let canvasScaleRatio
+
+        if (widthRatio <= heightRatio) {
+          // 캔버스보다 브라우저 창이 홀쭉한 경우
+          canvasScaleRatio = heightRatio
+        } else {
+          // 캔버스보다 브라우저 창이 납작한 경우
+          canvasScaleRatio = widthRatio
+        }
+        objs.canvas.current.style.transform = `scale(${canvasScaleRatio})`
         break
     }
   }
@@ -431,6 +491,10 @@ export const useShowScene = (
     playAnimation()
   }
 
+  window.addEventListener('load', () => {
+    setLayout()
+    sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0)
+  })
   window.addEventListener('resize', setLayout)
   window.addEventListener('scroll', () => {
     yOffset = window.pageYOffset

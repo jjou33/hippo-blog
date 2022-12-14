@@ -39,6 +39,10 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
     useRef<HTMLDivElement>(null)
   const canvasElem: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
+  const canvasElem2: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
+  const canvasImage: MutableRefObject<HTMLDivElement | null> =
+    useRef<HTMLDivElement>(null)
   const useShowSceneProps = {
     sectionRef: {
       section1,
@@ -64,6 +68,8 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
     },
     canvasRef: {
       canvasElem,
+      canvasElem2,
+      canvasImage,
     },
   }
 
@@ -83,8 +89,13 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
 
       <S.ScrollSectionContainer1 ref={section1} currentScene={isShowScene}>
         <S.ScrollSectionTitle>Welcome Hippo Dev</S.ScrollSectionTitle>
-        <S.ScrollStickElemCanvasWrapper>
-          <S.ScrollCanvas ref={canvasElem} id="canvas"></S.ScrollCanvas>
+
+        <S.ScrollStickElemCanvasWrapper currentScene={isShowScene}>
+          <S.ScrollCanvas
+            ref={canvasElem}
+            width="1920"
+            height="1080"
+          ></S.ScrollCanvas>
         </S.ScrollStickElemCanvasWrapper>
 
         <S.ScrollStickElemMainMessage ref={mainMessage1}>
@@ -145,7 +156,13 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
         </S.ScrollDescription>
       </S.ScrollSectionContainer2>
       <S.ScrollSectionContainer3 ref={section3} currentScene={isShowScene}>
-        <S.ScrollStickElemCanvasWrapper></S.ScrollStickElemCanvasWrapper>
+        <S.ScrollStickElemCanvasWrapper1 currentScene={isShowScene}>
+          <S.ScrollCanvas2
+            ref={canvasElem2}
+            width="1920"
+            height="1080"
+          ></S.ScrollCanvas2>
+        </S.ScrollStickElemCanvasWrapper1>
         <S.ScrollStickElemMainMessage className="a" ref={thirdMainMessage1}>
           <S.ScrollDefaultDesc>
             <small>편안한 촉감</small>
@@ -178,7 +195,11 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
           <br />
           아름답고 부드러운 음료 공간.
         </S.ScrollMidMessage>
-        {/* <S.ScrollImageBlendCanvas></S.ScrollImageBlendCanvas> */}
+        <S.ScrollImageBlendCanvas
+          ref={canvasImage}
+          width="1920"
+          height="1080"
+        ></S.ScrollImageBlendCanvas>
         <S.ScrollCanvasCaption>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet at
           fuga quae perspiciatis veniam impedit et, ratione est optio porro.

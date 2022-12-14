@@ -40,24 +40,67 @@ export const NavLinkItems = styled.div`
   }
 `
 const StickyStyle = css`
-  position: fixed;
-  left: 0;
-  width: 100%;
   display: none;
-`
-export const ScrollSectionTitle = styled.h1``
-export const ScrollStickElemCanvasWrapper = styled.div`
   position: fixed;
   left: 0;
   width: 100%;
-  /* display: none; */
+`
+export const ScrollSectionTitle = styled.h1`
+  position: relative;
+  z-index: 5;
+  top: -10vh;
+`
+export const ScrollStickElemCanvasWrapper = styled.div`
+  ${(props: any) => {
+    return props.currentScene === 'section-0'
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `
+  }}
+
+  position: fixed;
+  left: 0;
+  width: 100%;
+
   top: 0;
-  background: #ccc;
+  height: 100%;
+`
+
+export const ScrollStickElemCanvasWrapper1 = styled.div`
+  ${(props: any) => {
+    return props.currentScene === 'section-2'
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `
+  }}
+
+  position: fixed;
+  left: 0;
+  width: 100%;
+
+  top: 0;
+  height: 100%;
 `
 export const ScrollCanvas = styled.canvas`
-  width: 1920px;
-  height: 1080px;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
 `
+
+export const ScrollCanvas2 = styled.canvas`
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+`
+
 export const ScrollStickElemMainMessage = styled.div`
   display: flex;
   opacity: 0;
@@ -84,6 +127,7 @@ export const ScrollStickElemDescMessage = styled.div`
   ${StickyStyle}
   font-weight: bold;
   width: 50%;
+  opacity: 0;
 `
 export const ScrollDescription = styled.p`
   font-size: 1.2rem;
@@ -116,7 +160,9 @@ export const ScrollMidMessage = styled.p`
     color: rgb(29, 29, 31);
   }
 `
-export const ScrollImageBlendCanvas = styled.canvas``
+export const ScrollImageBlendCanvas = styled.canvas`
+  border: 3px solid red;
+`
 export const ScrollCanvasCaption = styled.p`
   color: #888;
   padding: 0 1rem;
@@ -138,7 +184,7 @@ export const ScrollFooter = styled.footer`
 // export const ScrollDescMessageWrapper = styled.div``
 export const ScrollSectionContainer1 = styled.section`
   padding-top: 50vh;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   ${(props: any) => {
     if (props.currentScene === 'section-0') {
       return css`
@@ -162,14 +208,14 @@ export const ScrollSectionContainer1 = styled.section`
 `
 export const ScrollSectionContainer2 = styled.section`
   padding-top: 50vh;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   ${ScrollStickElemMainMessage} {
     font-size: 6vw;
   }
 `
 export const ScrollSectionContainer3 = styled.section`
   padding-top: 50vh;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   ${ScrollStickElemMainMessage} {
     font-size: 3.5rem;
   }
@@ -200,7 +246,11 @@ export const ScrollSectionContainer3 = styled.section`
 `
 export const ScrollSectionContainer4 = styled.section`
   padding-top: 50vh;
-  border: 3px solid red;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 3px solid red; */
 `
 
 export const LandingPageContainer = styled.div`
