@@ -136,9 +136,13 @@ export const useShowScene = (
         canvasCaption: props.fourthMainMessageRef.canvasCaption,
         canvas: props.canvasRef.canvasImage,
         context: props.canvasRef.canvasImage.current.getContext('2d'),
-        imagesPath: [imageSet['blend-image-1'], imageSet['blend-image-2']],
+        imagePath: [imageSet['blend-image-1'], imageSet['blend-image-2']],
+        images: [],
       },
-      values: {},
+      values: {
+        rect1X: [0, 0, { start: 0, end: 0 }],
+        rect2X: [0, 0, { start: 0, end: 0 }],
+      },
     },
   ]
 
@@ -155,6 +159,13 @@ export const useShowScene = (
       imgElem2.src = imageSet[`IMG_${7027 + i}`]
 
       sceneInfo[2].objs.videoImages.push(imgElem2)
+    }
+    let imgElem3
+    for (let i = 0; i < sceneInfo[3].objs.imagePath.length; i++) {
+      imgElem3 = new Image()
+      imgElem3.src = sceneInfo[3].objs.imagePath[i]
+
+      sceneInfo[3].objs.images.push(imgElem3)
     }
   }
   setCanvasImages()
@@ -457,6 +468,14 @@ export const useShowScene = (
           canvasScaleRatio = widthRatio
         }
         objs.canvas.current.style.transform = `scale(${canvasScaleRatio})`
+        objs.context.drawImage(objs.images[0], 0, 0)
+
+        // 캔버스 사이즈에 맞춰 가정한 innerWidth 와 innerHeight
+        const recalculatedInnerWidth = window.innerWidth / canvasScaleRatio
+        const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio
+
+        const whiteRectWidth = recalculatedInnerWidth * 0.15
+
         break
     }
   }
