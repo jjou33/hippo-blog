@@ -43,7 +43,7 @@ export const useShowScene = (
     {
       // 1
       type: 'sticky',
-      heightNum: 4, // 브라우저 높이의 5배로 scrollHeight 세팅
+      heightNum: 5, // 브라우저 높이의 5배로 scrollHeight 세팅
       scrollHeight: 0,
       objs: {
         container: props.sectionRef.section1,
@@ -88,7 +88,7 @@ export const useShowScene = (
     {
       // 3
       type: 'sticky',
-      heightNum: 4, // 브라우저 높이의 5배로 scrollHeight 세팅
+      heightNum: 5, // 브라우저 높이의 5배로 scrollHeight 세팅
       scrollHeight: 0,
       objs: {
         container: props.sectionRef.section3,
@@ -129,7 +129,7 @@ export const useShowScene = (
     {
       // 4
       type: 'sticky',
-      heightNum: 4, // 브라우저 높이의 5배로 scrollHeight 세팅
+      heightNum: 5, // 브라우저 높이의 5배로 scrollHeight 세팅
       scrollHeight: 0,
       objs: {
         container: props.sectionRef.section4,
@@ -142,6 +142,7 @@ export const useShowScene = (
       values: {
         rect1X: [0, 0, { start: 0, end: 0 }],
         rect2X: [0, 0, { start: 0, end: 0 }],
+        rectStartY: 0,
       },
     },
   ]
@@ -467,14 +468,55 @@ export const useShowScene = (
           // 캔버스보다 브라우저 창이 납작한 경우
           canvasScaleRatio = widthRatio
         }
+
         objs.canvas.current.style.transform = `scale(${canvasScaleRatio})`
+        objs.context.fillStyle = 'white'
         objs.context.drawImage(objs.images[0], 0, 0)
 
         // 캔버스 사이즈에 맞춰 가정한 innerWidth 와 innerHeight
-        const recalculatedInnerWidth = window.innerWidth / canvasScaleRatio
+        const recalculatedInnerWidth =
+          document.body.offsetWidth / canvasScaleRatio
         const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio
 
+        if (!values.rectStartY) {
+          // values.rectStartY = objs.canvas.current.getBoundingClientRect().top
+          values.rectStartY =
+            objs.canvas.current.offsetTop +
+            (objs.canvas.current.height -
+              objs.canvas.current.height * canvasScaleRatio) /
+              2
+
+          values.rect1X[2].start = window.innerHeight / 2 / scrollHeight
+          values.rect2X[2].start = window.innerHeight / 2 / scrollHeight
+          values.rect1X[2].end = values.rectStartY / scrollHeight
+          values.rect2X[2].end = values.rectStartY / scrollHeight
+          console.log(values)
+        }
+
         const whiteRectWidth = recalculatedInnerWidth * 0.15
+
+        values.rect1X[0] =
+          (objs.canvas.current.width - recalculatedInnerWidth) / 2
+        values.rect1X[1] = values.rect1X[0] - whiteRectWidth
+
+        values.rect2X[0] =
+          values.rect1X[0] + recalculatedInnerWidth - whiteRectWidth
+        values.rect2X[1] = values.rect2X[0] + whiteRectWidth
+
+        // 좌우 흰색 박스 그리기
+
+        objs.context.fillRect(
+          parseInt(calcValues(values.rect1X, currentYOffset)),
+          0,
+          parseInt(whiteRectWidth),
+          objs.canvas.current.height,
+        )
+        objs.context.fillRect(
+          parseInt(calcValues(values.rect2X, currentYOffset)),
+          0,
+          parseInt(whiteRectWidth),
+          objs.canvas.current.height,
+        )
 
         break
     }

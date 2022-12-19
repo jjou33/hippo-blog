@@ -161,7 +161,7 @@ export const ScrollMidMessage = styled.p`
   }
 `
 export const ScrollImageBlendCanvas = styled.canvas`
-  border: 3px solid red;
+  /* border: 3px solid red; */
 `
 export const ScrollCanvasCaption = styled.p`
   color: #888;
@@ -183,6 +183,7 @@ export const ScrollFooter = styled.footer`
 // export const ScrollStickyWrapper = styled.div``
 // export const ScrollDescMessageWrapper = styled.div``
 export const ScrollSectionContainer1 = styled.section`
+  position: relative;
   padding-top: 50vh;
   /* border: 3px solid red; */
   ${(props: any) => {
@@ -207,6 +208,7 @@ export const ScrollSectionContainer1 = styled.section`
   }
 `
 export const ScrollSectionContainer2 = styled.section`
+  position: relative;
   padding-top: 50vh;
   /* border: 3px solid red; */
   ${ScrollStickElemMainMessage} {
@@ -214,6 +216,7 @@ export const ScrollSectionContainer2 = styled.section`
   }
 `
 export const ScrollSectionContainer3 = styled.section`
+  position: relative;
   padding-top: 50vh;
   /* border: 3px solid red; */
   ${ScrollStickElemMainMessage} {
@@ -245,6 +248,7 @@ export const ScrollSectionContainer3 = styled.section`
   }}
 `
 export const ScrollSectionContainer4 = styled.section`
+  position: relative;
   padding-top: 50vh;
 
   display: flex;
