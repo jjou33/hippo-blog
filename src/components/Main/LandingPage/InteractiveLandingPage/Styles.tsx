@@ -3,8 +3,10 @@ import { boat_in_animation } from 'styles/AnimationKeyframes'
 import styled from '@emotion/styled'
 
 export const HeaderNav = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(180%) blur(15px);
   left: 0;
   z-index: 10;
   width: 100%;
@@ -161,7 +163,20 @@ export const ScrollMidMessage = styled.p`
   }
 `
 export const ScrollImageBlendCanvas = styled.canvas`
-  /* border: 3px solid red; */
+  ${(props: any) =>
+    // props.makeSticky
+    //   ? css`
+    //       ${StickyStyle}
+    //     `
+    //   : css``
+    {
+      if (props.makeSticky) {
+        return css`
+          position: fixed;
+          top: 0;
+        `
+      } else return css``
+    }}
 `
 export const ScrollCanvasCaption = styled.p`
   color: #888;
@@ -170,6 +185,15 @@ export const ScrollCanvasCaption = styled.p`
 
   max-width: 1000px;
   margin: 0 auto;
+
+  ${(props: any) =>
+    props.makeSticky
+      ? css`
+          display: none;
+        `
+      : css`
+          display: block;
+        `}
 `
 export const ScrollFooter = styled.footer`
   display: flex;
@@ -254,7 +278,6 @@ export const ScrollSectionContainer4 = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 3px solid red; */
 `
 
 export const LandingPageContainer = styled.div`
@@ -270,6 +293,7 @@ export const LandingPageContainer = styled.div`
 
     ${ScrollDescription} {
       font-size: 2rem;
+      padding: 0;
 
       strong {
         font-size: 6rem;
@@ -281,6 +305,7 @@ export const LandingPageContainer = styled.div`
     }
 
     ${ScrollMidMessage} {
+      padding: 0;
       font-size: 4vw;
     }
 
@@ -299,4 +324,52 @@ export const LandingPageContainer = styled.div`
       }
     }
   }
+`
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: white;
+  opacity: 1;
+  transition: 0.5s;
+`
+
+const svgKeyframe = keyframes`
+  0% {
+    stroke-dashoffset: 157;
+  }
+
+  75% {
+    stroke-dashoffset: -147;
+  }
+
+  100% {
+    stroke-dashoffset: -157;
+  }
+`
+const loadingSpinKeyframe = keyframes`
+  100%{
+    transform: rotate(360deg);
+  }
+`
+export const LoadingSvgWrapper = styled.svg`
+  width: 54px;
+  height: 54px;
+  
+  circle {
+    stroke: black;
+    stroke-width: 4;
+    stroke-dasharray: 157;
+    stroke-dashoffset: -100;
+    fill: transparent;
+    animation: ${svgKeyframe} 1s infinite;
+  }
+  animation: ${loadingSpinKeyframe} 3s infinite
 `

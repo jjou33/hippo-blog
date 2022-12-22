@@ -16,6 +16,7 @@ interface sectionObjectPropsType {
   canvasRef: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
+  setMakeSticky: React.Dispatch<React.SetStateAction<boolean>>
 }
 interface scrollInfoType {
   type: string
@@ -39,6 +40,10 @@ export const useShowScene = (
   let currentScene = 0 // 현재 호라성화된(눈 앞에 보고있는) 씬(scroll-section)
   let enterNewScene = false // 새로운 scene 이 시작된 순간 true 로 변경
 
+  const acc = 0.1
+  let delayedYOffset = 0
+  let rafId
+  let rafState
   const sceneInfo: scrollInfoType[] = [
     {
       // 1
@@ -143,6 +148,10 @@ export const useShowScene = (
         rect1X: [0, 0, { start: 0, end: 0 }],
         rect2X: [0, 0, { start: 0, end: 0 }],
         rectStartY: 0,
+        canvas_scale: [0, 0, { start: 0, end: 0 }],
+        canvasCaption_opacity: [0, 1, { start: 0, end: 0 }],
+        canvasCaption_translateY: [20, 1, { start: 0, end: 0 }],
+        blendHeight: [0, 0, { start: 0, end: 0 }],
       },
     },
   ]
@@ -169,7 +178,6 @@ export const useShowScene = (
       sceneInfo[3].objs.images.push(imgElem3)
     }
   }
-  setCanvasImages()
 
   const setLayout = () => {
     // 각 스크롤 섹션의 높이 세팅ㄹ
@@ -209,7 +217,8 @@ export const useShowScene = (
     let rv = 0
     const scrollHeight = sceneInfo[currentScene].scrollHeight
     // 현재 씬에서 스크롤된 범위를 비율로 구하기
-    const scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight
+    // const scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight
+    const scrollRatio = currentYOffset / scrollHeight
     if (values.length === 3) {
       // start ~ end 사이에 애니메이션 실행
       const partScrollStart: number = values[2].start * scrollHeight
@@ -246,17 +255,17 @@ export const useShowScene = (
         // console.log('0 play')
         // console.log(objs.videoImages)
 
-        const sequence = Math.round(
-          calcValues(values.imageSequence, currentYOffset),
-        )
+        // const sequence = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset),
+        // )
 
-        if (sequence > 0) {
-          objs.context.drawImage(objs.videoImages[sequence], 0, 0)
-          objs.canvas.current.style.opacity = calcValues(
-            values.canvas_opacity,
-            currentYOffset,
-          )
-        }
+        // if (sequence > 0) {
+        // objs.context.drawImage(objs.videoImages[sequence], 0, 0)
+        objs.canvas.current.style.opacity = calcValues(
+          values.canvas_opacity,
+          currentYOffset,
+        )
+        // }
 
         if (scrollRatio <= 0.22) {
           // in
@@ -348,13 +357,13 @@ export const useShowScene = (
 
         break
       case 2:
-        const sequence2 = Math.round(
-          calcValues(values.imageSequence, currentYOffset),
-        )
+        // const sequence2 = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset),
+        // )
 
-        if (sequence2 > 0) {
-          objs.context.drawImage(objs.videoImages[sequence2], 0, 0)
-        }
+        // if (sequence2 > 0 && objs.videoImages[sequence2] !== undefined) {
+        //   objs.context.drawImage(objs.videoImages[sequence2], 0, 0)
+        // }
 
         if (scrollRatio <= 0.5) {
           // in
@@ -452,10 +461,62 @@ export const useShowScene = (
           )})`
         }
 
+        if (scrollRatio > 0.9) {
+          const objs = sceneInfo[3].objs
+          const values = sceneInfo[3].values
+
+          const widthRatio = window.innerWidth / objs.canvas.current.width
+          const heightRatio = window.innerHeight / objs.canvas.current.height
+
+          let canvasScaleRatio
+
+          if (widthRatio <= heightRatio) {
+            // 캔버스보다 브라우저 창이 홀쭉한 경우
+            canvasScaleRatio = heightRatio
+          } else {
+            // 캔버스보다 브라우저 창이 납작한 경우
+            canvasScaleRatio = widthRatio
+          }
+
+          objs.canvas.current.style.transform = `scale(${canvasScaleRatio})`
+          objs.context.fillStyle = 'white'
+          objs.context.drawImage(objs.images[0], 0, 0)
+
+          // 캔버스 사이즈에 맞춰 가정한 innerWidth 와 innerHeight
+          const recalculatedInnerWidth =
+            document.body.offsetWidth / canvasScaleRatio
+          const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio
+
+          const whiteRectWidth = recalculatedInnerWidth * 0.15
+
+          values.rect1X[0] =
+            (objs.canvas.current.width - recalculatedInnerWidth) / 2
+          values.rect1X[1] = values.rect1X[0] - whiteRectWidth
+
+          values.rect2X[0] =
+            values.rect1X[0] + recalculatedInnerWidth - whiteRectWidth
+          values.rect2X[1] = values.rect2X[0] + whiteRectWidth
+
+          // 좌우 흰색 박스 그리기
+
+          objs.context.fillRect(
+            parseInt(values.rect1X[0]),
+            0,
+            parseInt(whiteRectWidth),
+            objs.canvas.current.height,
+          )
+          objs.context.fillRect(
+            parseInt(values.rect2X[0]),
+            0,
+            parseInt(whiteRectWidth),
+            objs.canvas.current.height,
+          )
+        }
         break
       case 3:
         // console.log('3 play')
         // 가로/세로 모두 꽉차게 하기 위해서 여기에 셋팅(계산 필요)
+        let step = 0
         const widthRatio = window.innerWidth / objs.canvas.current.width
         const heightRatio = window.innerHeight / objs.canvas.current.height
 
@@ -490,7 +551,6 @@ export const useShowScene = (
           values.rect2X[2].start = window.innerHeight / 2 / scrollHeight
           values.rect1X[2].end = values.rectStartY / scrollHeight
           values.rect2X[2].end = values.rectStartY / scrollHeight
-          console.log(values)
         }
 
         const whiteRectWidth = recalculatedInnerWidth * 0.15
@@ -518,6 +578,77 @@ export const useShowScene = (
           objs.canvas.current.height,
         )
 
+        if (scrollRatio < 1) {
+          if (scrollRatio < values.rect2X[2].end) {
+            step = 1
+            props.setMakeSticky(false)
+          } else {
+            step = 2
+            // objs.canvas.current.classList
+
+            values.blendHeight[0] = 0
+            values.blendHeight[1] = objs.canvas.current.height
+            values.blendHeight[2].start = values.rect1X[2].end
+            values.blendHeight[2].end = values.blendHeight[2].start + 0.2
+            const blendHeight = calcValues(values.blendHeight, currentYOffset)
+
+            objs.context.drawImage(
+              objs.images[1],
+              0,
+              objs.canvas.current.height - blendHeight,
+              objs.canvas.current.width,
+              blendHeight,
+              0,
+              objs.canvas.current.height - blendHeight,
+              objs.canvas.current.width,
+              blendHeight,
+            )
+            objs.canvas.current.style.top = `${
+              -(
+                objs.canvas.current.height -
+                objs.canvas.current.height * canvasScaleRatio
+              ) / 2
+            }px`
+            props.setMakeSticky(true)
+            if (scrollRatio > values.blendHeight[2].end) {
+              values.canvas_scale[0] = canvasScaleRatio
+              values.canvas_scale[1] =
+                document.body.offsetWidth / (1.5 * objs.canvas.current.width)
+              values.canvas_scale[2].start = values.blendHeight[2].end
+              values.canvas_scale[2].end = values.canvas_scale[2].start + 0.2
+
+              objs.canvas.current.style.transform = `scale(${calcValues(
+                values.canvas_scale,
+                currentYOffset,
+              )})`
+              objs.canvas.current.style.marginTop = 0
+            }
+
+            if (
+              scrollRatio > values.canvas_scale[2].end &&
+              values.canvas_scale[2].end > 0
+            ) {
+              props.setMakeSticky(false)
+              objs.canvas.current.style.marginTop = `${scrollHeight * 0.4}px`
+
+              values.canvasCaption_opacity[2].start = values.canvas_scale[2].end
+              values.canvasCaption_opacity[2].end =
+                values.canvasCaption_opacity[2].start + 0.1
+              values.canvasCaption_translateY[2].start =
+                values.canvasCaption_opacity[2].start
+              values.canvasCaption_translateY[2].end =
+                values.canvasCaption_opacity[2].end
+              objs.canvasCaption.current.style.opacity = calcValues(
+                values.canvasCaption_opacity,
+                currentYOffset,
+              )
+              objs.canvasCaption.current.style.transform = `translate3d(0, ${calcValues(
+                values.canvasCaption_translateY,
+                currentYOffset,
+              )}%, 0)`
+            }
+          }
+        }
         break
     }
   }
@@ -529,7 +660,10 @@ export const useShowScene = (
       prevScrollHeight += sceneInfo[i].scrollHeight
     }
 
-    if (yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) {
+    if (
+      delayedYOffset >
+      prevScrollHeight + sceneInfo[currentScene].scrollHeight
+    ) {
       if (currentScene < sceneInfo.length - 1) {
         enterNewScene = true
         currentScene++
@@ -539,7 +673,7 @@ export const useShowScene = (
       }
     }
 
-    if (yOffset < prevScrollHeight) {
+    if (delayedYOffset < prevScrollHeight) {
       if (currentScene === 0) return // 브라우저 별 위로 스크롤 했을때 yOffset - 값으로 되는 현상 방지
       enterNewScene = true
       currentScene--
@@ -547,20 +681,56 @@ export const useShowScene = (
       setShowScene(`section-${currentScene}`)
     }
 
-    // if (enterNewScene) return
+    if (enterNewScene) return
 
     playAnimation()
   }
 
+  const loop = () => {
+    delayedYOffset = delayedYOffset + (yOffset - delayedYOffset) * acc
+
+    if (!enterNewScene) {
+      if (currentScene === 0 || currentScene === 2) {
+        const currentYOffset = delayedYOffset - prevScrollHeight
+        const objs = sceneInfo[currentScene].objs
+        const values = sceneInfo[currentScene].values
+        const sequence = Math.round(
+          calcValues(values.imageSequence, currentYOffset),
+        )
+
+        if (objs.videoImages[sequence]) {
+          objs.context.drawImage(objs.videoImages[sequence], 0, 0)
+        }
+      }
+    }
+
+    rafId = requestAnimationFrame(loop)
+    if (Math.abs(yOffset - delayedYOffset) < 1) {
+      cancelAnimationFrame(rafId)
+      rafState = false
+    }
+  }
+  window.addEventListener('scroll', () => {
+    yOffset = window.pageYOffset
+    scrollLoop()
+
+    if (!rafState) {
+      rafId = requestAnimationFrame(loop)
+      rafState = true
+    }
+  })
   window.addEventListener('load', () => {
     setLayout()
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0)
   })
-  window.addEventListener('resize', setLayout)
-  window.addEventListener('scroll', () => {
-    yOffset = window.pageYOffset
-    scrollLoop()
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 600) {
+      setLayout()
+    }
+    sceneInfo[3].values.rectStartY = 0
   })
-
+  // 화면 도돌릴때 대응
+  window.addEventListener('orientationchange', setLayout)
+  setCanvasImages()
   setLayout()
 }
