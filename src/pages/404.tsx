@@ -30,7 +30,7 @@ const NotFoundDescription = styled.div`
   }
 `
 
-const GoToMainButton = styled(Link)`
+const GoToMainButton = styled()`
   margin-top: 30px;
   font-size: 20px;
   text-decoration: underline;

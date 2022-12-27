@@ -1,109 +1,48 @@
 import { css, keyframes } from '@emotion/react'
-import { boat_in_animation } from 'styles/AnimationKeyframes'
 import styled from '@emotion/styled'
 
-export const HeaderNav = styled.nav`
-  position: fixed;
-  top: 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: saturate(180%) blur(15px);
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 44px;
-  border-bottom: 1px solid #ddd;
-  padding: 0 1rem;
-`
+interface CanvasPropsType {
+  makeSticky: boolean
+}
 
-export const TitleLinkItem = styled.a`
-  margin-right: auto;
-`
-export const LinkItem = styled.a``
+interface ScrollSectionTypes {
+  currentScene: string
+}
 
-export const NavLinkItems = styled.div`
-  display: flex;
-  align-items: center;
-
-  max-width: 1600px;
-  height: 100%;
-  margin: 0 auto;
-
-  a {
-    font-size: 0.8rem;
-  }
-  a:not(${TitleLinkItem}) {
-    margin-left: 2px;
+/**
+ *  KeyFrames
+ */
+const svgKeyframe = keyframes`
+  0% {
+    stroke-dashoffset: 157;
   }
 
-  ${TitleLinkItem} {
-    margin-right: auto;
-    font-size: 1.4rem;
-    font-weight: bold;
+  75% {
+    stroke-dashoffset: -147;
+  }
+
+  100% {
+    stroke-dashoffset: -157;
   }
 `
+const loadingSpinKeyframe = keyframes`
+  100%{
+    transform: rotate(360deg);
+  }
+`
+
+/**
+ *  Common 활용 스타일드 태그
+ */
+
 const StickyStyle = css`
   display: none;
   position: fixed;
   left: 0;
   width: 100%;
 `
-export const ScrollSectionTitle = styled.h1`
-  position: relative;
-  z-index: 5;
-  top: -10vh;
-`
-export const ScrollStickElemCanvasWrapper = styled.div`
-  ${(props: any) => {
-    return props.currentScene === 'section-0'
-      ? css`
-          display: block;
-        `
-      : css`
-          display: none;
-        `
-  }}
 
-  position: fixed;
-  left: 0;
-  width: 100%;
-
-  top: 0;
-  height: 100%;
-`
-
-export const ScrollStickElemCanvasWrapper1 = styled.div`
-  ${(props: any) => {
-    return props.currentScene === 'section-2'
-      ? css`
-          display: block;
-        `
-      : css`
-          display: none;
-        `
-  }}
-
-  position: fixed;
-  left: 0;
-  width: 100%;
-
-  top: 0;
-  height: 100%;
-`
-export const ScrollCanvas = styled.canvas`
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-`
-
-export const ScrollCanvas2 = styled.canvas`
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-`
-
-export const ScrollStickElemMainMessage = styled.div`
+export const ScrollStickyTextWrapper = styled.div`
   display: flex;
   opacity: 0;
   align-items: center;
@@ -125,7 +64,114 @@ export const ScrollStickElemMainMessage = styled.div`
     margin-bottom: 0.5em;
   }
 `
-export const ScrollStickElemDescMessage = styled.div`
+export const ScrollDefaultDesc = styled.p``
+/**
+ * LandingPage Header 영역
+ */
+
+export const HeaderContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(180%) blur(15px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 1rem;
+`
+
+export const HeaderItemTitle = styled.a`
+  margin-right: auto;
+`
+export const HeaderItemLink = styled.a``
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+
+  a {
+    font-size: 0.8rem;
+  }
+  a:not(${HeaderItemTitle}) {
+    margin-left: 2px;
+  }
+
+  ${HeaderItemTitle} {
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+`
+
+/**
+ * First Section 영역
+ */
+
+export const FirstSectionTitle = styled.h1`
+  position: relative;
+  z-index: 5;
+  top: -10vh;
+`
+export const FirstSectionStickyCanvasWrapper = styled.div<ScrollSectionTypes>`
+  ${props =>
+    props.currentScene === 'section-0'
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `}
+
+  position: fixed;
+  left: 0;
+  width: 100%;
+
+  top: 0;
+  height: 100%;
+`
+
+export const FirstSectionStickyCanvas = styled.canvas`
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+`
+
+/**
+ * Third Section 영역
+ */
+
+export const ThirdSectionStickyCanvasWrapper = styled.div<ScrollSectionTypes>`
+  ${props =>
+    props.currentScene === 'section-2'
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `}
+  position: fixed;
+  left: 0;
+  width: 100%;
+
+  top: 0;
+  height: 100%;
+`
+
+export const ThirdSectionStickyCanvas = styled.canvas`
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+`
+
+export const ScrollStickDescWrapper = styled.div`
   ${StickyStyle}
   font-weight: bold;
   width: 50%;
@@ -145,14 +191,13 @@ export const ScrollDescription = styled.p`
     color: rgb(29, 29, 31);
   }
 `
-export const ScrollDefaultDesc = styled.p``
 
 export const ScrollPin = styled.div`
   width: 1px;
   height: 100px;
   background: rgb(29, 29, 31);
 `
-export const ScrollMidMessage = styled.p`
+export const FourthMainMessageWrapper = styled.p`
   font-size: 1.8rem;
   color: #888;
   padding: 0 1rem;
@@ -162,21 +207,15 @@ export const ScrollMidMessage = styled.p`
     color: rgb(29, 29, 31);
   }
 `
-export const ScrollImageBlendCanvas = styled.canvas`
-  ${(props: any) =>
-    // props.makeSticky
-    //   ? css`
-    //       ${StickyStyle}
-    //     `
-    //   : css``
-    {
-      if (props.makeSticky) {
-        return css`
+
+export const ScrollImageBlendCanvas = styled.canvas<CanvasPropsType>`
+  ${props =>
+    props.makeSticky
+      ? css`
           position: fixed;
           top: 0;
         `
-      } else return css``
-    }}
+      : css``}
 `
 export const ScrollCanvasCaption = styled.p`
   color: #888;
@@ -186,7 +225,7 @@ export const ScrollCanvasCaption = styled.p`
   max-width: 1000px;
   margin: 0 auto;
 
-  ${(props: any) =>
+  ${(props: CanvasPropsType) =>
     props.makeSticky
       ? css`
           display: none;
@@ -202,24 +241,24 @@ export const ScrollFooter = styled.footer`
   height: 7rem;
   background: #fff000;
 `
-// export const SectionText = styled.p``
-// export const ScrollSectionSubTitleWrapper = styled.div``
-// export const ScrollStickyWrapper = styled.div``
-// export const ScrollDescMessageWrapper = styled.div``
-export const ScrollSectionContainer1 = styled.section`
+
+/**
+ * Section Containers 영역
+ */
+
+export const FirstSectionContainer = styled.section<ScrollSectionTypes>`
   position: relative;
   padding-top: 50vh;
-  /* border: 3px solid red; */
-  ${(props: any) => {
-    if (props.currentScene === 'section-0') {
-      return css`
-        ${ScrollStickElemMainMessage} {
-          display: block;
-        }
-      `
-    }
-    return css``
-  }}
+
+  ${props =>
+    props.currentScene === 'section-0'
+      ? css`
+          ${ScrollStickyTextWrapper} {
+            display: block;
+          }
+        `
+      : css``}
+
   h1 {
     font-size: 4rem;
     text-align: center;
@@ -231,47 +270,45 @@ export const ScrollSectionContainer1 = styled.section`
     }
   }
 `
-export const ScrollSectionContainer2 = styled.section`
+export const SecondSectionContainer = styled.section`
   position: relative;
   padding-top: 50vh;
   /* border: 3px solid red; */
-  ${ScrollStickElemMainMessage} {
+  ${ScrollStickyTextWrapper} {
     font-size: 6vw;
   }
 `
-export const ScrollSectionContainer3 = styled.section`
+export const ThirdSectionContainer = styled.section<ScrollSectionTypes>`
   position: relative;
   padding-top: 50vh;
   /* border: 3px solid red; */
-  ${ScrollStickElemMainMessage} {
+  ${ScrollStickyTextWrapper} {
     font-size: 3.5rem;
   }
 
-  ${(props: any) => {
-    if (props.currentScene === 'section-2') {
-      return css`
-        ${ScrollStickElemMainMessage} {
-          display: block;
-        }
-        ${ScrollStickElemDescMessage} {
-          display: block;
-        }
+  ${props =>
+    props.currentScene === 'section-2'
+      ? css`
+          ${ScrollStickyTextWrapper} {
+            display: block;
+          }
+          ${ScrollStickDescWrapper} {
+            display: block;
+          }
 
-        .b {
-          top: 10%;
-          left: 40%;
-        }
+          .b {
+            top: 10%;
+            left: 40%;
+          }
 
-        .c {
-          top: 15%;
-          left: 45%;
-        }
-      `
-    }
-    return css``
-  }}
+          .c {
+            top: 15%;
+            left: 45%;
+          }
+        `
+      : css``}
 `
-export const ScrollSectionContainer4 = styled.section`
+export const FourthSectionContainer = styled.section`
   position: relative;
   padding-top: 50vh;
 
@@ -283,7 +320,7 @@ export const ScrollSectionContainer4 = styled.section`
 export const LandingPageContainer = styled.div`
   width: 100vw;
   @media (min-width: 1024px) {
-    ${ScrollStickElemMainMessage} {
+    ${ScrollStickyTextWrapper} {
       font-size: 4vw;
 
       small {
@@ -300,11 +337,11 @@ export const LandingPageContainer = styled.div`
       }
     }
 
-    ${ScrollStickElemDescMessage} {
+    ${ScrollStickDescWrapper} {
       width: 20%;
     }
 
-    ${ScrollMidMessage} {
+    ${FourthMainMessageWrapper} {
       padding: 0;
       font-size: 4vw;
     }
@@ -313,7 +350,7 @@ export const LandingPageContainer = styled.div`
       font-size: 2rem;
     }
 
-    ${ScrollSectionContainer3} {
+    ${ThirdSectionContainer} {
       .b {
         top: 20%;
         left: 53%;
@@ -324,52 +361,4 @@ export const LandingPageContainer = styled.div`
       }
     }
   }
-`
-
-export const LoadingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  background: white;
-  opacity: 1;
-  transition: 0.5s;
-`
-
-const svgKeyframe = keyframes`
-  0% {
-    stroke-dashoffset: 157;
-  }
-
-  75% {
-    stroke-dashoffset: -147;
-  }
-
-  100% {
-    stroke-dashoffset: -157;
-  }
-`
-const loadingSpinKeyframe = keyframes`
-  100%{
-    transform: rotate(360deg);
-  }
-`
-export const LoadingSvgWrapper = styled.svg`
-  width: 54px;
-  height: 54px;
-  
-  circle {
-    stroke: black;
-    stroke-width: 4;
-    stroke-dasharray: 157;
-    stroke-dashoffset: -100;
-    fill: transparent;
-    animation: ${svgKeyframe} 1s infinite;
-  }
-  animation: ${loadingSpinKeyframe} 3s infinite
 `

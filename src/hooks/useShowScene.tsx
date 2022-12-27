@@ -1,4 +1,4 @@
-import React, { useRef, MutableRefObject, useEffect, useState } from 'react'
+import React, { MutableRefObject } from 'react'
 
 interface sectionObjectPropsType {
   sectionRef: {
@@ -16,7 +16,6 @@ interface sectionObjectPropsType {
   canvasRef: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
-  setMakeSticky: React.Dispatch<React.SetStateAction<boolean>>
 }
 interface scrollInfoType {
   type: string
@@ -25,15 +24,41 @@ interface scrollInfoType {
   objs: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
+
   values?: {
     [key: string]: number | object
   }[]
 }
 
+interface ImagePropsType {
+  [key: string]: string
+}
+interface showScenePropsType {
+  divRefProps: {
+    [key: string]: {
+      [key: string]: {
+        current: MutableRefObject<HTMLDivElement | null>
+      }
+    }
+  }
+  canvasRefProps: {
+    canvasRef: {
+      canvasElem: MutableRefObject<HTMLCanvasElement | null>
+    }
+  }
+  ParagraphRefProps: {
+    [key: string]: {
+      [key: string]: {
+        current: MutableRefObject<HTMLParagraphElement | null>
+      }
+    }
+  }
+}
 export const useShowScene = (
   props: sectionObjectPropsType,
+  setMakeSticky: React.Dispatch<React.SetStateAction<boolean>>,
   setShowScene: React.Dispatch<React.SetStateAction<string>>,
-  imageSet,
+  imageSet: ImagePropsType,
 ) => {
   let yOffset = 0 // window.pageYOffset 대신 쓸 변수
   let prevScrollHeight = 0 //  현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
@@ -43,7 +68,8 @@ export const useShowScene = (
   const acc = 0.1
   let delayedYOffset = 0
   let rafId
-  let rafState
+  let rafState: boolean
+
   const sceneInfo: scrollInfoType[] = [
     {
       // 1
@@ -103,7 +129,7 @@ export const useShowScene = (
         pinB: props.thirdMainMessageRef.thirdPinB,
         pinC: props.thirdMainMessageRef.thirdPinC,
         canvas: props.canvasRef.canvasElem2,
-        context: props.canvasRef.canvasElem2.current.getContext('2d'),
+        context: props.canvasRef.canvasElem2.current?.getContext('2d'),
         videoImages: [],
       },
       values: {
@@ -581,7 +607,7 @@ export const useShowScene = (
         if (scrollRatio < 1) {
           if (scrollRatio < values.rect2X[2].end) {
             step = 1
-            props.setMakeSticky(false)
+            setMakeSticky(false)
           } else {
             step = 2
             // objs.canvas.current.classList
@@ -609,7 +635,7 @@ export const useShowScene = (
                 objs.canvas.current.height * canvasScaleRatio
               ) / 2
             }px`
-            props.setMakeSticky(true)
+            setMakeSticky(true)
             if (scrollRatio > values.blendHeight[2].end) {
               values.canvas_scale[0] = canvasScaleRatio
               values.canvas_scale[1] =
@@ -628,7 +654,7 @@ export const useShowScene = (
               scrollRatio > values.canvas_scale[2].end &&
               values.canvas_scale[2].end > 0
             ) {
-              props.setMakeSticky(false)
+              setMakeSticky(false)
               objs.canvas.current.style.marginTop = `${scrollHeight * 0.4}px`
 
               values.canvasCaption_opacity[2].start = values.canvas_scale[2].end
@@ -719,6 +745,7 @@ export const useShowScene = (
       rafState = true
     }
   })
+
   window.addEventListener('load', () => {
     setLayout()
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0)
