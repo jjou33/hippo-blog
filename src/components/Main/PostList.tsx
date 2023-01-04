@@ -50,7 +50,7 @@ const PostListContainer = styled.div`
 
 const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   const [post, setPosts] = useState([])
-  const [limit, setLimit] = useState(4)
+  const [limit, setLimit] = useState(6)
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
 

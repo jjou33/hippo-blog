@@ -7,6 +7,7 @@ const Footer = () => {
     <S.FooterWrapper>
       Thank You for Visiting My Blog, Have a Good Day 😆
       <br />© 2021 Developer Hyun, Powered By Gatsby.
+      <S.ButtonComponent to="/introduce">클릭</S.ButtonComponent>
     </S.FooterWrapper>
   )
 }

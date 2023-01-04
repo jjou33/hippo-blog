@@ -1,14 +1,22 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
+import * as S from 'components/Main/LandingPage/InteractiveLandingPage/Styles'
 import { useShowScene } from 'hooks/useShowScene'
-import * as S from './Styles'
+import { navigate } from 'gatsby'
+import { useSetRecoilState } from 'recoil'
+import { templateMountState } from 'states/templateMountState'
+
 interface ImagePropsType {
   imageSet: {
     [key: string]: string
   }
 }
+
 const InteractiveLandingPage = (props: ImagePropsType) => {
+  const setState = useSetRecoilState(templateMountState)
   const [isShowScene, setShowScene] = useState('section-0')
   const [makeSticky, setMakeSticky] = useState(false)
+
+  const [eventsList, setEventList] = useState()
 
   const section1: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -73,16 +81,36 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
       canvasImage,
     },
   }
+  interface EventListenerTypes {
+    [key: string]: () => void
+    scrollListener: () => void
+    loadEventListener: () => void
+    resizeEventListener: () => void
+  }
+
+  let eventListener: EventListenerTypes
+
+  const goToBlog = () => {
+    props.setIsLanding(true)
+    navigate('/?category=All')
+  }
   useEffect(() => {
-    useShowScene(useShowSceneProps, setMakeSticky, setShowScene, props.imageSet)
+    eventListener = useShowScene(
+      useShowSceneProps,
+      setMakeSticky,
+      setShowScene,
+      props.imageSet,
+    )
+
+    setState(eventListener)
   }, [])
 
   return (
     <S.LandingPageContainer>
       <S.HeaderContainer>
         <S.HeaderWrapper>
-          <S.HeaderItemTitle href="#">HIPPO DEV</S.HeaderItemTitle>
-          <S.HeaderItemLink href="#">블로그 보기</S.HeaderItemLink>
+          <S.HeaderItemTitle to="/">HIPPO DEV</S.HeaderItemTitle>
+          <S.HeaderItemLink onClick={goToBlog}>블로그 보기</S.HeaderItemLink>
         </S.HeaderWrapper>
       </S.HeaderContainer>
 
@@ -219,3 +247,59 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
 }
 
 export default InteractiveLandingPage
+
+// export const getPostList = graphql`
+//   query getPostList {
+//     site {
+//       siteMetadata {
+//         title
+//         description
+//         siteUrl
+//       }
+//     }
+//     allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
+//       edges {
+//         node {
+//           id
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             summary
+//             date(formatString: "YYYY.MM.DD.")
+//             categories
+//             index
+//             domain
+//             sideTitle
+//             thumbnail {
+//               childImageSharp {
+//                 gatsbyImageData(width: 768, height: 400)
+//               }
+//             }
+//             categoryIcon {
+//               childImageSharp {
+//                 gatsbyImageData(width: 10, height: 10)
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allFile(
+//       filter: {
+//         extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
+//         sourceInstanceName: { eq: "images" }
+//       }
+//     ) {
+//       edges {
+//         node {
+//           extension
+//           sourceInstanceName
+//           id
+//           publicURL
+//         }
+//       }
+//     }
+//   }
+// `

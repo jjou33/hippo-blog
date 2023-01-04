@@ -35,7 +35,6 @@ export const useTypingTitle = (typedList: string[]) => {
       case Phase.Deleting: {
         if (!typeTitle) {
           const nextIndex = selectedIndex + 1
-          console.log(typedList[selectedIndex], selectedIndex)
 
           setSelectedIndex(typedList[nextIndex] !== undefined ? nextIndex : 0)
           setPhase(Phase.Typing)

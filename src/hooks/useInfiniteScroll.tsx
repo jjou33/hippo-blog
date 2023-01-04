@@ -62,7 +62,6 @@ const useInfiniteScroll = function (
       containerRef.current.children[containerRef.current.children.length - 1],
     )
   }, [count, selectedCategory])
-  console.log('pl : ', postListByCategory)
 
   return {
     containerRef,

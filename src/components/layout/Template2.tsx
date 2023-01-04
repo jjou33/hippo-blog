@@ -8,12 +8,9 @@ import MainImage from 'components/layout/MainImage'
 import LandingPage from 'components/Main/LandingPage/LandingPage'
 import ParallaxLandingPage from 'components/Main/LandingPage/ParallaxLandingPage'
 import InteractiveLandingPage from 'components/Main/LandingPage/InteractiveLandingPage/InteractiveLandingPage'
-import NavigationPage from 'components/Navigation/NavigationPage'
 import * as S from './Styles'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { Helmet } from 'react-helmet'
-import { useRecoilValue } from 'recoil'
-import { templateMountState } from 'states/templateMountState'
 import { RecoilRoot } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getImagePathSetList } from 'utils/Template/Template'
@@ -44,21 +41,19 @@ const Template = ({
     },
     categoryCount,
   }: CategoryMetadataType = useCategoryMetadata()
-  const [isLanding, setIsLanding] = useState(false)
+  const [mount, isMount] = useState(false)
+
   const selectedCategory: string = getSelectedCategory(location.search)
 
   const categoryList = getCategoryList(allMarkdownRemark)
   const imagePath = getImagePathSetList(edges)
   const scroll = useScrollStateBar()
-  const navigationProps = {
-    selectedCategory,
-    categoryList,
-    imagePath,
-    scroll,
-    categoryCount,
-    children,
-    isLanding,
-  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      isMount(true)
+    }, 600)
+  }, [])
 
   return (
     <>
@@ -89,14 +84,33 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          {selectedCategory === 'landing' && !isPost ? (
-            <InteractiveLandingPage
-              imageSet={imagePath}
-              setIsLanding={setIsLanding}
-            />
-          ) : (
-            <NavigationPage navigationProps={navigationProps} />
-          )}
+
+          <S.NavigationContainer>
+            <S.NavigationWrapper>
+              <Introduction
+                profileImage={imagePath['superHero']}
+                roketImage={imagePath['rocket']}
+              />
+              {mount ? (
+                <CategoryList
+                  categoryList={categoryList}
+                  selectedCategory={selectedCategory}
+                  categoryCount={categoryCount}
+                  imagePathList={imagePath}
+                />
+              ) : (
+                <CategorySkeleton categoryList={categoryList} />
+              )}
+            </S.NavigationWrapper>
+          </S.NavigationContainer>
+          <S.MainContainer>
+            <S.ProgressBarContainer>
+              <S.ProgressBar scroll={scroll} />
+            </S.ProgressBarContainer>
+
+            <MainImage backgroundImg={imagePath['mainTitle']} />
+            {children}
+          </S.MainContainer>
         </RecoilRoot>
       </S.Container>
       <Footer />

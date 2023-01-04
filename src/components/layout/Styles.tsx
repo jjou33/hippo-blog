@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { upDownAnimation } from 'styles/AnimationKeyframes'
 import { HeaderPropsType } from 'types/index'
+import { Link } from 'gatsby'
 
 /**
  * Template Component Styled Section
@@ -203,3 +204,5 @@ export const MainImageVueIcon = styled.div`
   position: absolute;
   margin: 50px 0 0 1400px;
 `
+
+export const ButtonComponent = styled(Link)``

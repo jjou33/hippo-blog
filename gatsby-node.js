@@ -1,9 +1,9 @@
-const path = require('path');
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require('path')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
-  const output = getConfig().output || {};
+  const output = getConfig().output || {}
 
   actions.setWebpackConfig({
     output,
@@ -15,28 +15,26 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         types: path.resolve(__dirname, 'src/types'),
         assets: path.resolve(__dirname, 'src/assets'),
         styles: path.resolve(__dirname, 'src/styles'),
-        states:path.resolve(__dirname, 'src/states')
+        states: path.resolve(__dirname, 'src/states'),
       },
     },
-    module:{
+    module: {
       rules: [
         {
           test: /\.(png|svg|jpe?g|bin|gif|glb|gltf)$/,
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            esModule: false
-          }
-        }
-      ]
-    }
-  });
-};
-
-
+            esModule: false,
+          },
+        },
+      ],
+    },
+  })
+}
 
 // Generate Post Page Through Markdown Data
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   // Get All Markdown File For Paging
   const queryAllMarkdownData = await graphql(
@@ -59,12 +57,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     `,
-  );
+  )
 
   // Handling GraphQL Query Error
   if (queryAllMarkdownData.errors) {
-    reporter.panicOnBuild(`Error while running query`);
-    return;
+    reporter.panicOnBuild(`Error while running query`)
+    return
   }
 
   const posts = queryAllMarkdownData.data.allMarkdownRemark.edges
@@ -72,7 +70,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const PostTemplateComponent = path.resolve(
     __dirname,
     'src/templates/post_template.tsx',
-  );
+  )
 
   // Page Generating Function
   const generatePostPage = ({
@@ -80,50 +78,58 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       fields: { slug },
     },
   }) => {
-
     const pageOptions = {
       path: slug,
       component: PostTemplateComponent,
       context: { slug },
-    };
-    
-    createPage(pageOptions);
-  };
+    }
+
+    createPage(pageOptions)
+  }
 
   // Generate Post Page And Passing Slug Props for Query
-  posts.forEach(generatePostPage);
+  posts.forEach(generatePostPage)
 
   const post = queryAllMarkdownData.data.allMarkdownRemark.edges
-  const postsPerPage = 4;
+  const postsPerPage = 4
   const numPages = Math.ceil(post.length / postsPerPage)
 
-  const PostPaginationComponent = path.resolve(
-    __dirname,
-    'src/templates/post_pagination.tsx',
-  );
-  
+  // const PostPaginationComponent = path.resolve(
+  //   __dirname,
+  //   'src/templates/post_pagination.tsx',
+  // )
 
-  Array.from({length: numPages}).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/` : `/${i + 1}`,
-      component: PostPaginationComponent,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1
-      }
-    })
-  })
-};
+  // const GenerateIntroduceComponent = () => {
+  //   const pageOptions = {
+  //     path: '/introduce',
+  //     component: PostPaginationComponent,
+  //   }
+
+  //   createPage(pageOptions)
+  // }
+
+  // GenerateIntroduceComponent()
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: '/introduce',
+  //     component: PostPaginationComponent,
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       numPages,
+  //       currentPage: i + 1,
+  //     },
+  //   })
+  // })
+}
 
 // Generate a Slug Each Post Data
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode });
+    const slug = createFilePath({ node, getNode })
 
-    createNodeField({ node, name: 'slug', value: slug });
+    createNodeField({ node, name: 'slug', value: slug })
   }
-};
+}

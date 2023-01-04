@@ -1,4 +1,5 @@
 import { css, keyframes } from '@emotion/react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
 interface CanvasPropsType {
@@ -82,10 +83,10 @@ export const HeaderContainer = styled.nav`
   padding: 0 1rem;
 `
 
-export const HeaderItemTitle = styled.a`
+export const HeaderItemTitle = styled(Link)`
   margin-right: auto;
 `
-export const HeaderItemLink = styled.a``
+export const HeaderItemLink = styled.div``
 
 export const HeaderWrapper = styled.div`
   display: flex;

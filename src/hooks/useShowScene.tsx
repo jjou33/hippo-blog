@@ -1,5 +1,6 @@
-import React, { MutableRefObject } from 'react'
-
+import React, { MutableRefObject, useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
+import { templateMountState } from 'states/templateMountState'
 interface sectionObjectPropsType {
   sectionRef: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
@@ -14,52 +15,48 @@ interface sectionObjectPropsType {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
   canvasRef: {
-    [key: string]: MutableRefObject<HTMLDivElement | null>
+    [key: string]: MutableRefObject<HTMLCanvasElement>
   }
+}
+
+interface SectionObjectType {
+  container: MutableRefObject<HTMLDivElement | null>
+  messageA: MutableRefObject<HTMLDivElement | null>
+  messageB: MutableRefObject<HTMLDivElement | null>
+  messageC: MutableRefObject<HTMLDivElement | null>
+  messageD: MutableRefObject<HTMLDivElement | null>
+  canvasCaption: MutableRefObject<HTMLDivElement | null>
+  pinB: MutableRefObject<HTMLDivElement | null>
+  pinC: MutableRefObject<HTMLDivElement | null>
+  canvas: MutableRefObject<HTMLCanvasElement | null>
+  context: CanvasRenderingContext2D | null
+  imagePath: string[]
+  videoImages: HTMLImageElement[]
+  images: HTMLImageElement[]
 }
 interface scrollInfoType {
   type: string
   heightNum?: number
   scrollHeight: number
-  objs: {
-    [key: string]: MutableRefObject<HTMLDivElement | null>
-  }
-
+  objs: SectionObjectType
   values?: {
-    [key: string]: number | object
+    [key: string]: number | string[]
   }[]
 }
 
 interface ImagePropsType {
   [key: string]: string
 }
-interface showScenePropsType {
-  divRefProps: {
-    [key: string]: {
-      [key: string]: {
-        current: MutableRefObject<HTMLDivElement | null>
-      }
-    }
-  }
-  canvasRefProps: {
-    canvasRef: {
-      canvasElem: MutableRefObject<HTMLCanvasElement | null>
-    }
-  }
-  ParagraphRefProps: {
-    [key: string]: {
-      [key: string]: {
-        current: MutableRefObject<HTMLParagraphElement | null>
-      }
-    }
-  }
-}
+
 export const useShowScene = (
   props: sectionObjectPropsType,
   setMakeSticky: React.Dispatch<React.SetStateAction<boolean>>,
   setShowScene: React.Dispatch<React.SetStateAction<string>>,
   imageSet: ImagePropsType,
 ) => {
+  // const state = useRecoilValue<any>(templateMountState)
+  // console.log('useState  : ', state)
+
   let yOffset = 0 // window.pageYOffset 대신 쓸 변수
   let prevScrollHeight = 0 //  현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
   let currentScene = 0 // 현재 호라성화된(눈 앞에 보고있는) 씬(scroll-section)
@@ -129,7 +126,7 @@ export const useShowScene = (
         pinB: props.thirdMainMessageRef.thirdPinB,
         pinC: props.thirdMainMessageRef.thirdPinC,
         canvas: props.canvasRef.canvasElem2,
-        context: props.canvasRef.canvasElem2.current?.getContext('2d'),
+        context: props.canvasRef.canvasElem2.current.getContext('2d'),
         videoImages: [],
       },
       values: {
@@ -184,24 +181,31 @@ export const useShowScene = (
 
   const setCanvasImages = () => {
     let imgElem
+
     for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
       imgElem = new Image()
       imgElem.src = imageSet[`IMG_${6726 + i}`]
-      sceneInfo[0].objs.videoImages.push(imgElem)
+      if (sceneInfo[0].objs.videoImages) {
+        sceneInfo[0].objs.videoImages.push(imgElem)
+      }
     }
     let imgElem2
     for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
       imgElem2 = new Image()
       imgElem2.src = imageSet[`IMG_${7027 + i}`]
-
-      sceneInfo[2].objs.videoImages.push(imgElem2)
+      if (sceneInfo[2].objs.videoImages) {
+        sceneInfo[2].objs.videoImages.push(imgElem2)
+      }
     }
     let imgElem3
     for (let i = 0; i < sceneInfo[3].objs.imagePath.length; i++) {
       imgElem3 = new Image()
-      imgElem3.src = sceneInfo[3].objs.imagePath[i]
-
-      sceneInfo[3].objs.images.push(imgElem3)
+      if (sceneInfo[3].objs.imagePath) {
+        imgElem3.src = sceneInfo[3].objs.imagePath[i]
+      }
+      if (sceneInfo[3].objs.images) {
+        sceneInfo[3].objs.images.push(imgElem3)
+      }
     }
   }
 
@@ -278,37 +282,27 @@ export const useShowScene = (
 
     switch (currentScene) {
       case 0:
-        // console.log('0 play')
-        // console.log(objs.videoImages)
-
-        // const sequence = Math.round(
-        //   calcValues(values.imageSequence, currentYOffset),
-        // )
-
-        // if (sequence > 0) {
-        // objs.context.drawImage(objs.videoImages[sequence], 0, 0)
         objs.canvas.current.style.opacity = calcValues(
           values.canvas_opacity,
           currentYOffset,
         )
-        // }
 
         if (scrollRatio <= 0.22) {
           // in
-          objs.messageA.current.style.opacity = calcValues(
+          objs.messageA.current.style.opacity = `${calcValues(
             values.messageA_opacity_in,
             currentYOffset,
-          )
+          )}`
           objs.messageA.current.style.transform = `translate3d(0, ${calcValues(
             values.messageA_translateY_in,
             currentYOffset,
           )}%, 0)`
         } else {
           // out
-          objs.messageA.current.style.opacity = calcValues(
+          objs.messageA.current.style.opacity = `${calcValues(
             values.messageA_opacity_out,
             currentYOffset,
-          )
+          )}`
           objs.messageA.current.style.transform = `translate3d(0, ${calcValues(
             values.messageA_translateY_out,
             currentYOffset,
@@ -383,14 +377,6 @@ export const useShowScene = (
 
         break
       case 2:
-        // const sequence2 = Math.round(
-        //   calcValues(values.imageSequence, currentYOffset),
-        // )
-
-        // if (sequence2 > 0 && objs.videoImages[sequence2] !== undefined) {
-        //   objs.context.drawImage(objs.videoImages[sequence2], 0, 0)
-        // }
-
         if (scrollRatio <= 0.5) {
           // in
           objs.canvas.current.style.opacity = calcValues(
@@ -540,7 +526,6 @@ export const useShowScene = (
         }
         break
       case 3:
-        // console.log('3 play')
         // 가로/세로 모두 꽉차게 하기 위해서 여기에 셋팅(계산 필요)
         let step = 0
         const widthRatio = window.innerWidth / objs.canvas.current.width
@@ -736,28 +721,46 @@ export const useShowScene = (
       rafState = false
     }
   }
-  window.addEventListener('scroll', () => {
+  const scrollListener = () => {
     yOffset = window.pageYOffset
+    console.log('scrollLisener On')
+
     scrollLoop()
 
     if (!rafState) {
       rafId = requestAnimationFrame(loop)
       rafState = true
     }
-  })
+  }
+  window.addEventListener('scroll', scrollListener)
 
-  window.addEventListener('load', () => {
+  const loadEventListener = () => {
     setLayout()
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0)
-  })
-  window.addEventListener('resize', () => {
+  }
+  window.addEventListener('load', loadEventListener)
+  const resizeEventListener = () => {
     if (window.innerWidth > 600) {
       setLayout()
     }
     sceneInfo[3].values.rectStartY = 0
-  })
+  }
+  window.addEventListener('resize', resizeEventListener)
   // 화면 도돌릴때 대응
   window.addEventListener('orientationchange', setLayout)
   setCanvasImages()
   setLayout()
+  const eventList = {
+    scroll: scrollListener,
+    load: loadEventListener,
+    resize: resizeEventListener,
+    orientationchange: setLayout,
+  }
+
+  return {
+    scroll: scrollListener,
+    load: loadEventListener,
+    resize: resizeEventListener,
+    orientationchange: setLayout,
+  }
 }
