@@ -44,7 +44,7 @@ const PostTemplate = ({
       },
     },
   } = edges[0]
-  console.log('post')
+
   return (
     <Template
       isPost={true}

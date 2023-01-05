@@ -1,9 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
-import * as S from 'components/Main/LandingPage/InteractiveLandingPage/Styles'
 import { useShowScene } from 'hooks/useShowScene'
 import { navigate } from 'gatsby'
-import { useSetRecoilState } from 'recoil'
-import { templateMountState } from 'states/templateMountState'
+import * as S from 'components/Main/LandingPage/InteractiveLandingPage/Styles'
 
 interface ImagePropsType {
   imageSet: {
@@ -12,7 +10,6 @@ interface ImagePropsType {
 }
 
 const InteractiveLandingPage = (props: ImagePropsType) => {
-  const setState = useSetRecoilState(templateMountState)
   const [isShowScene, setShowScene] = useState('section-0')
   const [makeSticky, setMakeSticky] = useState(false)
 
@@ -89,9 +86,17 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
   }
 
   let eventListener: EventListenerTypes
+  const removeEventTask = ['scroll', 'load', 'resize', 'orientationchange']
 
+  const removeEventListeners = (events: any) => {
+    removeEventTask.forEach(task => {
+      window.removeEventListener(`${task}`, events[`${task}`])
+    })
+  }
   const goToBlog = () => {
     props.setIsLanding(true)
+
+    removeEventListeners(eventsList)
     navigate('/?category=All')
   }
   useEffect(() => {
@@ -101,8 +106,8 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
       setShowScene,
       props.imageSet,
     )
-
-    setState(eventListener)
+    console.log('event : ', eventsList)
+    setEventList(eventListener)
   }, [])
 
   return (
@@ -247,59 +252,3 @@ const InteractiveLandingPage = (props: ImagePropsType) => {
 }
 
 export default InteractiveLandingPage
-
-// export const getPostList = graphql`
-//   query getPostList {
-//     site {
-//       siteMetadata {
-//         title
-//         description
-//         siteUrl
-//       }
-//     }
-//     allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
-//       edges {
-//         node {
-//           id
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             title
-//             summary
-//             date(formatString: "YYYY.MM.DD.")
-//             categories
-//             index
-//             domain
-//             sideTitle
-//             thumbnail {
-//               childImageSharp {
-//                 gatsbyImageData(width: 768, height: 400)
-//               }
-//             }
-//             categoryIcon {
-//               childImageSharp {
-//                 gatsbyImageData(width: 10, height: 10)
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     allFile(
-//       filter: {
-//         extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
-//         sourceInstanceName: { eq: "images" }
-//       }
-//     ) {
-//       edges {
-//         node {
-//           extension
-//           sourceInstanceName
-//           id
-//           publicURL
-//         }
-//       }
-//     }
-//   }
-// `

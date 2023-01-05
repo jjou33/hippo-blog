@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2019",
     "module": "commonjs",
     "allowJs": true,
     "jsx": "preserve",
@@ -9,6 +9,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "baseUrl": "./src",
+
     "paths": {
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],

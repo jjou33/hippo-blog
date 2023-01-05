@@ -90,37 +90,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Generate Post Page And Passing Slug Props for Query
   posts.forEach(generatePostPage)
 
-  const post = queryAllMarkdownData.data.allMarkdownRemark.edges
-  const postsPerPage = 4
-  const numPages = Math.ceil(post.length / postsPerPage)
+  const LandingComponent = path.resolve(
+    __dirname,
+    'src/templates/landing_template.tsx',
+  )
 
-  // const PostPaginationComponent = path.resolve(
-  //   __dirname,
-  //   'src/templates/post_pagination.tsx',
-  // )
+  const GenerateLandingComponent = () => {
+    const pageOptions = {
+      path: '/introduce',
+      component: LandingComponent,
+    }
 
-  // const GenerateIntroduceComponent = () => {
-  //   const pageOptions = {
-  //     path: '/introduce',
-  //     component: PostPaginationComponent,
-  //   }
+    createPage(pageOptions)
+  }
 
-  //   createPage(pageOptions)
-  // }
-
-  // GenerateIntroduceComponent()
-  // Array.from({ length: numPages }).forEach((_, i) => {
-  //   createPage({
-  //     path: '/introduce',
-  //     component: PostPaginationComponent,
-  //     context: {
-  //       limit: postsPerPage,
-  //       skip: i * postsPerPage,
-  //       numPages,
-  //       currentPage: i + 1,
-  //     },
-  //   })
-  // })
+  GenerateLandingComponent()
 }
 
 // Generate a Slug Each Post Data

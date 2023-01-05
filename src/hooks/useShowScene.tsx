@@ -15,7 +15,7 @@ interface sectionObjectPropsType {
     [key: string]: MutableRefObject<HTMLDivElement | null>
   }
   canvasRef: {
-    [key: string]: MutableRefObject<HTMLCanvasElement>
+    [key: string]: MutableRefObject<HTMLCanvasElement | null>
   }
 }
 

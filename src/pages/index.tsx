@@ -1,11 +1,17 @@
-import React, { FunctionComponent } from 'react'
+import React, { useMemo } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
-import { getSelectedCategory } from 'utils/Category/Category'
+import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
+import NavigationPage from 'components/Navigation/NavigationPage'
 import Template from 'components/layout/Template'
 import styled from '@emotion/styled'
+import { useScrollStateBar } from 'hooks/useScrollStateBar'
+
+interface IndexSignatureType {
+  [key: string]: number
+}
 
 interface IndexPageProps {
   location: {
@@ -43,36 +49,84 @@ const ContentsTitle = styled.h1`
   margin-top: 20px;
   font-size: 50px;
 `
+
 const IndexPage = ({
   location: { search },
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark: { edges },
+    allMarkdownRemark,
     allFile,
   },
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
-  const imagePathList = getImagePathSetList(allFile.edges)
+  const imagePath = getImagePathSetList(allFile.edges)
+  const categoryList = getCategoryList(allMarkdownRemark)
+  const scroll = useScrollStateBar()
+  const categoryCount = useMemo(
+    () =>
+      allMarkdownRemark.edges.reduce(
+        (
+          list: IndexSignatureType,
+          {
+            node: {
+              frontmatter: { sideTitle },
+            },
+          },
+        ) => {
+          allMarkdownRemark.edges.forEach(
+            ({
+              node: {
+                frontmatter: { categories },
+              },
+            }) => {
+              console.log('cate : ', categories)
+
+              if (categories.includes(sideTitle)) {
+                if (list[sideTitle] === undefined) {
+                  list[sideTitle] = 1
+                } else {
+                  list[sideTitle] += 1
+                }
+              }
+            },
+          )
+          list['All'] += 1
+          return list
+        },
+        { All: 0 },
+      ),
+    [],
+  )
 
   return (
     <Template
       title={title}
       description={description}
       url={siteUrl}
-      image={imagePathList['profile-image']}
+      image={imagePath['profile-image']}
     >
-      <ContentsWrapper>
-        <ContentsTitle>
-          {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
-        </ContentsTitle>
-        <PostList
-          selectedCategory={selectedCategory}
-          posts={edges}
-          imageSet={imagePathList}
-        />
-      </ContentsWrapper>
+      <NavigationPage
+        navigationProps={{
+          selectedCategory,
+          categoryList,
+          imagePath,
+          scroll,
+          categoryCount,
+        }}
+      >
+        <ContentsWrapper>
+          <ContentsTitle>
+            {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
+          </ContentsTitle>
+          <PostList
+            selectedCategory={selectedCategory}
+            posts={allMarkdownRemark.edges}
+            imageSet={imagePath}
+          />
+        </ContentsWrapper>
+      </NavigationPage>
     </Template>
   )
 }

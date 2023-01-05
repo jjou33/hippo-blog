@@ -1,43 +1,42 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-import CategoryList from 'components/Navigation/Category/CategoryList'
-import Introduction from 'components/Navigation/Profile/Introduction'
 import MainImage from 'components/layout/MainImage'
-import * as S from 'components/layout/Styles'
-import { useRecoilValue } from 'recoil'
-import { templateMountState } from 'states/templateMountState'
+import Introduction from 'components/Navigation/Profile/Introduction'
+import CategoryList from 'components/Navigation/Category/CategoryList'
 import CategorySkeleton from 'components/Navigation/Category/CategorySkeleton'
+import * as S from 'components/layout/Styles'
 
-const NavigationPages = props => {
-  const {
-    imagePath,
-    categoryList,
-    selectedCategory,
-    scroll,
-    isLanding,
-    categoryCount,
-    children,
-  } = props.navigationProps
+interface NavigationPropsType {
+  navigationProps: {
+    categoryCount: {
+      [key: string]: number
+    }
+    categoryList: {
+      [key: string]: {
+        title: string
+        childrenCount: number
+        children: string[]
+      }
+    }
+    imagePath: {
+      [key: string]: string
+    }
+    scroll: number
 
-  const state = useRecoilValue<any>(templateMountState)
-  const removeEventTask = ['scroll', 'load', 'resize', 'orientationchange']
-
-  const removeEventListeners = (events: any) => {
-    removeEventTask.forEach(task => {
-      window.removeEventListener(`${task}`, events[`${task}`])
-    })
+    selectedCategory: string
   }
+  children: ReactNode
+}
+const NavigationPages = (props: NavigationPropsType) => {
   const [mount, isMount] = useState(false)
+  const { imagePath, categoryList, selectedCategory, scroll, categoryCount } =
+    props.navigationProps
+
   useEffect(() => {
     setTimeout(() => {
       isMount(true)
     }, 600)
   }, [])
 
-  useEffect(() => {
-    if (isLanding) {
-      removeEventListeners(state)
-    }
-  }, [isLanding])
   return (
     <>
       <S.NavigationContainer>
@@ -51,7 +50,6 @@ const NavigationPages = props => {
               categoryList={categoryList}
               selectedCategory={selectedCategory}
               categoryCount={categoryCount}
-              imagePathList={imagePath}
             />
           ) : (
             <CategorySkeleton categoryList={categoryList} />
@@ -63,7 +61,7 @@ const NavigationPages = props => {
           <S.ProgressBar scroll={scroll} />
         </S.ProgressBarContainer>
         <MainImage backgroundImg={imagePath['mainTitle']} />
-        {children}
+        {props.children}
       </S.MainContainer>
     </>
   )

@@ -64,26 +64,6 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   )
   return (
     <PostListContainer>
-      {/* <S.FooterWrapper>
-        <S.FooterWaveStyle
-          src={imageSet.wave}
-          waveType="first"
-        ></S.FooterWaveStyle>
-        <S.FooterWaveStyle
-          src={imageSet.wave}
-          waveType="second"
-        ></S.FooterWaveStyle>
-        <S.FooterWaveStyle
-          src={imageSet.wave}
-          waveType="third"
-        ></S.FooterWaveStyle>
-        <S.FooterWaveStyle
-          src={imageSet.wave}
-          waveType="fourth"
-        ></S.FooterWaveStyle>
-        <S.BoatIcon>{getSvgJSXElement('Ship', '120', '120')}</S.BoatIcon>
-        <S.islandIcon>{getSvgJSXElement('Tree', '120', '120')}</S.islandIcon>
-      </S.FooterWrapper> */}
       <PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({

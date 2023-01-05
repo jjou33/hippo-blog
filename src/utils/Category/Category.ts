@@ -8,7 +8,7 @@ export const getSelectedCategory = (search: string): string => {
 
   const selectedCategory: string =
     typeof parsed.category !== 'string' || !parsed.category
-      ? 'landing'
+      ? 'All'
       : parsed.category
 
   return selectedCategory
