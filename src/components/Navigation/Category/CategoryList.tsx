@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode } from 'react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import CategoryRootTitle from './CategoryRootTitle'

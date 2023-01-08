@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
 import Pagination from './Pagination'
-import { getSvgJSXElement } from 'utils/Common/Common'
-import * as S from './Styles'
+
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
 import useInfiniteScroll, {
   useInfiniteScrollType,

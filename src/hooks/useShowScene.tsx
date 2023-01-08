@@ -273,15 +273,24 @@ export const useShowScene = (
     }
     return rv
   }
+
+  enum section {
+    zero,
+    one,
+    two,
+    third,
+    fourth,
+  }
   const playAnimation = () => {
     const objs = sceneInfo[currentScene].objs
     const values = sceneInfo[currentScene].values
     const currentYOffset = yOffset - prevScrollHeight
     const scrollHeight = sceneInfo[currentScene].scrollHeight
     const scrollRatio = currentYOffset / scrollHeight
+    console.log('current : ', currentScene)
 
     switch (currentScene) {
-      case 0:
+      case section.zero:
         objs.canvas.current.style.opacity = calcValues(
           values.canvas_opacity,
           currentYOffset,
@@ -376,7 +385,9 @@ export const useShowScene = (
         }
 
         break
-      case 2:
+      case section.one:
+        break
+      case section.two:
         if (scrollRatio <= 0.5) {
           // in
           objs.canvas.current.style.opacity = calcValues(
@@ -525,7 +536,7 @@ export const useShowScene = (
           )
         }
         break
-      case 3:
+      case section.third:
         // 가로/세로 모두 꽉차게 하기 위해서 여기에 셋팅(계산 필요)
         let step = 0
         const widthRatio = window.innerWidth / objs.canvas.current.width

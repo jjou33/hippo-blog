@@ -39,6 +39,7 @@ const animate2 = keyframes`
    background-position-x: -1000px;
  }
 `
+
 export const FooterWaveStyle = styled.div`
   position: absolute;
   bottom: 0;

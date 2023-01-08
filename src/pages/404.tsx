@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import { Link } from 'gatsby'
+import { Link } from '@reach/router'
 import GlobalStyle from 'styles/GlobalStyle'
 
 const NotFoundPageWrapper = styled.div`
@@ -30,7 +30,7 @@ const NotFoundDescription = styled.div`
   }
 `
 
-const GoToMainButton = styled()`
+const GoToMainButton = styled(Link)`
   margin-top: 30px;
   font-size: 20px;
   text-decoration: underline;

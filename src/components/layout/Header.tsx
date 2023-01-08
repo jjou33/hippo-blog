@@ -23,8 +23,8 @@ const Header = () => {
         <S.Icon ref={iconRef} scroll={xScroll * scroll}>
           {navIconSet['Rocket'].icon('15', '15')}
         </S.Icon>
-      </S.IconWrapper> */}
-      {/* <S.ProgressBarContainer>
+      </S.IconWrapper>
+      <S.ProgressBarContainer>
         <S.ProgressBar scroll={scroll} />
       </S.ProgressBarContainer> */}
     </S.HeaderContainer>

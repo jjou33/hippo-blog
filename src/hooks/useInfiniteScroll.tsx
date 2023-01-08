@@ -11,10 +11,6 @@ const NUMBER_OF_ITEMS_PER_PAGE = 2
 const useInfiniteScroll = function (
   selectedCategory: string,
   posts: PostListItemType[],
-  setPosts,
-  page,
-  limit,
-  offset,
 ): useInfiniteScrollType {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
