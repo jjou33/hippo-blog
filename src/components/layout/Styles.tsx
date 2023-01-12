@@ -29,8 +29,8 @@ export const NavigationWrapper = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-  overflow: scroll;
-  height: 1500px;
+  overflow-y: auto;
+  height: 1000px;
   z-index: 1;
 `
 
@@ -170,7 +170,7 @@ export const ProgressBar = styled.div`
   z-index: 1;
 `
 export const MainAnimationContainer = styled.div`
-  height: 1000px;
+  height: 300px;
   margin-left: 2px;
   @media (max-width: 768px) {
     height: 400px;

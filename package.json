@@ -16,6 +16,7 @@
     "@react-three/fiber": "^8.8.10",
     "@types/react-helmet": "^6.1.5",
     "@types/three": "^0.144.0",
+    "eslint-plugin-react": "^7.31.11",
     "gatsby": "^4.23.1",
     "gatsby-plugin-canonical-urls": "^4.23.0",
     "gatsby-plugin-emotion": "^7.23.0",
