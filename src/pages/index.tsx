@@ -81,8 +81,6 @@ const IndexPage = ({
                 frontmatter: { categories },
               },
             }) => {
-              console.log('cate : ', categories)
-
               if (categories.includes(sideTitle)) {
                 if (list[sideTitle] === undefined) {
                   list[sideTitle] = 1

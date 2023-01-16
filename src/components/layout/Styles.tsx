@@ -170,15 +170,28 @@ export const ProgressBar = styled.div`
   z-index: 1;
 `
 export const MainAnimationContainer = styled.div`
-  height: 300px;
+  height: 100vh;
   margin-left: 2px;
+
   @media (max-width: 768px) {
     height: 400px;
   }
   overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #ed9a9a 0%, #4965f2 100%);
-`
+  /* background: url(${(props: any) => props.backgroundImage.mainImage2});
+  background-size: cover; */
 
+  background: radial-gradient(ellipse at bottom, #f7f4f4 0%, #060606 20%);
+  /* background-color: black; */
+`
+export const MainImageWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+`
+export const MainImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+`
 export const MainImageIconWrapper = styled.div`
   position: relative;
 `
@@ -205,4 +218,9 @@ export const MainImageVueIcon = styled.div`
   margin: 50px 0 0 1400px;
 `
 
+export const MainImageIcon = styled.div`
+  background-color: black;
+  width: 100%;
+  height: 100px;
+`
 export const ButtonComponent = styled(Link)``

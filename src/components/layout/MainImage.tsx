@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import { getMainImageIconSvgElement } from 'utils/Common/Common'
 import StarAnimation from '../Common/Animations/StarAnimation/StarAnimation'
@@ -5,35 +6,26 @@ import StarAnimation from '../Common/Animations/StarAnimation/StarAnimation'
 import type { HeaderPropsType } from 'types/index'
 import * as S from './Styles'
 
+interface MainImageProps {
+  imagePath: string[]
+}
 const typedList = ['Front Developer', 'Passion', 'HTML']
 
-const MainImage = (props: HeaderPropsType) => {
+const MainImage = (props: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
+  console.log('imagePath : ', props.backgroundImg['mainImage2'])
+
   return (
     <S.MainAnimationContainer>
       <StarAnimation />
-      {/* <S.MainImageIconWrapper>
-        <S.MainImageHtmlIcon>
-          {getMainImageIconSvgElement('Html', '200')}
-        </S.MainImageHtmlIcon>
-        <S.MainImageCssIcon>
-          {getMainImageIconSvgElement('Css', '200')}
-        </S.MainImageCssIcon>
-        <S.MainImageJavscriptIcon>
-          {getMainImageIconSvgElement('Javascript', '200')}
-        </S.MainImageJavscriptIcon>
-        <S.MainImageReactIcon>
-          {getMainImageIconSvgElement('React', '200')}
-        </S.MainImageReactIcon>
-        <S.MainImageVueIcon>
-          {getMainImageIconSvgElement('Vue', '200')}
-        </S.MainImageVueIcon>
-      </S.MainImageIconWrapper> */}
       <S.MainImageTextWrapper>
         <S.MainImageStaticText>Welcome to HippoDev 😎 </S.MainImageStaticText>
         <br />
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
+      {/* <S.MainImageWrapper>
+        <S.MainImage src={props.backgroundImg.mainImage2} />
+      </S.MainImageWrapper> */}
     </S.MainAnimationContainer>
   )
 }

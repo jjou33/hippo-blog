@@ -142,7 +142,7 @@ const InteractiveLandingPage = ({
       title={title}
       description={description}
       url={siteUrl}
-      image={imagePathList['profile-image']}
+      image={List['profile-image']}
     >
       <S.LandingPageContainer>
         <S.HeaderContainer>

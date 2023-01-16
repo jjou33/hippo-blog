@@ -50,14 +50,15 @@ const defaultStyle = css`
     height: 100%;
     letter-spacing: -0.05px;
   }
+
+  */
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: JetBrainsMono;
+    font-family: MaplestoryLight;
     shape-rendering: auto;
-  } */
-
+  }
   /* #___gatsby {
     height: 100%;
     overflow-x: hidden;
