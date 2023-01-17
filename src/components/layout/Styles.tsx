@@ -124,10 +124,65 @@ export const MainImageDynamicText = styled.span`
     animation: ${blinkCursorKeyframe} 1s infinite;
   }
 `
+
+export const ScrollIndicatorWrapper = styled.div`
+  position: absolute;
+  top: 95%;
+  left: 98%;
+  transform: translate(-50%, -50%);
+`
+const scroll = keyframes`
+  0% {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-50%, 60px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+  }
+`
+export const ScrollIndicator = styled.div`
+  position: relative;
+  width: 50px;
+  height: 80px;
+  border-radius: 25px;
+  background: transparent;
+  border: 4px solid #000;
+  overflow: hidden;
+
+  ::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, 0);
+    animation: ${scroll} 1s linear infinite;
+  }
+  ::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #000;
+    left: 50%;
+    top: 5px;
+    transform: translate(-50%, 0);
+    border-radius: 3px;
+  }
+`
 export const MainImageTextWrapper = styled.div`
   position: absolute;
   /* margin-right: 50%; */
-  margin-top: 5%;
+  /* margin-top: 5%; */
   margin-left: 10%;
   font-size: 60px;
   font-weight: 300;
@@ -179,18 +234,19 @@ export const MainAnimationContainer = styled.div`
   overflow: hidden;
   /* background: url(${(props: any) => props.backgroundImage.mainImage2});
   background-size: cover; */
-
-  background: radial-gradient(ellipse at bottom, #f7f4f4 0%, #060606 20%);
   /* background-color: black; */
 `
 export const MainImageWrapper = styled.div`
   height: 100vh;
   width: 100%;
 `
-export const MainImage = styled.img`
+export const MainImage = styled.div`
+  background-image: url(${(props: any) => props.backgroundImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
   width: 100%;
   height: 100%;
-  object-fit: fill;
 `
 export const MainImageIconWrapper = styled.div`
   position: relative;

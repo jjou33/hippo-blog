@@ -13,19 +13,22 @@ const typedList = ['Front Developer', 'Passion', 'HTML']
 
 const MainImage = (props: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
-  console.log('imagePath : ', props.backgroundImg['mainImage2'])
 
   return (
     <S.MainAnimationContainer>
-      <StarAnimation />
+      {/* <StarAnimation /> */}
+
       <S.MainImageTextWrapper>
         <S.MainImageStaticText>Welcome to HippoDev 😎 </S.MainImageStaticText>
         <br />
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
-      {/* <S.MainImageWrapper>
-        <S.MainImage src={props.backgroundImg.mainImage2} />
-      </S.MainImageWrapper> */}
+      <S.MainImageWrapper>
+        <S.MainImage backgroundImage={props.backgroundImg.mainImage4} />
+        <S.ScrollIndicatorWrapper>
+          <S.ScrollIndicator />
+        </S.ScrollIndicatorWrapper>
+      </S.MainImageWrapper>
     </S.MainAnimationContainer>
   )
 }
