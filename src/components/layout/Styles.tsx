@@ -187,7 +187,7 @@ export const MainImageTextWrapper = styled.div`
   font-size: 60px;
   font-weight: 300;
 
-  color: #fff;
+  color: black;
   letter-spacing: 5px;
   span {
     background: -webkit-linear-gradient(white, #38495a);
@@ -216,13 +216,13 @@ interface ProgressBarPropsType {
   scroll: number
 }
 export const ProgressBar = styled.div`
-  background: #f14f4f;
+  background: red;
   transform-origin: top left;
   /* transform: scale(0, 0); */
   transform: scale(${(props: ProgressBarPropsType) => props.scroll});
   height: 3px;
   opacity: 1;
-  z-index: 1;
+  z-index: 999;
 `
 export const MainAnimationContainer = styled.div`
   height: 100vh;
@@ -244,7 +244,7 @@ export const MainImage = styled.div`
   background-image: url(${(props: any) => props.backgroundImage});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0% 100%;
+  background-position: 0 100%;
   width: 100%;
   height: 100%;
 `

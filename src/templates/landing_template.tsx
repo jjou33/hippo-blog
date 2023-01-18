@@ -118,7 +118,9 @@ const InteractiveLandingPage = ({
   }
   const removeEventListeners = (events: EventListenerTypes) => {
     removeEventTask.forEach(task => {
-      window.removeEventListener(`${task}`, events[`${task}`])
+      if (typeof window !== undefined) {
+        window.removeEventListener(`${task}`, events[`${task}`])
+      }
     })
   }
 
@@ -142,13 +144,13 @@ const InteractiveLandingPage = ({
       title={title}
       description={description}
       url={siteUrl}
-      image={List['profile-image']}
+      image={imagePathList['profile-image']}
     >
       <S.LandingPageContainer>
         <S.HeaderContainer>
           <S.HeaderWrapper>
             <S.HeaderItemTitle to="/">HIPPO DEV</S.HeaderItemTitle>
-            <S.HeaderItemLink onClick={goToBlog}>블로그 보기</S.HeaderItemLink>
+            <S.HeaderItemLink>블로그 보기</S.HeaderItemLink>
           </S.HeaderWrapper>
         </S.HeaderContainer>
 
@@ -287,58 +289,58 @@ const InteractiveLandingPage = ({
 
 export default InteractiveLandingPage
 
-export const getPostList = graphql`
-  query getPostList {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            summary
-            date(formatString: "YYYY.MM.DD.")
-            categories
-            index
-            domain
-            sideTitle
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
-              }
-            }
-            categoryIcon {
-              childImageSharp {
-                gatsbyImageData(width: 10, height: 10)
-              }
-            }
-          }
-        }
-      }
-    }
-    allFile(
-      filter: {
-        extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
-        sourceInstanceName: { eq: "images" }
-      }
-    ) {
-      edges {
-        node {
-          extension
-          sourceInstanceName
-          id
-          publicURL
-        }
-      }
-    }
-  }
-`
+// export const getPostList = graphql`
+//   query getPostList {
+//     site {
+//       siteMetadata {
+//         title
+//         description
+//         siteUrl
+//       }
+//     }
+//     allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
+//       edges {
+//         node {
+//           id
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             summary
+//             date(formatString: "YYYY.MM.DD.")
+//             categories
+//             index
+//             domain
+//             sideTitle
+//             thumbnail {
+//               childImageSharp {
+//                 gatsbyImageData(width: 768, height: 400)
+//               }
+//             }
+//             categoryIcon {
+//               childImageSharp {
+//                 gatsbyImageData(width: 10, height: 10)
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allFile(
+//       filter: {
+//         extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
+//         sourceInstanceName: { eq: "images" }
+//       }
+//     ) {
+//       edges {
+//         node {
+//           extension
+//           sourceInstanceName
+//           id
+//           publicURL
+//         }
+//       }
+//     }
+//   }
+// `

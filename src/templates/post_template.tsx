@@ -84,7 +84,7 @@ export const queryMarkdownDataBySlug = graphql`
             sideTitle
             thumbnail {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(quality: 90)
               }
               publicURL
             }
