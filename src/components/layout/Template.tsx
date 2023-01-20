@@ -38,6 +38,19 @@ const Template = ({
       console.log('width : ', document.body.style.height)
       document.body.style.height = window.innerHeight
     }
+
+    let cachedWidth = window.innerWidth
+    const resizeHandler = () => {
+      const newWitdh = window.innerWidth
+      if (cachedWidth !== newWitdh) {
+        cachedWidth = newWitdh
+      } else {
+        return false
+      }
+    }
+    window.addEventListener('resize', resizeHandler)
+
+    return () => window.removeEventListener('resize', resizeHandler)
   }, [])
   return (
     <>
