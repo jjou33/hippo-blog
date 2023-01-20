@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
 import * as S from './Styles'
@@ -23,6 +23,22 @@ const Template = ({
   image,
   children,
 }: TemplateProps) => {
+  useEffect(() => {
+    console.log('inner : ', window.innerHeight)
+    console.log('inner : ', window.innerWidth)
+    console.log('outer : ', window.outerHeight)
+    console.log('outer : ', window.outerWidth)
+
+    if (window.innerWidth !== window.outerWidth) {
+      console.log('width : ', document.body.style.width)
+      document.body.style.width = window.innerWidth
+    }
+
+    if (window.innerHeight !== window.outerHeight) {
+      console.log('width : ', document.body.style.height)
+      document.body.style.height = window.innerHeight
+    }
+  }, [])
   return (
     <>
       <S.Container>
@@ -34,7 +50,7 @@ const Template = ({
             <meta name="description" content={description} />
             <meta
               name="viewport"
-              content="width=device-width, initial-scale=1.0"
+              content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=0"
             />
             <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
 
