@@ -12,11 +12,8 @@ import { Link } from 'gatsby'
 export const Container = styled.div`
   display: flex;
 `
-export const MainContainer = styled.main`
-  flex: 4;
-`
+export const MainContainer = styled.main``
 export const NavigationContainer = styled.nav`
-  flex: 0.4;
   box-shadow: 0px 0px 4px 0px;
 
   @media (max-width: 768px) {
