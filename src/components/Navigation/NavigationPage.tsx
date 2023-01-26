@@ -60,7 +60,7 @@ const NavigationPages = (props: NavigationPropsType) => {
         <S.ProgressBarContainer>
           <S.ProgressBar scroll={scroll} />
         </S.ProgressBarContainer>
-        <MainImage backgroundImg={imagePath} />
+        {/* <MainImage backgroundImg={imagePath} /> */}
         {props.children}
       </S.MainContainer>
     </>
