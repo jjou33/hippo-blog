@@ -229,7 +229,7 @@ export const MainAnimationContainer = styled.div`
   margin-left: 2px;
 
   @media (max-width: 768px) {
-    height: 400px;
+    display: none;
   }
   overflow: hidden;
   /* background: url(${(props: any) => props.backgroundImage.mainImage2});
