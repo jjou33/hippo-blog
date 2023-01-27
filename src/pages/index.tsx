@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
@@ -6,8 +6,13 @@ import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 import NavigationPage from 'components/Navigation/NavigationPage'
 import Template from 'components/layout/Template'
+import Introduction from 'components/Navigation/Profile/Introduction'
+import CategoryList from 'components/Navigation/Category/CategoryList'
 import styled from '@emotion/styled'
+import CategorySkeleton from 'components/Navigation/Category/CategorySkeleton'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
+
+import * as S from 'components/layout/Styles'
 
 interface IndexSignatureType {
   [key: string]: number
@@ -60,6 +65,7 @@ const IndexPage = ({
     allFile,
   },
 }: IndexPageProps) => {
+  const [mount, isMount] = useState(false)
   const selectedCategory: string = getSelectedCategory(search)
   const imagePath = getImagePathSetList(allFile.edges)
   const categoryList = getCategoryList(allMarkdownRemark)
@@ -98,6 +104,11 @@ const IndexPage = ({
     [],
   )
 
+  useEffect(() => {
+    setTimeout(() => {
+      isMount(true)
+    }, 600)
+  }, [])
   return (
     <Template
       title={title}
@@ -105,7 +116,7 @@ const IndexPage = ({
       url={siteUrl}
       image={imagePath['profile-image']}
     >
-      <NavigationPage
+      {/* <NavigationPage
         navigationProps={{
           selectedCategory,
           categoryList,
@@ -124,7 +135,40 @@ const IndexPage = ({
             imageSet={imagePath}
           />
         </ContentsWrapper>
-      </NavigationPage>
+      </NavigationPage> */}
+      <S.NavigationContainer>
+        <S.NavigationWrapper>
+          <Introduction
+            profileImage={imagePath['superHero']}
+            roketImage={imagePath['rocket']}
+          />
+          {mount ? (
+            <CategoryList
+              categoryList={categoryList}
+              selectedCategory={selectedCategory}
+              categoryCount={categoryCount}
+            />
+          ) : (
+            <CategorySkeleton categoryList={categoryList} />
+          )}
+        </S.NavigationWrapper>
+      </S.NavigationContainer>
+      <S.MainContainer>
+        <S.ProgressBarContainer>
+          <S.ProgressBar scroll={scroll} />
+        </S.ProgressBarContainer>
+        {/* <MainImage backgroundImg={imagePath} /> */}
+        <ContentsWrapper>
+          <ContentsTitle>
+            {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
+          </ContentsTitle>
+          <PostList
+            selectedCategory={selectedCategory}
+            posts={allMarkdownRemark.edges}
+            imageSet={imagePath}
+          />
+        </ContentsWrapper>
+      </S.MainContainer>
     </Template>
   )
 }

@@ -39,7 +39,7 @@ const NavigationPages = (props: NavigationPropsType) => {
 
   return (
     <>
-      <S.NavigationContainer>
+      {/* <S.NavigationContainer>
         <S.NavigationWrapper>
           <Introduction
             profileImage={imagePath['superHero']}
@@ -62,7 +62,7 @@ const NavigationPages = (props: NavigationPropsType) => {
         </S.ProgressBarContainer>
         {/* <MainImage backgroundImg={imagePath} /> */}
         {props.children}
-      </S.MainContainer>
+      </S.MainContainer> */}
     </>
   )
 }
