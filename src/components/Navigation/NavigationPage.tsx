@@ -36,7 +36,7 @@ const NavigationPages = (props: NavigationPropsType) => {
       isMount(true)
     }, 600)
   }, [])
-  console.log('wave :', imagePath)
+
   return (
     <>
       <S.NavigationContainer>

@@ -13,14 +13,18 @@ const typedList = ['DEVELOPER', 'STUDY', 'PASSION', 'ENJOY']
 
 const MainImage = ({ imagePath }: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
-
-  const [totalHeight, setTotalHeight] = useState<number>(window.innerHeight)
-  const [totalWidth, setTotalWidth] = useState<number>(window.innerWidth)
-  const changeTotalHeight = () => {
+  const [totalHeight, setTotalHeight] = useState<number>(0)
+  const [totalWidth, setTotalWidth] = useState<number>(0)
+  useEffect(() => {
     setTotalHeight(window.innerHeight)
     setTotalWidth(window.innerWidth)
-  }
-  window.addEventListener('resize', changeTotalHeight)
+    const changeTotalHeight = () => {
+      setTotalHeight(window.innerHeight)
+      setTotalWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', changeTotalHeight)
+  }, [])
+
   console.log('nav : ', navIconSet)
   return (
     <S.MainAnimationContainer>
