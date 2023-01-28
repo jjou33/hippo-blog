@@ -36,7 +36,7 @@ const NavigationPages = (props: NavigationPropsType) => {
       isMount(true)
     }, 600)
   }, [])
-
+  console.log('wave :', imagePath)
   return (
     <>
       <S.NavigationContainer>
@@ -60,7 +60,7 @@ const NavigationPages = (props: NavigationPropsType) => {
         <S.ProgressBarContainer>
           <S.ProgressBar scroll={scroll} />
         </S.ProgressBarContainer>
-        <MainImage backgroundImg={imagePath} />
+        <MainImage imagePath={imagePath} />
         {props.children}
       </S.MainContainer>
     </>

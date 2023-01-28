@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { upDownAnimation } from 'styles/AnimationKeyframes'
+import { boat_in_animation } from 'styles/AnimationKeyframes'
 import { HeaderPropsType } from 'types/index'
 import { Link } from 'gatsby'
 
@@ -114,6 +115,7 @@ const blinkCursorKeyframe = keyframes`
 
 export const MainImageStaticText = styled.span``
 export const MainImageDynamicText = styled.span`
+  color: #b8eba0;
   &::after {
     content: '';
     position: absolute;
@@ -127,9 +129,16 @@ export const MainImageDynamicText = styled.span`
 
 export const ScrollIndicatorWrapper = styled.div`
   position: absolute;
-  top: 95%;
-  left: 98%;
+  /* top: 95%;
+  left: 98%; */
   transform: translate(-50%, -50%);
+  z-index: 1003;
+  ${(props: any) => {
+    return css`
+      top: ${props.totalHeight * 0.9}px;
+      left: ${props.totalWidth * 0.5}px;
+    `
+  }}
 `
 const scroll = keyframes`
   0% {
@@ -157,14 +166,14 @@ export const ScrollIndicator = styled.div`
   ::before {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: #000;
     left: 50%;
-    top: 10px;
+    top: 5px;
     transform: translate(-50%, 0);
-    animation: ${scroll} 1s linear infinite;
+    animation: ${scroll} 1.5s linear infinite;
   }
   ::after {
     content: '';
@@ -174,7 +183,7 @@ export const ScrollIndicator = styled.div`
     border-radius: 50%;
     background-color: #000;
     left: 50%;
-    top: 5px;
+    top: 10px;
     transform: translate(-50%, 0);
     border-radius: 3px;
   }
@@ -280,3 +289,123 @@ export const MainImageIcon = styled.div`
   height: 100px;
 `
 export const ButtonComponent = styled(Link)``
+
+export const FooterFirstWaveAnimation = styled.div`
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+interface FooterWavePropsType {
+  src: string
+  waveType: string
+}
+
+const animate = keyframes`
+ 0% {
+   background-position-x: 0px;
+ }
+
+ 100% {
+   background-position-x: 1000px;
+ }
+`
+const animate2 = keyframes`
+ 0% {
+   background-position-x: 0px;
+ }
+
+ 100% {
+   background-position-x: -1000px;
+ }
+`
+
+export const FooterWaveStyle = styled.div`
+  position: absolute;
+  bottom: 0;
+  top: ${props => props.totalHeight - 97}px;
+  width: 100%;
+  height: 100px;
+
+  ${(props: FooterWavePropsType) => {
+    if (props.src) {
+      switch (props.waveType) {
+        case 'first':
+          return css`
+            background: url(${props.src});
+            animation: ${animate} 30s linear infinite;
+            z-index: 1000;
+            opacity: 1;
+            animation-delay: 0s;
+            bottom: 0px;
+          `
+        case 'second':
+          return css`
+            background: url(${props.src});
+            animation: ${animate2} 15s linear infinite;
+            z-index: 999;
+            opacity: 0.5;
+            animation-delay: -5s;
+            bottom: 5px;
+          `
+        case 'third':
+          return css`
+            background: url(${props.src});
+            animation: ${animate2} 5s linear infinite;
+            z-index: 998;
+            opacity: 0.2;
+            animation-delay: -2s;
+            bottom: 10px;
+          `
+        case 'fourth':
+          return css`
+            background: url(${props.src});
+            animation: ${animate2} 15s linear infinite;
+            z-index: 997;
+            opacity: 0.7;
+            animation-delay: -5s;
+            bottom: 15px;
+          `
+        case 'five':
+          return css`
+            background: url(${props.src});
+            animation: ${animate2} 15s linear infinite;
+            z-index: 997;
+            opacity: 0.9;
+            animation-delay: -1s;
+            bottom: 15px;
+          `
+      }
+    }
+  }}
+
+  background-size: 1000px 100px;
+`
+export const BoatImage = styled.img``
+export const BoatIcon = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  /* margin: 90px 0 0 300px; */
+  z-index: 1001;
+  animation: ${boat_in_animation} 10s ease infinite;
+
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.82}px;
+      margin-left: ${props.totalWidth * 0.1}px;
+    `
+  }}
+`
+
+export const islandIcon = styled.div`
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  margin: 90px 0 0 1000px;
+  z-index: 1001;
+`
