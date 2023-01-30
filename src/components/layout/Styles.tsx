@@ -15,6 +15,7 @@ export const Container = styled.div`
 `
 export const MainContainer = styled.main`
   /* flex: 4; */
+  width: 100vw;
 `
 export const NavigationContainer = styled.nav`
   /* flex: 0.4; */
@@ -113,9 +114,12 @@ const blinkCursorKeyframe = keyframes`
   }
 `
 
-export const MainImageStaticText = styled.span``
+export const MainImageStaticText = styled.span`
+  top: 50%;
+  color: white;
+`
 export const MainImageDynamicText = styled.span`
-  color: #b8eba0;
+  color: #f44b2a;
   &::after {
     content: '';
     position: absolute;
@@ -133,12 +137,56 @@ export const ScrollIndicatorWrapper = styled.div`
   left: 98%; */
   transform: translate(-50%, -50%);
   z-index: 1003;
-  ${(props: any) => {
-    return css`
-      top: ${props.totalHeight * 0.9}px;
-      left: ${props.totalWidth * 0.5}px;
-    `
-  }}
+`
+export const ArrowScroll = keyframes`
+  0% {
+    bottom: 80%;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 20%;
+    opacity: 0;
+  }
+`
+
+export const arrow1 = keyframes`
+  100% {
+    opacity: 0;
+    top: 100%;
+  }
+`
+export const arrow2 = keyframes`
+  100% {
+    opacity: 0;
+    top: 50%;
+  }
+`
+export const ArrowIndicatorWrapper = styled.div`
+  position: relative;
+  height: 4em;
+  bottom: 50%;
+  left: 95%;
+  z-index: 1004;
+`
+
+export const ArrowIndicator = styled.div`
+  border: solid white;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+
+  transform: translateX(-50%) rotate(45deg);
+
+  :nth-child(2) {
+    animation: ${arrow1} 1.5s ease-in-out infinite;
+  }
+
+  :nth-child(3) {
+    animation: ${arrow2} 1.5s ease-in-out infinite;
+  }
 `
 const scroll = keyframes`
   0% {
@@ -195,7 +243,7 @@ export const MainImageTextWrapper = styled.div`
   margin-left: 10%;
   font-size: 60px;
   font-weight: 300;
-
+  top: 40%;
   color: black;
   letter-spacing: 5px;
   span {
@@ -258,12 +306,28 @@ export const MainImage = styled.div`
   height: 100%;
 `
 export const MainImageIconWrapper = styled.div`
-  position: relative;
+  display: flex;
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.1}px;
+      left: ${props.totalHeight * 0.1}px;
+    `
+  }}
 `
 
 export const MainImageHtmlIcon = styled.div`
   position: absolute;
-  margin: 50px 0 0 200px;
+  /* margin: 50px 0 0 200px; */
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.1}px;
+      left: ${props.totalHeight * 0.4}px;
+    `
+  }}
 `
 export const MainImageCssIcon = styled.div`
   position: absolute;
@@ -271,16 +335,37 @@ export const MainImageCssIcon = styled.div`
 `
 export const MainImageReactIcon = styled.div`
   position: absolute;
-  margin: 50px 0 0 800px;
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.1}px;
+      left: ${props.totalHeight * 0.6}px;
+    `
+  }}
 `
 export const MainImageJavscriptIcon = styled.div`
   position: absolute;
-  margin: 600px 0 0 1400px;
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.1}px;
+      left: ${props.totalHeight * 0.8}px;
+    `
+  }}
 `
 
 export const MainImageVueIcon = styled.div`
   position: absolute;
-  margin: 50px 0 0 1400px;
+  ${(props: any) => {
+    return css`
+      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
+      0.3}px; */
+      top: ${props.totalHeight * 0.1}px;
+      left: ${props.totalHeight}px;
+    `
+  }}
 `
 
 export const MainImageIcon = styled.div`

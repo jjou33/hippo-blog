@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import { getMainImageIconSvgElement } from 'utils/Common/Common'
 import StarAnimation from '../Common/Animations/StarAnimation/StarAnimation'
+import { navTabMenuIconSet } from 'assets/Svg/MainImageIconSet'
 import { navIconSet } from 'assets/Svg/NavIconSet'
 import type { HeaderPropsType } from 'types/index'
 import * as S from './Styles'
@@ -25,26 +26,61 @@ const MainImage = ({ imagePath }: MainImageProps) => {
     window.addEventListener('resize', changeTotalHeight)
   }, [])
 
-  console.log('nav : ', navIconSet)
   return (
     <S.MainAnimationContainer>
       {/* <StarAnimation /> */}
 
       <S.MainImageTextWrapper>
-        <S.MainImageStaticText>Welcome to HippoDev 😎 </S.MainImageStaticText>
+        <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
         <br />
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
-      <S.MainImage backgroundImage={imagePath.mainImage5} />
+      <S.MainImage backgroundImage={imagePath.mainImage7} />
+      <S.ArrowIndicatorWrapper>
+        <S.ArrowIndicator />
+        <S.ArrowIndicator />
+        <S.ArrowIndicator />
+      </S.ArrowIndicatorWrapper>
 
       <S.MainImageWrapper>
-        <S.ScrollIndicatorWrapper
+        <S.MainImageIconWrapper
           totalHeight={totalHeight}
           totalWidth={totalWidth}
         >
-          <S.ScrollIndicator />
-        </S.ScrollIndicatorWrapper>
-
+          <S.MainImageHtmlIcon
+            totalHeight={totalHeight}
+            totalWidth={totalWidth}
+          >
+            {navTabMenuIconSet['Html'].icon(
+              `${totalHeight * 0.15}`,
+              `${totalHeight * 0.15}`,
+            )}
+          </S.MainImageHtmlIcon>
+          <S.MainImageVueIcon totalHeight={totalHeight} totalWidth={totalWidth}>
+            {navTabMenuIconSet['Vue'].icon(
+              `${totalHeight * 0.15}`,
+              `${totalHeight * 0.15}`,
+            )}
+          </S.MainImageVueIcon>
+          <S.MainImageReactIcon
+            totalHeight={totalHeight}
+            totalWidth={totalWidth}
+          >
+            {navTabMenuIconSet['React'].icon(
+              `${totalHeight * 0.15}`,
+              `${totalHeight * 0.15}`,
+            )}
+          </S.MainImageReactIcon>
+          <S.MainImageJavscriptIcon
+            totalHeight={totalHeight}
+            totalWidth={totalWidth}
+          >
+            {navTabMenuIconSet['Javascript'].icon(
+              `${totalHeight * 0.15}`,
+              `${totalHeight * 0.15}`,
+            )}
+          </S.MainImageJavscriptIcon>
+        </S.MainImageIconWrapper>
         <S.FooterFirstWaveAnimation>
           <S.BoatIcon totalHeight={totalHeight} totalWidth={totalWidth}>
             {navIconSet['Ship'].icon(
