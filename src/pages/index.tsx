@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
-import PostList from 'components/Main/PostList/PostList'
+
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
-import NavigationPage from 'components/Navigation/NavigationPage'
+
 import Template from 'components/layout/Template'
-import * as S from 'styles/IndexTemplateStyles'
+
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
-import SideNavSection from 'components/Navigation/SideNavSection'
-import MainSection from 'components/Main/MainSection'
+import SideNavSection from 'components/Navigation'
+import MainSection from 'components/Main'
 interface IndexSignatureType {
   [key: string]: number
 }

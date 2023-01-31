@@ -12,7 +12,7 @@ import SkeletonUI from 'styles/SkeletonUI'
 
 export const CategoryListContainer = styled.div`
   width: 100%;
-
+  overflow-y: auto;
   @media (max-width: 768px) {
     width: 100%;
     margin-top: 50px;
@@ -207,14 +207,17 @@ export const DropdownWrapper = styled.article`
   margin-left: 30px;
   height: 0;
   transition: height ease-in-out 0.3s;
-  ${(props: IsOpenPropsType) =>
-    props.isOpen
-      ? css`
-          height: ${(props.categoryItemCount as number) * 30 + 10}px;
-        `
-      : css`
-          height: 0px;
-        `}
+  ${(props: IsOpenPropsType) => {
+    if (props.isOpen) {
+      return css`
+        height: ${(props.categoryItemCount as number) * 35 + 10}px;
+      `
+    } else {
+      return css`
+        height: 0px;
+      `
+    }
+  }}
 `
 
 /**

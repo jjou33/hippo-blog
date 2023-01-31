@@ -37,8 +37,6 @@ const Template = ({
       const newWitdh = window.innerWidth
       if (cachedWidth !== newWitdh) {
         cachedWidth = newWitdh
-      } else {
-        throw new Error('Resize Error')
       }
     }
     window.addEventListener('resize', resizeHandler)

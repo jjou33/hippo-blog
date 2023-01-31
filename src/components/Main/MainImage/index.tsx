@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useTypingTitle } from 'hooks/useTypingTitle'
+import WaveImageAnimation from './WaveImageAnimation'
 import { getMainImageIconSvgElement } from 'utils/Common/Common'
-import StarAnimation from '../Common/Animations/StarAnimation/StarAnimation'
+import StarAnimation from '../../Common/Animations/StarAnimation/StarAnimation'
 import { navTabMenuIconSet } from 'assets/Svg/MainImageIconSet'
-import { navIconSet } from 'assets/Svg/NavIconSet'
+
 import type { HeaderPropsType } from 'types/index'
 import * as S from './Styles'
 
@@ -36,11 +37,6 @@ const MainImage = ({ imagePath }: MainImageProps) => {
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
       <S.MainImage backgroundImage={imagePath.mainImage7} />
-      <S.ArrowIndicatorWrapper>
-        <S.ArrowIndicator />
-        <S.ArrowIndicator />
-        <S.ArrowIndicator />
-      </S.ArrowIndicatorWrapper>
 
       <S.MainImageWrapper>
         <S.MainImageIconWrapper
@@ -81,39 +77,11 @@ const MainImage = ({ imagePath }: MainImageProps) => {
             )}
           </S.MainImageJavscriptIcon>
         </S.MainImageIconWrapper>
-        <S.FooterFirstWaveAnimation>
-          <S.BoatIcon totalHeight={totalHeight} totalWidth={totalWidth}>
-            {navIconSet['Ship'].icon(
-              `${totalHeight * 0.15}`,
-              `${totalHeight * 0.15}`,
-            )}
-          </S.BoatIcon>
-          <S.FooterWaveStyle
-            src={imagePath['wave']}
-            waveType="first"
-            totalHeight={totalHeight}
-          />
-          <S.FooterWaveStyle
-            src={imagePath['wave']}
-            waveType="second"
-            totalHeight={totalHeight}
-          />
-          <S.FooterWaveStyle
-            src={imagePath['wave']}
-            waveType="third"
-            totalHeight={totalHeight}
-          />
-          <S.FooterWaveStyle
-            src={imagePath['wave']}
-            waveType="fourth"
-            totalHeight={totalHeight}
-          />
-          <S.FooterWaveStyle
-            src={imagePath['wave']}
-            waveType="five"
-            totalHeight={totalHeight}
-          />
-        </S.FooterFirstWaveAnimation>
+        <WaveImageAnimation
+          imagePath={imagePath}
+          totalHeight={totalHeight}
+          totalWidth={totalWidth}
+        />
       </S.MainImageWrapper>
     </S.MainAnimationContainer>
   )

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PostList from 'components/Main/PostList/PostList'
-import MainImage from 'components/layout/MainImage'
+import MainImage from 'components/Main/MainImage'
 import type { PostListItemType } from 'types/PostItem.types'
 import * as S from './Styles'
 
@@ -17,14 +17,8 @@ interface MainSectionProps {
   }
 }
 const MainSection = ({ mainSectionProp }: MainSectionProps) => {
-  const [mount, isMount] = useState(false)
   const { imagePath, scroll, selectedCategory, allMarkdownRemark } =
     mainSectionProp
-  useEffect(() => {
-    setTimeout(() => {
-      isMount(true)
-    }, 600)
-  }, [])
 
   return (
     <S.MainContainer>

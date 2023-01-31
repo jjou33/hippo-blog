@@ -1,6 +1,4 @@
 import React, { MutableRefObject, useEffect } from 'react'
-import { useRecoilValue } from 'recoil'
-import { templateMountState } from 'states/templateMountState'
 interface sectionObjectPropsType {
   sectionRef: {
     [key: string]: MutableRefObject<HTMLDivElement | null>
