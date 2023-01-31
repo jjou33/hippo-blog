@@ -5,6 +5,11 @@ import { boat_in_animation } from 'styles/AnimationKeyframes'
  * Footer Section
  */
 
+interface FooterWavePropsType {
+  src: string
+  waveType: string
+}
+
 export const FooterWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -15,11 +20,6 @@ export const FooterWrapper = styled.div`
 `
 
 export const FooterFirstWaveAnimation = css``
-
-interface FooterWavePropsType {
-  src: string
-  waveType: string
-}
 
 const animate = keyframes`
  0% {

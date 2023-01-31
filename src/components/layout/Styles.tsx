@@ -180,11 +180,11 @@ export const ArrowIndicator = styled.div`
 
   transform: translateX(-50%) rotate(45deg);
 
-  :nth-child(2) {
+  :nth-of-type(2) {
     animation: ${arrow1} 1.5s ease-in-out infinite;
   }
 
-  :nth-child(3) {
+  :nth-of-type(3) {
     animation: ${arrow2} 1.5s ease-in-out infinite;
   }
 `

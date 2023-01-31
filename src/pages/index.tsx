@@ -1,14 +1,15 @@
 import React, { useMemo } from 'react'
 import { getImagePathSetList } from 'utils/Template/Template'
-import PostList from 'components/Main/PostList'
+import PostList from 'components/Main/PostList/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 import NavigationPage from 'components/Navigation/NavigationPage'
 import Template from 'components/layout/Template'
-import styled from '@emotion/styled'
+import * as S from 'styles/IndexTemplateStyles'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
-
+import SideNavSection from 'components/Navigation/SideNavSection'
+import MainSection from 'components/Main/MainSection'
 interface IndexSignatureType {
   [key: string]: number
 }
@@ -37,18 +38,6 @@ interface IndexPageProps {
     }
   }
 }
-
-const ContentsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 4;
-  align-items: center;
-`
-
-const ContentsTitle = styled.h1`
-  margin-top: 20px;
-  font-size: 50px;
-`
 
 const IndexPage = ({
   location: { search },
@@ -105,26 +94,22 @@ const IndexPage = ({
       url={siteUrl}
       image={imagePath['profile-image']}
     >
-      <NavigationPage
+      <SideNavSection
         navigationProps={{
           selectedCategory,
           categoryList,
           imagePath,
-          scroll,
           categoryCount,
         }}
-      >
-        <ContentsWrapper>
-          <ContentsTitle>
-            {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
-          </ContentsTitle>
-          <PostList
-            selectedCategory={selectedCategory}
-            posts={allMarkdownRemark.edges}
-            imageSet={imagePath}
-          />
-        </ContentsWrapper>
-      </NavigationPage>
+      />
+      <MainSection
+        mainSectionProp={{
+          scroll,
+          imagePath,
+          selectedCategory,
+          allMarkdownRemark,
+        }}
+      />
     </Template>
   )
 }

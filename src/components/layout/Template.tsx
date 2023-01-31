@@ -24,28 +24,21 @@ const Template = ({
   children,
 }: TemplateProps) => {
   useEffect(() => {
-    console.log('inner : ', window.innerHeight)
-    console.log('inner : ', window.innerWidth)
-    console.log('outer : ', window.outerHeight)
-    console.log('outer : ', window.outerWidth)
-
     if (window.innerWidth !== window.outerWidth) {
-      console.log('width : ', document.body.style.width)
-      document.body.style.width = window.innerWidth
+      document.body.style.width = `${window.innerWidth}`
     }
 
     if (window.innerHeight !== window.outerHeight) {
-      console.log('width : ', document.body.style.height)
-      document.body.style.height = window.innerHeight
+      document.body.style.height = `${window.innerHeight}`
     }
 
     let cachedWidth = window.innerWidth
-    const resizeHandler = () => {
+    const resizeHandler = (): void => {
       const newWitdh = window.innerWidth
       if (cachedWidth !== newWitdh) {
         cachedWidth = newWitdh
       } else {
-        return false
+        throw new Error('Resize Error')
       }
     }
     window.addEventListener('resize', resizeHandler)
