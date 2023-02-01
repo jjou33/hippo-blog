@@ -75,7 +75,6 @@ const Template = ({
           {children}
         </RecoilRoot>
       </S.Container>
-      <Footer />
     </>
   )
 }

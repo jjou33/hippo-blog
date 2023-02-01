@@ -5,6 +5,7 @@ import Template from 'components/layout/Template'
 import PostHead from 'components/Main/Post/PostHead'
 import PostContent from 'components/Main/Post/PostContent'
 import CommentWidget from 'components/Main/Post/CommentWidget'
+import Footer from 'components/layout/Footer'
 import styled from '@emotion/styled'
 interface PostTemplateProps {
   data: {
@@ -22,7 +23,21 @@ const PostWrapper = styled.div`
   flex-direction: column;
   flex: 4;
 `
+export const FooterWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  padding: 50px 0;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.5;
+  border: 3px;
+  border-style: dashed;
 
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+`
 const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
@@ -62,6 +77,7 @@ const PostTemplate = ({
         />
         <PostContent html={html} />
         <CommentWidget />
+        <Footer />
       </PostWrapper>
     </Template>
   )

@@ -15,9 +15,9 @@ interface FooterWavePropsType {
 }
 
 const animate = keyframes`
- 0% {
+  0% {
    background-position-x: 0px;
- }
+  }
 
  100% {
    background-position-x: 1000px;
@@ -36,7 +36,7 @@ const animate2 = keyframes`
 export const FooterWaveStyle = styled.div`
   position: absolute;
   bottom: 0;
-  top: ${props => props.totalHeight - 97}px;
+  top: ${props => props.totalHeight - 50}px;
   width: 100%;
   height: 100px;
 
@@ -146,7 +146,7 @@ export const MainImageTextWrapper = styled.div`
   margin-left: 10%;
   font-size: 60px;
   font-weight: 300;
-  top: 40%;
+  top: 10%;
   color: black;
   letter-spacing: 5px;
   span {
@@ -164,7 +164,7 @@ export const MainImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 100%;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 `
 
@@ -247,4 +247,44 @@ export const MainImageJavscriptIcon = styled.div`
       left: ${props.totalHeight * 0.8}px;
     `
   }}
+`
+export const HeaderContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(180%) blur(15px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 1rem;
+  color: white;
+`
+
+export const HeaderItemTitle = styled.div`
+  margin-right: auto;
+`
+export const HeaderItemLink = styled.div``
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+
+  a {
+    font-size: 1rem;
+  }
+  a:not(${HeaderItemTitle}) {
+    margin-left: 2px;
+  }
+
+  ${HeaderItemTitle} {
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
 `

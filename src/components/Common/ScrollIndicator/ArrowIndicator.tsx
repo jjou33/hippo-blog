@@ -1,6 +1,6 @@
 import * as S from './Styles'
 
-export const ArrowScrollIndicator = () => {
+const ArrowScrollIndicator = () => {
   return (
     <S.ArrowIndicatorWrapper>
       <S.ArrowIndicator />
@@ -9,3 +9,5 @@ export const ArrowScrollIndicator = () => {
     </S.ArrowIndicatorWrapper>
   )
 }
+
+export default ArrowScrollIndicator

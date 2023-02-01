@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PostList from 'components/Main/PostList/PostList'
 import MainImage from 'components/Main/MainImage'
+import Footer from 'components/layout/Footer'
 import type { PostListItemType } from 'types/PostItem.types'
 import * as S from './Styles'
 
@@ -36,6 +37,7 @@ const MainSection = ({ mainSectionProp }: MainSectionProps) => {
           imageSet={imagePath}
         />
       </S.ContentsWrapper>
+      <Footer />
     </S.MainContainer>
   )
 }

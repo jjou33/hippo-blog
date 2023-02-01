@@ -10,17 +10,19 @@ export const NavigationContainer = styled.nav`
   }
 `
 export const NavigationWrapper = styled.div`
-  position: sticky;
+  height: 100%;
+  /* position: sticky;
   top: 0px;
   ::-webkit-scrollbar {
     display: none;
   }
   overflow-y: scroll;
   height: 1000px;
-  z-index: 1;
-  /* position: fixed;
+  z-index: 1; */
   width: 270px;
-  overflow-y: scroll;
+  position: fixed;
   top: 0;
-  bottom: 0; */
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
 `

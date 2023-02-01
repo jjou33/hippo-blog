@@ -13,10 +13,10 @@ import SkeletonUI from 'styles/SkeletonUI'
 export const CategoryListContainer = styled.div`
   width: 100%;
   overflow-y: auto;
+  background: white;
+  z-index: 1010;
+
   @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 50px;
-    padding: 0 20px;
   }
 `
 

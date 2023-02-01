@@ -1,8 +1,13 @@
 import styled from '@emotion/styled'
 
 export const MainContainer = styled.main`
-  /* flex: 4; */
-  width: 100vw;
+  flex-grow: 1;
+  width: 100%;
+  margin-left: 270px;
+  padding: 0px 10px;
+  @media (max-width: 768px) {
+    margin-left: 0px;
+  }
 `
 export const ProgressBarContainer = styled.div`
   position: sticky;
@@ -21,7 +26,6 @@ interface ProgressBarPropsType {
 export const ProgressBar = styled.div`
   background: red;
   transform-origin: top left;
-  /* transform: scale(0, 0); */
   transform: scale(${(props: ProgressBarPropsType) => props.scroll});
   height: 3px;
   opacity: 1;
@@ -32,6 +36,13 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
   flex: 4;
   align-items: center;
+
+  @media (min-width: 768px) {
+    margin-left: 270px;
+    width: 768px;
+    margin: 0 auto;
+    padding: 100px 0;
+  }
 `
 
 export const ContentsTitle = styled.h1`

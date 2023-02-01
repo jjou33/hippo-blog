@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { MutableRefObject, useRef } from 'react'
 import { navIconSet } from 'assets/Svg/NavIconSet'
 import * as S from './Styles'
 
