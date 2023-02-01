@@ -12,10 +12,7 @@ import { Link } from 'gatsby'
 
 export const Container = styled.div`
   display: flex;
-`
-export const MainContainer = styled.main`
-  flex: 4;
-  width: 100vw;
+  flex: 1 0 auto;
 `
 
 /**

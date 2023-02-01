@@ -27,20 +27,21 @@ const MainImage = ({ imagePath }: MainImageProps) => {
 
   return (
     <S.MainAnimationContainer>
-      <S.MainImageTextWrapper>
+      <S.MainImageTextWrapper totalHeight={totalHeight}>
         <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
         <br />
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
       <S.MainImage backgroundImage={imagePath.mainImage10} />
-      <ScrollIndicator />
-      <S.HeaderContainer>
-        <S.HeaderWrapper>
-          <S.HeaderItemTitle to="/">HIPPO DEV</S.HeaderItemTitle>
-          <S.HeaderItemLink>블로그 보기</S.HeaderItemLink>
-        </S.HeaderWrapper>
-      </S.HeaderContainer>
+      <ScrollIndicator totalHeight={totalHeight} />
+
       <S.MainImageWrapper>
+        {/* <S.HeaderContainer>
+          <S.HeaderWrapper>
+            <S.HeaderItemTitle to="/">HIPPO DEV</S.HeaderItemTitle>
+            <S.HeaderItemLink>블로그 보기</S.HeaderItemLink>
+          </S.HeaderWrapper>
+        </S.HeaderContainer> */}
         {/* <S.MainImageIconWrapper
           totalHeight={totalHeight}
           totalWidth={totalWidth}

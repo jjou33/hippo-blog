@@ -37,7 +37,6 @@ const MainSection = ({ mainSectionProp }: MainSectionProps) => {
           imageSet={imagePath}
         />
       </S.ContentsWrapper>
-      <Footer />
     </S.MainContainer>
   )
 }

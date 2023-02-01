@@ -36,7 +36,7 @@ const animate2 = keyframes`
 export const FooterWaveStyle = styled.div`
   position: absolute;
   bottom: 0;
-  top: ${props => props.totalHeight - 50}px;
+  top: ${props => props.totalHeight - 110}px;
   width: 100%;
   height: 100px;
 
@@ -131,7 +131,7 @@ const blinkCursorKeyframe = keyframes`
 `
 
 export const MainAnimationContainer = styled.div`
-  height: 100vh;
+  height: 97vh;
   margin-left: 2px;
 
   @media (max-width: 768px) {
@@ -141,10 +141,16 @@ export const MainAnimationContainer = styled.div`
 `
 export const MainImageTextWrapper = styled.div`
   position: absolute;
-  /* margin-right: 50%; */
-  /* margin-top: 5%; */
+
   margin-left: 10%;
-  font-size: 60px;
+
+  ${(props: any) => {
+    if (props.totalHeight) {
+      return css`
+        font-size: ${props.totalHeight * 0.08}px;
+      `
+    }
+  }};
   font-weight: 300;
   top: 10%;
   color: black;

@@ -34,7 +34,7 @@ export const ArrowIndicatorWrapper = styled.div`
 
 export const ArrowIndicator = styled.div`
   border: solid white;
-  border-width: 0 5px 5px 0;
+  border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 12px;
   position: absolute;

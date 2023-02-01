@@ -2,12 +2,7 @@ import styled from '@emotion/styled'
 
 export const MainContainer = styled.main`
   flex-grow: 1;
-  width: 100%;
-  margin-left: 270px;
-  padding: 0px 10px;
-  @media (max-width: 768px) {
-    margin-left: 0px;
-  }
+  width: calc(100% - 270px);
 `
 export const ProgressBarContainer = styled.div`
   position: sticky;
