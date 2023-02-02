@@ -51,6 +51,7 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
   const imagePath = getImagePathSetList(allFile.edges)
+  console.log('imagePath : ', imagePath)
   const categoryList = getCategoryList(allMarkdownRemark)
   const scroll = useScrollStateBar()
   const categoryCount = useMemo(
@@ -162,6 +163,13 @@ export const getPostList = graphql`
     ) {
       edges {
         node {
+          childImageSharp {
+            fluid {
+              srcSet
+              src
+              sizes
+            }
+          }
           extension
           sourceInstanceName
           id

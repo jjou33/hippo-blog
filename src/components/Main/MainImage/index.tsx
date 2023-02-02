@@ -16,6 +16,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
   const [totalHeight, setTotalHeight] = useState<number>(0)
   const [totalWidth, setTotalWidth] = useState<number>(0)
+  console.log('image : ', imagePath['mainImage10_resize'].fluid.srcSet)
   useEffect(() => {
     setTotalHeight(window.innerHeight)
     setTotalWidth(window.innerWidth)
@@ -34,7 +35,16 @@ const MainImage = ({ imagePath }: MainImageProps) => {
         <br />
         <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
-      <S.MainImage backgroundImage={imagePath['mainImage10']} />
+      <S.MainImage>
+        <S.MainImageItem
+          srcSet={imagePath['mainImage_resize'].fluid.srcSet}
+          sizes="(max-width: 200px) 180px,
+            (max-width: 400px) 250px,
+            (max-width: 800px) 450px,
+            2200px"
+          height="300px"
+        />
+      </S.MainImage>
       <ScrollIndicator totalHeight={totalHeight} />
       <S.MainImageWrapper>
         <WaveImageAnimation

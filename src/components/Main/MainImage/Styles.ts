@@ -184,20 +184,22 @@ export const MainImageTextWrapper = styled.div`
 `
 
 export const MainImage = styled.div`
-  ${(props: { backgroundImage: string }) =>
+  /* ${(props: { backgroundImage: string }) =>
     props.backgroundImage
       ? css`
           background-image: url(${props.backgroundImage});
         `
       : css`
           // TODO NO IMAGE Background 추가 필요
-        `}
+        `}*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 100%;
   width: 100vw;
   height: 100%;
 `
+
+export const MainImageItem = styled.img``
 const TextEffectKeyFrame = keyframes`
   to {
     background-position: 200% center;

@@ -1,5 +1,5 @@
 import { navIconSet } from 'assets/svg/NavIconSet'
-import { navTabMenuIconSet } from 'assets/svg/MainImageIconSet'
+import { navTabMenuIconSet } from 'assets/svg/NavTabMenuIconSet'
 export const getSvgJSXElement = (
   iconName: string,
   size: string,
