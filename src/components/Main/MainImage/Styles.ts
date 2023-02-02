@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { keyframes, css } from '@emotion/react'
 import { boat_in_animation } from 'styles/AnimationKeyframes'
-export const FooterFirstWaveAnimation = styled.div`
+export const WaveAnimationWrapper = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
@@ -32,16 +32,27 @@ const animate2 = keyframes`
    background-position-x: -1000px;
  }
 `
-
-export const FooterWaveStyle = styled.div`
+interface WaveItemProps {
+  src: string
+  waveType: string
+  totalHeight: number
+}
+export const WaveAnimationItem = styled.div`
   position: absolute;
   bottom: 0;
-  top: ${props => props.totalHeight - 110}px;
   width: 100%;
   height: 100px;
+  ${(props: WaveItemProps) =>
+    props.totalHeight
+      ? css`
+          top: ${props.totalHeight - 110}px;
+        `
+      : css`
+          top: ${props.totalHeight};
+        `}
 
-  ${(props: FooterWavePropsType) => {
-    if (props.src) {
+  ${(props: WaveItemProps) => {
+    if (props.waveType && props.src) {
       switch (props.waveType) {
         case 'first':
           return css`
@@ -88,7 +99,15 @@ export const FooterWaveStyle = styled.div`
             animation-delay: -1s;
             bottom: 15px;
           `
+        default:
+          return css`
+            display: none;
+          `
       }
+    } else {
+      return css`
+        display: none;
+      `
     }
   }}
 
@@ -99,14 +118,11 @@ export const BoatIcon = styled.div`
   position: absolute;
   width: 80px;
   height: 80px;
-  /* margin: 90px 0 0 300px; */
   z-index: 1001;
   animation: ${boat_in_animation} 10s ease infinite;
 
-  ${(props: any) => {
+  ${(props: { totalHeight: number; totalWidth: number }) => {
     return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
       top: ${props.totalHeight * 0.82}px;
       margin-left: ${props.totalWidth * 0.1}px;
     `
@@ -143,14 +159,6 @@ export const MainImageTextWrapper = styled.div`
   position: absolute;
 
   margin-left: 10%;
-
-  ${(props: any) => {
-    if (props.totalHeight) {
-      return css`
-        font-size: ${props.totalHeight * 0.08}px;
-      `
-    }
-  }};
   font-weight: 300;
   top: 10%;
   color: black;
@@ -158,7 +166,17 @@ export const MainImageTextWrapper = styled.div`
   span {
     background: -webkit-linear-gradient(white, #38495a);
     -webkit-background-clip: text;
+    background-clip: text;
   }
+
+  ${(props: { totalHeight: number }) =>
+    props.totalHeight
+      ? css`
+          font-size: ${props.totalHeight * 0.08}px;
+        `
+      : css`
+          font-size: 60px;
+        `}
 
   @media (max-width: 768px) {
     font-size: 30px;
@@ -166,17 +184,44 @@ export const MainImageTextWrapper = styled.div`
 `
 
 export const MainImage = styled.div`
-  background-image: url(${(props: any) => props.backgroundImage});
+  ${(props: { backgroundImage: string }) =>
+    props.backgroundImage
+      ? css`
+          background-image: url(${props.backgroundImage});
+        `
+      : css`
+          // TODO NO IMAGE Background 추가 필요
+        `}
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 100%;
   width: 100vw;
   height: 100%;
 `
-
-export const MainImageStaticText = styled.span`
-  top: 50%;
-  color: white;
+const TextEffectKeyFrame = keyframes`
+  to {
+    background-position: 200% center;
+  }
+`
+export const MainImageStaticText = styled.h3`
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #b7b7ee 0%,
+    #b197cc 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ${TextEffectKeyFrame} 2s linear infinite;
+  display: inline-block;
 `
 export const MainImageDynamicText = styled.span`
   color: #f44b2a;
@@ -185,7 +230,7 @@ export const MainImageDynamicText = styled.span`
     position: absolute;
     background-color: #e65454;
 
-    height: 80px;
+    height: 100px;
     width: 5px;
     animation: ${blinkCursorKeyframe} 1s infinite;
   }
@@ -194,66 +239,46 @@ export const MainImageWrapper = styled.div`
   height: 100vh;
   width: 100%;
 `
-export const MainImageIconWrapper = styled.div`
-  display: flex;
-  ${(props: any) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.1}px;
-      left: ${props.totalHeight * 0.1}px;
-    `
+
+export const MainImageIconItem = styled.div`
+  position: absolute;
+  ${(props: { iconType: string; totalHeight: number; totalWidth: number }) => {
+    if (props.iconType) {
+      switch (props.iconType) {
+        case 'html':
+          return css`
+            top: ${props.totalHeight * 0.1}px;
+            left: ${props.totalHeight * 0.4}px;
+          `
+        case 'vue':
+          return css`
+            top: ${props.totalHeight * 0.1}px;
+            left: ${props.totalHeight}px;
+          `
+
+        case 'react':
+          return css`
+            top: ${props.totalHeight * 0.1}px;
+            left: ${props.totalHeight * 0.6}px;
+          `
+
+        case 'javascript':
+          return css`
+            top: ${props.totalHeight * 0.1}px;
+            left: ${props.totalHeight * 0.8}px;
+          `
+        default:
+          return css``
+      }
+    } else {
+      return css`
+        top: ${props.totalHeight * 0.1}px;
+        left: ${props.totalHeight * 0.1}px;
+      `
+    }
   }}
 `
 
-export const MainImageHtmlIcon = styled.div`
-  position: absolute;
-  /* margin: 50px 0 0 200px; */
-  ${(props: any) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.1}px;
-      left: ${props.totalHeight * 0.4}px;
-    `
-  }}
-`
-
-export const MainImageVueIcon = styled.div`
-  position: absolute;
-  ${(props: any) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.1}px;
-      left: ${props.totalHeight}px;
-    `
-  }}
-`
-
-export const MainImageReactIcon = styled.div`
-  position: absolute;
-  ${(props: any) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.1}px;
-      left: ${props.totalHeight * 0.6}px;
-    `
-  }}
-`
-
-export const MainImageJavscriptIcon = styled.div`
-  position: absolute;
-  ${(props: any) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.1}px;
-      left: ${props.totalHeight * 0.8}px;
-    `
-  }}
-`
 export const HeaderContainer = styled.nav`
   position: fixed;
   top: 0;

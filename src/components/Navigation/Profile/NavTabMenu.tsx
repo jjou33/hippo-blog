@@ -1,6 +1,6 @@
 import NavTabItems from './NavTabItems'
 
-import * as S from './Styles'
+import * as S from './styles'
 
 const NavigationTabMenu = () => {
   return (

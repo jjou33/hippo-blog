@@ -1,4 +1,4 @@
-import { CategoryItem } from 'components/Navigation/Category/Styles'
+import { CategoryItem } from 'components/navigation/Category/styles'
 import {
   MutableRefObject,
   useCallback,

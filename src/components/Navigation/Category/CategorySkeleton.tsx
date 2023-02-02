@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import * as Skeleton from './Styles'
+import * as Skeleton from './styles'
 
 interface SkeletonPropsType {
   categoryList: {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Introduction from 'components/Navigation/Profile'
-import CategoryList from 'components/Navigation/Category'
-import CategorySkeleton from 'components/Navigation/Category/CategorySkeleton'
-import * as S from './Styles'
+import Introduction from 'components/navigation/Profile'
+import CategoryList from 'components/navigation/Category'
+import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
+import * as S from './styles'
 
 interface NavigationPropsType {
   navigationProps: {

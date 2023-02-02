@@ -1,5 +1,6 @@
-import * as S from './Styles'
-import CounterBadge from 'components/Common/NavigationCounterBadge/CounterBadge'
+import * as S from './styles'
+import CounterBadge from 'components/common/NavigationCounterBadge/CounterBadge'
+
 import { getSvgJSXElement } from 'utils/Common/Common'
 
 import type { CategoryCount } from 'types/Category.types'

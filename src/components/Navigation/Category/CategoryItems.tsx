@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
 
-import * as S from './Styles'
-import ConterBadge from 'components/Common/NavigationCounterBadge/CounterBadge'
+import * as S from './styles'
+import CounterBadge from 'components/common/NavigationCounterBadge/CounterBadge'
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
   categoryList: string[]
@@ -35,9 +35,9 @@ const CategoryItems = ({
             </S.CategoryItem>
             <S.CategoryItemCount>
               {categoryCount[categoryItem] !== undefined ? (
-                <ConterBadge color="red">
+                <CounterBadge color="red">
                   {categoryCount[categoryItem]}
-                </ConterBadge>
+                </CounterBadge>
               ) : (
                 ''
               )}

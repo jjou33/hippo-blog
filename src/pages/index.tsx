@@ -8,8 +8,8 @@ import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
 import Template from 'components/layout/Template'
 
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
-import SideNavSection from 'components/Navigation'
-import MainSection from 'components/Main'
+import SideNavSection from 'components/navigation'
+import MainSection from 'components/main'
 interface IndexSignatureType {
   [key: string]: number
 }

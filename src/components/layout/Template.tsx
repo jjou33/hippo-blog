@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
-import * as S from './Styles'
+import * as S from './styles'
 
 import { Helmet } from 'react-helmet'
 

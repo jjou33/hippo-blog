@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import PostItem from './PostItem'
 import Pagination from './Pagination'
 
+import * as S from './styles'
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
 import useInfiniteScroll, {
   useInfiniteScrollType,
@@ -23,44 +24,6 @@ interface PostListProps {
   }
 }
 
-const PostListWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 50px 100px;
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    padding: 50px 20px;
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding: 50px 20px;
-  }
-`
-
-const PostListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-export const FooterWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  margin-top: auto;
-  padding: 50px 0;
-  font-size: 15px;
-  text-align: center;
-  line-height: 1.5;
-  border: 3px;
-  border-style: dashed;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-`
 const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   const [post, setPosts] = useState([])
   const [limit, setLimit] = useState(6)
@@ -70,14 +33,10 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
     selectedCategory,
     posts,
-    page,
-    limit,
-    setPosts,
-    offset,
   )
   return (
-    <PostListContainer>
-      <PostListWrapper ref={containerRef}>
+    <S.PostListContainer>
+      <S.PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({
             node: {
@@ -89,7 +48,7 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
             <PostItem {...frontmatter} link={slug} key={id} />
           ),
         )}
-      </PostListWrapper>
+      </S.PostListWrapper>
 
       <Pagination
         total={postList.length}
@@ -97,7 +56,7 @@ const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
         page={page}
         setPage={setPage}
       />
-    </PostListContainer>
+    </S.PostListContainer>
   )
 }
 

@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import { shaking_in_animation } from 'styles/AnimationKeyframes'
 import { ReactNode } from 'react'
 import { Link } from 'gatsby'
-import SkeletonUI from 'styles/SkeletonUI'
+import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 /**
  * CategoryList Component Styled Section
  * 카테고리 리스트 컴포넌트 스타일 영역

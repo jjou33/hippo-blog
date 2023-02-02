@@ -3,7 +3,7 @@ import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
 import CategoryRootTitle from './CategoryRootTitle'
 
-import * as S from './Styles'
+import * as S from './styles'
 
 import type { CategoryListProps } from 'types/Category.types'
 

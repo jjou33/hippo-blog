@@ -1,6 +1,6 @@
 import queryString, { ParsedQuery } from 'query-string'
 import { CategoryListProps } from 'types/Category.types'
-import { PostType } from 'components/Main/PostList'
+import { PostType } from 'components/main/PostList/PostList'
 import { CategortListType } from 'types/PostItem.types'
 
 export const getSelectedCategory = (search: string): string => {

@@ -4,7 +4,7 @@ import { getSvgJSXElement } from 'utils/Common/Common'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
 
-import * as S from './Styles'
+import * as S from './styles'
 /**
  * @description CategoryTitle 타입
  */

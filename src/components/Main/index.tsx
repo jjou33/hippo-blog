@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import PostList from 'components/Main/PostList/PostList'
-import MainImage from 'components/Main/MainImage'
-import Footer from 'components/layout/Footer'
+import PostList from 'components/main/PostList/PostList'
+import MainImage from 'components/main/MainImage'
 import type { PostListItemType } from 'types/PostItem.types'
-import * as S from './Styles'
+import * as S from './styles'
 
 interface MainSectionProps {
   mainSectionProp: {

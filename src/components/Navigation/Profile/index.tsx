@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import ProfileImage from './ProfileImage'
 import NavTabMenu from './NavTabMenu'
 
-import * as S from './Styles'
+import * as S from './styles'
 
 interface IntroductionProps {
   profileImage: string

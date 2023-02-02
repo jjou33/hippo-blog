@@ -1,6 +1,6 @@
 import { getSvgJSXElement } from 'utils/Common/Common'
 
-import * as S from './Styles'
+import * as S from './styles'
 
 interface NavTabPropsType {
   title: string
