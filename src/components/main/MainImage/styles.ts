@@ -169,7 +169,7 @@ export const MainImageTextWrapper = styled.div`
     background-clip: text;
   }
 
-  ${(props: { totalHeight: number }) =>
+  ${(props: { totalHeight: number; totalWidth: string }) =>
     props.totalHeight
       ? css`
           font-size: ${props.totalHeight * 0.08}px;
@@ -184,14 +184,14 @@ export const MainImageTextWrapper = styled.div`
 `
 
 export const MainImage = styled.div`
-  /* ${(props: { backgroundImage: string }) =>
+  ${(props: { backgroundImage: string }) =>
     props.backgroundImage
       ? css`
           background-image: url(${props.backgroundImage});
         `
       : css`
           // TODO NO IMAGE Background 추가 필요
-        `}*/
+        `}
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -205,8 +205,8 @@ const TextEffectKeyFrame = keyframes`
     background-position: 200% center;
   }
 `
-export const MainImageStaticText = styled.h3`
-  text-transform: uppercase;
+export const MainImageStaticText = styled.span`
+  /* text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #b7b7ee 0%,
@@ -223,7 +223,7 @@ export const MainImageStaticText = styled.h3`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${TextEffectKeyFrame} 2s linear infinite;
-  display: inline-block;
+  display: inline-block; */
 `
 export const MainImageDynamicText = styled.span`
   color: #f44b2a;
