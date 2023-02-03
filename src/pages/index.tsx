@@ -51,7 +51,7 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
   const imagePath = getImagePathSetList(allFile.edges)
-  console.log('imagePath : ', imagePath)
+
   const categoryList = getCategoryList(allMarkdownRemark)
   const scroll = useScrollStateBar()
   const categoryCount = useMemo(
