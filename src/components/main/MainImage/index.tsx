@@ -10,7 +10,7 @@ interface MainImageProps {
     [key: string]: string
   }
 }
-const typedList = ['FRONT DEVELOPER', 'STUDY', 'PASSION', 'ENJOY']
+const typedList = ['FRONT DEVELOPER', 'HAPPY', 'PASSION', 'ENJOY']
 
 const MainImage = ({ imagePath }: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
@@ -33,7 +33,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
         <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
         <br />
-        <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
+        <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
       <S.MainImage backgroundImage={imagePath['mainTitle']}>
         {/* <S.MainImageItem

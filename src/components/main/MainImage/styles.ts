@@ -169,14 +169,16 @@ export const MainImageTextWrapper = styled.div`
     background-clip: text;
   }
 
-  ${(props: { totalHeight: number; totalWidth: string }) =>
-    props.totalHeight
+  ${(props: { totalHeight: number; totalWidth: number }) => {
+    const averageValue: number = (props.totalHeight + props.totalWidth) / 2
+    return props.totalHeight
       ? css`
-          font-size: ${props.totalHeight * 0.08}px;
+          font-size: ${averageValue * 0.06}px;
         `
       : css`
           font-size: 60px;
-        `}
+        `
+  }}
 
   @media (max-width: 768px) {
     font-size: 30px;
@@ -205,8 +207,8 @@ const TextEffectKeyFrame = keyframes`
     background-position: 200% center;
   }
 `
-export const MainImageStaticText = styled.span`
-  /* text-transform: uppercase;
+export const MainImageStaticText = styled.h4`
+  text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #b7b7ee 0%,
@@ -223,10 +225,10 @@ export const MainImageStaticText = styled.span`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${TextEffectKeyFrame} 2s linear infinite;
-  display: inline-block; */
+  display: inline-block;
 `
 export const MainImageDynamicText = styled.span`
-  color: #f44b2a;
+  /* color: #f44b2a; */
   &::after {
     content: '';
     position: absolute;
