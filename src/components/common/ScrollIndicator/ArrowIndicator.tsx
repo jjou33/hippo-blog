@@ -1,8 +1,8 @@
 import * as S from './styles'
 
-const ArrowScrollIndicator = props => {
+const ArrowScrollIndicator = () => {
   return (
-    <S.ArrowIndicatorWrapper totalHeight={props.totalHeight}>
+    <S.ArrowIndicatorWrapper>
       <S.ArrowIndicator />
       <S.ArrowIndicator />
       <S.ArrowIndicator />

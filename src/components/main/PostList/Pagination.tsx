@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+
+interface ButtonPropsType {
+  current?: string | null
+}
+
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
@@ -8,9 +13,7 @@ const Nav = styled.nav`
   gap: 4px;
   margin: 16px;
 `
-interface ButtonPropsType {
-  current?: string | null
-}
+
 const Button = styled.button`
   border: none;
   border-radius: 8px;
@@ -51,7 +54,7 @@ interface PaginationPropsType {
 }
 const Pagination = ({ total, limit, page, setPage }: PaginationPropsType) => {
   const numPages = Math.ceil(total / limit)
-
+  console.log('page')
   return (
     <>
       <Nav>

@@ -18,21 +18,25 @@ export interface PostType {
 interface PostListProps {
   selectedCategory: string
   posts: PostListItemType[]
-  imageSet: {
-    [key: string]: string
-  }
 }
 
-const PostList = ({ selectedCategory, posts, imageSet }: PostListProps) => {
-  const [post, setPosts] = useState([])
-  const [limit, setLimit] = useState(6)
+const PostList = ({ selectedCategory, posts }: PostListProps) => {
+  const limit = 6
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
+  const [category, setCategory] = useState('')
 
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
     selectedCategory,
     posts,
   )
+
+  // 카테고리 변경 시 Page 값 Reset
+  if (category !== selectedCategory) {
+    setPage(1)
+    setCategory(selectedCategory)
+  }
+  console.log('post')
   return (
     <S.PostListContainer>
       <S.PostListWrapper ref={containerRef}>

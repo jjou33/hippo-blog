@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
+import { keyframes, css } from '@emotion/react'
 export const ArrowScroll = keyframes`
   0% {
     bottom: 80%;
@@ -27,14 +27,14 @@ export const arrow2 = keyframes`
 export const ArrowIndicatorWrapper = styled.div`
   position: relative;
   height: 4em;
-  bottom: 50%;
-  left: 95%;
+  bottom: 20%;
+  left: 50%;
   z-index: 1004;
 `
 
 export const ArrowIndicator = styled.div`
-  border: solid white;
-  border-width: 0 10px 10px 0;
+  border: solid black;
+  border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 12px;
   position: absolute;

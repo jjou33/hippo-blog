@@ -47,7 +47,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
           height="300px"
         /> */}
       </S.MainImage>
-      <ScrollIndicator totalHeight={totalHeight} />
+      <ScrollIndicator />
       <S.MainImageWrapper>
         <WaveImageAnimation
           imagePath={imagePath}
