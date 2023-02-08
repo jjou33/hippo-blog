@@ -1,6 +1,6 @@
 import * as S from './styles'
 import CounterBadge from 'components/common/NavigationCounterBadge/CounterBadge'
-
+import ColorText from 'components/common/ColorText'
 import { getSvgJSXElement } from 'utils/Common/Common'
 
 import type { CategoryCount } from 'types/Category.types'
@@ -15,7 +15,9 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
       {getSvgJSXElement('Dot', '18')}
       <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '18')}</S.CategoryRootIcon>
       <span></span>
-      <S.CategoryRootTitle to={'/'}>Root</S.CategoryRootTitle>
+      <S.CategoryRootTitle to={'/'}>
+        <ColorText text={'Root'} />
+      </S.CategoryRootTitle>
       <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (
           <CounterBadge>{categoryCount['All']}</CounterBadge>

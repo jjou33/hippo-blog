@@ -207,7 +207,7 @@ const TextEffectKeyFrame = keyframes`
     background-position: 200% center;
   }
 `
-export const MainImageStaticText = styled.h4`
+export const MainImageStaticText = styled.h5`
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
@@ -228,7 +228,7 @@ export const MainImageStaticText = styled.h4`
   display: inline-block;
 `
 export const MainImageDynamicText = styled.span`
-  /* color: #f44b2a; */
+  color: #b7efe8;
   &::after {
     content: '';
     position: absolute;

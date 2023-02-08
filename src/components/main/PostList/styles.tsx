@@ -2,6 +2,11 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+
+interface ButtonPropsType {
+  current?: string | null
+}
+
 export const PostListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -134,4 +139,45 @@ export const Summary = styled.div`
   -webkit-box-orient: vertical;
   font-size: 16px;
   opacity: 0.8;
+`
+
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 16px;
+`
+
+export const Button = styled.button`
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  background: black;
+  color: white;
+  font-size: 1rem;
+
+  &:hover {
+    background: tomato;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &[disabled] {
+    background: grey;
+    cursor: revert;
+    transform: revert;
+  }
+
+  ${(props: ButtonPropsType) =>
+    props.current === 'page'
+      ? css`
+          background: #e0f09a;
+          color: black;
+          font-weight: bold;
+          cursor: revert;
+          transform: revert;
+        `
+      : ''}
 `

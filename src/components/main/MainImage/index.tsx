@@ -20,13 +20,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   useEffect(() => {
     setTotalHeight(window.innerHeight)
     setTotalWidth(window.innerWidth)
-    const changeTotalHeight = () => {
-      setTotalHeight(window.innerHeight)
-      setTotalWidth(window.innerWidth)
-    }
-
-    window.addEventListener('resize', changeTotalHeight)
-  }, [])
+  }, [window.innerHeight, window.innerWidth])
 
   return (
     <S.MainAnimationContainer>
@@ -35,7 +29,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
         <br />
         <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
-      <S.MainImage backgroundImage={imagePath['mainTitle']}>
+      <S.MainImage backgroundImage={imagePath['mainImage4']}>
         {/* <S.MainImageItem
           srcSet={imagePath['mainTitle_resize'].fluid.srcSet}
           sizes="(max-width: 200px) 180px,

@@ -36,7 +36,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
     setPage(1)
     setCategory(selectedCategory)
   }
-  console.log('post')
+
   return (
     <S.PostListContainer>
       <S.PostListWrapper ref={containerRef}>

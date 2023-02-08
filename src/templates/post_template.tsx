@@ -79,7 +79,6 @@ const PostTemplate = ({
         />
         <PostContent html={html} />
         <CommentWidget />
-        <Footer />
       </PostWrapper>
     </Template>
   )

@@ -31,11 +31,6 @@ export const CategoryListWrapper = styled.div`
  * 카테고리 루트 컴포넌트 스타일 영역
  */
 
-interface RootItemPropsType {
-  children: ReactNode
-  className?: string
-  to: string
-}
 
 export const RootTitleWrapper = styled.div`
   display: flex;
@@ -84,10 +79,8 @@ export const CategoryRootIcon = styled.div`
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
 `
 
-export const CategoryRootTitle = styled(({ ...props }: RootItemPropsType) => {
-  return <Link {...props} />
-})``
-
+export const CategoryRootTitle = styled(Link)`
+`
 /**
  * CategoryTitle Component Styled Section
  * 카테고리 타이틀 컴포넌트 스타일 영역

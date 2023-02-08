@@ -2,8 +2,10 @@ import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/Category.types'
 import { getSvgJSXElement } from 'utils/Common/Common'
 
-import * as S from './styles'
 import CounterBadge from 'components/common/NavigationCounterBadge/CounterBadge'
+
+import * as S from './styles'
+
 interface CategoryItemListProps extends CategoryCount {
   selectedCategory: string
   categoryList: string[]

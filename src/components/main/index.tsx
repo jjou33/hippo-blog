@@ -1,6 +1,9 @@
 import PostList from 'components/main/PostList/PostList'
 import MainImage from 'components/main/MainImage'
+import ColorText from 'components/common/ColorText'
+
 import type { PostListItemType } from 'types/PostItem.types'
+
 import * as S from './styles'
 
 interface MainSectionProps {
@@ -18,7 +21,8 @@ interface MainSectionProps {
 const MainSection = ({ mainSectionProp }: MainSectionProps) => {
   const { imagePath, scroll, selectedCategory, allMarkdownRemark } =
     mainSectionProp
-
+  const CategoryTitle =
+    selectedCategory === 'All' ? 'Total Post' : selectedCategory
   return (
     <S.MainContainer>
       <S.ProgressBarContainer>
@@ -27,12 +31,11 @@ const MainSection = ({ mainSectionProp }: MainSectionProps) => {
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <S.ContentsTitle>
-          {selectedCategory === 'All' ? 'Total Post' : selectedCategory}
+          <ColorText text={CategoryTitle}></ColorText>
         </S.ContentsTitle>
         <PostList
           selectedCategory={selectedCategory}
           posts={allMarkdownRemark.edges}
-          imageSet={imagePath}
         />
       </S.ContentsWrapper>
     </S.MainContainer>
