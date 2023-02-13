@@ -13,6 +13,25 @@ module.exports = {
         allExtensions: true,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-interactive-gifs`,
+            options: {
+              root: `${__dirname}`,
+              src: `${__dirname}/static/gifs`,
+              dest: `${__dirname}/public/static/gifs`,
+              play: `${__dirname}/static/gifs/giphy.gif`,
+              placeholder: `${__dirname}/static/gifs/giphy.gif`,
+              loading: `${__dirname}/static/gifs/giphy.gif`,
+              relativePath: `/static`,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {
@@ -57,6 +76,7 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    
     {
       resolve: `gatsby-transformer-remark`,
       options: {
