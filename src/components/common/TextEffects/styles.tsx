@@ -7,7 +7,7 @@ const TextEffectKeyFrame = keyframes`
   }
 `
 
-export const ColorText = styled.text`
+export const ColorText = styled.p`
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
@@ -21,7 +21,6 @@ export const ColorText = styled.text`
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${TextEffectKeyFrame} 2s linear infinite;
