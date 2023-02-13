@@ -163,13 +163,6 @@ export const getPostList = graphql`
     ) {
       edges {
         node {
-          childImageSharp {
-            fluid {
-              srcSet
-              src
-              sizes
-            }
-          }
           extension
           sourceInstanceName
           id

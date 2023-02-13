@@ -3,6 +3,7 @@ import { keyframes } from '@emotion/react'
 export const MainContainer = styled.main`
   flex-grow: 1;
   width: calc(100% - 270px);
+  background-color: white;
 `
 export const ProgressBarContainer = styled.div`
   position: sticky;
@@ -34,7 +35,7 @@ export const ContentsWrapper = styled.div`
 
   @media (min-width: 768px) {
     margin-left: 270px;
-    width: 768px;
+    width: 1300px;
     margin: 0 auto;
     padding: 100px 0;
   }

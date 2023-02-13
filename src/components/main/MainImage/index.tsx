@@ -20,27 +20,24 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   useEffect(() => {
     setTotalHeight(window.innerHeight)
     setTotalWidth(window.innerWidth)
-  }, [window.innerHeight, window.innerWidth])
+
+    const changeSize = () => {
+      setTotalHeight(window.innerHeight)
+      setTotalWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', changeSize)
+  }, [])
 
   return (
     <S.MainAnimationContainer>
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
         <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
         <br />
-        <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText>
+        {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
       </S.MainImageTextWrapper>
-      <S.MainImage backgroundImage={imagePath['mainImage4']}>
-        {/* <S.MainImageItem
-          srcSet={imagePath['mainTitle_resize'].fluid.srcSet}
-          sizes="(max-width: 200px) 180px,
-            (max-width: 400px) 250px,
-            (max-width: 764px) 450px,
-            (max-width: 1600px) 1500px,
-            (max-width: 2000px) 1800px
-            2500px"
-          height="300px"
-        /> */}
-      </S.MainImage>
+      {/* <S.MainImage backgroundImage="/static/gifs/test1.gif"></S.MainImage> */}
+      <S.MainImage src="/static/gifs/test4.gif" />
       <ScrollIndicator />
       <S.MainImageWrapper>
         <WaveImageAnimation

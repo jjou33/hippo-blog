@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Badge from 'components/common/Badges/Badge'
 import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/PostItem.types'
 
@@ -23,7 +24,7 @@ const PostItem = ({
     /* Optional options */
     threshold: 0,
   })
-
+  console.log('category : ', categories)
   useEffect(() => {
     if (!inViewState && inView) {
       setInViewState(true)
@@ -34,7 +35,18 @@ const PostItem = ({
     <S.PostItemContainer ref={ref} inview={inViewState}>
       <S.PostItemWrapper to={link}>
         <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-
+        <S.PostItemBadgeWrapper>
+          <Badge
+            color="black"
+            width="80"
+            height="30"
+            borderStyle="none"
+            font="15px"
+            backgroundColor="#FBEAFF"
+          >
+            {title}
+          </Badge>
+        </S.PostItemBadgeWrapper>
         <S.PostItemContent>
           <S.Title>{title}</S.Title>
           <S.Date>{date}</S.Date>

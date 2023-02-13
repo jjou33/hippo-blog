@@ -226,6 +226,7 @@ interface GatsbyLinkProps extends CategoryItemProps {
   children: ReactNode
   className?: string
   to: string
+  
 }
 
 export const CategoryTitleIcon = styled.div`
@@ -235,6 +236,8 @@ export const CategoryTitleIcon = styled.div`
   display: flex;
   align-items: center;
 `
+
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />

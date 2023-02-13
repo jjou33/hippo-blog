@@ -1,6 +1,6 @@
 import PostList from 'components/main/PostList/PostList'
 import MainImage from 'components/main/MainImage'
-import ColorText from 'components/common/ColorText'
+import ColorText from 'components/common/TextEffects/ColorText'
 
 import type { PostListItemType } from 'types/PostItem.types'
 
@@ -18,6 +18,7 @@ interface MainSectionProps {
     }
   }
 }
+
 const MainSection = ({ mainSectionProp }: MainSectionProps) => {
   const { imagePath, scroll, selectedCategory, allMarkdownRemark } =
     mainSectionProp

@@ -9,21 +9,21 @@ interface ButtonPropsType {
 
 export const PostListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   width: 100%;
   margin: 0 auto;
   padding: 50px 50px 100px;
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
     padding: 50px 20px;
   }
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     grid-template-columns: 1fr;
     width: 100%;
     padding: 50px 20px;
-  }
+  } */
 `
 
 export const PostListContainer = styled.div`
@@ -46,6 +46,11 @@ export const FooterWrapper = styled.div`
   }
 `
 
+export const PostItemBadgeWrapper = styled.div`
+  position: absolute;
+  z-index: 1000;
+  margin: 10px 10px;
+`
 interface PostItemContainerPropsType {
   ref: (node?: Element | null) => void
   inview: boolean
@@ -69,7 +74,7 @@ export const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
   transition: 0.3s box-shadow;
 
   cursor: pointer;
@@ -90,6 +95,8 @@ export const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  background-color: white;
+  border-radius: 10px;
 `
 
 export const Title = styled.div`
