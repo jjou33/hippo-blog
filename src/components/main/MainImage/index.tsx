@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useTypingTitle } from 'hooks/useTypingTitle'
+import Image from './MainImage'
+import Header from 'components/layout/Header'
+import Modal from 'components/common/Modal/Modal'
+import { menuOpenState } from 'states/menuOpenState'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 import WaveImageAnimation from './WaveImageAnimation'
 import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
-
+import SideNavSection from 'components/navigation'
 import * as S from './styles'
 
 interface MainImageProps {
@@ -13,10 +18,15 @@ interface MainImageProps {
 const typedList = ['FRONT DEVELOPER', 'HAPPY', 'PASSION', 'ENJOY']
 
 const MainImage = ({ imagePath }: MainImageProps) => {
+  const setState = useSetRecoilState(menuOpenState)
+  const state = useRecoilValue<{ [key: string]: boolean }>(menuOpenState)
   const currentTitle = useTypingTitle(typedList)
   const [totalHeight, setTotalHeight] = useState<number>(0)
   const [totalWidth, setTotalWidth] = useState<number>(0)
 
+  const closeModal = () => {
+    setState(false)
+  }
   useEffect(() => {
     setTotalHeight(window.innerHeight)
     setTotalWidth(window.innerWidth)
@@ -30,23 +40,38 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   }, [])
 
   return (
-    <S.MainAnimationContainer>
-      <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
-        <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
-        <br />
-        {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
-      </S.MainImageTextWrapper>
-      {/* <S.MainImage backgroundImage="/static/gifs/test1.gif"></S.MainImage> */}
-      <S.MainImage src="/static/gifs/test4.gif" />
-      <ScrollIndicator />
-      <S.MainImageWrapper>
-        <WaveImageAnimation
-          imagePath={imagePath}
+    <>
+      <S.MainAnimationContainer>
+        <S.MainImageTextWrapper
           totalHeight={totalHeight}
           totalWidth={totalWidth}
-        />
-      </S.MainImageWrapper>
-    </S.MainAnimationContainer>
+        >
+          <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
+          <br />
+          {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
+        </S.MainImageTextWrapper>
+        {/* <S.MainImage backgroundImage="/static/gifs/test1.gif"></S.MainImage> */}
+        <Image />
+        <ScrollIndicator />
+        <S.MainImageWrapper>
+          <WaveImageAnimation
+            imagePath={imagePath}
+            totalHeight={totalHeight}
+            totalWidth={totalWidth}
+          />
+        </S.MainImageWrapper>
+      </S.MainAnimationContainer>
+      {state && (
+        <Modal
+          visible={state}
+          closable={true}
+          maskClosable={true}
+          onClose={closeModal}
+        >
+          Hello
+        </Modal>
+      )}
+    </>
   )
 }
 

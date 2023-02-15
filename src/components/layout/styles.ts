@@ -12,9 +12,13 @@ import { Link } from 'gatsby'
 
 export const Container = styled.div`
   display: flex;
-  flex: 1 0 auto;
+  flex-direction: column;
+  /* flex: 1 0 auto; */
 `
-
+export const LayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 /**
  * Header Component Styled Section
  * 헤더 컴포넌트 스타일 영역
@@ -24,21 +28,71 @@ interface ScrollStateIconType {
   scroll: number
 }
 
-export const HeaderContainer = styled.header`
-  display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: white;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 30px;
+// export const HeaderContainer = styled.header`
+//   display: flex;
+//   position: sticky;
+//   top: 0;
+//   z-index: 1;
+//   background: white;
+//   border-style: solid;
+//   border-color: rgba(0, 0, 0, 0.5);
+//   width: 100%;
+//   height: 30px;
 
-  h1 {
-    color: black;
+//   h1 {
+//     color: black;
+//   }
+// `
+
+export const HeaderContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  /* background: rgba(255, 255, 255, 0.1); */
+  background-color: white;
+  backdrop-filter: saturate(180%) blur(15px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 1rem;
+`
+
+export const HeaderItemTitle = styled(Link)`
+  /* margin-right: auto; */
+`
+export const HeaderItemLink = styled.div`
+  margin: 0 2px;
+  cursor: pointer;
+`
+export const HeaderMenuButton = styled.div`
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`
+export const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  max-width: 100%;
+  height: 100%;
+  margin: 0 50px;
+
+  a {
+    font-size: 0.8rem;
+  }
+  a:not(${HeaderItemTitle}) {
+    margin-left: 2px;
+  }
+
+  ${HeaderItemTitle} {
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 `
+
 export const IconWrapper = styled.div`
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
 `
@@ -267,7 +321,7 @@ const animate2 = keyframes`
 export const FooterWaveStyle = styled.div`
   position: absolute;
   bottom: 0;
-  top: ${props => props.totalHeight - 97}px;
+  top: ${(props: any) => props.totalHeight - 97}px;
   width: 100%;
   height: 100px;
 
@@ -334,7 +388,7 @@ export const BoatIcon = styled.div`
   z-index: 1001;
   animation: ${boat_in_animation} 10s ease infinite;
 
-  ${(props: any) => {
+  ${(props: { totalHeight: number; totalWidth: number }) => {
     return css`
       /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
       0.3}px; */

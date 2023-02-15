@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Introduction from 'components/navigation/Profile'
 import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
+
+import { useRecoilValue } from 'recoil'
 import * as S from './styles'
+import { menuOpenState } from 'states/menuOpenState'
 
 interface NavigationPropsType {
   navigationProps: {
@@ -25,6 +28,8 @@ interface NavigationPropsType {
 
 const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
   const [mount, isMount] = useState(false)
+  const state = useRecoilValue<boolean>(menuOpenState)
+
   const { imagePath, categoryList, selectedCategory, categoryCount } =
     navigationProps
   useEffect(() => {
@@ -34,23 +39,23 @@ const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
   }, [])
 
   return (
-    <S.NavigationContainer>
-      <S.NavigationWrapper>
-        <Introduction
-          profileImage={imagePath['superHero']}
-          roketImage={imagePath['rocket']}
+    // <S.NavigationContainer isOpen={state}>
+    <S.NavigationWrapper isOpen={state}>
+      <Introduction
+        profileImage={imagePath['superHero']}
+        roketImage={imagePath['rocket']}
+      />
+      {mount ? (
+        <CategoryList
+          categoryList={categoryList}
+          selectedCategory={selectedCategory}
+          categoryCount={categoryCount}
         />
-        {mount ? (
-          <CategoryList
-            categoryList={categoryList}
-            selectedCategory={selectedCategory}
-            categoryCount={categoryCount}
-          />
-        ) : (
-          <CategorySkeleton categoryList={categoryList} />
-        )}
-      </S.NavigationWrapper>
-    </S.NavigationContainer>
+      ) : (
+        <CategorySkeleton categoryList={categoryList} />
+      )}
+    </S.NavigationWrapper>
+    // </S.NavigationContainer>
   )
 }
 

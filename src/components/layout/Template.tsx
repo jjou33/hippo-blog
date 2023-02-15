@@ -1,6 +1,8 @@
 import React, { ReactNode, useEffect } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
+import Header from 'components/layout/Header'
+
 import * as S from './styles'
 
 import { Helmet } from 'react-helmet'
@@ -72,7 +74,8 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          {children}
+          <Header />
+          <S.LayoutWrapper>{children}</S.LayoutWrapper>
         </RecoilRoot>
       </S.Container>
       <Footer />
