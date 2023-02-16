@@ -282,7 +282,6 @@ export const useShowScene = (
     const currentYOffset = yOffset - prevScrollHeight
     const scrollHeight = sceneInfo[currentScene].scrollHeight
     const scrollRatio = currentYOffset / scrollHeight
-    console.log('current : ', currentScene)
 
     switch (currentScene) {
       case section.zero:

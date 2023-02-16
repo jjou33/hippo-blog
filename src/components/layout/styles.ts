@@ -253,7 +253,7 @@ export const ScrollIndicator = styled.div`
  */
 export const ProgressBarContainer = styled.div`
   position: sticky;
-  z-index: 10;
+  z-index: 1100;
   background: white;
   width: 100%;
   height: 3px;
@@ -268,10 +268,11 @@ export const ProgressBar = styled.div`
   background: red;
   transform-origin: top left;
   /* transform: scale(0, 0); */
-  transform: scale(${(props: ProgressBarPropsType) => props.scroll});
+  /* transform: scale(${(props: ProgressBarPropsType) => props.scroll}); */
+  width: ${(props: ProgressBarPropsType) => props.scroll};
   height: 3px;
   opacity: 1;
-  z-index: 999;
+  z-index: 1100;
 `
 
 export const MainImageCssIcon = styled.div`

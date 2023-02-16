@@ -94,6 +94,12 @@ const IndexPage = ({
       description={description}
       url={siteUrl}
       image={imagePath['profile-image']}
+      navigationProps={{
+        selectedCategory,
+        categoryList,
+        imagePath,
+        categoryCount,
+      }}
     >
       <SideNavSection
         navigationProps={{
@@ -107,6 +113,8 @@ const IndexPage = ({
         mainSectionProp={{
           scroll,
           imagePath,
+          categoryList,
+          categoryCount,
           selectedCategory,
           allMarkdownRemark,
         }}

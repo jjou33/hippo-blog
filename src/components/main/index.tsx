@@ -26,9 +26,6 @@ const MainSection = ({ mainSectionProp }: MainSectionProps) => {
     selectedCategory === 'All' ? 'Total Post' : selectedCategory
   return (
     <S.MainContainer>
-      <S.ProgressBarContainer>
-        <S.ProgressBar scroll={scroll} />
-      </S.ProgressBarContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <S.ContentsTitle>

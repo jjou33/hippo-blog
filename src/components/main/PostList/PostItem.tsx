@@ -24,7 +24,7 @@ const PostItem = ({
     /* Optional options */
     threshold: 0,
   })
-  console.log('category : ', categories)
+
   useEffect(() => {
     if (!inViewState && inView) {
       setInViewState(true)

@@ -5,28 +5,6 @@ export const MainContainer = styled.main`
   width: calc(100% - 270px);
   background-color: white;
 `
-export const ProgressBarContainer = styled.div`
-  position: sticky;
-  z-index: 10;
-  background: white;
-  width: 100%;
-  height: 3px;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-`
-
-interface ProgressBarPropsType {
-  scroll: number
-}
-export const ProgressBar = styled.div`
-  background: red;
-  transform-origin: top left;
-  transform: scale(${(props: ProgressBarPropsType) => props.scroll});
-  height: 3px;
-  opacity: 1;
-  z-index: 999;
-`
 export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;

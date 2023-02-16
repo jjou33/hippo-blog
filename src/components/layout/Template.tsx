@@ -15,7 +15,27 @@ interface TemplateProps {
   url: string
   image: string
   isPost?: boolean
+  navigationProps?: NavigationPropsType
   children: ReactNode
+}
+
+interface NavigationPropsType {
+  navigationProps: {
+    categoryCount: {
+      [key: string]: number
+    }
+    categoryList: {
+      [key: string]: {
+        title: string
+        childrenCount: number
+        children: string[]
+      }
+    }
+    imagePath: {
+      [key: string]: string
+    }
+    selectedCategory: string
+  }
 }
 
 const Template = ({
@@ -23,6 +43,7 @@ const Template = ({
   description,
   url,
   image,
+  navigationProps,
   children,
 }: TemplateProps) => {
   useEffect(() => {
@@ -74,7 +95,7 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          <Header />
+          <Header navigationProps={navigationProps} />
           <S.LayoutWrapper>{children}</S.LayoutWrapper>
         </RecoilRoot>
       </S.Container>

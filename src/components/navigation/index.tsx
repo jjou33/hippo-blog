@@ -39,7 +39,6 @@ const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
   }, [])
 
   return (
-    // <S.NavigationContainer isOpen={state}>
     <S.NavigationWrapper isOpen={state}>
       <Introduction
         profileImage={imagePath['superHero']}
@@ -55,7 +54,6 @@ const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
         <CategorySkeleton categoryList={categoryList} />
       )}
     </S.NavigationWrapper>
-    // </S.NavigationContainer>
   )
 }
 
