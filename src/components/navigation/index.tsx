@@ -4,8 +4,9 @@ import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
 
 import { useRecoilValue } from 'recoil'
-import * as S from './styles'
 import { menuOpenState } from 'states/menuOpenState'
+
+import * as S from './styles'
 
 interface NavigationPropsType {
   navigationProps: {
@@ -27,19 +28,18 @@ interface NavigationPropsType {
 }
 
 const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
-  const [mount, isMount] = useState(false)
+  const [mount, setMount] = useState(false)
   const state = useRecoilValue<boolean>(menuOpenState)
 
   const { imagePath, categoryList, selectedCategory, categoryCount } =
     navigationProps
+
   useEffect(() => {
-    setTimeout(() => {
-      isMount(true)
-    }, 600)
+    setMount(true)
   }, [])
 
   return (
-    <S.NavigationWrapper isOpen={state}>
+    <S.NavigationContainer isOpen={state}>
       <Introduction
         profileImage={imagePath['superHero']}
         roketImage={imagePath['rocket']}
@@ -53,7 +53,7 @@ const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
       ) : (
         <CategorySkeleton categoryList={categoryList} />
       )}
-    </S.NavigationWrapper>
+    </S.NavigationContainer>
   )
 }
 

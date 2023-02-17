@@ -1,45 +1,30 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-export const NavigationContainer = styled.nav`
-  /* flex: 0.4; */
 
-  /* box-shadow: 0px 0px 4px 0px; */
-  top: 44px;
-  ${(props: { isOpen: boolean }) =>
-    props.isOpen
-      ? css`
-          display: none;
-        `
-      : css`
-          display: block;
-        `}
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
-export const NavigationWrapper = styled.div`
+export const NavigationContainer = styled.div`
+  position: sticky;
+  width: 270px;
+
   overflow-y: auto;
   max-height: 100vh;
-  width: 270px;
 
   float: left;
   opacity: 1;
-  transition: opacity 0.2s ease-in-out;
   clear: both;
-
-  position: sticky;
+  transition: opacity 0.2s ease-in-out;
   top: 44px;
 
   ${(props: { isOpen: boolean }) =>
     props.isOpen
       ? css`
-          display: none;
+          display: block;
         `
       : css`
-          display: block;
+          display: none;
         `}
   @media (max-width: 768px) {
-    width: 150px;
+    position: fixed;
+    z-index: 1300;
   }
   /* height: 100%; 
    position: sticky;

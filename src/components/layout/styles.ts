@@ -51,7 +51,7 @@ export const HeaderContainer = styled.nav`
   background-color: white;
   backdrop-filter: saturate(180%) blur(15px);
   left: 0;
-  z-index: 10;
+  z-index: 1100;
   width: 100%;
   height: 44px;
   border-bottom: 1px solid #ddd;
@@ -128,8 +128,7 @@ export const FooterWrapper = styled.div`
   font-size: 15px;
   text-align: center;
   line-height: 1.5;
-  border: 3px;
-  border-style: dashed;
+  border: 3px solid;
 
   @media (max-width: 768px) {
     font-size: 13px;

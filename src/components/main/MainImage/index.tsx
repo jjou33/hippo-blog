@@ -61,16 +61,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
           />
         </S.MainImageWrapper>
       </S.MainAnimationContainer>
-      {state && (
-        <Modal
-          visible={state}
-          closable={true}
-          maskClosable={true}
-          onClose={closeModal}
-        >
-          Hello
-        </Modal>
-      )}
+      {state && <S.ModalOverlay visible={state} />}
     </>
   )
 }

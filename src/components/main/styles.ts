@@ -4,6 +4,9 @@ export const MainContainer = styled.main`
   flex-grow: 1;
   width: calc(100% - 270px);
   background-color: white;
+  @media (max-width: 768px) {
+    margin-top: 44px;
+  }
 `
 export const ContentsWrapper = styled.div`
   display: flex;

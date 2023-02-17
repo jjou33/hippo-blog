@@ -37,7 +37,6 @@ const Header = (navigationProps: NavigationPropsType) => {
     })
   }
 
-  console.log('navi : ', navigationProps)
   return (
     <>
       <S.ProgressBarContainer>
