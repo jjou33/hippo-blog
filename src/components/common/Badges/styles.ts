@@ -6,7 +6,7 @@ export const BadgeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  letter-spacing: 1px;
   border-radius: 8px;
 
   ${(props: BadgeColorType) => {

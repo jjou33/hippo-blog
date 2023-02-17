@@ -8,17 +8,7 @@ interface ProfileImageProps {
 }
 
 const ProfileImage = ({ profileImage }: ProfileImageProps) => {
-  return (
-    <>
-      <a
-        href="https://www.flaticon.com/free-stickers/astronaut"
-        title="astronaut stickers"
-        target="_blank"
-      >
-        <S.ProfileImageWrapper src={profileImage} alt="Profile Image" />
-      </a>
-    </>
-  )
+  return <S.ProfileImageWrapper src={profileImage} alt="Profile Image" />
 }
 
 export default ProfileImage

@@ -10,13 +10,11 @@ interface IntroductionProps {
 
 const Introduction = ({ profileImage, roketImage }: IntroductionProps) => {
   return (
-    <S.IntroductionContainer>
-      <S.IntroductionWrapper>
-        <ProfileImage profileImage={profileImage} roketImage={roketImage} />
-        <S.SubTitle>Hippo's Dev</S.SubTitle>
-        <NavTabMenu />
-      </S.IntroductionWrapper>
-    </S.IntroductionContainer>
+    <S.IntroductionWrapper>
+      <ProfileImage profileImage={profileImage} roketImage={roketImage} />
+      <S.SubTitle>Hippo's Dev</S.SubTitle>
+      <NavTabMenu />
+    </S.IntroductionWrapper>
   )
 }
 

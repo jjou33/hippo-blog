@@ -11,7 +11,6 @@ interface MainSectionProps {
     imagePath: {
       [key: string]: string
     }
-    scroll: number
     selectedCategory: string
     allMarkdownRemark: {
       edges: PostListItemType[]
@@ -20,8 +19,7 @@ interface MainSectionProps {
 }
 
 const MainSection = ({ mainSectionProp }: MainSectionProps) => {
-  const { imagePath, scroll, selectedCategory, allMarkdownRemark } =
-    mainSectionProp
+  const { imagePath, selectedCategory, allMarkdownRemark } = mainSectionProp
   const CategoryTitle =
     selectedCategory === 'All' ? 'Total Post' : selectedCategory
   return (

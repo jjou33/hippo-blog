@@ -20,7 +20,7 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
       </S.CategoryRootTitle>
       <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (
-          <CounterBadge>{categoryCount['All']}</CounterBadge>
+          <CounterBadge width="30">{categoryCount['All']}</CounterBadge>
         ) : (
           ''
         )}

@@ -5,9 +5,9 @@ import * as S from './styles'
 const NavigationTabMenu = () => {
   return (
     <S.NavTabMenuWrapper>
-      <NavTabItems title="Home" href="http://localhost:8000" />
+      <NavTabItems title="Home" href="/" />
       <NavTabItems title="Github" href="https://github.com/jjou33" />
-      <NavTabItems title="Profile" href="http://localhost:8080" />
+      {/* <NavTabItems title="Email" href="" /> */}
     </S.NavTabMenuWrapper>
   )
 }

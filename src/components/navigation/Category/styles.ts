@@ -28,10 +28,19 @@ export const CategoryListWrapper = styled.div`
  * 카테고리 루트 컴포넌트 스타일 영역
  */
 
+ export const upDownAnimation = keyframes`
+ from{
+   transform: translatey(2px);
+ }
+ to{
+   transform: translatey(-2px);
+ }
+`
 
 export const RootTitleWrapper = styled.div`
   display: flex;
-  margin: 25px 10px 10px 10px;
+  margin: 15px 10px 10px 10px;
+  align-items: center;
   span {
     display: block;
     position: absolute;
@@ -56,21 +65,14 @@ export const RootTitleWrapper = styled.div`
     }
   }
 `
-export const upDownAnimation = keyframes`
-  from{
-    transform: translatey(2px);
-  }
-  to{
-    transform: translatey(-2px);
-  }
-`
+
 
 export const CategoryRootCount = styled.div`
   margin: 2px 0 0 7px;
   color: #e75454;
 `
 export const CategoryRootIcon = styled.div`
-  margin: 0px 10px 10px 10px;
+  margin:1px 10px 0px 10px;
   width: 20px;
   height: 20px;
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
@@ -223,7 +225,6 @@ interface GatsbyLinkProps extends CategoryItemProps {
   children: ReactNode
   className?: string
   to: string
-  
 }
 
 export const CategoryTitleIcon = styled.div`
@@ -234,8 +235,6 @@ export const CategoryTitleIcon = styled.div`
   align-items: center;
 `
 
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`

@@ -6,10 +6,9 @@ import { PostListItemType } from 'types/postItem'
 import { getSelectedCategory, getCategoryList } from 'utils/Category'
 
 import Template from 'components/layout/Template'
-
-import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import SideNavSection from 'components/navigation'
 import MainSection from 'components/main'
+
 interface IndexSignatureType {
   [key: string]: number
 }
@@ -53,7 +52,6 @@ const IndexPage = ({
   const imagePath = getImagePathSetList(allFile.edges)
 
   const categoryList = getCategoryList(allMarkdownRemark)
-  const scroll = useScrollStateBar()
   const categoryCount = useMemo(
     () =>
       allMarkdownRemark.edges.reduce(

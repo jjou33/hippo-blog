@@ -4,10 +4,11 @@ import { css } from '@emotion/react'
 export const NavigationContainer = styled.div`
   position: sticky;
   width: 270px;
-
+  ::-webkit-scrollbar {
+    display: none;
+  }
   overflow-y: auto;
   max-height: calc(100vh - 44px);
-
   float: left;
   opacity: 1;
   clear: both;
@@ -26,19 +27,4 @@ export const NavigationContainer = styled.div`
     position: fixed;
     z-index: 1300;
   }
-  /* height: 100%; 
-   position: sticky;
-  top: 0px;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  overflow-y: scroll;
-  height: 1000px;
-  z-index: 1; 
-  width: 270px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;*/
 `

@@ -15,21 +15,17 @@ interface CategoryTitleProps {
   categoryItemCount: number
 }
 
-interface RecoilToggleStateType {
-  [key: string]: boolean
-}
-
 const CategoryTitle = ({
   children,
   categoryItem,
   categoryItemCount,
 }: CategoryTitleProps) => {
-  const state = useRecoilValue<RecoilToggleStateType>(recoilDropdownState)
+  const state = useRecoilValue<{ [key: string]: boolean }>(recoilDropdownState)
 
   const { isOpen, toggleTitle, titleRef } = useDropdownEffect(categoryItem)
   const [isAnimation, setIsAnimation] = useState(false)
 
-  const isOpenFilter = (state: RecoilToggleStateType) => {
+  const isOpenFilter = (state: { [key: string]: boolean }) => {
     return state[categoryItem] === true ? true : false
   }
 
