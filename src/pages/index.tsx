@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
-import { getImagePathSetList } from 'utils/Template/Template'
+import { getImagePathSetList } from 'utils/Image'
 
 import { graphql } from 'gatsby'
-import { PostListItemType } from 'types/PostItem.types'
-import { getSelectedCategory, getCategoryList } from 'utils/Category/Category'
+import { PostListItemType } from 'types/postItem'
+import { getSelectedCategory, getCategoryList } from 'utils/Category'
 
 import Template from 'components/layout/Template'
 
@@ -94,12 +94,6 @@ const IndexPage = ({
       description={description}
       url={siteUrl}
       image={imagePath['profile-image']}
-      navigationProps={{
-        selectedCategory,
-        categoryList,
-        imagePath,
-        categoryCount,
-      }}
     >
       <SideNavSection
         navigationProps={{
@@ -111,10 +105,7 @@ const IndexPage = ({
       />
       <MainSection
         mainSectionProp={{
-          scroll,
           imagePath,
-          categoryList,
-          categoryCount,
           selectedCategory,
           allMarkdownRemark,
         }}
@@ -125,8 +116,8 @@ const IndexPage = ({
 
 export default IndexPage
 
-export const getPostList = graphql`
-  query getPostList {
+export const getMetaData = graphql`
+  query getMetaData {
     site {
       siteMetadata {
         title

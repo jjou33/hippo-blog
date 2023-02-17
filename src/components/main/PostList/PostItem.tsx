@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Badge from 'components/common/Badges/Badge'
 import { useInView } from 'react-intersection-observer'
-import { PostFrontmatterType } from 'types/PostItem.types'
+import { PostFrontmatterType } from 'types/postItem'
 
 import * as S from './styles'
 type PostItemProps = PostFrontmatterType & {

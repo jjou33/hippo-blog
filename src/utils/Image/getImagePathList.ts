@@ -1,4 +1,4 @@
-import { CategoryEdgeType } from 'types/Category.types'
+import { CategoryEdgeType } from 'types/category'
 
 interface NodeType {
   node: {
@@ -6,12 +6,8 @@ interface NodeType {
   }
 }
 
-interface IndexSignatureType {
-  [key: string]: string
-}
-
 export const getImagePathSetList = (edges: CategoryEdgeType['edges']) => {
-  const imageObject: IndexSignatureType = {}
+  const imageObject: { [key: string]: string } = {}
 
   edges.forEach((item: NodeType) => {
     if (

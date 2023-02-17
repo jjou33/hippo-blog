@@ -1,9 +1,9 @@
 import * as S from './styles'
 import CounterBadge from 'components/common/Badges/Badge'
 import ColorText from 'components/common/TextEffects/ColorText'
-import { getSvgJSXElement } from 'utils/Common/Common'
+import { getSvgJSXElement } from 'utils/Image'
 
-import type { CategoryCount } from 'types/Category.types'
+import type { CategoryCount } from 'types/category'
 
 /**
  * @description: Navigation Side Bar 최상단 Root Title 컴포넌트

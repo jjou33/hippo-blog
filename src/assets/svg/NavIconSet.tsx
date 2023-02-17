@@ -1,10 +1,5 @@
 import { ReactNode } from 'react'
-
-interface IconPropsType {
-  [key: string]: {
-    icon: (width: string, height: string, color?: string) => ReactNode
-  }
-}
+import { IconPropsType } from 'types/image'
 
 export const navIconSet: IconPropsType = {
   menu: {

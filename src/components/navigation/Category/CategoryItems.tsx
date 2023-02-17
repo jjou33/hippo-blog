@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import { CategoryCount } from 'types/Category.types'
-import { getSvgJSXElement } from 'utils/Common/Common'
+import { CategoryCount } from 'types/category'
+import { getSvgJSXElement } from 'utils/Image'
 
 import CounterBadge from 'components/common/Badges/Badge'
 

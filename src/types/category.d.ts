@@ -1,4 +1,4 @@
-import { PostListItemType } from './PostItem.types'
+import { PostListItemType } from './postItem'
 
 export interface CategoryCount {
   categoryCount: {

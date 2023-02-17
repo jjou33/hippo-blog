@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { CategoryMetadataType } from 'types/Category.types'
+import { CategoryMetadataType } from 'types/category'
 
 interface IndexSignatureType {
   [key: string]: number

@@ -2,7 +2,7 @@ import PostList from 'components/main/PostList/PostList'
 import MainImage from 'components/main/MainImage'
 import ColorText from 'components/common/TextEffects/ColorText'
 
-import type { PostListItemType } from 'types/PostItem.types'
+import type { PostListItemType } from 'types/postItem'
 
 import * as S from './styles'
 

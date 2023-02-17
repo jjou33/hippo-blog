@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import ProfileImage from './ProfileImage'
 import NavTabMenu from './NavTabMenu'
 

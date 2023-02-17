@@ -1,10 +1,5 @@
 import { ReactNode } from 'react'
-
-interface IconPropsType {
-  [key: string]: {
-    icon: (width: string, height: string, color?: string) => ReactNode
-  }
-}
+import type { IconPropsType } from 'types/image'
 
 // TODO: 네이밍 변경 필요
 export const navTabMenuIconSet: IconPropsType = {

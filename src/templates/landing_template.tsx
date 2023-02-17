@@ -3,8 +3,8 @@ import Template from 'components/layout/Template'
 import { navigate, graphql } from 'gatsby'
 import { globalHistory } from '@reach/router'
 import { useShowScene } from 'hooks/useShowScene'
-import { PostListItemType } from 'types/PostItem.types'
-import { getImagePathSetList } from 'utils/Template/Template'
+import { PostListItemType } from 'types/postItem'
+import { getImagePathSetList } from 'utils/Image'
 
 import * as S from 'styles/LandingTemplateStyles'
 interface IndexPageProps {

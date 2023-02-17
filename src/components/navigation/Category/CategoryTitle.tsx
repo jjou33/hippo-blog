@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { useDropdownEffect } from 'hooks/useDropdownEffect'
-import { getSvgJSXElement } from 'utils/Common/Common'
+import { getSvgJSXElement } from 'utils/Image'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
 

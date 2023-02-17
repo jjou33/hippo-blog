@@ -3,7 +3,7 @@ import PostItem from './PostItem'
 import Pagination from './Pagination'
 
 import * as S from './styles'
-import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'
+import { PostListItemType, PostFrontmatterType } from 'types/postItem'
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
