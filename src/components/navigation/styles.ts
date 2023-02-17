@@ -6,7 +6,7 @@ export const NavigationContainer = styled.div`
   width: 270px;
 
   overflow-y: auto;
-  max-height: 100vh;
+  max-height: calc(100vh - 44px);
 
   float: left;
   opacity: 1;

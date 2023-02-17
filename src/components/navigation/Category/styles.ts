@@ -12,12 +12,8 @@ import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 
 export const CategoryListContainer = styled.div`
   width: 100%;
-  overflow-y: auto;
   background: white;
   z-index: 1010;
-
-  @media (max-width: 768px) {
-  }
 `
 
 export const CategoryListWrapper = styled.div`
