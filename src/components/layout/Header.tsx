@@ -1,4 +1,5 @@
 import React from 'react'
+import ColorText from 'components/common/TextEffects/ColorText'
 import { navIconSet } from 'assets/svg/NavIconSet'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
@@ -26,7 +27,9 @@ const Header = () => {
           {navIconSet['menu'].icon('20', '20')}
         </S.HeaderMenuButton>
         <S.HeaderWrapper>
-          <S.HeaderItemTitle to="/">HIPPO DEV</S.HeaderItemTitle>
+          <S.HeaderItemTitle to="/">
+            <ColorText text="HIPPO DEV"></ColorText>
+          </S.HeaderItemTitle>
         </S.HeaderWrapper>
       </S.HeaderContainer>
     </>

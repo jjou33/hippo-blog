@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import Image from './MainImage'
-import Header from 'components/layout/Header'
-import Modal from 'components/common/Modal/Modal'
+
 import { menuOpenState } from 'states/menuOpenState'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import WaveImageAnimation from './WaveImageAnimation'
 import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
-import SideNavSection from 'components/navigation'
+
 import * as S from './styles'
 
 interface MainImageProps {
@@ -50,16 +49,16 @@ const MainImage = ({ imagePath }: MainImageProps) => {
           <br />
           {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
         </S.MainImageTextWrapper>
-        {/* <S.MainImage backgroundImage="/static/gifs/test1.gif"></S.MainImage> */}
+
         <Image />
         <ScrollIndicator />
-        <S.MainImageWrapper>
+        {/* <S.MainImageWrapper>
           <WaveImageAnimation
             imagePath={imagePath}
             totalHeight={totalHeight}
             totalWidth={totalWidth}
           />
-        </S.MainImageWrapper>
+        </S.MainImageWrapper> */}
       </S.MainAnimationContainer>
       {state && <S.ModalOverlay visible={state} />}
     </>

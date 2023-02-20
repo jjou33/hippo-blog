@@ -30,6 +30,7 @@ export const PostListWrapper = styled.div`
 export const PostListContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 1100px;
 `
 export const FooterWrapper = styled.div`
   display: grid;
