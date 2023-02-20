@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { getImagePathSetList } from 'utils/Image'
 
 import { graphql } from 'gatsby'
@@ -49,6 +49,7 @@ const IndexPage = ({
   },
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
+
   const imagePath = getImagePathSetList(allFile.edges)
 
   const categoryList = getCategoryList(allMarkdownRemark)

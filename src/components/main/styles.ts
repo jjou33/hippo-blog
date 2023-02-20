@@ -13,13 +13,6 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
   flex: 4;
   align-items: center;
-
-  @media (min-width: 768px) {
-    margin-left: 270px;
-    width: 1300px;
-    margin: 0 auto;
-    padding: 100px 0;
-  }
 `
 
 const TextEffectKeyFrame = keyframes`

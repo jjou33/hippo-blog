@@ -14,16 +14,17 @@ export const PostListWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 50px 50px 100px;
+
   @media (max-width: 1300px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 80%;
     padding: 50px 20px;
   }
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
     width: 100%;
     padding: 50px 20px;
-  } */
+  }
 `
 
 export const PostListContainer = styled.div`

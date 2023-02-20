@@ -1,4 +1,3 @@
-import { CategoryItem } from 'components/navigation/Category/styles'
 import {
   MutableRefObject,
   useCallback,
@@ -18,35 +17,12 @@ export interface useDropdownEffectType {
 interface OpenStateType {
   [key: string]: boolean
 }
-export const useDropdownEffect = (categoryItem: any) => {
+export const useCategoryState = (categoryItem: any) => {
   const setState = useSetRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
 
   const titleRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
-
-  const onMouseDown = useCallback(
-    (e: Event) => {
-      // if (titleRef.current && !titleRef.current.contains(e.target)) {
-      //   // setIsOpen(false)
-      // }
-    },
-    [titleRef, setIsOpen],
-  )
-
-  // Click 시 Callback 함수 필요 할 경우
-  // useEffect(() => {
-  //   console.log('isRoot : ', isRoot)
-  //   if (isRoot) {
-  //     setIsOpen(false)
-  //   }
-  // }, [isOpen])
-
-  useEffect(() => {
-    window.addEventListener('click', onMouseDown)
-
-    return () => window.removeEventListener('click', onMouseDown)
-  }, [onMouseDown])
 
   const toggleTitle = (categoryItem: string) => {
     setIsOpen(!isOpen)

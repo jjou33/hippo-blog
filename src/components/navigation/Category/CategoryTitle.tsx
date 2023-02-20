@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-import { useDropdownEffect } from 'hooks/useDropdownEffect'
+import { useCategoryState } from 'hooks/useCategoryOpenState'
 import { getSvgJSXElement } from 'utils/Image'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
@@ -22,7 +22,7 @@ const CategoryTitle = ({
 }: CategoryTitleProps) => {
   const state = useRecoilValue<{ [key: string]: boolean }>(recoilDropdownState)
 
-  const { isOpen, toggleTitle, titleRef } = useDropdownEffect(categoryItem)
+  const { isOpen, toggleTitle, titleRef } = useCategoryState(categoryItem)
   const [isAnimation, setIsAnimation] = useState(false)
 
   const isOpenFilter = (state: { [key: string]: boolean }) => {

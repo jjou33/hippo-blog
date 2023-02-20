@@ -28,22 +28,6 @@ interface ScrollStateIconType {
   scroll: number
 }
 
-// export const HeaderContainer = styled.header`
-//   display: flex;
-//   position: sticky;
-//   top: 0;
-//   z-index: 1;
-//   background: white;
-//   border-style: solid;
-//   border-color: rgba(0, 0, 0, 0.5);
-//   width: 100%;
-//   height: 30px;
-
-//   h1 {
-//     color: black;
-//   }
-// `
-
 export const HeaderContainer = styled.nav`
   position: fixed;
   top: 0;
@@ -252,7 +236,7 @@ export const ScrollIndicator = styled.div`
  */
 export const ProgressBarContainer = styled.div`
   position: sticky;
-  z-index: 1100;
+  z-index: 1101;
   background: white;
   width: 100%;
   height: 3px;
@@ -266,8 +250,6 @@ interface ProgressBarPropsType {
 export const ProgressBar = styled.div`
   background: red;
   transform-origin: top left;
-  /* transform: scale(0, 0); */
-  /* transform: scale(${(props: ProgressBarPropsType) => props.scroll}); */
   width: ${(props: ProgressBarPropsType) => props.scroll};
   height: 3px;
   opacity: 1;
