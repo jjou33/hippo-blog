@@ -147,7 +147,7 @@ const blinkCursorKeyframe = keyframes`
 `
 
 export const MainAnimationContainer = styled.div`
-  height: 97vh;
+  height: 100vh;
   margin-left: 2px;
 
   @media (max-width: 768px) {
@@ -204,6 +204,7 @@ export const MainImageTextWrapper = styled.div`
 export const MainImage = styled.img`
   width: 100vw;
   height: 100%;
+  margin-top: 40px;
 `
 
 export const MainImageItem = styled.img``

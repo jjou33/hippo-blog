@@ -26,17 +26,20 @@ export const ModalOverlay = styled.div`
 `
 
 export const ModalInner = styled.div`
-  box-sizing: border-box;
   position: relative;
+  top: 30px;
+  /* box-sizing: border-box;
+
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   background-color: #fff;
   border-radius: 10px;
   width: 360px;
   max-width: 480px;
-  top: 50%;
+  height: 100vh;
+
   transform: translateY(-50%);
-  margin: 0 auto;
-  padding: 40px 20px;
+  float: left;
+  padding: 40px 20px; */
 `
 
 export const CloseButton = styled.div`

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Introduction from 'components/navigation/Profile'
 import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
-
 import { useRecoilValue } from 'recoil'
 import { menuOpenState } from 'states/menuOpenState'
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
+import { getCategoryList, getSelectedCategory } from 'utils/Category'
+import { getImagePathSetList } from 'utils/Image'
 
 import * as S from './styles'
 
@@ -27,12 +29,15 @@ interface NavigationPropsType {
   }
 }
 
-const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
+const SideNavSection = () => {
   const [mount, setMount] = useState(false)
   const state = useRecoilValue<boolean>(menuOpenState)
 
-  const { imagePath, categoryList, selectedCategory, categoryCount } =
-    navigationProps
+  const staticData = useCategoryMetadata()
+
+  const selectedCategory = getSelectedCategory(location.search)
+  const imagePath = getImagePathSetList(staticData.data.allFile.edges)
+  const categoryList = getCategoryList(staticData.data.allMarkdownRemark)
 
   useEffect(() => {
     setMount(true)
@@ -48,7 +53,7 @@ const SideNavSection = ({ navigationProps }: NavigationPropsType) => {
         <CategoryList
           categoryList={categoryList}
           selectedCategory={selectedCategory}
-          categoryCount={categoryCount}
+          categoryCount={staticData.categoryCount}
         />
       ) : (
         <CategorySkeleton categoryList={categoryList} />

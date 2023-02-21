@@ -2,7 +2,8 @@ import React, { ReactNode, useEffect } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
 import Header from 'components/layout/Header'
-
+import Modal from 'components/common/Modal/Modal'
+import SideNavSection from 'components/navigation'
 import * as S from './styles'
 
 import { Helmet } from 'react-helmet'
@@ -96,6 +97,9 @@ const Template = ({
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
           <Header />
+          <Modal>
+            <SideNavSection />
+          </Modal>
           <S.LayoutWrapper>{children}</S.LayoutWrapper>
         </RecoilRoot>
       </S.Container>

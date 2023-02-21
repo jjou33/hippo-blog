@@ -30,8 +30,12 @@ export const PostListWrapper = styled.div`
 export const PostListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1100px;
+
+  @media (min-width: 768px) {
+    width: 1100px;
+  }
 `
+
 export const FooterWrapper = styled.div`
   display: grid;
   place-items: center;
@@ -53,6 +57,7 @@ export const PostItemBadgeWrapper = styled.div`
   z-index: 1000;
   margin: 10px 10px;
 `
+
 interface PostItemContainerPropsType {
   ref: (node?: Element | null) => void
   inview: boolean
@@ -72,6 +77,7 @@ export const PostItemContainer = styled.div`
           transition: 2s;
         `}
 `
+
 export const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -99,6 +105,9 @@ export const PostItemContent = styled.div`
   padding: 15px;
   background-color: white;
   border-radius: 10px;
+  border-width: 0px 0.5px 0.5px 0.5px;
+  border-style: solid;
+  border-color: #e5e7eb;
 `
 
 export const Title = styled.div`

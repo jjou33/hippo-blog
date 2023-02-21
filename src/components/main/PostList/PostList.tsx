@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import PostItem from './PostItem'
 import Pagination from './Pagination'
 
-import * as S from './styles'
 import { PostListItemType, PostFrontmatterType } from 'types/postItem'
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
+
+import * as S from './styles'
 
 export interface PostType {
   node: {
@@ -52,7 +53,6 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
           ),
         )}
       </S.PostListWrapper>
-
       <Pagination
         total={postList.length}
         limit={limit}

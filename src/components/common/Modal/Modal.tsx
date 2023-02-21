@@ -1,5 +1,18 @@
 import React from 'react'
+
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { menuOpenState } from 'states/menuOpenState'
+
 import * as S from './styles'
+
+interface DimmedModalPropsType {
+  className: string
+  onClose: (e: Event) => void
+  maskClosable: boolean
+  closable: boolean
+  visible: boolean
+  children: React.ReactNode
+}
 const Modal = ({
   className,
   onClose,
@@ -7,14 +20,17 @@ const Modal = ({
   closable = true,
   visible = false,
   children,
-}: any) => {
-  const onMaskClick = e => {
+}: DimmedModalPropsType) => {
+  const state = useRecoilValue<boolean>(menuOpenState)
+  const setState = useSetRecoilState(menuOpenState)
+
+  const onMaskClick = (e: Event) => {
     if (e.target === e.currentTarget) {
-      onClose(e)
+      setState((oldValue: boolean) => !oldValue)
     }
   }
 
-  const close = e => {
+  const close = (e: Event) => {
     if (onClose) {
       onClose(e)
     }
@@ -22,12 +38,12 @@ const Modal = ({
 
   return (
     <>
-      <S.ModalOverlay visible={visible} />
+      <S.ModalOverlay visible={state} />
       <S.ModalWrapper
         className={className}
         onClick={maskClosable ? onMaskClick : null}
         tabIndex="-1"
-        visible={visible}
+        visible={state}
       >
         <S.ModalInner tabIndex="0" className="modal-inner">
           {closable && (

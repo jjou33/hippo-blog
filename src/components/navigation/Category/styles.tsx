@@ -12,8 +12,10 @@ import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 
 export const CategoryListContainer = styled.div`
   width: 100%;
-  overflow-y: auto;
+  height: 100vh;
+  /* overflow-y: auto; */
   background: white;
+
   z-index: 1010;
 `
 

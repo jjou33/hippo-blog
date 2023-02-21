@@ -8,11 +8,10 @@ export const BadgeWrapper = styled.div`
   justify-content: center;
   letter-spacing: 1px;
   border-radius: 8px;
-
+  padding: 0 10px;
   ${(props: BadgeColorType) => {
     return css`
       color: ${props.color};
-      width: ${props.width}px;
       height: ${props.height}px;
       background-color: ${props.backgroundColor};
       border: ${props.borderStyle};

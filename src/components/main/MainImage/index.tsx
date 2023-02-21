@@ -60,7 +60,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
           />
         </S.MainImageWrapper> */}
       </S.MainAnimationContainer>
-      {state && <S.ModalOverlay visible={state} />}
+      {/* {state && <S.ModalOverlay visible={state} />} */}
     </>
   )
 }

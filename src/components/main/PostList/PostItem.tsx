@@ -5,7 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/postItem'
 
 import * as S from './styles'
-type PostItemProps = PostFrontmatterType & {
+
+interface PostItemProps extends PostFrontmatterType {
   link: string
 }
 
@@ -21,7 +22,6 @@ const PostItem = ({
 }: PostItemProps) => {
   const [inViewState, setInViewState] = useState(false)
   const { ref, inView, entry } = useInView({
-    /* Optional options */
     threshold: 0,
   })
 
@@ -38,11 +38,10 @@ const PostItem = ({
         <S.PostItemBadgeWrapper>
           <Badge
             color="black"
-            width="80"
-            height="30"
+            height="20"
             borderStyle="none"
-            font="15px"
-            backgroundColor="#FBEAFF"
+            font="10px"
+            backgroundColor="#affcfa"
           >
             {title}
           </Badge>

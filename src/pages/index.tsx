@@ -49,43 +49,7 @@ const IndexPage = ({
   },
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(search)
-
   const imagePath = getImagePathSetList(allFile.edges)
-
-  const categoryList = getCategoryList(allMarkdownRemark)
-  const categoryCount = useMemo(
-    () =>
-      allMarkdownRemark.edges.reduce(
-        (
-          list: IndexSignatureType,
-          {
-            node: {
-              frontmatter: { sideTitle },
-            },
-          },
-        ) => {
-          allMarkdownRemark.edges.forEach(
-            ({
-              node: {
-                frontmatter: { categories },
-              },
-            }) => {
-              if (categories.includes(sideTitle)) {
-                if (list[sideTitle] === undefined) {
-                  list[sideTitle] = 1
-                } else {
-                  list[sideTitle] += 1
-                }
-              }
-            },
-          )
-          list['All'] += 1
-          return list
-        },
-        { All: 0 },
-      ),
-    [],
-  )
 
   return (
     <Template
@@ -94,14 +58,7 @@ const IndexPage = ({
       url={siteUrl}
       image={imagePath['profile-image']}
     >
-      <SideNavSection
-        navigationProps={{
-          selectedCategory,
-          categoryList,
-          imagePath,
-          categoryCount,
-        }}
-      />
+      <SideNavSection />
       <MainSection
         mainSectionProp={{
           imagePath,

@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { PostPageItemType } from 'types/postItem' // 바로 아래에서 정의할 것입니다
+import { PostPageItemType } from 'types/postItem'
 import Template from 'components/layout/Template'
-// import PostHead from 'components/main/Post/PostHead'
+
 import PostContent from 'components/main/Post/PostContent'
 import PostHead from 'components/main/Post/PostHead'
 import CommentWidget from 'components/main/Post/CommentWidget'
-import Footer from 'components/layout/Footer'
-import styled from '@emotion/styled'
+
+import * as S from 'components/main/Post/styles'
 interface PostTemplateProps {
   data: {
     allMarkdownRemark: {
@@ -20,26 +20,7 @@ interface PostTemplateProps {
     search: string
   }
 }
-const PostWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 4;
-`
-export const FooterWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  margin-top: auto;
-  padding: 50px 0;
-  font-size: 15px;
-  text-align: center;
-  line-height: 1.5;
-  border: 3px;
-  border-style: dashed;
 
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-`
 const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
@@ -70,7 +51,7 @@ const PostTemplate = ({
       url={href}
       image={publicURL}
     >
-      <PostWrapper>
+      <S.PostWrapper>
         <PostHead
           title={title}
           date={date}
@@ -79,7 +60,7 @@ const PostTemplate = ({
         />
         <PostContent html={html} />
         <CommentWidget />
-      </PostWrapper>
+      </S.PostWrapper>
     </Template>
   )
 }

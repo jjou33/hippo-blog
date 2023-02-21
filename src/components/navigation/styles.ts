@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 
 export const NavigationContainer = styled.div`
   position: sticky;
+  background: white;
   width: 270px;
   ::-webkit-scrollbar {
     display: none;
