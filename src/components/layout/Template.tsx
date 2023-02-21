@@ -18,6 +18,7 @@ interface TemplateProps {
   isPost?: boolean
   navigationProps?: NavigationPropsType
   children: ReactNode
+  location?: Location
 }
 
 interface NavigationPropsType {
@@ -45,6 +46,8 @@ const Template = ({
   url,
   image,
   navigationProps,
+  location,
+  isPost = false,
   children,
 }: TemplateProps) => {
   useEffect(() => {
@@ -97,9 +100,14 @@ const Template = ({
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
           <Header />
-          <Modal>
-            <SideNavSection />
-          </Modal>
+          {isPost ? (
+            <Modal>
+              <SideNavSection location={location} />
+            </Modal>
+          ) : (
+            <></>
+          )}
+
           <S.LayoutWrapper>{children}</S.LayoutWrapper>
         </RecoilRoot>
       </S.Container>

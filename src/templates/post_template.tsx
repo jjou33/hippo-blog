@@ -15,17 +15,14 @@ interface PostTemplateProps {
       edges: PostPageItemType[]
     }
   }
-  location: {
-    href: string
-    search: string
-  }
+  location: Location
 }
 
 const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
   },
-  location: { href },
+  location,
 }: PostTemplateProps) => {
   const {
     node: {
@@ -48,8 +45,9 @@ const PostTemplate = ({
       isPost={true}
       title={title}
       description={summary}
-      url={href}
+      url={location.href}
       image={publicURL}
+      location={location}
     >
       <S.PostWrapper>
         <PostHead

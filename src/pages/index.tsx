@@ -14,9 +14,7 @@ interface IndexSignatureType {
 }
 
 interface IndexPageProps {
-  location: {
-    search: string
-  }
+  location: Location
   data: {
     site: {
       siteMetadata: {
@@ -39,7 +37,7 @@ interface IndexPageProps {
 }
 
 const IndexPage = ({
-  location: { search },
+  location,
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
@@ -48,7 +46,7 @@ const IndexPage = ({
     allFile,
   },
 }: IndexPageProps) => {
-  const selectedCategory: string = getSelectedCategory(search)
+  const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
 
   return (
@@ -57,8 +55,9 @@ const IndexPage = ({
       description={description}
       url={siteUrl}
       image={imagePath['profile-image']}
+      location={location}
     >
-      <SideNavSection />
+      <SideNavSection location={location} />
       <MainSection
         mainSectionProp={{
           imagePath,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Introduction from 'components/navigation/Profile'
 import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { menuOpenState } from 'states/menuOpenState'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getCategoryList, getSelectedCategory } from 'utils/Category'
@@ -29,18 +29,26 @@ interface NavigationPropsType {
   }
 }
 
-const SideNavSection = () => {
+interface SideNavProps {
+  location: Location
+}
+
+const SideNavSection = (sideNavProps: SideNavProps) => {
   const [mount, setMount] = useState(false)
   const state = useRecoilValue<boolean>(menuOpenState)
-
+  const setState = useSetRecoilState(menuOpenState)
   const staticData = useCategoryMetadata()
 
-  const selectedCategory = getSelectedCategory(location.search)
+  const selectedCategory =
+    sideNavProps.location !== undefined
+      ? getSelectedCategory(sideNavProps.location.search)
+      : 'All'
   const imagePath = getImagePathSetList(staticData.data.allFile.edges)
   const categoryList = getCategoryList(staticData.data.allMarkdownRemark)
 
   useEffect(() => {
     setMount(true)
+    setState(false)
   }, [])
 
   return (
