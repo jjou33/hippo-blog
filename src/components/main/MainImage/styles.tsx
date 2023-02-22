@@ -203,8 +203,14 @@ export const MainImageTextWrapper = styled.div`
 
 export const MainImage = styled.img`
   width: 100vw;
-  height: 100%;
+  height: 92vh;
   margin-top: 40px;
+  cursor: auto;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 `
 
 export const MainImageItem = styled.img``
@@ -230,6 +236,11 @@ export const MainImageStaticText = styled.h5`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   animation: ${TextEffectKeyFrame} 2s linear infinite;
   display: inline-block;
 `
