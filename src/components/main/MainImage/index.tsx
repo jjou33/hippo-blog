@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useTypingTitle } from 'hooks/useTypingTitle'
 import Image from './MainImage'
+import Modal from 'components/common/Modal/Modal'
+import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
 
+import { useTypingTitle } from 'hooks/useTypingTitle'
 import { menuOpenState } from 'states/menuOpenState'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import WaveImageAnimation from './WaveImageAnimation'
-import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
 
 import * as S from './styles'
 
@@ -26,17 +26,6 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   const closeModal = () => {
     setState(false)
   }
-  useEffect(() => {
-    setTotalHeight(window.innerHeight)
-    setTotalWidth(window.innerWidth)
-
-    const changeSize = () => {
-      setTotalHeight(window.innerHeight)
-      setTotalWidth(window.innerWidth)
-    }
-
-    window.addEventListener('resize', changeSize)
-  }, [])
 
   return (
     <>
@@ -52,15 +41,8 @@ const MainImage = ({ imagePath }: MainImageProps) => {
 
         <Image />
         <ScrollIndicator />
-        {/* <S.MainImageWrapper>
-          <WaveImageAnimation
-            imagePath={imagePath}
-            totalHeight={totalHeight}
-            totalWidth={totalWidth}
-          />
-        </S.MainImageWrapper> */}
       </S.MainAnimationContainer>
-      {/* {state && <S.ModalOverlay visible={state} />} */}
+      {state && <Modal visible={state} />}
     </>
   )
 }

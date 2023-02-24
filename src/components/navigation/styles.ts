@@ -16,6 +16,7 @@ export const NavigationContainer = styled.div`
   transition: opacity 0.2s ease-in-out;
   top: 44px;
 
+  z-index: 1002;
   ${(props: { isOpen: boolean }) =>
     props.isOpen
       ? css`
@@ -24,8 +25,4 @@ export const NavigationContainer = styled.div`
       : css`
           display: none;
         `}
-  @media (max-width: 768px) {
-    position: fixed;
-    z-index: 1300;
-  }
 `

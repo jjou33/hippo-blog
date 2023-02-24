@@ -1,5 +1,6 @@
 import PostList from 'components/main/PostList/PostList'
 import MainImage from 'components/main/MainImage'
+import MainIntro from 'components/main/MainIntro'
 import ColorText from 'components/common/TextEffects/ColorText'
 
 import type { PostListItemType } from 'types/postItem'
@@ -26,6 +27,7 @@ const MainSection = ({ mainSectionProp }: MainSectionProps) => {
     <S.MainContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
+        <MainIntro />
         <S.ContentsTitle>
           <ColorText text={CategoryTitle}></ColorText>
         </S.ContentsTitle>

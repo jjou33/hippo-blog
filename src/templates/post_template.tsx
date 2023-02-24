@@ -14,6 +14,13 @@ interface PostTemplateProps {
     allMarkdownRemark: {
       edges: PostPageItemType[]
     }
+    allFile: {
+      edges: {
+        node: {
+          [key: string]: string
+        }
+      }[]
+    }
   }
   location: Location
 }
@@ -21,6 +28,7 @@ interface PostTemplateProps {
 const PostTemplate = ({
   data: {
     allMarkdownRemark: { edges },
+    allFile,
   },
   location,
 }: PostTemplateProps) => {
@@ -55,6 +63,7 @@ const PostTemplate = ({
           date={date}
           categories={categories}
           thumbnail={gatsbyImageData}
+          allFile={allFile}
         />
         <PostContent html={html} />
         <CommentWidget />
@@ -85,6 +94,21 @@ export const queryMarkdownDataBySlug = graphql`
               publicURL
             }
           }
+        }
+      }
+    }
+    allFile(
+      filter: {
+        extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
+        sourceInstanceName: { eq: "images" }
+      }
+    ) {
+      edges {
+        node {
+          extension
+          sourceInstanceName
+          id
+          publicURL
         }
       }
     }

@@ -33,11 +33,11 @@ export const HeaderContainer = styled.nav`
   top: 0;
   /* background: rgba(255, 255, 255, 0.1); */
   background-color: white;
-  backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(50px);
   left: 0;
   z-index: 1100;
   width: 100%;
-  height: 44px;
+  height: 70px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
 `
@@ -71,7 +71,8 @@ export const HeaderWrapper = styled.div`
   }
 
   ${HeaderItemTitle} {
-    margin-right: auto;
+    /* margin-right: auto; */
+    margin: auto;
     font-size: 1.4rem;
     font-weight: bold;
   }

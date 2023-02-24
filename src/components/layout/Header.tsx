@@ -28,7 +28,7 @@ const Header = () => {
         </S.HeaderMenuButton>
         <S.HeaderWrapper>
           <S.HeaderItemTitle to="/">
-            <ColorText text="HIPPO DEV"></ColorText>
+            <ColorText text="HIPPO DEV" fontSize={30}></ColorText>
           </S.HeaderItemTitle>
         </S.HeaderWrapper>
       </S.HeaderContainer>

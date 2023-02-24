@@ -6,27 +6,29 @@ export interface BadgeColorType {
   height?: string
   backgroundColor?: string
   borderStyle?: string
+  fontWeight?: number
   font?: string
+  radius?: string
   children: string | number
 }
 
 const Badge = ({
   color = 'red',
-  width = '20',
-  height = '15',
   backgroundColor = 'white',
   borderStyle = '1px #f65660cc solid',
   font = '6px',
+  fontWeight = 0,
+  radius = '30px',
   children,
 }: BadgeColorType) => {
   return (
     <S.BadgeWrapper
       color={color}
-      width={width}
-      height={height}
       backgroundColor={backgroundColor}
       borderStyle={borderStyle}
       font={font}
+      fontWeight={fontWeight}
+      radius={radius}
     >
       {children}
     </S.BadgeWrapper>

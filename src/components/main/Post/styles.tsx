@@ -17,11 +17,13 @@ export const PostWrapper = styled.div`
 
 export const PostHeadInfoWrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 768px;
   height: 100%;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 150px 0;
   color: #ffffff;
 
   @media (max-width: 768px) {
@@ -50,7 +52,7 @@ export const PrevPageIcon = styled.div`
 `
 
 export const Title = styled.div`
-  display: -webkit-box;
+  /* display: -webkit-box;
   overflow: hidden;
   overflow-wrap: break-word;
   margin-top: auto;
@@ -59,21 +61,40 @@ export const Title = styled.div`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 45px;
+  font-weight: 800; */
+  margin-top: 50px;
+  text-align: center;
+  font-size: 60px;
   font-weight: 800;
-
+  font-family: JetBrainsMono;
   @media (max-width: 768px) {
     font-size: 30px;
   }
 `
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+`
+export const BadgeWrapper = styled.div`
+  position: relative;
+  margin: 0 auto;
+  /* padding-top: 100px; */
+`
+export const CategoryWrapper = styled.div`
+  margin: 0 auto;
+  /* padding-top: 100px; */
+`
 
 export const PostData = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  margin: 10px auto;
   font-size: 18px;
-  font-weight: 700;
-
+  /* font-weight: 700; */
+  text-align: center;
+  font-family: JetBrainsMono;
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -92,13 +113,17 @@ type GatsbyImgProps = {
   className?: string
 }
 
+export const AnimationWrapper = styled.div`
+  position: relative;
+  top: 2px;
+`
 export const PostHeadWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 90vh;
 
   @media (max-width: 768px) {
-    height: 300px;
+    height: 500px;
   }
 `
 
@@ -107,12 +132,12 @@ export const BackgroundImage = styled((props: GatsbyImgProps) => (
 ))`
   z-index: -1;
   width: 100%;
-  height: 300px;
+  height: 90vh;
   object-fit: cover;
   filter: brightness(0.25);
 
   @media (max-width: 768px) {
-    height: 300px;
+    height: 500px;
   }
 `
 

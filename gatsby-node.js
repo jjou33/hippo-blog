@@ -87,6 +87,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage(pageOptions)
   }
 
+  // const PostListTemplateComponent = path.resolve(__dirname, 'src/templates/postList_template.tsx')
+
+  // const generatePostListPage = ({
+  //   node: {
+  //     fields: {slug}
+  //   }
+  // }) => {
+  //   const pageOptions = {
+  //     path: slug,
+  //     component: PostListTemplateComponent,
+  //     context: {slug}
+  //   }
+
+  //   createPage(pageOptions)
+  // }
+
+  // generatePostListPage()
   // Generate Post Page And Passing Slug Props for Query
   posts.forEach(generatePostPage)
 

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
+import { keyframes, css } from '@emotion/react'
 
 const TextEffectKeyFrame = keyframes`
   to {
@@ -25,4 +25,10 @@ export const ColorText = styled.p`
   -webkit-text-fill-color: transparent;
   animation: ${TextEffectKeyFrame} 2s linear infinite;
   display: inline-block;
+  ${(props: { fontSize: number }) =>
+    props.fontSize !== 0
+      ? css`
+          font-size: ${props.fontSize}px;
+        `
+      : css``}
 `
