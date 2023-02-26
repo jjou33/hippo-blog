@@ -147,9 +147,9 @@ const blinkCursorKeyframe = keyframes`
 `
 
 export const MainAnimationContainer = styled.div`
-  height: 100vh;
+  height: calc(100vh - 50px);
   margin-left: 2px;
-
+  margin-top: 50px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -185,21 +185,21 @@ export const MainImageTextWrapper = styled.div`
   }
 `
 
-// export const MainImage = styled.div`
-//   ${(props: { backgroundImage: string }) =>
-//     props.backgroundImage
-//       ? css`
-//           background-image: url(${props.backgroundImage});
-//         `
-//       : css`
-//           // TODO NO IMAGE Background 추가 필요
-//         `}
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: 0 100%;
-//   width: 100vw;
-//   height: 100%;
-// `
+export const MainImage2 = styled.div`
+  ${(props: { backgroundImage: string }) =>
+    props.backgroundImage
+      ? css`
+          background-image: url(${props.backgroundImage});
+        `
+      : css`
+          // TODO NO IMAGE Background 추가 필요
+        `}
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  width: 100vw;
+  height: 100%;
+`
 
 export const MainImage = styled.img`
   width: 100vw;
@@ -219,6 +219,7 @@ const TextEffectKeyFrame = keyframes`
     background-position: 200% center;
   }
 `
+
 export const MainImageStaticText = styled.h5`
   text-transform: uppercase;
   background-image: linear-gradient(

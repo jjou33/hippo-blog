@@ -6,6 +6,10 @@ export const MainIntroContainer = styled.div`
   @media (max-width: 1200px) {
     flex-direction: column;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const IntroTextWrapper = styled.div`
@@ -48,6 +52,9 @@ export const IntroGraphWrapper = styled.div`
   @media (max-width: 1200px) {
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `
 export const SampleCircle = styled.div`

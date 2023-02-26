@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Image from './MainImage'
 import Modal from 'components/common/Modal/Modal'
 import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
@@ -39,7 +39,7 @@ const MainImage = ({ imagePath }: MainImageProps) => {
           {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
         </S.MainImageTextWrapper>
 
-        <Image />
+        <Image imagePath={imagePath} />
         <ScrollIndicator />
       </S.MainAnimationContainer>
       {state && <Modal visible={state} />}

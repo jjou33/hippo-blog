@@ -31,13 +31,13 @@ interface ScrollStateIconType {
 export const HeaderContainer = styled.nav`
   position: fixed;
   top: 0;
-  /* background: rgba(255, 255, 255, 0.1); */
+  background: rgba(255, 255, 255, 0.1);
   background-color: white;
   backdrop-filter: saturate(180%) blur(50px);
   left: 0;
   z-index: 1100;
   width: 100%;
-  height: 70px;
+  height: 50px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
 `
