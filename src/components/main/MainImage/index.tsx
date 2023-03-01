@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Image from './MainImage'
 import Modal from 'components/common/Modal/Modal'
 import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
-
+import MouseScrollIndicator from 'components/common/ScrollIndicator/MouseIndicator'
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import { menuOpenState } from 'states/menuOpenState'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -27,6 +27,10 @@ const MainImage = ({ imagePath }: MainImageProps) => {
     setState(false)
   }
 
+  const calcSize = () => {
+    console.log('total : ', totalHeight)
+    return (totalHeight + totalWidth) / 2
+  }
   return (
     <>
       <S.MainAnimationContainer>
@@ -40,7 +44,9 @@ const MainImage = ({ imagePath }: MainImageProps) => {
         </S.MainImageTextWrapper>
 
         <Image imagePath={imagePath} />
-        <ScrollIndicator />
+        <S.CircleDiv>
+          <MouseScrollIndicator />
+        </S.CircleDiv>
       </S.MainAnimationContainer>
       {state && <Modal visible={state} />}
     </>

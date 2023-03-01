@@ -1,6 +1,18 @@
 import styled from '@emotion/styled'
 import { keyframes, css } from '@emotion/react'
 import { boat_in_animation } from 'styles/AnimationKeyframes'
+
+export const CircleDiv = styled.div`
+  position: relative;
+  bottom: 50px;
+  margin: auto;
+  width: 130px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 1008;
+`
+
 export const WaveAnimationWrapper = styled.div`
   margin-bottom: 20px;
 
@@ -8,11 +20,6 @@ export const WaveAnimationWrapper = styled.div`
     display: none;
   }
 `
-
-interface FooterWavePropsType {
-  src: string
-  waveType: string
-}
 
 const animate = keyframes`
   0% {
@@ -32,6 +39,7 @@ const animate2 = keyframes`
    background-position-x: -1000px;
  }
 `
+
 interface WaveItemProps {
   src: string
   waveType: string
@@ -147,9 +155,9 @@ const blinkCursorKeyframe = keyframes`
 `
 
 export const MainAnimationContainer = styled.div`
-  height: calc(100vh - 50px);
+  height: calc(100vh);
   margin-left: 2px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   @media (max-width: 768px) {
     display: none;
   }
@@ -198,7 +206,7 @@ export const MainImage2 = styled.div`
   background-repeat: no-repeat;
   background-position: 0 100%;
   width: 100vw;
-  height: 100%;
+  height: calc(100vh - 20px);
 `
 
 export const MainImage = styled.img`

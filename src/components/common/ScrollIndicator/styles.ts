@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-export const ArrowScroll = keyframes`
+export const scroll = keyframes`
   0% {
     bottom: 80%;
     opacity: 1;
@@ -49,5 +49,30 @@ export const ArrowIndicator = styled.div`
 
   :nth-of-type(3) {
     animation: ${arrow2} 1.5s ease-in-out infinite;
+  }
+`
+
+export const MouseIndicatorWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+`
+export const MouseIndicator = styled.div`
+  position: relative;
+  width: 2.5em;
+  height: 4em;
+  border: solid 4px #3e54ac;
+  border-radius: 30px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0.4em;
+    height: 0.4em;
+    border-radius: 50%;
+    background: #3e54ac;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: ${scroll} 2s infinite;
   }
 `
