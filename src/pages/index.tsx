@@ -5,6 +5,8 @@ import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/postItem'
 import { getSelectedCategory, getCategoryList } from 'utils/Category'
 
+import PostCaterory from 'components/main/PostCategory'
+import PostList from 'components/main/PostList/PostList'
 import Template from 'components/layout/Template'
 import SideNavSection from 'components/navigation'
 import MainSection from 'components/main'
@@ -48,7 +50,7 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
-
+  console.log('select : ', selectedCategory)
   return (
     <Template
       title={title}
@@ -58,13 +60,21 @@ const IndexPage = ({
       location={location}
     >
       <SideNavSection location={location} />
-      <MainSection
-        mainSectionProp={{
-          imagePath,
-          selectedCategory,
-          allMarkdownRemark,
-        }}
-      />
+      {selectedCategory === 'All' ? (
+        <MainSection
+          mainSectionProp={{
+            imagePath,
+            selectedCategory,
+            allMarkdownRemark,
+          }}
+        />
+      ) : (
+        <PostCaterory
+          selectedCategory={selectedCategory}
+          posts={allMarkdownRemark.edges}
+          imagePath={imagePath}
+        />
+      )}
     </Template>
   )
 }
