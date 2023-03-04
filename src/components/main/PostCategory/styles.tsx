@@ -5,11 +5,13 @@ export const PostCategoryContainer = styled.div`
   flex-direction: column;
   width: 1300px;
   margin: 50px auto;
+  height: 100%;
 `
 
 export const PostCategoryHeader = styled.div`
   padding-top: 44px;
   display: flex;
+  justify-content: center;
 `
 
 export const PostCategoryIcon = styled.div``

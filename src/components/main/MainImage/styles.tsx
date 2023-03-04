@@ -211,7 +211,7 @@ export const MainImage2 = styled.div`
 
 export const MainImage = styled.img`
   width: 100vw;
-  height: 92vh;
+  height: calc(100vh - 70px);
   margin-top: 40px;
   cursor: auto;
   -webkit-user-drag: none;

@@ -30,7 +30,7 @@ export const PostListWrapper = styled.div`
 export const PostListContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin: 0 auto;
   @media (min-width: 768px) {
     width: 1100px;
   }
