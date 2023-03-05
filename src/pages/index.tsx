@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/postItem'
 import { getSelectedCategory, getCategoryList } from 'utils/Category'
 
-import PostCaterory from 'components/main/PostCategory'
+import PostCaterory from 'components/main/PostList/PostCategoryList'
 import PostList from 'components/main/PostList/PostList'
 import Template from 'components/layout/Template'
 import SideNavSection from 'components/navigation'
@@ -73,6 +73,7 @@ const IndexPage = ({
           selectedCategory={selectedCategory}
           posts={allMarkdownRemark.edges}
           imagePath={imagePath}
+          type="list"
         />
       )}
     </Template>

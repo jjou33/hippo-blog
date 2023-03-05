@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PostItem from './PostItem'
 import Pagination from './Pagination'
-
+import PostCardList from './PostCardList'
 import { PostListItemType, PostFrontmatterType } from 'types/postItem'
 import useInfiniteScroll, {
   useInfiniteScrollType,
@@ -40,7 +40,8 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
 
   return (
     <S.PostListContainer>
-      <S.PostListWrapper ref={containerRef}>
+      <PostCardList containerRef={containerRef} postList={postList} />
+      {/* <S.PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({
             node: {
@@ -52,7 +53,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
             <PostItem {...frontmatter} link={slug} key={id} />
           ),
         )}
-      </S.PostListWrapper>
+      </S.PostListWrapper> */}
       <Pagination
         total={postList.length}
         limit={limit}

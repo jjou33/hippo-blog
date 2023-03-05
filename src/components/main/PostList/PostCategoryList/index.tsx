@@ -5,7 +5,7 @@ import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useEffect } from 'react'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-const PostCategory = ({ selectedCategory, posts, imagePath }) => {
+const PostCategory = ({ selectedCategory, posts, imagePath, type }) => {
   const setState = useSetRecoilState(menuOpenState)
   const { categoryCount, data } = useCategoryMetadata()
   console.log('data : ', data)
