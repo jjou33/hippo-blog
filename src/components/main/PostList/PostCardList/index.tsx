@@ -12,6 +12,7 @@ const PostCardList = ({ containerRef, postList }: PostCardListPropsType) => {
   const limit = 6
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
+  console.log(postList)
 
   return (
     <S.PostListWrapper ref={containerRef}>

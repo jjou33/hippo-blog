@@ -31,7 +31,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
     selectedCategory,
     posts,
   )
-
+  console.log('postList 1: ', postList)
   // 카테고리 변경 시 Page 값 Reset
   if (category !== selectedCategory) {
     setPage(1)

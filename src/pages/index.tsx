@@ -72,8 +72,6 @@ const IndexPage = ({
         <PostCaterory
           selectedCategory={selectedCategory}
           posts={allMarkdownRemark.edges}
-          imagePath={imagePath}
-          type="list"
         />
       )}
     </Template>

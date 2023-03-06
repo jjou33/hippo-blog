@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import * as S from './styles'
 import { PostFrontmatterType } from 'types/postItem'
 import { InView, useInView } from 'react-intersection-observer'
 interface PostItemProps extends PostFrontmatterType {
   link: string
 }
 
-import * as S from './styles'
 const PostCategoryItem = ({
   title,
   date,
@@ -27,7 +26,22 @@ const PostCategoryItem = ({
       setInviewState(true)
     }
   })
-  return <></>
+  return (
+    <S.PostItemWrapper to={link}>
+      <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+
+      <S.PostItemContent>
+        <S.Title>{title}</S.Title>
+        <S.Date>{date}</S.Date>
+        <S.Category>
+          {categories.map(category => (
+            <S.CategoryItem key={category}>{category}</S.CategoryItem>
+          ))}
+        </S.Category>
+        <S.Summary>{summary}</S.Summary>
+      </S.PostItemContent>
+    </S.PostItemWrapper>
+  )
 }
 
 export default PostCategoryItem

@@ -1,34 +1,56 @@
 import * as S from './styles'
-import PostList from 'components/main/PostList/PostList'
-import { navIconSet } from 'assets/svg/NavIconSet'
+import { useState } from 'react'
+
+import PostCategoryItem from './PostCategoryItem'
+import { PostListItemType, PostFrontmatterType } from 'types/postItem'
+import PostCategoryHeader from './PostCategoryHeader'
+
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useEffect } from 'react'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-const PostCategory = ({ selectedCategory, posts, imagePath, type }) => {
+import useInfiniteScroll, {
+  useInfiniteScrollType,
+} from 'hooks/useInfiniteScroll'
+const PostCategory = ({ selectedCategory, posts, imagePath }) => {
+  const limit = 6
+  const [page, setPage] = useState(1)
+  const offset = (page - 1) * limit
+  const [category, setCategory] = useState('')
   const setState = useSetRecoilState(menuOpenState)
   const { categoryCount, data } = useCategoryMetadata()
-  console.log('data : ', data)
+
+  const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
+    selectedCategory,
+    posts,
+  )
+
   useEffect(() => {
     setState(false)
   }, [])
   return (
     <S.PostCategoryContainer>
-      <S.PostCategoryHeader>
-        <S.PostCategoryIcon>
-          {navIconSet['menu'].icon('40', '40')}
-        </S.PostCategoryIcon>
-        <S.PostCategoryWrapper>
-          <S.PostCategoryTitle>{selectedCategory}</S.PostCategoryTitle>
-          <S.PostCategoryCount>
-            {categoryCount[selectedCategory]}
-          </S.PostCategoryCount>
-        </S.PostCategoryWrapper>
-      </S.PostCategoryHeader>
-      <PostList
+      <PostCategoryHeader
+        selectedCategory={selectedCategory}
+        categoryCount={categoryCount[selectedCategory]}
+      />
+      <S.PostCateListWrapper ref={containerRef}>
+        {postList.slice(offset, offset + limit).map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }: PostListItemType) => (
+            <PostCategoryItem {...frontmatter} link={slug} key={id} />
+          ),
+        )}
+      </S.PostCateListWrapper>
+      {/* <PostList
         selectedCategory={selectedCategory}
         posts={data.allMarkdownRemark.edges}
-      />
+      /> */}
     </S.PostCategoryContainer>
   )
 }
