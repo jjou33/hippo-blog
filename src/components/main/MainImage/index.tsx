@@ -32,24 +32,18 @@ const MainImage = ({ imagePath }: MainImageProps) => {
     return (totalHeight + totalWidth) / 2
   }
   return (
-    <>
-      <S.MainAnimationContainer>
-        <S.MainImageTextWrapper
-          totalHeight={totalHeight}
-          totalWidth={totalWidth}
-        >
-          <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
-          <br />
-          {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
-        </S.MainImageTextWrapper>
+    <S.MainAnimationContainer>
+      <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
+        <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
+        <br />
+        {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
+      </S.MainImageTextWrapper>
 
-        <Image imagePath={imagePath} />
-        <S.CircleDiv>
-          <MouseScrollIndicator />
-        </S.CircleDiv>
-      </S.MainAnimationContainer>
-      {state && <Modal visible={state} />}
-    </>
+      <Image imagePath={imagePath} />
+      <S.CircleDiv>
+        <MouseScrollIndicator />
+      </S.CircleDiv>
+    </S.MainAnimationContainer>
   )
 }
 

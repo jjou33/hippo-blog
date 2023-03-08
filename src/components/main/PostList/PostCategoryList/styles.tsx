@@ -6,7 +6,7 @@ export const PostCategoryContainer = styled.div`
   flex-direction: column;
   width: 1100px;
   margin: 50px auto;
-  height: 100vh;
+  height: 100%;
 `
 
 export const PostCategoryHeader = styled.div`

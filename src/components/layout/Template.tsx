@@ -80,13 +80,9 @@ const Template = ({
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
           <Header />
-          {isPost ? (
-            <Modal>
-              <SideNavSection location={location} />
-            </Modal>
-          ) : (
-            <></>
-          )}
+          <Modal>
+            <SideNavSection location={location} />
+          </Modal>
 
           <S.LayoutWrapper>{children}</S.LayoutWrapper>
         </RecoilRoot>

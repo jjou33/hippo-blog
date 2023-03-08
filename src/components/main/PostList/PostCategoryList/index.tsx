@@ -48,7 +48,6 @@ const PostCategory = ({ selectedCategory, posts, imagePath }) => {
           ),
         )}
       </S.PostCateListWrapper>
-      {state && <Modal visible={state} />}
     </S.PostCategoryContainer>
   )
 }

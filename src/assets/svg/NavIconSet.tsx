@@ -9,9 +9,6 @@ export const navIconSet: IconPropsType = {
       color = 'rgba(0, 0, 0, 0.5)',
     ): ReactNode => (
       <svg
-        style={css`
-          color: rgb(57, 129, 243);
-        `}
         height="32px"
         id="Layer_1"
         version="1.1"

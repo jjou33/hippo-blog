@@ -13,11 +13,13 @@ import { Link } from 'gatsby'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
   /* flex: 1 0 auto; */
 `
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  min-height: calc(100vh - 200px);
 `
 /**
  * Header Component Styled Section
@@ -109,6 +111,7 @@ export const FooterWrapper = styled.div`
   display: grid;
   place-items: center;
   margin-top: auto;
+  height: 200px;
   padding: 50px 0;
   font-size: 15px;
   text-align: center;

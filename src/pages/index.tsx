@@ -59,7 +59,7 @@ const IndexPage = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      <SideNavSection location={location} />
+      {/* <SideNavSection location={location} /> */}
       {selectedCategory === 'All' ? (
         <MainSection
           mainSectionProp={{
