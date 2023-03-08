@@ -50,26 +50,6 @@ const Template = ({
   isPost = false,
   children,
 }: TemplateProps) => {
-  useEffect(() => {
-    if (window.innerWidth !== window.outerWidth) {
-      document.body.style.width = `${window.innerWidth}`
-    }
-
-    if (window.innerHeight !== window.outerHeight) {
-      document.body.style.height = `${window.innerHeight}`
-    }
-
-    let cachedWidth = window.innerWidth
-    const resizeHandler = (): void => {
-      const newWitdh = window.innerWidth
-      if (cachedWidth !== newWitdh) {
-        cachedWidth = newWitdh
-      }
-    }
-    window.addEventListener('resize', resizeHandler)
-
-    return () => window.removeEventListener('resize', resizeHandler)
-  }, [])
   return (
     <>
       <S.Container>

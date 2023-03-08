@@ -50,8 +50,13 @@ const defaultStyle = css`
     height: 100%;
     letter-spacing: -0.05px;
   }
-
+  
   */
+
+  :root {
+    --white-color: #fff;
+    --black-color: #140a00;
+  }
   * {
     padding: 0;
     margin: 0;

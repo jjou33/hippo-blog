@@ -4,21 +4,24 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1300px;
+  width: 1100px;
   margin: 50px auto;
-  height: 100%;
+  height: 100vh;
 `
 
 export const PostCategoryHeader = styled.div`
-  padding-top: 44px;
+  padding: 44px 10px 0px 50px;
   display: flex;
-  justify-content: center;
 `
 
-export const PostCategoryIcon = styled.div``
+export const PostCategoryIcon = styled.div`
+  margin-right: 10px;
+`
 
 export const PostCategoryWrapper = styled.h2``
-export const PostCategoryTitle = styled.span``
+export const PostCategoryTitle = styled.span`
+  margin-right: 5px;
+`
 export const PostCategoryCount = styled.em``
 
 export const PostCateListWrapper = styled.div`
@@ -27,13 +30,15 @@ export const PostCateListWrapper = styled.div`
   grid-gap: 30px;
   width: 100%;
   margin: 0 auto;
-  padding: 50px 50px 100px;
+  padding: 20px 50px 100px;
 `
-
+export const ThumbnailWrapper = styled.div`
+  flex: 1;
+  padding: 10px;
+`
 export const ThumbnailImage = styled(GatsbyImage)`
-  width: 100%;
   height: 200px;
-  border-radius: 10px 10px 0 0;
+  /* border-radius: 10px 10px 0 0; */
 `
 export const PostItemBadgeWrapper = styled.div`
   position: absolute;
@@ -42,15 +47,15 @@ export const PostItemBadgeWrapper = styled.div`
 `
 
 export const PostItemContent = styled.div`
-  flex: 1;
+  flex: 3;
   display: flex;
   flex-direction: column;
   padding: 15px;
   background-color: white;
   border-radius: 10px;
-  border-width: 0px 0.5px 0.5px 0.5px;
+  /* border-width: 0px 0.5px 0.5px 0.5px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: #e5e7eb; */
 `
 
 export const Title = styled.div`
@@ -81,7 +86,7 @@ export const Category = styled.div`
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
-  border-radius: 3px;
+  border-radius: 20px;
   background: black;
   font-size: 14px;
   font-weight: 700;
@@ -100,16 +105,27 @@ export const Summary = styled.div`
   font-size: 16px;
   opacity: 0.8;
 `
+export const PoistItemContainer = styled.div`
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e5e7eb;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  }
+`
 export const PostItemWrapper = styled(Link)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
-  transition: 0.3s box-shadow;
 
   cursor: pointer;
-
-  &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `

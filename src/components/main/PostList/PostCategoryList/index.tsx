@@ -1,12 +1,12 @@
 import * as S from './styles'
 import { useState } from 'react'
-
+import Modal from 'components/common/Modal/Modal'
 import PostCategoryItem from './PostCategoryItem'
 import { PostListItemType, PostFrontmatterType } from 'types/postItem'
 import PostCategoryHeader from './PostCategoryHeader'
 
 import { menuOpenState } from 'states/menuOpenState'
-import { useSetRecoilState } from 'recoil'
+import { useSetRecoilState, useRecoilValue } from 'recoil'
 import { useEffect } from 'react'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import useInfiniteScroll, {
@@ -18,6 +18,7 @@ const PostCategory = ({ selectedCategory, posts, imagePath }) => {
   const offset = (page - 1) * limit
   const [category, setCategory] = useState('')
   const setState = useSetRecoilState(menuOpenState)
+  const state = useRecoilValue<{ [key: string]: boolean }>(menuOpenState)
   const { categoryCount, data } = useCategoryMetadata()
 
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
@@ -47,10 +48,7 @@ const PostCategory = ({ selectedCategory, posts, imagePath }) => {
           ),
         )}
       </S.PostCateListWrapper>
-      {/* <PostList
-        selectedCategory={selectedCategory}
-        posts={data.allMarkdownRemark.edges}
-      /> */}
+      {state && <Modal visible={state} />}
     </S.PostCategoryContainer>
   )
 }

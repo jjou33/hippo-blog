@@ -10,7 +10,7 @@ export const CircleDiv = styled.div`
   height: 100px;
   border-radius: 50%;
   background-color: white;
-  z-index: 1008;
+  z-index: 999;
 `
 
 export const WaveAnimationWrapper = styled.div`

@@ -71,7 +71,7 @@ export const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: white;
+  background-color: var(--white-color);
   border-radius: 10px;
   border-width: 0px 0.5px 0.5px 0.5px;
   border-style: solid;

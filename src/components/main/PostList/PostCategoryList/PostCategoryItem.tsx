@@ -27,20 +27,24 @@ const PostCategoryItem = ({
     }
   })
   return (
-    <S.PostItemWrapper to={link}>
-      <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+    <S.PoistItemContainer>
+      <S.PostItemWrapper to={link}>
+        <S.PostItemContent>
+          <S.Title>{title}</S.Title>
+          <S.Date>{date}</S.Date>
 
-      <S.PostItemContent>
-        <S.Title>{title}</S.Title>
-        <S.Date>{date}</S.Date>
-        <S.Category>
-          {categories.map(category => (
-            <S.CategoryItem key={category}>{category}</S.CategoryItem>
-          ))}
-        </S.Category>
-        <S.Summary>{summary}</S.Summary>
-      </S.PostItemContent>
-    </S.PostItemWrapper>
+          <S.Category>
+            {categories.map(category => (
+              <S.CategoryItem key={category}>{category}</S.CategoryItem>
+            ))}
+          </S.Category>
+          <S.Summary>{summary}</S.Summary>
+        </S.PostItemContent>
+        <S.ThumbnailWrapper>
+          <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+        </S.ThumbnailWrapper>
+      </S.PostItemWrapper>
+    </S.PoistItemContainer>
   )
 }
 
