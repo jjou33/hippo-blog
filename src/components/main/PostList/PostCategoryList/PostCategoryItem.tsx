@@ -11,6 +11,7 @@ const PostCategoryItem = ({
   date,
   categories,
   summary,
+  domain,
   thumbnail: {
     childImageSharp: { gatsbyImageData },
   },

@@ -10,17 +10,25 @@ export const PostCategoryContainer = styled.div`
 `
 
 export const PostCategoryHeader = styled.div`
-  padding: 44px 10px 0px 50px;
+  padding: 100px 10px 0px 50px;
   display: flex;
 `
 
 export const PostCategoryIcon = styled.div`
   margin-right: 10px;
+  display: flex;
+  align-items: center;
 `
 
-export const PostCategoryWrapper = styled.h2``
+export const PostCategoryWrapper = styled.div`
+  * {
+    font-family: 'IBMPlexSans';
+    font-size: 40px;
+  }
+  display: flex;
+`
 export const PostCategoryTitle = styled.span`
-  margin-right: 5px;
+  margin-right: 10px;
 `
 export const PostCategoryCount = styled.em``
 
@@ -38,7 +46,7 @@ export const ThumbnailWrapper = styled.div`
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   height: 200px;
-  /* border-radius: 10px 10px 0 0; */
+  border-radius: 20px;
 `
 export const PostItemBadgeWrapper = styled.div`
   position: absolute;
@@ -87,10 +95,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
   border-radius: 20px;
-  background: black;
+  background: #ffc75d;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #191d23;
 `
 
 export const Summary = styled.div`

@@ -28,7 +28,6 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   }
 
   const calcSize = () => {
-    console.log('total : ', totalHeight)
     return (totalHeight + totalWidth) / 2
   }
   return (

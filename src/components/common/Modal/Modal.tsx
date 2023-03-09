@@ -23,7 +23,7 @@ const Modal = ({
 }: DimmedModalPropsType) => {
   const state = useRecoilValue<boolean>(menuOpenState)
   const setState = useSetRecoilState(menuOpenState)
-  console.log('state : ', state)
+
   const onMaskClick = (e: Event) => {
     if (e.target === e.currentTarget) {
       setState((oldValue: boolean) => !oldValue)

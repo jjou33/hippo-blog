@@ -50,7 +50,7 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
-  console.log('select : ', selectedCategory)
+  console.log('select : ', allMarkdownRemark)
   return (
     <Template
       title={title}

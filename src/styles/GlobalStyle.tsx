@@ -7,6 +7,7 @@ import JetBrainMono from '../assets/font/JetBrainsMono-Bold.ttf'
 import GmarketSansTTFMedium from '../assets/font/GmarketSansTTFMedium.ttf'
 import GmarketSansTTFLight from '../assets/font/GmarketSansTTFLight.ttf'
 import GmarketSansTTFBold from '../assets/font/GmarketSansTTFBold.ttf'
+import IBMPlexSans from '../assets/font/IBMPlexSansKR-Bold.ttf'
 const defaultStyle = css`
   @font-face {
     font-family: 'GmarketSansTTFLight';
@@ -44,6 +45,12 @@ const defaultStyle = css`
     font-style: normal;
     src: url(${JetBrainMono}) format('truetype');
   }
+  @font-face {
+    font-family: 'IBMPlexSans';
+    src: local('IBMPlexSans'), local('IBMPlexSans');
+    font-style: normal;
+    src: url(${IBMPlexSans}) format('truetype');
+  }
   ${Reset}
 
   /* #___gatsby {
@@ -55,22 +62,16 @@ const defaultStyle = css`
 
   :root {
     --white-color: #fff;
-    --black-color: #140a00;
+    --black-color: #5a5856;
   }
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: MaplestoryLight;
+    font-family: IBMPlexSans;
+    /* background-color: var(--black-color); */
     shape-rendering: auto;
   }
-  /* #___gatsby {
-    height: 100%;
-    overflow-x: hidden;
-    color: rgb(29, 29, 31);
-    letter-spacing: -0.05px;
-    background: white;
-  } */
 
   a,
   a:hover {

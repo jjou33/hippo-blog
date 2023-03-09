@@ -26,13 +26,25 @@ const PostCategory = ({ selectedCategory, posts, imagePath }) => {
     posts,
   )
 
+  const setCategoryFormat = (
+    selectedCategory,
+    {
+      node: {
+        frontmatter: { domain },
+      },
+    },
+  ) => {
+    return `${domain}/${selectedCategory.toUpperCase()}`.toUpperCase()
+  }
+  const categoryHeader = setCategoryFormat(selectedCategory, postList[0])
+  console.log('categoryHeader : ', categoryHeader)
   useEffect(() => {
     setState(false)
   }, [])
   return (
     <S.PostCategoryContainer>
       <PostCategoryHeader
-        selectedCategory={selectedCategory}
+        selectedCategory={categoryHeader}
         categoryCount={categoryCount[selectedCategory]}
       />
       <S.PostCateListWrapper ref={containerRef}>

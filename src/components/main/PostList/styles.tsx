@@ -140,10 +140,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
   border-radius: 3px;
-  background: black;
+  background: #ffc75d;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #191d23;
 `
 
 export const Summary = styled.div`
