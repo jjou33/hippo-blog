@@ -4,14 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1100px;
+  max-width: 1100px;
   margin: 50px auto;
   height: 100%;
-`
-
-export const PostCategoryHeader = styled.div`
-  padding: 100px 10px 0px 50px;
-  display: flex;
 `
 
 export const PostCategoryIcon = styled.div`
@@ -21,16 +16,15 @@ export const PostCategoryIcon = styled.div`
 `
 
 export const PostCategoryWrapper = styled.div`
-  * {
-    font-family: 'IBMPlexSans';
-    font-size: 40px;
-  }
   display: flex;
+  font-size: 40px;
 `
 export const PostCategoryTitle = styled.span`
   margin-right: 10px;
 `
-export const PostCategoryCount = styled.em``
+export const PostCategoryCount = styled.em`
+  color: #3981f3;
+`
 
 export const PostCateListWrapper = styled.div`
   display: grid;
@@ -41,13 +35,22 @@ export const PostCateListWrapper = styled.div`
   padding: 20px 50px 100px;
 `
 export const ThumbnailWrapper = styled.div`
-  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   height: 200px;
+  width: 200px;
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    height: 100px;
+    width: 100px;
+  }
 `
+
 export const PostItemBadgeWrapper = styled.div`
   position: absolute;
   z-index: 1000;
@@ -61,9 +64,6 @@ export const PostItemContent = styled.div`
   padding: 15px;
   background-color: white;
   border-radius: 10px;
-  /* border-width: 0px 0.5px 0.5px 0.5px;
-  border-style: solid;
-  border-color: #e5e7eb; */
 `
 
 export const Title = styled.div`
@@ -79,6 +79,20 @@ export const Title = styled.div`
   font-weight: 700;
 `
 
+export const PostCategoryHeader = styled.div`
+  padding: 30px 10px 0px 50px;
+  display: flex;
+  @media (max-width: 768px) {
+    ${PostCategoryTitle}, ${PostCategoryCount} {
+      font-size: 23px;
+    }
+    ${PostCategoryIcon} {
+      width: 23px;
+    }
+
+    align-items: center;
+  }
+`
 export const Date = styled.div`
   font-size: 14px;
   font-weight: 400;
@@ -90,6 +104,9 @@ export const Category = styled.div`
   flex-wrap: wrap;
   margin-top: 10px;
   margin: 10px -5px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
@@ -104,7 +121,7 @@ export const CategoryItem = styled.div`
 export const Summary = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  margin-top: auto;
+  margin: auto 0;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
@@ -133,7 +150,4 @@ export const PostItemWrapper = styled(Link)`
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
 
   cursor: pointer;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `

@@ -34,7 +34,7 @@ const PostCategory = ({ selectedCategory, posts, imagePath }) => {
       },
     },
   ) => {
-    return `${domain}/${selectedCategory.toUpperCase()}`.toUpperCase()
+    return `${domain}/${selectedCategory}`.toUpperCase()
   }
   const categoryHeader = setCategoryFormat(selectedCategory, postList[0])
   console.log('categoryHeader : ', categoryHeader)
