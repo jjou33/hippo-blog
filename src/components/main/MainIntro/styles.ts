@@ -6,10 +6,6 @@ export const MainIntroContainer = styled.div`
   @media (max-width: 1200px) {
     flex-direction: column;
   }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `
 
 export const IntroTextWrapper = styled.div`
@@ -17,12 +13,10 @@ export const IntroTextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding-right: 50px; */
   margin-left: 50px;
 
   @media (max-width: 1200px) {
-    padding-right: 0px;
-    margin-top: 50px;
+    margin-left: 0px;
   }
 `
 export const IntroTitle = styled.h1`
@@ -30,7 +24,7 @@ export const IntroTitle = styled.h1`
   font-size: 50px;
   margin: 20px auto;
   @media (max-width: 768px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `
 export const IntroSubTitle = styled.h3`

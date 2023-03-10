@@ -11,14 +11,14 @@ const PostCategoryItem = ({
   date,
   categories,
   summary,
-  domain,
+
   thumbnail: {
     childImageSharp: { gatsbyImageData },
   },
   link,
 }: PostItemProps) => {
   const [inViewState, setInviewState] = useState(false)
-  const { ref, inView, entry } = useInView({
+  const { inView } = useInView({
     threshold: 0,
   })
 

@@ -32,7 +32,7 @@ export const PostCateListWrapper = styled.div`
   grid-gap: 30px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px 50px 100px;
+  padding: 20px 30px 100px;
 `
 export const ThumbnailWrapper = styled.div`
   display: flex;
@@ -80,11 +80,11 @@ export const Title = styled.div`
 `
 
 export const PostCategoryHeader = styled.div`
-  padding: 30px 10px 0px 50px;
+  padding: 30px 30px 10px;
   display: flex;
   @media (max-width: 768px) {
     ${PostCategoryTitle}, ${PostCategoryCount} {
-      font-size: 23px;
+      font-size: 20px;
     }
     ${PostCategoryIcon} {
       width: 23px;

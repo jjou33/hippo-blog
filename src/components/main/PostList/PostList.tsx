@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import PostItem from './PostItem'
+import { useState } from 'react'
+
 import Pagination from './Pagination'
 import PostCardList from './PostCardList'
 import { PostListItemType, PostFrontmatterType } from 'types/postItem'
@@ -41,19 +41,7 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
   return (
     <S.PostListContainer>
       <PostCardList containerRef={containerRef} postList={postList} />
-      {/* <S.PostListWrapper ref={containerRef}>
-        {postList.slice(offset, offset + limit).map(
-          ({
-            node: {
-              id,
-              fields: { slug },
-              frontmatter,
-            },
-          }: PostListItemType) => (
-            <PostItem {...frontmatter} link={slug} key={id} />
-          ),
-        )}
-      </S.PostListWrapper> */}
+
       <Pagination
         total={postList.length}
         limit={limit}

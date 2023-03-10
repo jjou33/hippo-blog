@@ -35,7 +35,6 @@ const MainImage = ({ imagePath }: MainImageProps) => {
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
         <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
         <br />
-        {/* <S.MainImageDynamicText>I AM {currentTitle}</S.MainImageDynamicText> */}
       </S.MainImageTextWrapper>
 
       <Image imagePath={imagePath} />

@@ -2,7 +2,7 @@ import * as S from './styles'
 
 import { MutableRefObject, useState } from 'react'
 import PostCardItem from './PostCardItem'
-import { PostListItemType, PostFrontmatterType } from 'types/postItem'
+import { PostListItemType } from 'types/postItem'
 
 interface PostCardListPropsType {
   containerRef: MutableRefObject<HTMLDivElement | null>

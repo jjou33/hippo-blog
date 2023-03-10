@@ -1,7 +1,14 @@
 import * as S from './styles'
 import { navIconSet } from 'assets/svg/NavIconSet'
 
-const PostCategoryHeader = ({ selectedCategory, categoryCount }) => {
+interface PostCategoryHeaderProps {
+  selectedCategory: string
+  categoryCount: number
+}
+const PostCategoryHeader = ({
+  selectedCategory,
+  categoryCount,
+}: PostCategoryHeaderProps) => {
   return (
     <S.PostCategoryHeader>
       <S.PostCategoryIcon>

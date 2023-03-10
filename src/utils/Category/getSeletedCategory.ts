@@ -5,6 +5,8 @@ export const getSelectedCategory = (search: string): string => {
 
   const selectedCategory: string =
     typeof parsed.category !== 'string' || !parsed.category
+      ? 'root'
+      : parsed.category === 'All'
       ? 'All'
       : parsed.category
 

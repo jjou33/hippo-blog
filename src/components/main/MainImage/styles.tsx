@@ -11,6 +11,10 @@ export const CircleDiv = styled.div`
   border-radius: 50%;
   background-color: white;
   z-index: 999;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const WaveAnimationWrapper = styled.div`
@@ -45,6 +49,7 @@ interface WaveItemProps {
   waveType: string
   totalHeight: number
 }
+
 export const WaveAnimationItem = styled.div`
   position: absolute;
   bottom: 0;
@@ -157,9 +162,9 @@ const blinkCursorKeyframe = keyframes`
 export const MainAnimationContainer = styled.div`
   height: calc(100vh);
   margin-left: 2px;
-  /* margin-top: 50px; */
+
   @media (max-width: 768px) {
-    display: none;
+    height: 30vh;
   }
   overflow: hidden;
 `
@@ -219,6 +224,11 @@ export const MainImage = styled.img`
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+
+  @media (max-width: 768px) {
+    height: 30vh;
+    margin-top: 0px;
+  }
 `
 
 export const MainImageItem = styled.img``

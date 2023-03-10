@@ -1,19 +1,13 @@
-import { useMemo } from 'react'
 import { getImagePathSetList } from 'utils/Image'
 
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/postItem'
-import { getSelectedCategory, getCategoryList } from 'utils/Category'
+import { getSelectedCategory } from 'utils/Category'
 
 import PostCaterory from 'components/main/PostList/PostCategoryList'
-import PostList from 'components/main/PostList/PostList'
-import Template from 'components/layout/Template'
-import SideNavSection from 'components/navigation'
-import MainSection from 'components/main'
 
-interface IndexSignatureType {
-  [key: string]: number
-}
+import Template from 'components/layout/Template'
+import MainSection from 'components/main'
 
 interface IndexPageProps {
   location: Location
@@ -50,7 +44,7 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
-  console.log('select : ', allMarkdownRemark)
+
   return (
     <Template
       title={title}
@@ -59,8 +53,7 @@ const IndexPage = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      {/* <SideNavSection location={location} /> */}
-      {selectedCategory === 'All' ? (
+      {selectedCategory === 'root' ? (
         <MainSection
           mainSectionProp={{
             imagePath,
@@ -89,7 +82,7 @@ export const getMetaData = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___domain] }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___domain] }) {
       edges {
         node {
           id
