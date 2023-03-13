@@ -2,6 +2,7 @@ import PostList from 'components/main/PostList/PostList'
 import PostCardList from 'components/main/PostList/PostCardList'
 import MainImage from 'components/main/MainImage'
 import MainIntro from 'components/main/MainIntro'
+import RecentPost from 'components/main/PostList/PostRecentList'
 import ColorText from 'components/common/TextEffects/ColorText'
 
 import type { PostListItemType } from 'types/postItem'
@@ -23,21 +24,21 @@ interface MainSectionProps {
 const MainSection = ({
   mainSectionProp: { imagePath, selectedCategory, allMarkdownRemark },
 }: MainSectionProps) => {
-  const CategoryTitle = selectedCategory !== 'root' ? selectedCategory : ''
+  const categoryTitle = selectedCategory !== 'root' ? selectedCategory : ''
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <MainIntro />
-
-        <S.ContentsTitle>
-          <ColorText text={CategoryTitle}></ColorText>
+        <RecentPost posts={allMarkdownRemark.edges} />
+        {/* <S.ContentsTitle>
+          <ColorText text={categoryTitle}></ColorText>
         </S.ContentsTitle>
 
         <PostList
           selectedCategory={selectedCategory}
           posts={allMarkdownRemark.edges}
-        />
+        /> */}
       </S.ContentsWrapper>
     </S.MainContainer>
   )
