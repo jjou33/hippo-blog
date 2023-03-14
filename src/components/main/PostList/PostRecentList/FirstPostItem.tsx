@@ -38,9 +38,9 @@ const PostItem = ({
         <S.PostItemBadgeWrapper>
           <Badge
             color="black"
-            height="20"
+            height="40"
             borderStyle="none"
-            font="10px"
+            font="20px"
             backgroundColor="#affcfa"
           >
             {title}

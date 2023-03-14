@@ -130,7 +130,7 @@ export const Summary = styled.div`
   font-size: 16px;
   opacity: 0.8;
 `
-export const PoistItemContainer = styled.div`
+export const PostItemContainer = styled.div`
   border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: #e5e7eb;

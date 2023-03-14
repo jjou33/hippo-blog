@@ -13,7 +13,8 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
   flex: 4;
   align-items: center;
-  margin-top: 50px;
+  margin: 50px auto;
+  width: 1100px;
 `
 
 const TextEffectKeyFrame = keyframes`
