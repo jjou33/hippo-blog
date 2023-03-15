@@ -24,7 +24,7 @@ const Header = () => {
       </S.ProgressBarContainer>
       <S.HeaderContainer>
         <S.HeaderMenuButton onClick={toggleMenuButton}>
-          {navIconSet['menu'].icon('20', '20')}
+          {navIconSet['menu'].icon('40', '40')}
         </S.HeaderMenuButton>
         <S.HeaderWrapper>
           <S.HeaderItemTitle to="/">

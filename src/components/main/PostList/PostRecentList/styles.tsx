@@ -3,7 +3,14 @@ import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-export const RecentPostsContainer = styled.div`
+export const RecentPostContainer = styled.div`
+  width: 1200px;
+`
+
+export const RecentHeaderWrapper = styled.div`
+  margin: 50px auto;
+`
+export const RecentPostsWrapper = styled.div`
   display: flex;
 `
 
@@ -23,7 +30,7 @@ interface PostItemContainerPropsType {
 export const PostItemContainer = styled.div`
   height: 700px;
   margin: auto;
-  ${(props: PostItemContainerPropsType) =>
+  /* ${(props: PostItemContainerPropsType) =>
     props.inview
       ? css`
           opacity: 1;
@@ -34,7 +41,18 @@ export const PostItemContainer = styled.div`
           opacity: 0;
           transform: scale(85%);
           transition: 2s;
-        `};
+        `}; */
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e5e7eb;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  }
 `
 export const PostItemWrapper = styled(Link)`
   display: flex;
@@ -54,7 +72,7 @@ export const PostItemWrapper = styled(Link)`
 
 export const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 300px;
+  height: 350px;
   border-radius: 10px 10px 0 0;
 `
 export const PostItemBadgeWrapper = styled.div`
@@ -102,18 +120,18 @@ export const Category = styled.div`
 `
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  background: black;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #ffc75d;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #191d23;
 `
 
 export const Summary = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  margin-top: auto;
+  margin: auto 0;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;

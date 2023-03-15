@@ -110,7 +110,7 @@ export const Category = styled.div`
 `
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
-  padding: 3px 5px;
+  padding: 3px 10px;
   border-radius: 20px;
   background: #ffc75d;
   font-size: 14px;

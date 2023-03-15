@@ -10,7 +10,7 @@ export const CircleDiv = styled.div`
   height: 100px;
   border-radius: 50%;
   background-color: white;
-  z-index: 999;
+  z-index: 998;
 
   @media (max-width: 768px) {
     display: none;
@@ -164,16 +164,19 @@ export const MainAnimationContainer = styled.div`
   margin-left: 2px;
 
   @media (max-width: 768px) {
-    height: 30vh;
+    height: 60vh;
   }
   overflow: hidden;
 `
 export const MainImageTextWrapper = styled.div`
   position: absolute;
-
-  margin-left: 10%;
+  width: 100%;
+  text-align: center;
+  /* height: 1000px; */
   font-weight: 300;
-  top: 10%;
+  top: 30%;
+  /* left: 60%;
+  transform: translate(-50%, -50%); */
   color: black;
   letter-spacing: 5px;
   span {
@@ -183,7 +186,8 @@ export const MainImageTextWrapper = styled.div`
   }
 
   ${(props: { totalHeight: number; totalWidth: number }) => {
-    const averageValue: number = (props.totalHeight + props.totalWidth) / 2
+    const averageValue: number =
+      (props.totalHeight + props.totalWidth * 0.8) / 2
     return props.totalHeight
       ? css`
           font-size: ${averageValue * 0.06}px;
@@ -192,10 +196,6 @@ export const MainImageTextWrapper = styled.div`
           font-size: 60px;
         `
   }}
-
-  @media (max-width: 768px) {
-    font-size: 30px;
-  }
 `
 
 export const MainImage2 = styled.div`
@@ -226,7 +226,7 @@ export const MainImage = styled.img`
   user-drag: none;
 
   @media (max-width: 768px) {
-    height: 30vh;
+    height: 60vh;
     margin-top: 0px;
   }
 `
@@ -238,12 +238,12 @@ const TextEffectKeyFrame = keyframes`
   }
 `
 
-export const MainImageStaticText = styled.h5`
+export const MainImageStaticText = styled.h3`
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    #b7b7ee 0%,
-    #b197cc 29%,
+    #f36d38 0%,
+    #eee168 29%,
     #ff1361 67%,
     #fff800 100%
   );
@@ -260,7 +260,7 @@ export const MainImageStaticText = styled.h5`
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-  animation: ${TextEffectKeyFrame} 2s linear infinite;
+  /* animation: ${TextEffectKeyFrame} 2s linear infinite; */
   display: inline-block;
 `
 export const MainImageDynamicText = styled.span`

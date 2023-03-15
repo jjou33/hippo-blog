@@ -35,17 +35,6 @@ const PostItem = ({
     <S.PostItemContainer ref={ref} inview={inViewState}>
       <S.PostItemWrapper to={link}>
         <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-        <S.PostItemBadgeWrapper>
-          <Badge
-            color="black"
-            height="20"
-            borderStyle="none"
-            font="10px"
-            backgroundColor="#affcfa"
-          >
-            {title}
-          </Badge>
-        </S.PostItemBadgeWrapper>
         <S.PostItemContent>
           <S.Title>{title}</S.Title>
           <S.Date>{date}</S.Date>

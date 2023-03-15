@@ -1,9 +1,10 @@
+import React from 'react'
 import * as S from './styles'
 import { navIconSet } from 'assets/svg/NavIconSet'
 
 interface PostCategoryHeaderProps {
   selectedCategory: string
-  categoryCount: number
+  categoryCount?: number
 }
 const PostCategoryHeader = ({
   selectedCategory,
@@ -17,7 +18,11 @@ const PostCategoryHeader = ({
       <S.PostCategoryWrapper>
         <S.PostCategoryTitle>{selectedCategory}</S.PostCategoryTitle>
 
-        <S.PostCategoryCount>{categoryCount}</S.PostCategoryCount>
+        {categoryCount ? (
+          <S.PostCategoryCount>{categoryCount}</S.PostCategoryCount>
+        ) : (
+          <></>
+        )}
       </S.PostCategoryWrapper>
     </S.PostCategoryHeader>
   )

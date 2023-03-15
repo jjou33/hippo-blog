@@ -11,7 +11,7 @@ export const ColorText = styled.p`
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    #b7b7ee 0%,
+    #edb575 0%,
     #b197cc 29%,
     #ff1361 67%,
     #fff800 100%

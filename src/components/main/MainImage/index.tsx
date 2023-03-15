@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from './MainImage'
 import Modal from 'components/common/Modal/Modal'
 import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
@@ -22,7 +22,16 @@ const MainImage = ({ imagePath }: MainImageProps) => {
   const currentTitle = useTypingTitle(typedList)
   const [totalHeight, setTotalHeight] = useState<number>(0)
   const [totalWidth, setTotalWidth] = useState<number>(0)
+  useEffect(() => {
+    setTotalHeight(window.innerHeight)
+    setTotalWidth(window.innerWidth)
+    const changeTotalHeight = () => {
+      setTotalHeight(window.innerHeight)
+      setTotalWidth(window.innerWidth)
+    }
 
+    window.addEventListener('resize', changeTotalHeight)
+  }, [])
   const closeModal = () => {
     setState(false)
   }
