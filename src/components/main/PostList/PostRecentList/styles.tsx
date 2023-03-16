@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 export const RecentPostContainer = styled.div`
-  width: 1200px;
+  margin: 0 300px;
 `
 
 export const RecentHeaderWrapper = styled.div`
@@ -16,11 +16,17 @@ export const RecentPostsWrapper = styled.div`
 
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `
 export const OtherPostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 interface PostItemContainerPropsType {
   ref: (node?: Element | null) => void
@@ -29,19 +35,8 @@ interface PostItemContainerPropsType {
 
 export const PostItemContainer = styled.div`
   height: 700px;
-  margin: auto;
-  /* ${(props: PostItemContainerPropsType) =>
-    props.inview
-      ? css`
-          opacity: 1;
-          transform: scale(100%);
-          transition: 2s;
-        `
-      : css`
-          opacity: 0;
-          transform: scale(85%);
-          transition: 2s;
-        `}; */
+
+  margin: 0 auto;
   border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: #e5e7eb;
@@ -52,6 +47,10 @@ export const PostItemContainer = styled.div`
     transform: scale(1.05);
     transition: transform 0.5s;
     box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  }
+
+  @media (max-width: 870px) {
+    height: 500px;
   }
 `
 export const PostItemWrapper = styled(Link)`
@@ -67,6 +66,9 @@ export const PostItemWrapper = styled(Link)`
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  @media (max-width: 870px) {
+    width: 300px;
   }
 `
 

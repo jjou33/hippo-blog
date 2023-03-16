@@ -12,7 +12,14 @@ interface MainImageProps {
     [key: string]: string
   }
 }
-const typedList = ['JAVASCRIPT', 'REACT', 'VUE', 'HTML', 'CSS']
+const typedList = [
+  'JAVASCRIPT',
+  'REACT',
+  'VUE',
+  'HTML',
+  'CSS',
+  'FRONT DEVELOPER',
+]
 
 const MainImage = ({ imagePath }: MainImageProps) => {
   const setState = useSetRecoilState(menuOpenState)

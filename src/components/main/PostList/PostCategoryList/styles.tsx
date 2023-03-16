@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
@@ -19,8 +20,30 @@ export const PostCategoryWrapper = styled.div`
   display: flex;
   font-size: 40px;
 `
+
+const TextEffectKeyFrame = keyframes`
+  to {
+    background-position: 200% center;
+  }
+`
+
 export const PostCategoryTitle = styled.span`
   margin-right: 10px;
+  background-image: linear-gradient(188deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  display: inline-block;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  /* animation: ${TextEffectKeyFrame} 2s linear infinite; */
+  user-select: none;
 `
 export const PostCategoryCount = styled.em`
   color: #3981f3;

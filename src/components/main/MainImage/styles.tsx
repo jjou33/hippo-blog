@@ -199,6 +199,17 @@ export const MainImageTextWrapper = styled.div`
   }}
 `
 
+export const BackgroundOverlay = styled.div`
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+`
+
 export const MainImage2 = styled.div`
   ${(props: { backgroundImage: string }) =>
     props.backgroundImage
@@ -218,13 +229,13 @@ export const MainImage2 = styled.div`
 export const MainImage = styled.img`
   width: 100vw;
   height: calc(100vh - 70px);
+  background-color: rgba(0, 0, 0, 0.6);
   margin-top: 40px;
   cursor: auto;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 
   @media (max-width: 768px) {
     height: 60vh;
@@ -240,29 +251,13 @@ const TextEffectKeyFrame = keyframes`
 `
 
 export const MainImageStaticText = styled.h3`
-  font-family: MontserratAlternates;
+  @font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 6;
+  }
+  font-family: Rocher;
   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #0af412e6 0%,
-    #eee168 29%,
-    #67f4bc 67%,
-    #0d00ff 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  /* animation: ${TextEffectKeyFrame} 2s linear infinite; */
+
   display: inline-block;
 `
 export const MainImageDynamicText = styled.span`

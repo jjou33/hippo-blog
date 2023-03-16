@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryList/PostCategoryHeader'
@@ -16,10 +16,13 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
       frontmatter,
     },
   } = posts[0]
+  const [totalHeight, setTotalHeight] = useState<number>(0)
+  const [totalWidth, setTotalWidth] = useState<number>(0)
+
   return (
     <S.RecentPostContainer>
       <S.RecentHeaderWrapper>
-        <RecentPostHeader selectedCategory="최신 포스트 📝" />
+        <RecentPostHeader selectedCategory="최신 포스트" />
       </S.RecentHeaderWrapper>
       <S.RecentPostsWrapper>
         <S.FirstPostWrapper>

@@ -11,6 +11,11 @@ import IBMPlexSans from '../assets/font/IBMPlexSansKR-Bold.ttf'
 import MontserratAlternates from '../assets/font/MontserratAlternates-Light.ttf'
 const defaultStyle = css`
   @font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  }
+
+  @font-face {
     font-family: 'GmarketSansTTFLight';
     src: local('GmarketSansTTFLight'), local('GmarketSansTTFLight');
     font-style: normal;
