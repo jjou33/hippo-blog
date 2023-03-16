@@ -41,7 +41,19 @@ const PostList = ({ selectedCategory, posts }: PostListProps) => {
   return (
     <S.PostListContainer>
       <PostCardList containerRef={containerRef} postList={postList} />
-
+      {/* <S.PostListWrapper ref={containerRef}>
+        {postList.slice(offset, offset + limit).map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }: PostListItemType) => (
+            <PostItem {...frontmatter} link={slug} key={id} />
+          ),
+        )}
+      </S.PostListWrapper> */}
       <Pagination
         total={postList.length}
         limit={limit}

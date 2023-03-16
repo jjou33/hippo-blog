@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Image from './MainImage'
-import Modal from 'components/common/Modal/Modal'
-import ScrollIndicator from 'components/common/ScrollIndicator/ArrowIndicator'
 import MouseScrollIndicator from 'components/common/ScrollIndicator/MouseIndicator'
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import { menuOpenState } from 'states/menuOpenState'
@@ -14,7 +12,7 @@ interface MainImageProps {
     [key: string]: string
   }
 }
-const typedList = ['FRONT DEVELOPER', 'HAPPY', 'PASSION', 'ENJOY']
+const typedList = ['JAVASCRIPT', 'REACT', 'VUE', 'HTML', 'CSS']
 
 const MainImage = ({ imagePath }: MainImageProps) => {
   const setState = useSetRecoilState(menuOpenState)
@@ -32,18 +30,12 @@ const MainImage = ({ imagePath }: MainImageProps) => {
 
     window.addEventListener('resize', changeTotalHeight)
   }, [])
-  const closeModal = () => {
-    setState(false)
-  }
-
-  const calcSize = () => {
-    return (totalHeight + totalWidth) / 2
-  }
   return (
     <S.MainAnimationContainer>
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
-        <S.MainImageStaticText>Welcome to HippoDev</S.MainImageStaticText>
+        <S.MainImageStaticText>{'<HELLO MY WORLD />'}</S.MainImageStaticText>
         <br />
+        <S.MainImageDynamicText>{currentTitle}</S.MainImageDynamicText>
       </S.MainImageTextWrapper>
 
       <Image imagePath={imagePath} />

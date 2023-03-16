@@ -8,6 +8,7 @@ import GmarketSansTTFMedium from '../assets/font/GmarketSansTTFMedium.ttf'
 import GmarketSansTTFLight from '../assets/font/GmarketSansTTFLight.ttf'
 import GmarketSansTTFBold from '../assets/font/GmarketSansTTFBold.ttf'
 import IBMPlexSans from '../assets/font/IBMPlexSansKR-Bold.ttf'
+import MontserratAlternates from '../assets/font/MontserratAlternates-Light.ttf'
 const defaultStyle = css`
   @font-face {
     font-family: 'GmarketSansTTFLight';
@@ -50,6 +51,12 @@ const defaultStyle = css`
     src: local('IBMPlexSans'), local('IBMPlexSans');
     font-style: normal;
     src: url(${IBMPlexSans}) format('truetype');
+  }
+  @font-face {
+    font-family: 'MontserratAlternates';
+    src: local('MontserratAlternates'), local('MontserratAlternates');
+    font-style: normal;
+    src: url(${MontserratAlternates}) format('truetype');
   }
   ${Reset}
 

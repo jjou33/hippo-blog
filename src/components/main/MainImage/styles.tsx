@@ -179,6 +179,7 @@ export const MainImageTextWrapper = styled.div`
   transform: translate(-50%, -50%); */
   color: black;
   letter-spacing: 5px;
+
   span {
     background: -webkit-linear-gradient(white, #38495a);
     -webkit-background-clip: text;
@@ -239,13 +240,14 @@ const TextEffectKeyFrame = keyframes`
 `
 
 export const MainImageStaticText = styled.h3`
+  font-family: MontserratAlternates;
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    #f36d38 0%,
+    #0af412e6 0%,
     #eee168 29%,
-    #ff1361 67%,
-    #fff800 100%
+    #67f4bc 67%,
+    #0d00ff 100%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -265,6 +267,7 @@ export const MainImageStaticText = styled.h3`
 `
 export const MainImageDynamicText = styled.span`
   color: #b7efe8;
+  font-family: MontserratAlternates;
   &::after {
     content: '';
     position: absolute;
