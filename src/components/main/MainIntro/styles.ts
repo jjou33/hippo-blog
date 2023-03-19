@@ -13,11 +13,6 @@ export const IntroTextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
-
-  @media (max-width: 1200px) {
-    margin-left: 0px;
-  }
 `
 export const IntroTitle = styled.h1`
   font-weight: 800;

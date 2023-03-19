@@ -244,11 +244,6 @@ export const MainImage = styled.img`
 `
 
 export const MainImageItem = styled.img``
-const TextEffectKeyFrame = keyframes`
-  to {
-    background-position: 200% center;
-  }
-`
 
 export const MainImageStaticText = styled.h3`
   @font-palette-values --Purples {

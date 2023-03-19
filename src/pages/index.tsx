@@ -57,7 +57,6 @@ const IndexPage = ({
         <MainSection
           mainSectionProp={{
             imagePath,
-            selectedCategory,
             allMarkdownRemark,
           }}
         />

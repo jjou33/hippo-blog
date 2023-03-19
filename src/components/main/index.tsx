@@ -14,7 +14,6 @@ interface MainSectionProps {
     imagePath: {
       [key: string]: string
     }
-    selectedCategory: string
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
@@ -22,9 +21,8 @@ interface MainSectionProps {
 }
 
 const MainSection = ({
-  mainSectionProp: { imagePath, selectedCategory, allMarkdownRemark },
+  mainSectionProp: { imagePath, allMarkdownRemark },
 }: MainSectionProps) => {
-  const categoryTitle = selectedCategory !== 'root' ? selectedCategory : ''
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />

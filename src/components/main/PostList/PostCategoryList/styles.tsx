@@ -6,47 +6,8 @@ export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1100px;
-  margin: 50px auto;
+  margin: 120px auto;
   height: 100%;
-`
-
-export const PostCategoryIcon = styled.div`
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-`
-
-export const PostCategoryWrapper = styled.div`
-  display: flex;
-  font-size: 40px;
-`
-
-const TextEffectKeyFrame = keyframes`
-  to {
-    background-position: 200% center;
-  }
-`
-
-export const PostCategoryTitle = styled.span`
-  margin-right: 10px;
-  background-image: linear-gradient(188deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  background-clip: text;
-  display: inline-block;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  /* animation: ${TextEffectKeyFrame} 2s linear infinite; */
-  user-select: none;
-`
-export const PostCategoryCount = styled.em`
-  color: #3981f3;
 `
 
 export const PostCateListWrapper = styled.div`
@@ -102,20 +63,6 @@ export const Title = styled.div`
   font-weight: 700;
 `
 
-export const PostCategoryHeader = styled.div`
-  padding: 30px 30px 10px;
-  display: flex;
-  @media (max-width: 768px) {
-    ${PostCategoryTitle}, ${PostCategoryCount} {
-      font-size: 20px;
-    }
-    ${PostCategoryIcon} {
-      width: 23px;
-    }
-
-    align-items: center;
-  }
-`
 export const Date = styled.div`
   font-size: 14px;
   font-weight: 400;
@@ -174,3 +121,5 @@ export const PostItemWrapper = styled(Link)`
 
   cursor: pointer;
 `
+
+export const RecentPostHeaderContainer = styled.div``

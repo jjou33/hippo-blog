@@ -1,15 +1,14 @@
 import * as S from './styles'
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
+import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
 import PostCategoryItem from './PostCategoryItem'
 import { PostListItemType } from 'types/postItem'
-import PostCategoryHeader from './PostCategoryHeader'
+// import PostCategoryHeader from './PostCategoryHeader'
 
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
-import { useEffect } from 'react'
-import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
@@ -59,18 +58,22 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
     <S.PostCategoryContainer>
       <PostCategoryHeader
         selectedCategory={categoryHeader}
+        fontSize={50}
         categoryCount={categoryCount[selectedCategory]}
       />
       <S.PostCateListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
-          ({
-            node: {
-              id,
-              fields: { slug },
-              frontmatter,
-            },
-          }: PostListItemType) => (
-            <S.PostItemContainer>
+          (
+            {
+              node: {
+                id,
+                fields: { slug },
+                frontmatter,
+              },
+            }: PostListItemType,
+            index,
+          ) => (
+            <S.PostItemContainer key={index}>
               <PostCategoryItem {...frontmatter} link={slug} key={id} />
             </S.PostItemContainer>
           ),
