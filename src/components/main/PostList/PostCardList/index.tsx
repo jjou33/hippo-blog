@@ -25,7 +25,6 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
   )
   return (
     <S.PostCardListContainer>
-      <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />
       <S.PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({

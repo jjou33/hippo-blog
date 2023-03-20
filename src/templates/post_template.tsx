@@ -1,14 +1,14 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import * as S from 'components/main/Post/styles'
 
-import { PostPageItemType } from 'types/postItem'
 import Template from 'components/layout/Template'
-
 import PostContent from 'components/main/Post/PostContent'
 import PostHead from 'components/main/Post/PostHead'
 import CommentWidget from 'components/main/Post/CommentWidget'
 
-import * as S from 'components/main/Post/styles'
+import { graphql } from 'gatsby'
+import type { PostPageItemType } from 'types/post'
+
 interface PostTemplateProps {
   data: {
     allMarkdownRemark: {

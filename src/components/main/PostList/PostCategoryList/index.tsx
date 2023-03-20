@@ -1,14 +1,13 @@
 import * as S from './styles'
 import { useState, useEffect } from 'react'
-import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
-import PostCategoryItem from './PostCategoryItem'
 import { PostListItemType } from 'types/postItem'
-// import PostCategoryHeader from './PostCategoryHeader'
-
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
-
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
+
+import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
+import PostCategoryItem from './PostCategoryItem'
+import PostCardList from 'components/main/PostList/PostCardList'
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
@@ -16,6 +15,7 @@ import useInfiniteScroll, {
 interface PostCategoryPropsType {
   selectedCategory: string
   posts: PostListItemType[]
+  currentOsEnv: string
 }
 
 interface NodeFormatterType {
@@ -25,7 +25,11 @@ interface NodeFormatterType {
     }
   }
 }
-const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
+const PostCategory = ({
+  selectedCategory,
+  posts,
+  currentOsEnv,
+}: PostCategoryPropsType) => {
   const limit = 6
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
@@ -61,7 +65,29 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
         fontSize={50}
         categoryCount={categoryCount[selectedCategory]}
       />
-      <S.PostCateListWrapper ref={containerRef}>
+      {currentOsEnv === 'web' ? (
+        <S.PostCateListWrapper ref={containerRef}>
+          {postList.slice(offset, offset + limit).map(
+            (
+              {
+                node: {
+                  id,
+                  fields: { slug },
+                  frontmatter,
+                },
+              }: PostListItemType,
+              index,
+            ) => (
+              <S.PostItemContainer key={index}>
+                <PostCategoryItem {...frontmatter} link={slug} key={id} />
+              </S.PostItemContainer>
+            ),
+          )}
+        </S.PostCateListWrapper>
+      ) : (
+        <PostCardList selectedCategory={selectedCategory} posts={postList} />
+      )}
+      {/* <S.PostCateListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           (
             {
@@ -78,7 +104,7 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
             </S.PostItemContainer>
           ),
         )}
-      </S.PostCateListWrapper>
+      </S.PostCateListWrapper> */}
     </S.PostCategoryContainer>
   )
 }

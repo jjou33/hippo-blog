@@ -1,8 +1,9 @@
-import { CategoryListProps } from 'types/category'
-import { PostType } from 'components/main/PostList/PostList'
-import { CategortListType } from 'types/postItem'
+import type { CategoryListProps } from 'types/category'
+import type { PostListItemType } from 'types/post'
 
-export const getCategoryList = (allMarkdownRemark: CategortListType) => {
+export const getCategoryList = (allMarkdownRemark: {
+  edges: PostListItemType[]
+}) => {
   return allMarkdownRemark.edges.reduce(
     (
       list: CategoryListProps['categoryList'],
@@ -10,7 +11,7 @@ export const getCategoryList = (allMarkdownRemark: CategortListType) => {
         node: {
           frontmatter: { domain, sideTitle },
         },
-      }: PostType,
+      }: PostListItemType,
     ) => {
       if (list[domain] === undefined) {
         list[domain] = {

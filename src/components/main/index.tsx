@@ -1,14 +1,14 @@
+import React from 'react'
 import * as S from './styles'
 
 import PostCardList from 'components/main/PostList/PostCardList'
+import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
 import MainImage from 'components/main/MainImage'
 import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
 
-import { getOSByUserAgent } from 'utils/device/index'
 import type { PostListItemType } from 'types/postItem'
 import type { ImagePathPropsType } from 'types/image/index'
-import { useEffect } from 'react'
 
 interface MainSectionProps {
   mainSectionProp: {
@@ -31,10 +31,13 @@ const MainSection = ({
         {currentOsEnv === 'web' ? (
           <RecentPost posts={allMarkdownRemark.edges} />
         ) : (
-          <PostCardList
-            selectedCategory="All"
-            posts={allMarkdownRemark.edges}
-          />
+          <>
+            <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />
+            <PostCardList
+              selectedCategory="All"
+              posts={allMarkdownRemark.edges}
+            />
+          </>
         )}
       </S.ContentsWrapper>
     </S.MainContainer>
