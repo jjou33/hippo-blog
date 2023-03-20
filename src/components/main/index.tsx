@@ -33,11 +33,11 @@ const MainSection = ({
           <RecentPost posts={allMarkdownRemark.edges} />
         ) : (
           <>
-            {/* <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />
+            <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />
             <PostCardList
               selectedCategory="All"
               posts={allMarkdownRemark.edges}
-            /> */}
+            />
           </>
         )}
       </S.ContentsWrapper>

@@ -6,9 +6,6 @@ export const RecentPostContainer = styled.div`
   margin: 0 300px;
 `
 
-export const RecentHeaderWrapper = styled.div`
-  margin: 50px auto;
-`
 export const RecentPostsWrapper = styled.div`
   display: flex;
 `

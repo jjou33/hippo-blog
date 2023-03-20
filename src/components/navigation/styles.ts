@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 export const NavigationContainer = styled.div`
   position: sticky;
   background: white;
-  width: 270px;
+  width: 350px;
   ::-webkit-scrollbar {
     display: none;
   }

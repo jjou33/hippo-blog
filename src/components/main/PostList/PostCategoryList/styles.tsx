@@ -16,7 +16,6 @@ export const PostCateListWrapper = styled.div`
   grid-gap: 30px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px 30px 100px;
 `
 
 export const PostItemContainer = styled.div`

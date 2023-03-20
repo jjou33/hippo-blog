@@ -12,7 +12,7 @@ export const PostListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
-  width: 100%;
+  width: 1200px;
   margin: 0 auto;
   padding: 50px 50px 100px;
 
@@ -106,12 +106,12 @@ export const Category = styled.div`
 `
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  background: black;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #ffc75d;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #191d23;
 `
 
 export const Summary = styled.div`

@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-source-filesystem", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.25.0"],\
             ["gatsby-transformer-remark", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:5.25.1"],\
             ["gatsby-transformer-sharp", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.25.0"],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.8.5"],\
             ["prismjs", "npm:1.29.0"],\
             ["query-string", "npm:7.1.3"],\
             ["react", "npm:18.2.0"],\
@@ -3571,7 +3571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@graphql-tools-utils-virtual-f7ba4fc3e1/0/cache/@graphql-tools-utils-npm-9.2.1-ed63b70392-94ed12df5f.zip/node_modules/@graphql-tools/utils/",\
           "packageDependencies": [\
             ["@graphql-tools/utils", "virtual:039814f5bcef2ac28a4538ed9c384cd61d2ba6464cc5568ccff7877a1152dca6229844249148995ff9989731171c449c2fc33419370151abba2e49d11cdc544e#npm:9.2.1"],\
-            ["@graphql-typed-document-node/core", "virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.1.2"],\
+            ["@graphql-typed-document-node/core", "virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.2.0"],\
             ["@types/graphql", null],\
             ["graphql", "npm:15.8.0"],\
             ["tslib", "npm:2.5.0"]\
@@ -3598,17 +3598,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@graphql-typed-document-node/core", [\
-        ["npm:3.1.2", {\
-          "packageLocation": "./.yarn/cache/@graphql-typed-document-node-core-npm-3.1.2-20941d8c94-a61afa025a.zip/node_modules/@graphql-typed-document-node/core/",\
+        ["npm:3.2.0", {\
+          "packageLocation": "./.yarn/cache/@graphql-typed-document-node-core-npm-3.2.0-505adb1e90-fa44443acc.zip/node_modules/@graphql-typed-document-node/core/",\
           "packageDependencies": [\
-            ["@graphql-typed-document-node/core", "npm:3.1.2"]\
+            ["@graphql-typed-document-node/core", "npm:3.2.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.1.2", {\
-          "packageLocation": "./.yarn/__virtual__/@graphql-typed-document-node-core-virtual-dfca11969e/0/cache/@graphql-typed-document-node-core-npm-3.1.2-20941d8c94-a61afa025a.zip/node_modules/@graphql-typed-document-node/core/",\
+        ["virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@graphql-typed-document-node-core-virtual-0eb2d85a0c/0/cache/@graphql-typed-document-node-core-npm-3.2.0-505adb1e90-fa44443acc.zip/node_modules/@graphql-typed-document-node/core/",\
           "packageDependencies": [\
-            ["@graphql-typed-document-node/core", "virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.1.2"],\
+            ["@graphql-typed-document-node/core", "virtual:f7ba4fc3e1c3052b40314d56f463c200549ccc788489a66ee29029d86d895394a64c48f7d0164776cea163524150b261a2604dd65d16fd9f764d99c918441b50#npm:3.2.0"],\
             ["@types/graphql", null],\
             ["graphql", "npm:15.8.0"]\
           ],\
@@ -10247,7 +10247,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", null],\
             ["eslint", "npm:8.36.0"],\
             ["eslint-config-prettier", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:8.7.0"],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.8.5"],\
             ["prettier-linter-helpers", "npm:1.0.0"]\
           ],\
           "packagePeers": [\
@@ -11445,7 +11445,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["invariant", "npm:2.2.4"],\
             ["is-relative", "npm:1.0.0"],\
             ["is-relative-url", "npm:3.0.0"],\
-            ["joi", "npm:17.8.4"],\
+            ["joi", "npm:17.9.0"],\
             ["json-loader", "npm:0.5.7"],\
             ["latest-version", "npm:5.1.0"],\
             ["lmdb", "npm:2.5.3"],\
@@ -11547,7 +11547,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-telemetry", "npm:3.25.0"],\
             ["hosted-git-info", "npm:3.0.8"],\
             ["is-valid-path", "npm:0.1.1"],\
-            ["joi", "npm:17.8.4"],\
+            ["joi", "npm:17.9.0"],\
             ["lodash", "npm:4.17.21"],\
             ["node-fetch", "virtual:290d4be01b8be4ea29917fe2cdc70fae6968cef58a74b72df6d19a1ff71ae51296084a11a173fcadc236fc257f521ea138b6ef6b5679063d90f3434d2fc5adee#npm:2.6.9"],\
             ["opentracing", "npm:0.14.7"],\
@@ -12012,7 +12012,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", null],\
             ["graphql-compose", "virtual:7bfbf8033202146a7132cbce7c7bce5f7a60686a063fab7134fa645d240e4f685906bd74b01a372ddb115a829b8570de21527a759dee22c536d8980a4448f597#npm:9.0.10"],\
             ["import-from", "npm:4.0.0"],\
-            ["joi", "npm:17.8.4"],\
+            ["joi", "npm:17.9.0"],\
             ["mime", "npm:3.0.0"]\
           ],\
           "packagePeers": [\
@@ -12038,7 +12038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:15.8.0"],\
             ["graphql-compose", "virtual:c6a08755973167aa5034216c5a7e5954b20264fd011e71898707f93898c204812469b2206e5a93ab6e670f5f89e0b6d85ba33d93605013b449a58edc1c8ee909#npm:9.0.10"],\
             ["import-from", "npm:4.0.0"],\
-            ["joi", "npm:17.8.4"],\
+            ["joi", "npm:17.9.0"],\
             ["mime", "npm:3.0.0"]\
           ],\
           "packagePeers": [\
@@ -12367,7 +12367,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-source-filesystem", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.25.0"],\
             ["gatsby-transformer-remark", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:5.25.1"],\
             ["gatsby-transformer-sharp", "virtual:84c032af55cd4f9babf8db692292633aff00e2f68404beff67de9f7c9cd186f75ede955d237efe6d9cc7b184678d07f18ad56aa70680cd8c62a803875851f125#npm:4.25.0"],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.8.5"],\
             ["prismjs", "npm:1.29.0"],\
             ["query-string", "npm:7.1.3"],\
             ["react", "npm:18.2.0"],\
@@ -14483,10 +14483,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["joi", [\
-        ["npm:17.8.4", {\
-          "packageLocation": "./.yarn/cache/joi-npm-17.8.4-7d4d9e549c-45a71d0c7a.zip/node_modules/joi/",\
+        ["npm:17.9.0", {\
+          "packageLocation": "./.yarn/cache/joi-npm-17.9.0-e99dfaaf3f-d6d0f62df1.zip/node_modules/joi/",\
           "packageDependencies": [\
-            ["joi", "npm:17.8.4"],\
+            ["joi", "npm:17.9.0"],\
             ["@hapi/hoek", "npm:9.3.0"],\
             ["@hapi/topo", "npm:5.1.0"],\
             ["@sideway/address", "npm:4.1.4"],\
@@ -18114,10 +18114,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.4", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.4-ba64a351d1-c173064bf3.zip/node_modules/prettier/",\
+        ["npm:2.8.5", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.8.5-3f60833fcb-b7f8d30e14.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.4"]\
+            ["prettier", "npm:2.8.5"]\
           ],\
           "linkType": "HARD"\
         }]\

@@ -6,6 +6,7 @@ export const PostCategoryHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
+  margin: 50px 0 50px 0;
   @media screen and (max-width: 768px) {
     gap: 10px;
   }
@@ -21,8 +22,8 @@ export const PostCategoryIconWrapper = styled.div`
           font-size: 50px;
         `}
   @media screen and (max-width: 768px) {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
   }
 `
 export const PostCategoryTitleWrapper = styled.div`
@@ -35,7 +36,7 @@ export const PostCategoryTitleWrapper = styled.div`
           font-size: 50px;
         `}
   @media screen and (max-width: 768px) {
-    font-size: 17px;
+    font-size: 25px;
   }
 `
 export const PostCategoryCountWrapper = styled.div`
@@ -48,6 +49,6 @@ export const PostCategoryCountWrapper = styled.div`
           font-size: 50px;
         `}
   @media screen and (max-width: 768px) {
-    font-size: 17px;
+    font-size: 25px;
   }
 `
