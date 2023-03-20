@@ -1,32 +1,51 @@
 import * as S from './styles'
 
-import { MutableRefObject, useState } from 'react'
 import PostCardItem from './PostCardItem'
+import PostCategoryHeader from '../PostCategoryHeader'
+import Pagination from 'components/main/PostList/Pagination'
+
+import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
+import useInfiniteScroll, {
+  useInfiniteScrollType,
+} from 'hooks/useInfiniteScroll'
 
 interface PostCardListPropsType {
-  containerRef: MutableRefObject<HTMLDivElement | null>
-  postList: PostListItemType[]
+  selectedCategory: string
+  posts: PostListItemType[]
 }
-const PostCardList = ({ containerRef, postList }: PostCardListPropsType) => {
+const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
   const limit = 6
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
 
+  const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
+    selectedCategory,
+    posts,
+  )
   return (
-    <S.PostListWrapper ref={containerRef}>
-      {postList.slice(offset, offset + limit).map(
-        ({
-          node: {
-            id,
-            fields: { slug },
-            frontmatter,
-          },
-        }: PostListItemType) => (
-          <PostCardItem {...frontmatter} link={slug} key={id} />
-        ),
-      )}
-    </S.PostListWrapper>
+    <S.PostCardListContainer>
+      <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />
+      <S.PostListWrapper ref={containerRef}>
+        {postList.slice(offset, offset + limit).map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }: PostListItemType) => (
+            <PostCardItem {...frontmatter} link={slug} key={id} />
+          ),
+        )}
+      </S.PostListWrapper>
+      <Pagination
+        total={postList.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
+    </S.PostCardListContainer>
   )
 }
 

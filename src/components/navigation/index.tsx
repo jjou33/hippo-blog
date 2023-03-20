@@ -10,30 +10,7 @@ import { getImagePathSetList } from 'utils/Image'
 
 import * as S from './styles'
 
-interface NavigationPropsType {
-  navigationProps: {
-    categoryCount: {
-      [key: string]: number
-    }
-    categoryList: {
-      [key: string]: {
-        title: string
-        childrenCount: number
-        children: string[]
-      }
-    }
-    imagePath: {
-      [key: string]: string
-    }
-    selectedCategory: string
-  }
-}
-
-interface SideNavProps {
-  location: Location
-}
-
-const SideNavSection = (sideNavProps: SideNavProps) => {
+const SideNavSection = (sideNavProps: { location: Location }) => {
   const [mount, setMount] = useState(false)
   const state = useRecoilValue<boolean>(menuOpenState)
   const setState = useSetRecoilState(menuOpenState)

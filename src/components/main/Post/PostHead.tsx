@@ -1,10 +1,10 @@
 import React from 'react'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+import * as S from './styles'
 
 import PostHeadInfo, { PostHeadInfoProps } from './PostHeadInfo'
-import { getImagePathSetList } from 'utils/Image'
 import WaveImageAnimation from 'components/common/Animations/WaveAnimation/WaveImageAnimation'
-import * as S from './styles'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+import { getImagePathSetList } from 'utils/Image'
 
 interface PostHeadProps extends PostHeadInfoProps {
   thumbnail: IGatsbyImageData

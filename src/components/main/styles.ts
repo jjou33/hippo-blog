@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+
 export const MainContainer = styled.main`
   flex-grow: 1;
   width: calc(100% - 270px);

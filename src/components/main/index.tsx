@@ -1,42 +1,41 @@
-import PostList from 'components/main/PostList/PostList'
+import * as S from './styles'
+
 import PostCardList from 'components/main/PostList/PostCardList'
 import MainImage from 'components/main/MainImage'
 import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
-import ColorText from 'components/common/TextEffects/ColorText'
 
+import { getOSByUserAgent } from 'utils/device/index'
 import type { PostListItemType } from 'types/postItem'
-
-import * as S from './styles'
+import type { ImagePathPropsType } from 'types/image/index'
+import { useEffect } from 'react'
 
 interface MainSectionProps {
   mainSectionProp: {
-    imagePath: {
-      [key: string]: string
-    }
+    imagePath: ImagePathPropsType['imagePath']
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
+    currentOsEnv: string
   }
 }
 
 const MainSection = ({
-  mainSectionProp: { imagePath, allMarkdownRemark },
+  mainSectionProp: { imagePath, allMarkdownRemark, currentOsEnv },
 }: MainSectionProps) => {
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <MainIntro />
-        <RecentPost posts={allMarkdownRemark.edges} />
-        {/* <S.ContentsTitle>
-          <ColorText text={categoryTitle}></ColorText>
-        </S.ContentsTitle>
-
-        <PostList
-          selectedCategory={selectedCategory}
-          posts={allMarkdownRemark.edges}
-        /> */}
+        {currentOsEnv === 'web' ? (
+          <RecentPost posts={allMarkdownRemark.edges} />
+        ) : (
+          <PostCardList
+            selectedCategory="All"
+            posts={allMarkdownRemark.edges}
+          />
+        )}
       </S.ContentsWrapper>
     </S.MainContainer>
   )

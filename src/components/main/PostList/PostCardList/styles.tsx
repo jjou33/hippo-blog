@@ -1,7 +1,13 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { css, keyframes } from '@emotion/react'
+import { css } from '@emotion/react'
+
+export const PostCardListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 export const PostListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

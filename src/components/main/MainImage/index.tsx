@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Image from './MainImage'
 import MouseScrollIndicator from 'components/common/ScrollIndicator/MouseIndicator'
+import * as S from './styles'
+
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import { menuOpenState } from 'states/menuOpenState'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import * as S from './styles'
+import type { ImagePathPropsType } from 'types/image/index'
 
-interface MainImageProps {
-  imagePath: {
-    [key: string]: string
-  }
-}
 const typedList = [
   'JAVASCRIPT',
   'REACT',
@@ -21,7 +18,7 @@ const typedList = [
   'FRONT DEVELOPER',
 ]
 
-const MainImage = ({ imagePath }: MainImageProps) => {
+const MainImage = ({ imagePath }: ImagePathPropsType) => {
   const setState = useSetRecoilState(menuOpenState)
   const state = useRecoilValue<{ [key: string]: boolean }>(menuOpenState)
   const currentTitle = useTypingTitle(typedList)

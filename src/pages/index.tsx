@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import { getImagePathSetList } from 'utils/Image'
 
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/postItem'
 import { getSelectedCategory } from 'utils/Category'
-
+import { getOSByUserAgent } from 'utils/device/index'
 import PostCaterory from 'components/main/PostList/PostCategoryList'
 
 import Template from 'components/layout/Template'
@@ -44,6 +45,11 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
+  const [currentOsEnv, setCurrentOsEnv] = useState('')
+
+  useEffect(() => {
+    setCurrentOsEnv(getOSByUserAgent())
+  }, [])
 
   return (
     <Template
@@ -58,6 +64,7 @@ const IndexPage = ({
           mainSectionProp={{
             imagePath,
             allMarkdownRemark,
+            currentOsEnv,
           }}
         />
       ) : (

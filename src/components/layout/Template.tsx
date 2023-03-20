@@ -3,12 +3,14 @@ import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
 import Header from 'components/layout/Header'
 import Modal from 'components/common/Modal/Modal'
-import SideNavSection from 'components/navigation'
 import * as S from './styles'
 
-import { Helmet } from 'react-helmet'
+import SideNavSection from 'components/navigation'
 
+import { Helmet } from 'react-helmet'
 import { RecoilRoot } from 'recoil'
+
+import type { ImagePathPropsType } from 'types/image/index'
 
 interface TemplateProps {
   title: string
@@ -33,9 +35,7 @@ interface NavigationPropsType {
         children: string[]
       }
     }
-    imagePath: {
-      [key: string]: string
-    }
+    imagePath: ImagePathPropsType['imagePath']
     selectedCategory: string
   }
 }
@@ -45,7 +45,6 @@ const Template = ({
   description,
   url,
   image,
-  navigationProps,
   location,
   isPost = false,
   children,

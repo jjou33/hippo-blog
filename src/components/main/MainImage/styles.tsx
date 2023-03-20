@@ -2,6 +2,70 @@ import styled from '@emotion/styled'
 import { keyframes, css } from '@emotion/react'
 import { boat_in_animation } from 'styles/AnimationKeyframes'
 
+export const MainAnimationContainer = styled.div`
+  height: calc(100vh);
+  margin-left: 2px;
+
+  @media (max-width: 768px) {
+    height: 60vh;
+  }
+  overflow: hidden;
+`
+
+export const MainImageTextWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  top: 30%;
+  color: black;
+  letter-spacing: 5px;
+
+  span {
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  ${(props: { totalHeight: number; totalWidth: number }) => {
+    const averageValue: number =
+      (props.totalHeight + props.totalWidth * 0.8) / 2
+    return props.totalHeight
+      ? css`
+          font-size: ${averageValue * 0.06}px;
+        `
+      : css`
+          font-size: 60px;
+        `
+  }}
+`
+export const MainImageStaticText = styled.h3`
+  font-family: Rocher;
+  text-transform: uppercase;
+
+  display: inline-block;
+`
+
+const blinkCursorKeyframe = keyframes`
+  50% {
+    opacity: 0;
+  }
+`
+
+export const MainImageDynamicText = styled.span`
+  color: #b7efe8;
+  font-family: MontserratAlternates;
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #e65454;
+
+    height: 100px;
+    width: 5px;
+    animation: ${blinkCursorKeyframe} 1s infinite;
+  }
+`
+
 export const CircleDiv = styled.div`
   position: relative;
   bottom: 50px;
@@ -153,52 +217,6 @@ export const islandIcon = styled.div`
  * Main Image Section
  */
 
-const blinkCursorKeyframe = keyframes`
-  50% {
-    opacity: 0;
-  }
-`
-
-export const MainAnimationContainer = styled.div`
-  height: calc(100vh);
-  margin-left: 2px;
-
-  @media (max-width: 768px) {
-    height: 60vh;
-  }
-  overflow: hidden;
-`
-export const MainImageTextWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  /* height: 1000px; */
-  font-weight: 300;
-  top: 30%;
-  /* left: 60%;
-  transform: translate(-50%, -50%); */
-  color: black;
-  letter-spacing: 5px;
-
-  span {
-    background: -webkit-linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  ${(props: { totalHeight: number; totalWidth: number }) => {
-    const averageValue: number =
-      (props.totalHeight + props.totalWidth * 0.8) / 2
-    return props.totalHeight
-      ? css`
-          font-size: ${averageValue * 0.06}px;
-        `
-      : css`
-          font-size: 60px;
-        `
-  }}
-`
-
 export const BackgroundOverlay = styled.div`
   box-sizing: border-box;
   position: fixed;
@@ -245,29 +263,6 @@ export const MainImage = styled.img`
 
 export const MainImageItem = styled.img``
 
-export const MainImageStaticText = styled.h3`
-  @font-palette-values --Purples {
-    font-family: Rocher;
-    base-palette: 6;
-  }
-  font-family: Rocher;
-  text-transform: uppercase;
-
-  display: inline-block;
-`
-export const MainImageDynamicText = styled.span`
-  color: #b7efe8;
-  font-family: MontserratAlternates;
-  &::after {
-    content: '';
-    position: absolute;
-    background-color: #e65454;
-
-    height: 100px;
-    width: 5px;
-    animation: ${blinkCursorKeyframe} 1s infinite;
-  }
-`
 export const MainImageWrapper = styled.div`
   height: 100vh;
   width: 100%;

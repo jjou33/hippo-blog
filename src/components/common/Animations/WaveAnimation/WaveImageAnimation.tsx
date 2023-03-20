@@ -1,18 +1,9 @@
 import * as S from './styles'
-interface WaveAnimationProps {
-  imagePath: {
-    [key: string]: string
-  }
-}
-const WaveImageAnimation = ({ imagePath }: WaveAnimationProps) => {
+import type { ImagePathPropsType } from 'types/image/index'
+
+const WaveImageAnimation = ({ imagePath }: ImagePathPropsType) => {
   return (
     <S.WaveAnimationWrapper>
-      {/* <S.BoatIcon totalHeight={totalHeight} totalWidth={totalWidth}>
-        {navIconSet['Ship'].icon(
-          `${totalHeight * 0.15}`,
-          `${totalHeight * 0.15}`,
-        )}
-      </S.BoatIcon> */}
       <S.WaveAnimationItem src={imagePath['wave']} waveType="first" />
       <S.WaveAnimationItem src={imagePath['wave']} waveType="second" />
       <S.WaveAnimationItem src={imagePath['wave']} waveType="third" />
