@@ -1,3 +1,4 @@
+import React from 'react'
 import * as S from './styles'
 import { useState, useEffect } from 'react'
 import { PostListItemType } from 'types/postItem'
@@ -36,10 +37,12 @@ const PostCategory = ({
   const setState = useSetRecoilState(menuOpenState)
   const { categoryCount } = useCategoryMetadata()
 
+  console.log('postList : ', currentOsEnv)
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
     selectedCategory,
     posts,
   )
+  console.log('postList : ', postList)
 
   const setCategoryFormat = (
     selectedCategory: string,
@@ -85,26 +88,9 @@ const PostCategory = ({
           )}
         </S.PostCateListWrapper>
       ) : (
-        <PostCardList selectedCategory={selectedCategory} posts={postList} />
+        <></>
+        // <PostCardList selectedCategory={selectedCategory} posts={postList} />
       )}
-      {/* <S.PostCateListWrapper ref={containerRef}>
-        {postList.slice(offset, offset + limit).map(
-          (
-            {
-              node: {
-                id,
-                fields: { slug },
-                frontmatter,
-              },
-            }: PostListItemType,
-            index,
-          ) => (
-            <S.PostItemContainer key={index}>
-              <PostCategoryItem {...frontmatter} link={slug} key={id} />
-            </S.PostItemContainer>
-          ),
-        )}
-      </S.PostCateListWrapper> */}
     </S.PostCategoryContainer>
   )
 }

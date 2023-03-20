@@ -66,11 +66,6 @@ export const ThumbnailImage = styled(GatsbyImage)`
   height: 200px;
   border-radius: 10px 10px 0 0;
 `
-export const PostItemBadgeWrapper = styled.div`
-  position: absolute;
-  z-index: 1000;
-  margin: 10px 10px;
-`
 
 export const PostItemContent = styled.div`
   flex: 1;

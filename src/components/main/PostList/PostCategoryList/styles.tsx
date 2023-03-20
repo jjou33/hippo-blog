@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,27 +18,28 @@ export const PostCateListWrapper = styled.div`
   margin: 0 auto;
   padding: 20px 30px 100px;
 `
-export const ThumbnailWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-`
-export const ThumbnailImage = styled(GatsbyImage)`
-  height: 200px;
-  width: 200px;
-  border-radius: 20px;
 
-  @media (max-width: 768px) {
-    height: 100px;
-    width: 100px;
+export const PostItemContainer = styled.div`
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e5e7eb;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
   }
 `
 
-export const PostItemBadgeWrapper = styled.div`
-  position: absolute;
-  z-index: 1000;
-  margin: 10px 10px;
+export const PostItemWrapper = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+
+  cursor: pointer;
 `
 
 export const PostItemContent = styled.div`
@@ -100,26 +101,20 @@ export const Summary = styled.div`
   font-size: 16px;
   opacity: 0.8;
 `
-export const PostItemContainer = styled.div`
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: #e5e7eb;
-  border-radius: 10px;
-  transform: scale(1);
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s;
-    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+
+export const ThumbnailWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`
+export const ThumbnailImage = styled(GatsbyImage)`
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+
+  @media (max-width: 768px) {
+    height: 100px;
+    width: 100px;
   }
 `
-export const PostItemWrapper = styled(Link)`
-  display: flex;
-  flex-direction: row;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
-
-  cursor: pointer;
-`
-
-export const RecentPostHeaderContainer = styled.div``

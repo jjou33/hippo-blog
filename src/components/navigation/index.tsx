@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import * as S from './styles'
+
 import Introduction from 'components/navigation/Profile'
 import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
@@ -7,8 +9,6 @@ import { menuOpenState } from 'states/menuOpenState'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { getCategoryList, getSelectedCategory } from 'utils/Category'
 import { getImagePathSetList } from 'utils/Image'
-
-import * as S from './styles'
 
 const SideNavSection = (sideNavProps: { location: Location }) => {
   const [mount, setMount] = useState(false)

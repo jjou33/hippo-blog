@@ -5,8 +5,8 @@ import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/postItem'
 import { getSelectedCategory } from 'utils/Category'
 import { getOSByUserAgent } from 'utils/device/index'
-import PostCaterory from 'components/main/PostList/PostCategoryList'
 
+import PostCaterory from 'components/main/PostList/PostCategoryList'
 import Template from 'components/layout/Template'
 import MainSection from 'components/main'
 

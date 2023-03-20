@@ -14,7 +14,7 @@ const PostCategoryHeader = ({
 }: PostCategoryHeaderProps) => {
   return (
     <S.PostCategoryHeaderContainer>
-      <S.PostCategoryIconWrapper>
+      <S.PostCategoryIconWrapper size={50}>
         {navIconSet['hambergerMenu'].icon(`${fontSize}`, `${fontSize}`)}
       </S.PostCategoryIconWrapper>
       <S.PostCategoryTitleWrapper fontSize={fontSize}>

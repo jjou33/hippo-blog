@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -28,11 +27,20 @@ export const OtherPostWrapper = styled.div`
     display: none;
   }
 `
-interface PostItemContainerPropsType {
-  ref: (node?: Element | null) => void
-  inview: boolean
-}
 
+export const OtherItemContainer = styled.div`
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e5e7eb;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  }
+`
 export const PostItemContainer = styled.div`
   height: 700px;
 
@@ -49,10 +57,11 @@ export const PostItemContainer = styled.div`
     box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
   }
 
-  @media (max-width: 870px) {
+  @media screen and (max-width: 870px) {
     height: 500px;
   }
 `
+
 export const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -67,20 +76,14 @@ export const PostItemWrapper = styled(Link)`
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  @media (max-width: 870px) {
+  @media screen and (max-width: 870px) {
     width: 300px;
   }
 `
-
 export const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
   height: 350px;
   border-radius: 10px 10px 0 0;
-`
-export const PostItemBadgeWrapper = styled.div`
-  position: absolute;
-  z-index: 1000;
-  margin: 10px 10px;
 `
 
 export const PostItemContent = styled.div`
@@ -141,18 +144,4 @@ export const Summary = styled.div`
   -webkit-box-orient: vertical;
   font-size: 16px;
   opacity: 0.8;
-`
-
-export const OtherItemContainer = styled.div`
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: #e5e7eb;
-  border-radius: 10px;
-  transform: scale(1);
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s;
-    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
-  }
 `

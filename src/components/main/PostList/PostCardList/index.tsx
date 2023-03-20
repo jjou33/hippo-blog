@@ -1,8 +1,7 @@
 import * as S from './styles'
 
 import PostCardItem from './PostCardItem'
-import PostCategoryHeader from '../PostCategoryHeader'
-import Pagination from 'components/main/PostList/Pagination'
+import Pagination from 'components/main/PostList/PageNation'
 
 import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
@@ -23,6 +22,7 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
     selectedCategory,
     posts,
   )
+  console.log('oo')
   return (
     <S.PostCardListContainer>
       <S.PostListWrapper ref={containerRef}>

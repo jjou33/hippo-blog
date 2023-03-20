@@ -59,6 +59,8 @@ const useInfiniteScroll = function (
     )
   }, [count, selectedCategory])
 
+  console.log('count : ', count)
+
   return {
     containerRef,
     postList: postListByCategory.slice(0, count * NUMBER_OF_ITEMS_PER_PAGE),

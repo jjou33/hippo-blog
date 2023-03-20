@@ -46,7 +46,6 @@ const Template = ({
   url,
   image,
   location,
-  isPost = false,
   children,
 }: TemplateProps) => {
   return (

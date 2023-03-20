@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
-import { PostFrontmatterType } from 'types/postItem'
-import { InView, useInView } from 'react-intersection-observer'
+import { PostFrontmatterType } from 'types/post'
+import { useInView } from 'react-intersection-observer'
 interface PostItemProps extends PostFrontmatterType {
   link: string
 }

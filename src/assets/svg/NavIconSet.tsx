@@ -1,16 +1,12 @@
 import { ReactNode } from 'react'
 import { IconPropsType } from 'types/image'
-import { css } from '@emotion/react'
+
 export const navIconSet: IconPropsType = {
   hambergerMenu: {
-    icon: (
-      width: string,
-      height: string,
-      color = 'rgba(0, 0, 0, 0.5)',
-    ): ReactNode => (
+    icon: () => (
       <svg
-        width={width}
-        height={height}
+        width="auto"
+        height="auto"
         id="Layer_1"
         version="1.1"
         viewBox="0 0 32 32"

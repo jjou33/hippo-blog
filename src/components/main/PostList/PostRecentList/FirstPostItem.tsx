@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import Badge from 'components/common/Badges/Badge'
 import { useInView } from 'react-intersection-observer'
-import { PostFrontmatterType } from 'types/postItem'
+import { PostFrontmatterType } from 'types/post'
 
 import * as S from './styles'
 
@@ -21,7 +20,7 @@ const PostItem = ({
   link,
 }: PostItemProps) => {
   const [inViewState, setInViewState] = useState(false)
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
   })
 
@@ -32,7 +31,7 @@ const PostItem = ({
   }, [inView])
 
   return (
-    <S.PostItemContainer ref={ref} inview={inViewState}>
+    <S.PostItemContainer ref={ref}>
       <S.PostItemWrapper to={link}>
         <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
         <S.PostItemContent>
