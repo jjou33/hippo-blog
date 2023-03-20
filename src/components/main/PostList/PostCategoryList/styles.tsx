@@ -6,7 +6,7 @@ export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1100px;
-  margin: 120px auto;
+  margin: 40px auto;
   height: 100%;
 `
 

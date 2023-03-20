@@ -71,7 +71,6 @@ const IndexPage = ({
         <PostCaterory
           selectedCategory={selectedCategory}
           posts={allMarkdownRemark.edges}
-          currentOsEnv={currentOsEnv}
         />
       )}
     </Template>

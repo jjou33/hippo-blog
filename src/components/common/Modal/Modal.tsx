@@ -42,17 +42,9 @@ const Modal = ({
       <S.ModalWrapper
         className={className}
         onClick={maskClosable ? onMaskClick : null}
-        tabIndex="-1"
         visible={state}
       >
-        <S.ModalInner tabIndex="0" className="modal-inner">
-          {closable && (
-            <S.CloseButton className="modal-close" onClick={close}>
-              Close
-            </S.CloseButton>
-          )}
-          {children}
-        </S.ModalInner>
+        <S.ModalInner className="modal-inner">{children}</S.ModalInner>
       </S.ModalWrapper>
     </>
   )

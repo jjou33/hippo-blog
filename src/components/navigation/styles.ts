@@ -9,12 +9,12 @@ export const NavigationContainer = styled.div`
     display: none;
   }
   overflow-y: auto;
-  max-height: calc(100vh - 44px);
+  height: calc(100vh - 48px);
   float: left;
   opacity: 1;
   clear: both;
   transition: opacity 0.2s ease-in-out;
-  top: 44px;
+  top: 48px;
   z-index: 1002;
   ${(props: { isOpen: boolean }) =>
     props.isOpen

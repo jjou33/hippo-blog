@@ -41,7 +41,8 @@ export const upDownAnimation = keyframes`
 
 export const RootTitleWrapper = styled.div`
   display: flex;
-  margin: 15px 10px 10px 10px;
+  margin: 15px 0 0 0;
+  gap: 18px;
   align-items: center;
   span {
     display: block;
@@ -69,11 +70,10 @@ export const RootTitleWrapper = styled.div`
 `
 
 export const CategoryRootCount = styled.div`
-  margin: 2px 0 0 7px;
   color: #e75454;
 `
 export const CategoryRootIcon = styled.div`
-  margin: 1px 10px 0px 10px;
+  margin: 0 0 7px 0px;
   width: 20px;
   height: 20px;
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
@@ -113,15 +113,15 @@ export const dropdown_out_animation = keyframes`
 export const CategoryTitleIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin: 0 8px 0 10px;
 `
 
 export const CategoryItemOpenArrow = styled.div`
   float: right;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 25px;
   ${(props: IsOpenPropsType) =>
     props.isOpen
       ? css`
@@ -136,12 +136,12 @@ export const CategoryItemOpenArrow = styled.div`
 export const CategoryTitleContainer = styled.div`
   position: relative;
   display: flex;
-
+  gap: 5px;
   align-items: center;
-
-  width: 230px;
+  margin: 0 10px;
+  width: 100%;
   height: 40px;
-  margin: 0 auto;
+
   border-radius: 5px;
 
   span {
@@ -191,7 +191,7 @@ export const CartegoryTitleText = styled.p`
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 13px;
+  font-size: 22px;
 `
 
 export const DropdownWrapper = styled.article`
@@ -202,7 +202,7 @@ export const DropdownWrapper = styled.article`
   ${(props: IsOpenPropsType) => {
     if (props.isOpen) {
       return css`
-        height: ${(props.categoryItemCount as number) * 35 + 10}px;
+        height: ${(props.categoryItemCount as number) * 45 + 10}px;
       `
     } else {
       return css`
@@ -228,8 +228,8 @@ interface GatsbyLinkProps extends CategoryItemProps {
 }
 
 export const CategoryTitleIcon = styled.div`
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
   display: flex;
   align-items: center;
@@ -242,7 +242,7 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   align-items: center;
   margin-right: 20px;
   padding: 5px 0;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
 
@@ -261,6 +261,7 @@ export const CategoryItemWrapper = styled.li`
   width: 200px;
   border-radius: 5px;
   transition: background, 0.5s;
+  gap: 10px;
   &:hover {
     background: #ebfeff;
     color: black;
@@ -270,12 +271,9 @@ export const CategoryItemWrapper = styled.li`
 export const CategoryItemArrow = styled.div`
   display: flex;
   align-items: center;
-  margin: 0px 10px 0px 10px;
 `
 
-export const CategoryItemCount = styled.div`
-  margin-left: 7px;
-`
+export const CategoryItemCount = styled.div``
 export const CategoryItemContainer = styled.ul``
 
 /**

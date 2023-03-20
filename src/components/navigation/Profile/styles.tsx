@@ -21,7 +21,7 @@ export const IntroductionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 280px;
+  height: 320px;
   border-width: 0 0 0.5px 0;
   border-style: solid;
   background-image: linear-gradient(0deg, white 20%, #fdf3db 45%);
@@ -57,7 +57,7 @@ export const SubTitle = styled.div`
 export const ProfileImageWrapper = styled.img`
   width: 100px;
   height: 100px;
-  margin: 20px 0px 0px 0px;
+  margin: 50px 0px 0px 0px;
   border-radius: 15px;
 
   @media (max-width: 768px) {

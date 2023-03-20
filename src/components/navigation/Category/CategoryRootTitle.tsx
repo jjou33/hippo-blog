@@ -13,10 +13,10 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
   return (
     <S.RootTitleWrapper>
       {getSvgJSXElement('Dot', '18')}
-      <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '18')}</S.CategoryRootIcon>
+      <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '28')}</S.CategoryRootIcon>
       <span></span>
       <S.CategoryRootTitle to={'/'}>
-        <ColorText text={'Root'} />
+        <ColorText text={'Root'} fontSize={30} />
       </S.CategoryRootTitle>
       <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (

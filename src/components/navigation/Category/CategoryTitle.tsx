@@ -51,11 +51,11 @@ const CategoryTitle = ({
         <span></span>
 
         <S.CategoryTitleIconWrapper>
-          {getSvgJSXElement(categoryItem, '18')}
+          {getSvgJSXElement(categoryItem, '25')}
         </S.CategoryTitleIconWrapper>
         <S.CartegoryTitleText>{categoryItem}</S.CartegoryTitleText>
         <S.CategoryItemOpenArrow isOpen={isOpenFilter(state)}>
-          {getSvgJSXElement('NonFilledArrow', '14')}
+          {getSvgJSXElement('NonFilledArrow', '18')}
         </S.CategoryItemOpenArrow>
       </S.CategoryTitleContainer>
       <S.DropdownWrapper

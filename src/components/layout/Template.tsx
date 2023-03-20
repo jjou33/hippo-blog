@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
 import Header from 'components/layout/Header'

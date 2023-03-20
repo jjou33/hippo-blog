@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 
 export const ModalWrapper = styled.div`
   box-sizing: border-box;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  display: ${(props: { visible: boolean }) =>
+    props.visible ? 'block' : 'none'};
   position: fixed;
   top: 0;
   right: 0;
@@ -15,7 +16,8 @@ export const ModalWrapper = styled.div`
 
 export const ModalOverlay = styled.div`
   box-sizing: border-box;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  display: ${(props: { visible: boolean }) =>
+    props.visible ? 'block' : 'none'};
   position: fixed;
   top: 0;
   left: 0;
@@ -27,19 +29,7 @@ export const ModalOverlay = styled.div`
 
 export const ModalInner = styled.div`
   position: relative;
-  top: 30px;
-  /* box-sizing: border-box;
-
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
-  background-color: #fff;
-  border-radius: 10px;
-  width: 360px;
-  max-width: 480px;
-  height: 100vh;
-
-  transform: translateY(-50%);
-  float: left;
-  padding: 40px 20px; */
+  top: 50px;
 `
 
 export const CloseButton = styled.div`
