@@ -48,8 +48,7 @@ const PostTemplate = ({
       },
     },
   } = edges[0]
-  console.log(html);
-  
+
   return (
     <Template
       isPost={true}
@@ -67,7 +66,7 @@ const PostTemplate = ({
           thumbnail={gatsbyImageData}
           allFile={allFile}
         />
-        <PostContent html={html}/>
+        <PostContent html={html} />
         <CommentWidget />
       </S.PostWrapper>
     </Template>

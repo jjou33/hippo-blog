@@ -23,7 +23,6 @@ interface MainSectionProps {
 const MainSection = ({
   mainSectionProp: { imagePath, allMarkdownRemark, currentOsEnv },
 }: MainSectionProps) => {
-  console.log('currentEnv : ', currentOsEnv)
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />

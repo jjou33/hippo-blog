@@ -26,15 +26,14 @@ const useInfiniteScroll = function (
             frontmatter: { categories, domain, sideTitle },
           },
         }: PostListItemType) => {
-          console.log('by : ', sideTitle) 
           return selectedCategory !== 'All'
-            ? sideTitle === selectedCategory
+            ? categories.includes(selectedCategory)
             : true
         },
       ),
     [selectedCategory],
   )
-  
+
   useEffect(() => {
     observer.current = new IntersectionObserver((entries, observer) => {
       if (!entries[0].isIntersecting) return

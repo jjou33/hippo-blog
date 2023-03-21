@@ -22,7 +22,7 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
     selectedCategory,
     posts,
   )
-  console.log('oo')
+
   return (
     <S.PostCardListContainer>
       <S.PostListWrapper ref={containerRef}>

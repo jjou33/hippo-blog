@@ -158,7 +158,6 @@ export const MarkdownRenderer = styled.div`
   line-height: 1.8;
   font-size: 25px;
 
-
   // Apply Padding Attribute to All Elements
   p {
     padding: 10px 0;
@@ -193,7 +192,6 @@ export const MarkdownRenderer = styled.div`
     margin-top: 0;
   }
 
-  
   h1 {
     font-size: 40px;
   }
@@ -211,7 +209,7 @@ export const MarkdownRenderer = styled.div`
   }
 
   h5 {
-    font-size: 20px
+    font-size: 20px;
   }
 
   // Adjust Quotation Element Style
@@ -254,13 +252,14 @@ export const MarkdownRenderer = styled.div`
       background: rgba(255, 255, 255, 0.5);
       border-radius: 3px;
     }
-    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);;
+    background: #192257;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
   }
 
   code[class*='language-'],
   pre[class*='language-'] {
     span {
-      font-family: JetBrainsMono;  
+      font-family: JetBrainsMono;
     }
     tab-size: 2;
   }

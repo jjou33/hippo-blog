@@ -20,7 +20,10 @@ export const getCategoryList = (allMarkdownRemark: {
           childrenCount: 1,
         }
       } else {
-        if (list[domain]['children'] !== undefined) {
+        if (
+          list[domain]['children'] !== undefined &&
+          !list[domain]['children'].includes(sideTitle)
+        ) {
           list[domain]['children'].push(sideTitle)
           list[domain]['childrenCount'] += 1
         }

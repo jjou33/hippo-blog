@@ -30,21 +30,20 @@ const SideNavSection = (sideNavProps: { location: Location }) => {
 
   return (
     <S.NavigationContainer isOpen={state}>
-      
       <Introduction
         profileImage={imagePath['superHero']}
         roketImage={imagePath['rocket']}
       />
       <S.NavigationWrapper>
-      {mount ? (
-        <CategoryList
-          categoryList={categoryList}
-          selectedCategory={selectedCategory}
-          categoryCount={staticData.categoryCount}
-        />
-      ) : (
-        <CategorySkeleton categoryList={categoryList} />
-      )}
+        {mount ? (
+          <CategoryList
+            categoryList={categoryList}
+            selectedCategory={selectedCategory}
+            categoryCount={staticData.categoryCount}
+          />
+        ) : (
+          <CategorySkeleton categoryList={categoryList} />
+        )}
       </S.NavigationWrapper>
     </S.NavigationContainer>
   )
