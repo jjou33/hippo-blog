@@ -36,7 +36,8 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
     selectedCategory,
     posts,
   )
-
+  console.log('selectedCategory : ', selectedCategory)
+  console.log('posts : ', postList)
   const setCategoryFormat = (
     selectedCategory: string,
     {

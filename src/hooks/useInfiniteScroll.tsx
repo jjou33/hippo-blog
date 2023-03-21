@@ -23,17 +23,18 @@ const useInfiniteScroll = function (
       posts.filter(
         ({
           node: {
-            frontmatter: { categories, domain },
+            frontmatter: { categories, domain, sideTitle },
           },
         }: PostListItemType) => {
+          console.log('by : ', sideTitle) 
           return selectedCategory !== 'All'
-            ? categories.includes(selectedCategory)
+            ? sideTitle === selectedCategory
             : true
         },
       ),
     [selectedCategory],
   )
-
+  
   useEffect(() => {
     observer.current = new IntersectionObserver((entries, observer) => {
       if (!entries[0].isIntersecting) return

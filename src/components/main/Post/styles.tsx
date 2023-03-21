@@ -150,26 +150,33 @@ export const MarkdownRenderer = styled.div`
   display: flex;
   flex-direction: column;
   width: 768px;
-  margin: 0 auto;
-  padding: 100px 0;
+  margin: 45px auto;
+  /* padding: 100px 0; */
   word-break: break-all;
 
   // Markdown Style
   line-height: 1.8;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 25px;
+
 
   // Apply Padding Attribute to All Elements
   p {
-    padding: 3px 0;
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: JetBrainsMono;
+    strong {
+      color: #006dd7;
+    }
   }
 
   // Adjust Heading Element Style
   h1,
   h2,
-  h3 {
-    font-weight: 800;
-    margin-bottom: 30px;
+  h3,
+  h4,
+  h5 {
+    /* font-weight: 800; */
+    margin: 20px 0;
   }
 
   * + h1,
@@ -180,20 +187,31 @@ export const MarkdownRenderer = styled.div`
 
   hr + h1,
   hr + h2,
-  hr + h3 {
+  hr + h3,
+  hr + h4,
+  hr + h5 {
     margin-top: 0;
   }
 
+  
   h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 25px;
+  }
+
+  h5 {
+    font-size: 20px
   }
 
   // Adjust Quotation Element Style
@@ -209,12 +227,15 @@ export const MarkdownRenderer = styled.div`
   ul {
     margin-left: 20px;
     padding: 30px 0;
+    li {
+      list-style: disc;
+    }
   }
 
   // Adjust Horizontal Rule style
   hr {
     border: 1px solid #000000;
-    margin: 100px 0;
+    margin: 20px 0;
   }
 
   // Adjust Link Element Style
@@ -233,13 +254,22 @@ export const MarkdownRenderer = styled.div`
       background: rgba(255, 255, 255, 0.5);
       border-radius: 3px;
     }
+    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);;
   }
 
   code[class*='language-'],
   pre[class*='language-'] {
+    span {
+      font-family: JetBrainsMono;  
+    }
     tab-size: 2;
   }
 
+  code[class*='language-text'] {
+    background-color: #94c6f7;
+    color: black;
+    padding: 0 5px;
+  }
   // Markdown Responsive Design
   @media (max-width: 768px) {
     width: 100%;
@@ -264,7 +294,7 @@ export const MarkdownRenderer = styled.div`
     }
 
     hr {
-      margin: 50px 0;
+      margin: 10px 0;
     }
   }
 `

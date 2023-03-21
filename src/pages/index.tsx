@@ -88,7 +88,7 @@ export const getMetaData = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___domain] }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id

@@ -25,3 +25,7 @@ export const NavigationContainer = styled.div`
           display: none;
         `}
 `
+
+export const NavigationWrapper = styled.div`
+  margin: 0 10px;
+`

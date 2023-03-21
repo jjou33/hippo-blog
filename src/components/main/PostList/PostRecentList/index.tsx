@@ -15,7 +15,7 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
       frontmatter,
     },
   } = posts[0]
-
+  console.log('posts : ', posts)
   return (
     <S.RecentPostContainer>
       <RecentPostHeader selectedCategory="최신 포스트" fontSize={50} />

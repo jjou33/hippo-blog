@@ -23,7 +23,7 @@ const CategoryItems = ({
           <S.CategoryItemWrapper key={idx}>
             <span></span>
             <S.CategoryItemArrow>
-              {getSvgJSXElement('NonFilledArrow', '20')}
+              {getSvgJSXElement('NonFilledArrow', '15')}
             </S.CategoryItemArrow>
             <S.CategoryTitleIcon>
               {getSvgJSXElement(categoryItem, '25')}

@@ -139,7 +139,7 @@ export const CategoryTitleContainer = styled.div`
   gap: 5px;
   align-items: center;
   margin: 0 10px;
-  width: 100%;
+  
   height: 40px;
 
   border-radius: 5px;
@@ -230,7 +230,7 @@ interface GatsbyLinkProps extends CategoryItemProps {
 export const CategoryTitleIcon = styled.div`
   width: 30px;
   height: 30px;
-  margin-right: 10px;
+  margin-right: 0px;
   display: flex;
   align-items: center;
 `
@@ -258,7 +258,7 @@ export const CategoryItemWrapper = styled.li`
   display: flex;
   align-items: center;
   margin-top: 5px;
-  width: 200px;
+  width: 100%;
   border-radius: 5px;
   transition: background, 0.5s;
   gap: 10px;
