@@ -33,7 +33,7 @@ const PostItem = ({
   return (
     <S.PostItemContainer ref={ref}>
       <S.PostSeqenceWrapper type="first">
-        {navIconSet['firstPrize'].icon('55', '55')}
+        {navIconSet['firstCalander'].icon('55', '55')}
       </S.PostSeqenceWrapper>
       <S.PostItemWrapper to={link}>
         <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />

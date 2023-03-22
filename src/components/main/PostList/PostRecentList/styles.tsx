@@ -1,7 +1,51 @@
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
+import { shaking_in_animation } from 'styles/AnimationKeyframes'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+
+export const shakingIcon = keyframes`
+0% {
+  transform: rotate(7deg);
+}
+
+30% {
+  transform: rotate(-7deg);
+}
+
+70% {
+  transform: rotate(7deg);
+}
+50% {
+  transform: rotate(-7deg);
+}
+`
+
+export const upDownAnimation = keyframes`
+ from{
+   transform: translatey(2px);
+ }
+ to{
+   transform: translatey(-2px);
+ }
+`
+
+export const PostSeqenceWrapper = styled.div`
+  position: absolute;
+  z-index: 1000;
+
+  ${(props: { type: string }) =>
+    props.type === 'first'
+      ? css`
+          animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
+          right: 93%;
+          bottom: 96%;
+        `
+      : css`
+          right: 95%;
+          bottom: 92%;
+        `}
+`
 
 export const RecentPostContainer = styled.div`
   margin: 0 300px;
@@ -21,7 +65,7 @@ export const OtherPostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 15px;
+  gap: 20px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -38,6 +82,10 @@ export const OtherItemContainer = styled.div`
     transform: scale(1.05);
     transition: transform 0.5s;
     box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+
+    ${PostSeqenceWrapper} {
+      animation: ${shakingIcon} 0.5s ease;
+    }
   }
 `
 export const PostItemContainer = styled.div`
@@ -54,21 +102,13 @@ export const PostItemContainer = styled.div`
     transform: scale(1.05);
     transition: transform 0.5s;
     box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+
+    ${PostSeqenceWrapper} {
+      animation: ${shakingIcon} 0.5s ease;
+    }
   }
 `
 
-export const PostSeqenceWrapper = styled.div`
-  position: absolute;
-  z-index: 1000;
-  ${(props: any) =>
-    props.type === 'first'
-      ? css`
-          bottom: 96%;
-        `
-      : css`
-          bottom: 92%;
-        `}
-`
 export const PostSequenceIcon = styled.img``
 export const PostItemWrapper = styled(Link)`
   display: flex;

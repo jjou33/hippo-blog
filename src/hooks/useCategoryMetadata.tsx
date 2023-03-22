@@ -74,7 +74,7 @@ export const useCategoryMetadata = () => {
             },
           },
         ) => {
-          if(!Object.keys(list).includes(sideTitle)) {
+          if (!Object.keys(list).includes(sideTitle)) {
             data.allMarkdownRemark.edges.forEach(
               ({
                 node: {

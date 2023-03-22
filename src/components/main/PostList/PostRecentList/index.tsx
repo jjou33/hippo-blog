@@ -11,6 +11,12 @@ interface RecentPostPropsType {
   posts: PostListItemType[]
   imagePath: ImagePathPropsType
 }
+
+enum Sequence {
+  second,
+  third,
+  fourth,
+}
 const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
   const {
     node: {
@@ -43,7 +49,7 @@ const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
                 return (
                   <S.OtherItemContainer key={index}>
                     <S.PostSeqenceWrapper type="second">
-                      {navIconSet['firstPrize'].icon('55', '55')}
+                      {navIconSet[`${index}`].icon('40', '40')}
                     </S.PostSeqenceWrapper>
                     <PostCategoryItem {...frontmatter} link={slug} key={id} />
                   </S.OtherItemContainer>

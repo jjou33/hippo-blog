@@ -139,9 +139,7 @@ export const CategoryTitleContainer = styled.div`
   gap: 5px;
   align-items: center;
   margin: 0 10px;
-  
   height: 40px;
-
   border-radius: 5px;
 
   span {
