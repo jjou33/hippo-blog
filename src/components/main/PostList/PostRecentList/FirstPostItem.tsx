@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { navIconSet } from 'assets/svg/NavIconSet'
 import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/post'
 
@@ -32,6 +32,9 @@ const PostItem = ({
 
   return (
     <S.PostItemContainer ref={ref}>
+      <S.PostSeqenceWrapper type="first">
+        {navIconSet['firstPrize'].icon('55', '55')}
+      </S.PostSeqenceWrapper>
       <S.PostItemWrapper to={link}>
         <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
         <S.PostItemContent>

@@ -29,7 +29,7 @@ const MainSection = ({
       <S.ContentsWrapper>
         <MainIntro />
         {currentOsEnv === 'web' ? (
-          <RecentPost posts={allMarkdownRemark.edges} />
+          <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath}/>
         ) : (
           <>
             <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />

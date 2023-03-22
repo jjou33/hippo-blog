@@ -224,7 +224,7 @@ export const MarkdownRenderer = styled.div`
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    padding: 20px 0;
     li {
       list-style: disc;
     }
@@ -233,7 +233,6 @@ export const MarkdownRenderer = styled.div`
   // Adjust Horizontal Rule style
   hr {
     border: 1px solid #000000;
-    margin: 20px 0;
   }
 
   // Adjust Link Element Style
@@ -244,7 +243,7 @@ export const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
+    margin: 10px 0;
     padding: 15px;
     font-size: 15px;
 
@@ -254,6 +253,7 @@ export const MarkdownRenderer = styled.div`
     }
     background: #192257;
     box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
+    border-radius: 20px;
   }
 
   code[class*='language-'],
@@ -265,8 +265,8 @@ export const MarkdownRenderer = styled.div`
   }
 
   code[class*='language-text'] {
-    background-color: #94c6f7;
-    color: black;
+    /* background-color: #94c6f7; */
+    color: white;
     padding: 0 5px;
   }
   // Markdown Responsive Design
@@ -293,7 +293,6 @@ export const MarkdownRenderer = styled.div`
     }
 
     hr {
-      margin: 10px 0;
     }
   }
 `

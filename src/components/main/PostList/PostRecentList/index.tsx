@@ -1,13 +1,17 @@
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
+import { navIconSet } from 'assets/svg/NavIconSet'
 import { PostListItemType } from 'types/postItem'
+
+import type { ImagePathPropsType } from 'types/image/imagePathType'
 import * as S from './styles'
 
 interface RecentPostPropsType {
   posts: PostListItemType[]
+  imagePath: ImagePathPropsType
 }
-const RecentPosts = ({ posts }: RecentPostPropsType) => {
+const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
   const {
     node: {
       id,
@@ -15,7 +19,7 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
       frontmatter,
     },
   } = posts[0]
-  console.log('posts : ', posts)
+
   return (
     <S.RecentPostContainer>
       <RecentPostHeader selectedCategory="최신 포스트" fontSize={50} />
@@ -38,6 +42,9 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
               if (index > 0 && index < 4) {
                 return (
                   <S.OtherItemContainer key={index}>
+                    <S.PostSeqenceWrapper type="second">
+                      {navIconSet['firstPrize'].icon('55', '55')}
+                    </S.PostSeqenceWrapper>
                     <PostCategoryItem {...frontmatter} link={slug} key={id} />
                   </S.OtherItemContainer>
                 )

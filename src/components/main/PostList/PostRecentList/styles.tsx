@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -20,6 +21,7 @@ export const OtherPostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 15px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -39,7 +41,7 @@ export const OtherItemContainer = styled.div`
   }
 `
 export const PostItemContainer = styled.div`
-  height: 700px;
+  height: 100%;
 
   margin: 0 auto;
   border-width: 1px 1px 1px 1px;
@@ -53,12 +55,21 @@ export const PostItemContainer = styled.div`
     transition: transform 0.5s;
     box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
   }
-
-  @media screen and (max-width: 870px) {
-    height: 500px;
-  }
 `
 
+export const PostSeqenceWrapper = styled.div`
+  position: absolute;
+  z-index: 1000;
+  ${(props: any) =>
+    props.type === 'first'
+      ? css`
+          bottom: 96%;
+        `
+      : css`
+          bottom: 92%;
+        `}
+`
+export const PostSequenceIcon = styled.img``
 export const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;

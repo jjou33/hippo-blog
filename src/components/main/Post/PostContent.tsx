@@ -5,6 +5,8 @@ interface PostContentProps {
 }
 
 const PostContent = ({ html }: PostContentProps) => {
+  const tag = document.querySelectorAll('pre')
+  console.log('tag : ', tag)
   return <S.MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
 }
 
