@@ -74,21 +74,24 @@ export const useCategoryMetadata = () => {
             },
           },
         ) => {
-          data.allMarkdownRemark.edges.forEach(
-            ({
-              node: {
-                frontmatter: { categories },
-              },
-            }) => {
-              if (categories.includes(sideTitle)) {
-                if (list[sideTitle] === undefined) {
-                  list[sideTitle] = 1
-                } else {
-                  list[sideTitle] += 1
+          if(!Object.keys(list).includes(sideTitle)) {
+            data.allMarkdownRemark.edges.forEach(
+              ({
+                node: {
+                  frontmatter: { categories },
+                },
+              }) => {
+                if (categories.includes(sideTitle)) {
+                  if (list[sideTitle] === undefined) {
+                    list[sideTitle] = 1
+                  } else {
+                    list[sideTitle] += 1
+                  }
                 }
-              }
-            },
-          )
+              },
+            )
+          }
+
           list['All'] += 1
           return list
         },
