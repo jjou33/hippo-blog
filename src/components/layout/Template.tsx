@@ -59,8 +59,10 @@ const Template = ({
             <meta name="description" content={description} />
             <meta
               name="viewport"
-              content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=0"
+              content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=1"
             />
+            <meta content="yes" name="apple-mobile-web-app-capable" />
+
             <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
 
             <meta property="og:type" content="website" />
