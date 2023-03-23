@@ -14,6 +14,11 @@ const defaultStyle = css`
     shape-rendering: auto;
     font-family: IBMPlexSans;
   }
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 `
 
 const GlobalStyle = () => {
