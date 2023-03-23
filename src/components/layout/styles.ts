@@ -20,6 +20,7 @@ export const Container = styled.div`
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100vw;
   min-height: calc(100vh - 200px);
 `
 /**

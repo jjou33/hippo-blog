@@ -106,6 +106,10 @@ export const ThumbnailWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px;
+
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   height: 200px;

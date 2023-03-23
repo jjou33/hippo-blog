@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { shaking_in_animation } from 'styles/AnimationKeyframes'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
