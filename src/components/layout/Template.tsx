@@ -70,7 +70,7 @@ const Template = ({
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
             <meta property="og:url" content={url} />
-            <meta property="og:site_name" content={title} />
+            {/* <meta property="og:site_name" content={title} /> */}
 
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:title" content={title} />
@@ -79,7 +79,7 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          {/* <Header /> */}
+          <Header />
           <Modal>
             <SideNavSection location={location} />
           </Modal>
