@@ -121,7 +121,6 @@ export const FooterWrapper = styled.div`
   text-align: center;
   line-height: 1.5;
   border: 3px solid;
-
   @media (max-width: 768px) {
     font-size: 13px;
   }

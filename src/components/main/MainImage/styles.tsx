@@ -4,12 +4,12 @@ import { boat_in_animation } from 'styles/AnimationKeyframes'
 
 export const MainAnimationContainer = styled.div`
   height: calc(100vh);
-  margin-left: 2px;
+  
 
   @media (max-width: 768px) {
     height: 60vh;
   }
-  overflow: hidden;
+  /* overflow: hidden; */
 `
 
 export const MainImageTextWrapper = styled.div`
