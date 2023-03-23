@@ -14,6 +14,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  margin: 0 auto;
 
   /* flex: 1 0 auto; */
 `
@@ -22,6 +23,7 @@ export const LayoutWrapper = styled.div`
   flex-direction: row;
   width: 100vw;
   min-height: calc(100vh - 200px);
+  margin: 0 auto;
 `
 /**
  * Header Component Styled Section
