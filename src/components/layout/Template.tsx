@@ -77,7 +77,7 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-          <Header />
+          {/* <Header /> */}
           <Modal>
             <SideNavSection location={location} />
           </Modal>
