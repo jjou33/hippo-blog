@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
 import PostCardList from 'components/main/PostList/PostCardList'
 import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
+
 import MainImage from 'components/main/MainImage'
 import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
-
+import RecommendCategoryList from './PostList/RecommendCategoryList'
+import { useSetRecoilState } from 'recoil'
+import { isCurrentOs } from 'states/currentOsState'
 import type { PostListItemType } from 'types/postItem'
 import type { ImagePathPropsType } from 'types/image/index'
 
@@ -23,13 +26,18 @@ interface MainSectionProps {
 const MainSection = ({
   mainSectionProp: { imagePath, allMarkdownRemark, currentOsEnv },
 }: MainSectionProps) => {
+  const setState = useSetRecoilState(isCurrentOs)
+  useEffect(() => {
+    setState(currentOsEnv)
+  }, [])
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <MainIntro />
+        <RecommendCategoryList />
         {currentOsEnv === 'web' ? (
-          <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath}/>
+          <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath} />
         ) : (
           <>
             <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={50} />

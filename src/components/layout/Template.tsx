@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
 import Header from 'components/layout/Header'
 import Modal from 'components/common/Modal/Modal'
+
 import * as S from './styles'
 
 import SideNavSection from 'components/navigation'

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -106,17 +107,28 @@ export const ThumbnailWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px;
-
-  @media screen and (max-width: 1500px) {
-    display: none;
-  }
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   height: 200px;
   width: 200px;
   border-radius: 20px;
 
-  @media (max-width: 768px) {
+  ${(props: { type: string }) =>
+    props.type
+      ? css`
+          // recent
+          @media screen and (max-width: 1500px) {
+            display: none;
+          }
+        `
+      : css`
+          // category
+          @media screen and (max-width: 768px) {
+            height: 100px;
+            width: 100px;
+          }
+        `}
+  @media screen and (max-width: 768px) {
     height: 100px;
     width: 100px;
   }

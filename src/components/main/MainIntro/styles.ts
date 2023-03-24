@@ -19,7 +19,7 @@ export const IntroTitle = styled.h1`
   font-size: 50px;
   margin: 20px auto;
   @media (max-width: 768px) {
-    font-size: 25px;
+    font-size: 20px;
   }
 `
 export const IntroSubTitle = styled.h3`
@@ -27,6 +27,6 @@ export const IntroSubTitle = styled.h3`
   font-size: 25px;
   margin: 20px auto;
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 15px;
   }
 `

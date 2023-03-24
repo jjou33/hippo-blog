@@ -4,6 +4,7 @@ import { PostFrontmatterType } from 'types/post'
 import { useInView } from 'react-intersection-observer'
 interface PostItemProps extends PostFrontmatterType {
   link: string
+  type: string
 }
 
 const PostCategoryItem = ({
@@ -16,6 +17,7 @@ const PostCategoryItem = ({
     childImageSharp: { gatsbyImageData },
   },
   link,
+  type,
 }: PostItemProps) => {
   const [inViewState, setInviewState] = useState(false)
   const { inView } = useInView({
@@ -41,7 +43,11 @@ const PostCategoryItem = ({
         <S.Summary>{summary}</S.Summary>
       </S.PostItemContent>
       <S.ThumbnailWrapper>
-        <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+        <S.ThumbnailImage
+          type={type}
+          image={gatsbyImageData}
+          alt="Post Item Image"
+        />
       </S.ThumbnailWrapper>
     </S.PostItemWrapper>
   )

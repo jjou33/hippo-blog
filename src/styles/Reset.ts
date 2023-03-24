@@ -12,6 +12,10 @@ const Reset = css`
     color: rgba(29, 29, 31);
     letter-spacing: -0.05em;
   }
+
+  div {
+    box-sizing: border-box;
+  }
   html,
   body,
   div,

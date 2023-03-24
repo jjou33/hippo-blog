@@ -1,6 +1,8 @@
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
+import { useRecoilValue } from 'recoil'
+
 import { navIconSet } from 'assets/svg/NavIconSet'
 import { PostListItemType } from 'types/postItem'
 
@@ -46,7 +48,12 @@ const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
                     <S.PostSeqenceWrapper type="second">
                       {navIconSet[`${index}`].icon('30', '30')}
                     </S.PostSeqenceWrapper>
-                    <PostCategoryItem {...frontmatter} link={slug} key={id} />
+                    <PostCategoryItem
+                      {...frontmatter}
+                      link={slug}
+                      key={id}
+                      type="recentPost"
+                    />
                   </S.OtherItemContainer>
                 )
               } else {

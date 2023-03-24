@@ -52,23 +52,13 @@ export const PrevPageIcon = styled.div`
 `
 
 export const Title = styled.div`
-  /* display: -webkit-box;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  margin-top: auto;
-  text-overflow: ellipsis;
-  white-space: normal;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  font-size: 45px;
-  font-weight: 800; */
   margin-top: 50px;
   text-align: center;
-  font-size: 60px;
+  color: #ffd381;
+  font-size: 35px;
   font-weight: 800;
-  font-family: JetBrainsMono;
   @media (max-width: 768px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `
 export const Wrapper = styled.div`
@@ -87,12 +77,8 @@ export const CategoryWrapper = styled.div`
 `
 
 export const PostData = styled.div`
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   margin: 10px auto;
   font-size: 18px;
-  /* font-weight: 700; */
   text-align: center;
   font-family: JetBrainsMono;
   @media (max-width: 768px) {
@@ -119,7 +105,7 @@ export const AnimationWrapper = styled.div`
 `
 export const PostHeadWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 90vh;
 
   @media (max-width: 768px) {
@@ -166,6 +152,9 @@ export const MarkdownRenderer = styled.div`
     strong {
       color: #006dd7;
     }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   // Adjust Heading Element Style
@@ -175,7 +164,7 @@ export const MarkdownRenderer = styled.div`
   h4,
   h5 {
     /* font-weight: 800; */
-    margin: 20px 0;
+    margin: 20px 0 0 0;
   }
 
   * + h1,
@@ -224,9 +213,10 @@ export const MarkdownRenderer = styled.div`
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    padding: 20px 0 20px 20px;
     li {
       list-style: disc;
+      padding-left: 10px;
     }
   }
 
@@ -244,9 +234,8 @@ export const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
-    padding: 15px;
-    font-size: 15px;
+    margin: 20px 50px;
+    /* padding: 15px; */
 
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
@@ -254,6 +243,9 @@ export const MarkdownRenderer = styled.div`
     }
     background: #192257;
     box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
+    @media (max-width: 768px) {
+      margin: 20px auto;
+    }
   }
 
   code[class*='language-'],
@@ -262,6 +254,10 @@ export const MarkdownRenderer = styled.div`
       font-family: JetBrainsMono;
     }
     tab-size: 2;
+    font-size: 15px;
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 
   code[class*='language-text'] {
@@ -271,7 +267,7 @@ export const MarkdownRenderer = styled.div`
   }
   // Markdown Responsive Design
   @media (max-width: 768px) {
-    width: 100%;
+    width: 100vw;
     padding: 80px 20px;
     line-height: 1.6;
     font-size: 14px;
