@@ -25,7 +25,7 @@ const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
 
   return (
     <S.RecentPostContainer>
-      <RecentPostHeader selectedCategory="최신 포스트" fontSize={50} />
+      <RecentPostHeader selectedCategory="최신 포스트" fontSize={60} />
       <S.RecentPostsWrapper>
         <S.FirstPostWrapper>
           <FirstPostItem {...frontmatter} link={slug} key={id} />

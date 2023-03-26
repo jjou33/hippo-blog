@@ -35,7 +35,7 @@ const MainSection = ({
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <MainIntro />
-        <RecommendCategoryList />
+        <RecommendCategoryList imagePath={imagePath} />
         {currentOsEnv === 'web' ? (
           <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath} />
         ) : (

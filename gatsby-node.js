@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     module: {
       rules: [
         {
-          test: /\.(png|svg|jpe?g|bin|gif|glb|gltf)$/,
+          test: /\.(png|svg|jpe?g|bin|gif|glb|gltf|jpeg)$/,
           loader: 'file-loader',
           options: {
             esModule: false,

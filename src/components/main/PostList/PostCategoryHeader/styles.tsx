@@ -5,8 +5,9 @@ export const PostCategoryHeaderContainer = styled.div`
   /* padding: 30px 30px 10px; */
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
-  margin: 50px 0 50px 0;
+  margin: 80px;
   @media screen and (max-width: 768px) {
     gap: 10px;
   }

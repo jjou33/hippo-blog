@@ -47,7 +47,7 @@ export const PostSeqenceWrapper = styled.div`
 `
 
 export const RecentPostContainer = styled.div`
-  margin: 0 300px;
+  margin: 0 auto;
 `
 
 export const RecentPostsWrapper = styled.div`
@@ -65,7 +65,7 @@ export const OtherPostWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `

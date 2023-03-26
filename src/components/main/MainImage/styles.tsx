@@ -4,7 +4,6 @@ import { boat_in_animation } from 'styles/AnimationKeyframes'
 
 export const MainAnimationContainer = styled.div`
   height: calc(100vh);
-  
 
   @media (max-width: 768px) {
     height: 60vh;

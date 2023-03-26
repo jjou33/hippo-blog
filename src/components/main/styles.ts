@@ -14,7 +14,10 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
   flex: 4;
   align-items: center;
-  margin: 50px auto;
+  margin: 50px calc((100vw - 1200px) / 2);
+  @media screen and (max-width: 768px) {
+    margin: 50px 20px;
+  }
 `
 
 const TextEffectKeyFrame = keyframes`
