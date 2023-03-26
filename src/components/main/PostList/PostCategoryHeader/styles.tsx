@@ -10,6 +10,7 @@ export const PostCategoryHeaderContainer = styled.div`
   margin: 80px;
   @media screen and (max-width: 768px) {
     gap: 10px;
+    margin: 50px;
   }
 `
 export const PostCategoryIconWrapper = styled.div`

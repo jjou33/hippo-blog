@@ -123,8 +123,8 @@ export const PostItemWrapper = styled(Link)`
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  @media screen and (max-width: 870px) {
-    width: 300px;
+  @media screen and (max-width: 768px) {
+    width: 400px;
   }
 `
 export const ThumbnailImage = styled(GatsbyImage)`

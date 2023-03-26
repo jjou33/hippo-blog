@@ -9,6 +9,9 @@ export const PostCategoryContainer = styled.div`
   max-width: 1100px;
   margin: 40px auto;
   height: 100%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const PostCateListWrapper = styled.div`
@@ -16,7 +19,9 @@ export const PostCateListWrapper = styled.div`
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 30px;
   width: 100%;
-  margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    padding: 0 20px;
+  }
 `
 
 export const PostItemContainer = styled.div`
