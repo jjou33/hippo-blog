@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const useScrollStateBar = () => {
-  const [scroll, setScroll] = useState(0)
+  const [scroll, setScroll] = useState('')
 
   useEffect(() => {
     const progressBarHandler = () => {

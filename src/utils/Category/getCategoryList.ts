@@ -28,6 +28,7 @@ export const getCategoryList = (allMarkdownRemark: {
           list[domain]['childrenCount'] += 1
         }
       }
+
       return list
     },
     {},
