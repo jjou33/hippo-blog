@@ -9,8 +9,6 @@ const RecommendCategoryItem = ({
   imagePath,
   categoryName,
 }: RecommentCategoryItemProps) => {
-  console.log('image : ', imagePath)
-
   return (
     <S.RecommendCategoryItem>
       <S.RecommendCategoryImg imagePath={imagePath[categoryName]} />

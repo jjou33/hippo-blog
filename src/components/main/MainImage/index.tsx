@@ -33,8 +33,8 @@ const MainImage = ({ imagePath }: ImagePathPropsType) => {
   return (
     <S.MainAnimationContainer>
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
-        <S.MainImageStaticText>{'<HELLO MY WORLD />'}</S.MainImageStaticText>
-        <br />
+        {/* <S.MainImageStaticText>{'<HELLO MY WORLD />'}</S.MainImageStaticText> */}
+        {/* <br /> */}
         <S.MainImageDynamicText
           totalHeight={totalHeight}
           totalWidth={totalWidth}

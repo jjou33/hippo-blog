@@ -119,7 +119,7 @@ export const ThumbnailImage = styled(GatsbyImage)`
   border-radius: 20px;
 
   ${(props: { type: string }) =>
-    props.type
+    props.type === 'main'
       ? css`
           // recent
           @media screen and (max-width: 1500px) {
@@ -133,8 +133,4 @@ export const ThumbnailImage = styled(GatsbyImage)`
             width: 100px;
           }
         `}
-  @media screen and (max-width: 768px) {
-    height: 100px;
-    width: 100px;
-  }
 `

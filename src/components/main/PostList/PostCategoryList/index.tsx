@@ -74,7 +74,12 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
             index,
           ) => (
             <S.PostItemContainer key={index}>
-              <PostCategoryItem {...frontmatter} link={slug} key={id} />
+              <PostCategoryItem
+                type={'main'}
+                {...frontmatter}
+                link={slug}
+                key={id}
+              />
             </S.PostItemContainer>
           ),
         )}
