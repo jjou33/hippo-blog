@@ -7,7 +7,7 @@ import type { ImagePathPropsType } from 'types/image/index'
 const MainImage = ({ imagePath }: ImagePathPropsType) => {
   return (
     <>
-      <S.MainImage src="./static/gifs/sample.gif" />
+      <S.MainImage src="./static/gifs/computer.gif" />
     </>
   )
 }

@@ -7,14 +7,7 @@ import MouseScrollIndicator from 'components/common/ScrollIndicator/MouseIndicat
 import { useTypingTitle } from 'hooks/useTypingTitle'
 import type { ImagePathPropsType } from 'types/image/index'
 
-const typedList = [
-  'JAVASCRIPT',
-  'REACT',
-  'VUE',
-  'HTML',
-  'CSS',
-  'FRONT DEVELOPER',
-]
+const typedList = ['JAVASCRIPT', 'REACT', 'VUE', 'HTML', 'CSS']
 
 const MainImage = ({ imagePath }: ImagePathPropsType) => {
   const currentTitle = useTypingTitle(typedList)
@@ -33,7 +26,7 @@ const MainImage = ({ imagePath }: ImagePathPropsType) => {
   return (
     <S.MainAnimationContainer>
       <S.MainImageWrapper>
-        <S.MainImage src="./static/gifs/sample.gif" />
+        <S.MainImage src="./static/gifs/computer.gif" />
       </S.MainImageWrapper>
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
         <S.MainImageStaticText>{'Be the Free!'}</S.MainImageStaticText>
@@ -45,7 +38,7 @@ const MainImage = ({ imagePath }: ImagePathPropsType) => {
         >
           {` ${currentTitle}`}
         </S.MainImageDynamicText>
-        <S.CommentTextWrapper>asdfasdf</S.CommentTextWrapper>
+        <S.CommentTextWrapper>오늘 하루도 수고했어!</S.CommentTextWrapper>
       </S.MainImageTextWrapper>
 
       <S.CircleDiv>

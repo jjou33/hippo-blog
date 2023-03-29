@@ -33,10 +33,7 @@ export const RecommentCategoryItemWrapper = styled(
 )`
   width: 150px;
   height: 150px;
-  border: 2px solid transparent;
-  background-image: linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  border: none;
   border-radius: 20px;
   display: flex;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

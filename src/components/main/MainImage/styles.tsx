@@ -12,16 +12,20 @@ export const MainAnimationContainer = styled.div`
 `
 
 export const CommentTextWrapper = styled.div`
+  /* position: absolute; */
   border-top: 1px solid;
   width: 50%;
   margin: 30px auto;
+  font-size: 40px;
+  padding-top: 15px;
+  font-family: 'MontserratAlternates';
 `
 export const MainImageTextWrapper = styled.div`
   position: absolute;
   width: 100%;
   text-align: center;
   font-weight: 300;
-  top: 40%;
+  top: 20%;
   font-family: 'MontserratAlternates';
   color: white;
   letter-spacing: 5px;

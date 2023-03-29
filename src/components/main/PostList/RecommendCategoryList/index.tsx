@@ -2,8 +2,8 @@ import React from 'react'
 import * as S from './styles'
 
 import PostCategoryHeader from '../PostCategoryHeader'
-
-const RecommendCategoryList = ({ imagePath }: { [key: string]: string }) => {
+import type { ImagePathPropsType } from 'types/image/imagePathType'
+const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
   const RecommendCategoryList: string[] = [
     'Basic',
     'vue3',
@@ -25,7 +25,9 @@ const RecommendCategoryList = ({ imagePath }: { [key: string]: string }) => {
               to={`/?category=${categoryName}`}
               key={index}
             >
-              <S.RecommendCategoryImg imagePath={imagePath[categoryName]} />
+              <S.RecommendCategoryImg
+                imagePath={imagePath[`${categoryName}`]}
+              />
             </S.RecommentCategoryItemWrapper>
           )
         })}
