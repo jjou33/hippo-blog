@@ -32,18 +32,22 @@ const MainImage = ({ imagePath }: ImagePathPropsType) => {
   }, [])
   return (
     <S.MainAnimationContainer>
+      <S.MainImageWrapper>
+        <S.MainImage src="./static/gifs/sample.gif" />
+      </S.MainImageWrapper>
       <S.MainImageTextWrapper totalHeight={totalHeight} totalWidth={totalWidth}>
-        {/* <S.MainImageStaticText>{'<HELLO MY WORLD />'}</S.MainImageStaticText> */}
-        {/* <br /> */}
+        <S.MainImageStaticText>{'Be the Free!'}</S.MainImageStaticText>
+        <br />
+        Do It
         <S.MainImageDynamicText
           totalHeight={totalHeight}
           totalWidth={totalWidth}
         >
-          {currentTitle}
+          {` ${currentTitle}`}
         </S.MainImageDynamicText>
+        <S.CommentTextWrapper>asdfasdf</S.CommentTextWrapper>
       </S.MainImageTextWrapper>
 
-      <Image imagePath={imagePath} />
       <S.CircleDiv>
         <MouseScrollIndicator />
       </S.CircleDiv>

@@ -11,13 +11,19 @@ export const MainAnimationContainer = styled.div`
   /* overflow: hidden; */
 `
 
+export const CommentTextWrapper = styled.div`
+  border-top: 1px solid;
+  width: 50%;
+  margin: 30px auto;
+`
 export const MainImageTextWrapper = styled.div`
   position: absolute;
   width: 100%;
   text-align: center;
   font-weight: 300;
-  top: 30%;
-  color: black;
+  top: 40%;
+  font-family: 'MontserratAlternates';
+  color: white;
   letter-spacing: 5px;
 
   span {
@@ -31,16 +37,17 @@ export const MainImageTextWrapper = styled.div`
       (props.totalHeight + props.totalWidth * 0.8) / 2
     return props.totalHeight
       ? css`
-          font-size: ${averageValue * 0.06}px;
+          font-size: ${averageValue * 0.07}px;
         `
       : css`
-          font-size: 60px;
+          font-size: 50px;
         `
   }}
 `
 export const MainImageStaticText = styled.h3`
-  font-family: Rocher;
-  text-transform: uppercase;
+  font-family: MontserratAlternates;
+  color: white;
+  /* text-transform: uppercase; */
 
   display: inline-block;
 `
@@ -52,8 +59,8 @@ const blinkCursorKeyframe = keyframes`
 `
 
 export const MainImageDynamicText = styled.span`
-  color: #b7efe8;
-  font-family: MontserratAlternates;
+  color: rgb(238, 240, 124);
+  font-family: 'MontserratAlternates';
   &::after {
     content: '';
     position: absolute;
@@ -61,19 +68,36 @@ export const MainImageDynamicText = styled.span`
 
     height: 100px;
     width: 5px;
-    animation: ${blinkCursorKeyframe} 1s infinite;
-
+    animation: ${blinkCursorKeyframe} 0.5s infinite;
+    margin-top: 20px;
     ${(props: { totalHeight: number; totalWidth: number }) => {
       const averageValue: number =
         (props.totalHeight + props.totalWidth * 0.8) / 2
       return props.totalHeight
         ? css`
-            height: ${averageValue * 0.1}px;
+            height: ${averageValue * 0.07}px;
           `
         : css`
             font-size: 100px;
           `
     }}
+  }
+`
+
+export const MainImageWrapper = styled.div`
+  width: 100vw;
+  height: calc(100vh - 30px);
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 `
 export const MainImage = styled.img`

@@ -3,13 +3,8 @@ import MaplestoryLight from '../assets/font/MaplestoryLight.ttf'
 import MaplestoryBold from '../assets/font/MaplestoryBold.ttf'
 import JetBrainMono from '../assets/font/JetBrainsMono-Bold.ttf'
 import IBMPlexSans from '../assets/font/IBMPlexSansKR-Bold.ttf'
-import MontserratAlternates from '../assets/font/MontserratAlternates-Light.ttf'
+import MontserratAlternates from '../assets/font/MontserratAlternates-Regular.ttf'
 const fontStyle = css`
-  @font-face {
-    font-family: 'Rocher';
-    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-  }
-
   @font-face {
     font-family: 'MaplestoryLight';
     src: local('MaplestoryLight'), local('MaplestoryLight');
