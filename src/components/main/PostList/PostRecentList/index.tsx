@@ -1,7 +1,6 @@
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
-import { useRecoilValue } from 'recoil'
 
 import { navIconSet } from 'assets/svg/NavIconSet'
 import { PostListItemType } from 'types/postItem'
@@ -25,7 +24,7 @@ const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
 
   return (
     <S.RecentPostContainer>
-      <RecentPostHeader selectedCategory="최신 포스트" fontSize={60} />
+      <RecentPostHeader selectedCategory="최신 포스트 🎃" fontSize={60} />
       <S.RecentPostsWrapper>
         <S.FirstPostWrapper>
           <FirstPostItem {...frontmatter} link={slug} key={id} />

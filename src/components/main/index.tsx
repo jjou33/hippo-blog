@@ -8,6 +8,7 @@ import MainImage from 'components/main/MainImage'
 import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
 import RecommendCategoryList from './PostList/RecommendCategoryList'
+import ProjectDiaryList from './PostList/ProjectDiaryList'
 import { useSetRecoilState } from 'recoil'
 import { isCurrentOs } from 'states/currentOsState'
 import type { PostListItemType } from 'types/postItem'
@@ -47,6 +48,7 @@ const MainSection = ({
             />
           </>
         )}
+        <ProjectDiaryList />
       </S.ContentsWrapper>
     </S.MainContainer>
   )

@@ -17,7 +17,7 @@ const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
 
   return (
     <S.RecommendCategoryContainer>
-      <PostCategoryHeader selectedCategory="추천 카테고리" fontSize={60} />
+      <PostCategoryHeader selectedCategory="추천 카테고리 🙌" fontSize={60} />
       <S.RecommandCategoryWrapper>
         {RecommendCategoryList.map((categoryName, index) => {
           return (

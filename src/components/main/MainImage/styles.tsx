@@ -19,6 +19,9 @@ export const CommentTextWrapper = styled.div`
   font-size: 40px;
   padding-top: 15px;
   font-family: 'MontserratAlternates';
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `
 export const MainImageTextWrapper = styled.div`
   position: absolute;
@@ -47,6 +50,9 @@ export const MainImageTextWrapper = styled.div`
           font-size: 50px;
         `
   }}
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 `
 export const MainImageStaticText = styled.h3`
   font-family: MontserratAlternates;
@@ -80,6 +86,9 @@ export const MainImageDynamicText = styled.span`
       return props.totalHeight
         ? css`
             height: ${averageValue * 0.07}px;
+            @media screen and (max-width: 768px) {
+              margin-top: 5px;
+            }
           `
         : css`
             font-size: 100px;
@@ -102,6 +111,9 @@ export const MainImageWrapper = styled.div`
     content: '';
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    @media screen and (max-width: 768px) {
+      height: 60vh;
+    }
   }
 `
 export const MainImage = styled.img`
