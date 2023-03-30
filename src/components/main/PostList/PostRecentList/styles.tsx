@@ -46,18 +46,28 @@ export const PostSeqenceWrapper = styled.div`
         `}
 `
 
+export const ThumbnailWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`
+
 export const RecentPostContainer = styled.div`
   margin: 0 auto;
 `
 
 export const RecentPostsWrapper = styled.div`
   display: flex;
+  height: 900px;
 `
 
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
-  @media (max-width: 768px) {
+  width: 70%;
+  @media (max-width: 1400px) {
     margin: 0;
+    width: 100%;
   }
 `
 export const OtherPostWrapper = styled.div`
@@ -65,7 +75,7 @@ export const OtherPostWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  @media (max-width: 1100px) {
+  @media (max-width: 1400px) {
     display: none;
   }
 `
@@ -112,7 +122,6 @@ export const PostSequenceIcon = styled.img``
 export const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  width: 500px;
   height: 100%;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
@@ -129,7 +138,7 @@ export const PostItemWrapper = styled(Link)`
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 350px;
+  height: 400px;
   border-radius: 10px 10px 0 0;
 `
 
@@ -154,12 +163,12 @@ export const Title = styled.div`
   overflow-wrap: break-word;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 700;
 `
 
 export const Date = styled.div`
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 400;
   opacity: 0.7;
 `

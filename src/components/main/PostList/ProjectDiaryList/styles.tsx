@@ -17,13 +17,13 @@ export const ProjectDiaryItemWrapper = styled.div`
 `
 export const ProjectDiaryItemComtainer = styled.div`
   border: none;
-  height: 300px;
-  width: 500px;
+  height: 350px;
+  width: 550px;
   border-radius: 20px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  padding: 170px 0 0 20px;
+  padding: 200px 20px 0px 20px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;

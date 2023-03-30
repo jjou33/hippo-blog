@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1100px;
+  width: 1200px;
   margin: 40px auto;
   height: 100%;
   @media screen and (max-width: 768px) {
@@ -45,6 +45,16 @@ export const PostItemWrapper = styled(Link)`
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
 
   cursor: pointer;
+
+  ${(props: { type: string }) =>
+    props.type === 'main'
+      ? css`
+          // recent
+          height: 280px;
+        `
+      : css`
+          // category
+        `}
 `
 
 export const PostItemContent = styled.div`
@@ -114,7 +124,7 @@ export const ThumbnailWrapper = styled.div`
   padding: 10px;
 `
 export const ThumbnailImage = styled(GatsbyImage)`
-  height: 200px;
+  height: 260px;
   width: 200px;
   border-radius: 20px;
 

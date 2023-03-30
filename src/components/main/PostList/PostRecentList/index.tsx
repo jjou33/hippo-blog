@@ -51,7 +51,7 @@ const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
                       {...frontmatter}
                       link={slug}
                       key={id}
-                      type="recentPost"
+                      type="main"
                     />
                   </S.OtherItemContainer>
                 )

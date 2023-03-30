@@ -30,7 +30,7 @@ const PostCategoryItem = ({
     }
   })
   return (
-    <S.PostItemWrapper to={link}>
+    <S.PostItemWrapper to={link} type={type}>
       <S.PostItemContent>
         <S.Title>{title}</S.Title>
         <S.Date>{date}</S.Date>
