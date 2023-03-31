@@ -16,9 +16,9 @@ export const PostListWrapper = styled.div`
   margin: 0 auto;
   padding: 50px 50px 100px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
-    width: 80%;
+    width: 60%;
     padding: 50px 20px;
   }
   @media (max-width: 768px) {

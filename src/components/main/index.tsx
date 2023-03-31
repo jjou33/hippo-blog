@@ -48,7 +48,7 @@ const MainSection = ({
             />
           </>
         )}
-        <ProjectDiaryList />
+        <ProjectDiaryList imagePath={imagePath} />
       </S.ContentsWrapper>
     </S.MainContainer>
   )

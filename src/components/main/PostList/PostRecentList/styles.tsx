@@ -59,14 +59,14 @@ export const RecentPostContainer = styled.div`
 
 export const RecentPostsWrapper = styled.div`
   display: flex;
-  height: 900px;
+  height: 700px;
 `
 
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
-  width: 70%;
+  width: 600px;
   @media (max-width: 1400px) {
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
   }
 `
@@ -75,6 +75,7 @@ export const OtherPostWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  width: 50%;
   @media (max-width: 1400px) {
     display: none;
   }
@@ -87,10 +88,11 @@ export const OtherItemContainer = styled.div`
   border-radius: 10px;
   transform: scale(1);
   transition: transform 0.5s;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   &:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
-    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 
     ${PostSeqenceWrapper} {
       animation: ${shakingIcon} 0.5s ease;
@@ -124,13 +126,13 @@ export const PostItemWrapper = styled(Link)`
   flex-direction: column;
   height: 100%;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s box-shadow;
 
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   }
   @media screen and (max-width: 768px) {
     width: 400px;
@@ -138,7 +140,7 @@ export const PostItemWrapper = styled(Link)`
 `
 export const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: 10px 10px 0 0;
 `
 

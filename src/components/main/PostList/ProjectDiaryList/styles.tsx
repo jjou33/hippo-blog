@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-
+import { css } from '@emotion/react'
 export const ProjectDiaryContainer = styled.div`
   width: 100%;
 `
@@ -9,16 +9,35 @@ export const ProjectDiaryItemWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1400px) {
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
     margin: 0 auto;
   }
 `
+
+export const ItemTextWrapper = styled.div`
+  color: white;
+`
+export const ItemImageWrapper = styled.div``
+
 export const ProjectDiaryItemComtainer = styled.div`
+  ${(props: any) =>
+    css`
+      background: linear-gradient(
+          to bottom,
+          rgba(20, 20, 20, 0) 10%,
+          rgba(20, 20, 20, 0.1) 55%,
+          rgba(20, 20, 20, 0.6) 100%
+        ),
+        url(${props.imagePath});
+      background-size: cover;
+    `};
   border: none;
   height: 350px;
-  width: 550px;
+  margin: 50px;
+  position: relative;
+  width: calc((100vw - calc((100vw - 1200px))) / 2 - 20px);
   border-radius: 20px;
   display: flex;
   margin: 0 auto;

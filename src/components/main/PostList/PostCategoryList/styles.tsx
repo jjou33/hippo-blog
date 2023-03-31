@@ -50,7 +50,7 @@ export const PostItemWrapper = styled(Link)`
     props.type === 'main'
       ? css`
           // recent
-          height: 280px;
+          height: 210px;
         `
       : css`
           // category
@@ -124,7 +124,7 @@ export const ThumbnailWrapper = styled.div`
   padding: 10px;
 `
 export const ThumbnailImage = styled(GatsbyImage)`
-  height: 260px;
+  height: 200px;
   width: 200px;
   border-radius: 20px;
 
@@ -132,7 +132,7 @@ export const ThumbnailImage = styled(GatsbyImage)`
     props.type === 'main'
       ? css`
           // recent
-          @media screen and (max-width: 1500px) {
+          @media screen and (max-width: 1400px) {
             display: none;
           }
         `

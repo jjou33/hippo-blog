@@ -242,7 +242,7 @@ export const ScrollIndicator = styled.div`
  * 헤더 상단 Progress Bar 관련
  */
 export const ProgressBarContainer = styled.div`
-  position: sticky;
+  position: fixed;
   z-index: 1101;
   background: white;
   width: 100%;
