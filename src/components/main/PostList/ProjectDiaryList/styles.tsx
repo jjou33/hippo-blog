@@ -54,7 +54,7 @@ export const ProjectDiaryItemComtainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    width: 350px;
+    width: 250px;
     padding: 170px 0 0 10px;
   }
 `
