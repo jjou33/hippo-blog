@@ -672,10 +672,8 @@ export const navIconSet: IconPropsType = {
     ),
   },
   hambergerMenu: {
-    icon: () => (
+    icon: (width: string, height: string) => (
       <svg
-        width="auto"
-        height="auto"
         id="Layer_1"
         version="1.1"
         viewBox="0 0 32 32"
@@ -701,7 +699,7 @@ export const navIconSet: IconPropsType = {
         width={width}
         height={height}
         viewBox="0 0 24 24"
-        fill="none"
+        fill="#3981f3"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"

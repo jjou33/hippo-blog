@@ -13,21 +13,23 @@ const PostCategoryHeader = ({
   categoryCount,
 }: PostCategoryHeaderProps) => {
   return (
-    <S.PostCategoryHeaderContainer>
-      <S.PostCategoryIconWrapper size={60}>
-        {navIconSet['hambergerMenu'].icon(`${fontSize}`, `${fontSize}`)}
-      </S.PostCategoryIconWrapper>
-      <S.PostCategoryTitleWrapper fontSize={fontSize}>
-        {selectedCategory}
-      </S.PostCategoryTitleWrapper>
-      {categoryCount ? (
-        <S.PostCategoryCountWrapper fontSize={fontSize}>
-          {categoryCount}
-        </S.PostCategoryCountWrapper>
-      ) : (
-        ''
-      )}
-    </S.PostCategoryHeaderContainer>
+    <S.Temp>
+      <S.PostCategoryHeaderContainer>
+        <S.PostCategoryIconWrapper size={60}>
+          {navIconSet['hambergerMenu'].icon(`${fontSize}`, `${fontSize}`)}
+        </S.PostCategoryIconWrapper>
+        <S.PostCategoryTitleWrapper fontSize={fontSize}>
+          {selectedCategory}
+        </S.PostCategoryTitleWrapper>
+        {categoryCount ? (
+          <S.PostCategoryCountWrapper fontSize={fontSize}>
+            {categoryCount}
+          </S.PostCategoryCountWrapper>
+        ) : (
+          ''
+        )}
+      </S.PostCategoryHeaderContainer>
+    </S.Temp>
   )
 }
 

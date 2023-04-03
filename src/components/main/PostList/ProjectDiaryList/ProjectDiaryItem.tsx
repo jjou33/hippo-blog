@@ -1,8 +1,11 @@
 import * as S from './styles'
 
-const ProjectDiaryItem = ({ imagePath }) => {
+const ProjectDiaryItem = ({ imagepath, slug }) => {
   return (
-    <S.ProjectDiaryItemComtainer imagePath={imagePath}>
+    <S.ProjectDiaryItemComtainer
+      imagepath={imagepath}
+      to={`/?category=${slug}`}
+    >
       <S.ItemImageWrapper></S.ItemImageWrapper>
       <S.ItemTextWrapper>
         <S.Category>

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 export const ProjectDiaryContainer = styled.div`
@@ -15,14 +17,10 @@ export const ProjectDiaryItemWrapper = styled.div`
     margin: 0 auto;
   }
 `
-
-export const ItemTextWrapper = styled.div`
-  color: white;
-`
-export const ItemImageWrapper = styled.div``
-
-export const ProjectDiaryItemComtainer = styled.div`
-  ${(props: any) =>
+export const ProjectDiaryItemComtainer = styled(
+  ({ ...props }: GatsbyLinkProps) => <Link {...props} />,
+)`
+  ${(props: { imagepath: string }) =>
     css`
       background: linear-gradient(
           to bottom,
@@ -30,7 +28,7 @@ export const ProjectDiaryItemComtainer = styled.div`
           rgba(20, 20, 20, 0.1) 55%,
           rgba(20, 20, 20, 0.6) 100%
         ),
-        url(${props.imagePath});
+        url(${props.imagepath});
       background-size: cover;
     `};
   border: none;
@@ -58,6 +56,12 @@ export const ProjectDiaryItemComtainer = styled.div`
     padding: 170px 0 0 10px;
   }
 `
+
+export const ItemTextWrapper = styled.div`
+  color: white;
+`
+export const ItemImageWrapper = styled.div``
+
 export const Title = styled.p`
   font-size: 25px;
 `
@@ -87,3 +91,8 @@ export const Summary = styled.p`
   font-size: 20px;
   padding-top: 10px;
 `
+interface GatsbyLinkProps {
+  children: ReactNode
+  className?: string
+  to: string
+}

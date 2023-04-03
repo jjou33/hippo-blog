@@ -10,7 +10,7 @@ export const RecommandCategoryWrapper = styled.div`
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 80px;
+  grid-gap: 50px 200px;
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;

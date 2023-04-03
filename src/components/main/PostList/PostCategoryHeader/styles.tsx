@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes, css } from '@emotion/react'
+import { css } from '@emotion/react'
 
 export const PostCategoryHeaderContainer = styled.div`
   /* padding: 30px 30px 10px; */
@@ -7,11 +7,15 @@ export const PostCategoryHeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin: 80px;
+  margin: 80px 0;
   @media screen and (max-width: 768px) {
     gap: 10px;
-    margin: 50px;
+    margin: 50px 0;
   }
+`
+
+export const Temp = styled.div`
+  display: flex;
 `
 export const PostCategoryIconWrapper = styled.div`
   ${(props: { size: number }) =>
