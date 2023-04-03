@@ -6,9 +6,12 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: 1400px;
   margin: 40px auto;
   height: 100%;
+  @media screen and (max-width: 1400px) {
+    width: 1200px;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -77,12 +80,18 @@ export const Title = styled.div`
   -webkit-box-orient: vertical;
   font-size: 20px;
   font-weight: 700;
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 export const Date = styled.div`
   font-size: 14px;
   font-weight: 400;
   opacity: 0.7;
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
+  }
 `
 
 export const Category = styled.div`
@@ -115,6 +124,9 @@ export const Summary = styled.div`
   -webkit-box-orient: vertical;
   font-size: 16px;
   opacity: 0.8;
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+  }
 `
 
 export const ThumbnailWrapper = styled.div`
@@ -131,13 +143,13 @@ export const ThumbnailImage = styled(GatsbyImage)`
   ${(props: { type: string }) =>
     props.type === 'main'
       ? css`
-          // recent
-          @media screen and (max-width: 1400px) {
+          // Category
+          @media screen and (max-width: 768px) {
             display: none;
           }
         `
       : css`
-          // category
+          // recent
           @media screen and (max-width: 768px) {
             height: 100px;
             width: 100px;

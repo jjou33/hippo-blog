@@ -13,8 +13,8 @@ const PostCategoryHeader = ({
   categoryCount,
 }: PostCategoryHeaderProps) => {
   return (
-    <S.Temp>
-      <S.PostCategoryHeaderContainer>
+    <S.PostCategoryHeaderContainer>
+      <S.PostCategoryHeaderWrapper>
         <S.PostCategoryIconWrapper size={60}>
           {navIconSet['hambergerMenu'].icon(`${fontSize}`, `${fontSize}`)}
         </S.PostCategoryIconWrapper>
@@ -28,8 +28,8 @@ const PostCategoryHeader = ({
         ) : (
           ''
         )}
-      </S.PostCategoryHeaderContainer>
-    </S.Temp>
+      </S.PostCategoryHeaderWrapper>
+    </S.PostCategoryHeaderContainer>
   )
 }
 

@@ -54,7 +54,7 @@ export const ThumbnailWrapper = styled.div`
 `
 
 export const RecentPostContainer = styled.div`
-  margin: 0 auto;
+  width: 100%;
 `
 
 export const RecentPostsWrapper = styled.div`
@@ -64,10 +64,8 @@ export const RecentPostsWrapper = styled.div`
 
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
-  width: 600px;
   @media (max-width: 1400px) {
     margin: 0 auto;
-    width: 100%;
   }
 `
 export const OtherPostWrapper = styled.div`
@@ -135,7 +133,7 @@ export const PostItemWrapper = styled(Link)`
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   }
   @media screen and (max-width: 768px) {
-    width: 400px;
+    width: 100%;
   }
 `
 export const ThumbnailImage = styled(GatsbyImage)`

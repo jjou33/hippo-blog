@@ -2,7 +2,7 @@ import * as S from './styles'
 
 import PostCardItem from './PostCardItem'
 import Pagination from 'components/main/PostList/PageNation'
-
+import PostCategoryHeader from '../PostCategoryHeader'
 import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
 import useInfiniteScroll, {
@@ -25,6 +25,7 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
 
   return (
     <S.PostCardListContainer>
+      <PostCategoryHeader selectedCategory="ALL POSTS 🐳" fontSize={60} />
       <S.PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({

@@ -37,18 +37,11 @@ const MainSection = ({
       <S.ContentsWrapper>
         <MainIntro />
         <RecommendCategoryList imagePath={imagePath} />
-        {currentOsEnv === 'web' ? (
-          <>
-            <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath} />
-            <ProjectDiaryList
-              imagepath={imagePath}
-              allMarkdownRemark={allMarkdownRemark.edges}
-            />
-          </>
-        ) : (
-          <></>
-        )}
-        <PostCategoryHeader selectedCategory="ALL POSTS" fontSize={60} />
+        <RecentPost posts={allMarkdownRemark.edges} imagePath={imagePath} />
+        <ProjectDiaryList
+          imagepath={imagePath}
+          allMarkdownRemark={allMarkdownRemark.edges}
+        />
         <PostCardList selectedCategory="All" posts={allMarkdownRemark.edges} />
       </S.ContentsWrapper>
     </S.MainContainer>

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { ReactNode } from 'react'
 import { css } from '@emotion/react'
 export const RecommendCategoryContainer = styled.div`
-  margin: 0 auto;
+  width: 100%;
 `
 
 export const RecommandCategoryWrapper = styled.div`
@@ -11,9 +11,12 @@ export const RecommandCategoryWrapper = styled.div`
   justify-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px 200px;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
+    grid-gap: 10px;
   }
 `
 
@@ -44,6 +47,14 @@ export const RecommentCategoryItemWrapper = styled(
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
     color: #fff;
     transform: translateY(-7px);
+  }
+  @media screen and (max-width: 1200px) {
+    width: 120px;
+    height: 120px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 80px;
+    height: 80px;
   }
 `
 

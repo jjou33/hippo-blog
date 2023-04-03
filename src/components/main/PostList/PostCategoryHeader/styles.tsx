@@ -2,21 +2,23 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
 export const PostCategoryHeaderContainer = styled.div`
-  /* padding: 30px 30px 10px; */
+  display: flex;
+  border-bottom: 1px solid;
+  margin: 50px 0;
+`
+
+export const PostCategoryHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin: 80px 0;
+  margin: 25px 0;
   @media screen and (max-width: 768px) {
     gap: 10px;
-    margin: 50px 0;
+    margin: 15px 0;
   }
 `
 
-export const Temp = styled.div`
-  display: flex;
-`
 export const PostCategoryIconWrapper = styled.div`
   ${(props: { size: number }) =>
     props.size
