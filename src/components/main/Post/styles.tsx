@@ -80,7 +80,6 @@ export const PostData = styled.div`
   margin: 10px auto;
   font-size: 18px;
   text-align: center;
-  font-family: JetBrainsMono;
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -148,7 +147,6 @@ export const MarkdownRenderer = styled.div`
   p {
     padding: 10px 0;
     font-size: 18px;
-    font-family: JetBrainsMono;
     strong {
       color: #006dd7;
     }
@@ -257,7 +255,6 @@ export const MarkdownRenderer = styled.div`
   code[class*='language-'],
   pre[class*='language-'] {
     span {
-      font-family: JetBrainsMono;
     }
     tab-size: 2;
     font-size: 15px;

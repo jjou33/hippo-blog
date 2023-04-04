@@ -56,7 +56,9 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
   return (
     <S.PostCategoryContainer>
       <PostCategoryHeader
-        selectedCategory={categoryHeader}
+        selectedCategory={
+          selectedCategory === 'All' ? 'ALL POST' : categoryHeader
+        }
         fontSize={50}
         categoryCount={categoryCount[selectedCategory]}
       />

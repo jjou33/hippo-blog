@@ -39,6 +39,7 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
           ),
         )}
       </S.PostListWrapper>
+
       <Pagination
         total={postList.length}
         limit={limit}

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 
 const Reset = css`
   html {
-    font-family: 'JetBrainsMono', Roboto, 'Noto Sans KR', NanumGothic,
+    font-family: 'IBMPlexSansBold', Roboto, 'Noto Sans KR', NanumGothic,
       'Malgun Gothic', sans-serif;
     font-size: 14px;
   }

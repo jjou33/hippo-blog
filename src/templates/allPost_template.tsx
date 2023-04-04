@@ -1,13 +1,10 @@
-import { getImagePathSetList } from 'utils/Image'
-
-import { graphql } from 'gatsby'
-import { PostListItemType } from 'types/postItem'
-import { getSelectedCategory } from 'utils/Category'
-
-import PostCategory from 'components/main/PostList/PostCategoryList'
+import React from 'react'
 import Template from 'components/layout/Template'
-import MainSection from 'components/main'
+import PostCategoryList from 'components/main/PostList/PostCategoryList'
+import { getImagePathSetList } from 'utils/Image'
+import { graphql } from 'gatsby'
 
+import type { PostListItemType } from 'types/postItem'
 interface IndexPageProps {
   location: Location
   data: {
@@ -30,47 +27,33 @@ interface IndexPageProps {
     }
   }
 }
-
-const IndexPage = ({
+const AllPostTemplate = ({
   location,
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark,
+    allMarkdownRemark: { edges },
     allFile,
   },
 }: IndexPageProps) => {
-  const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
   return (
     <Template
+      isPost={true}
       title={title}
       description={description}
       url={siteUrl}
       image={imagePath['profile-image']}
       location={location}
     >
-      {selectedCategory === 'root' ? (
-        <MainSection
-          mainSectionProp={{
-            imagePath,
-            allMarkdownRemark,
-          }}
-        />
-      ) : (
-        <PostCategory
-          selectedCategory={selectedCategory}
-          posts={allMarkdownRemark.edges}
-        />
-      )}
+      <PostCategoryList selectedCategory="All" posts={edges} />
     </Template>
   )
 }
 
-export default IndexPage
-
-export const getMetaData = graphql`
+export default AllPostTemplate
+export const PostListMetaData = graphql`
   query getMetaData {
     site {
       siteMetadata {
@@ -97,11 +80,6 @@ export const getMetaData = graphql`
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 768, height: 400)
-              }
-            }
-            categoryIcon {
-              childImageSharp {
-                gatsbyImageData(width: 10, height: 10)
               }
             }
           }

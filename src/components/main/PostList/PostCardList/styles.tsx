@@ -12,9 +12,8 @@ export const PostListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
-  /* width: 1200px; */
   margin: 0 auto;
-  padding: 50px 50px 100px;
+  padding: 0px 50px 100px;
 
   @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
