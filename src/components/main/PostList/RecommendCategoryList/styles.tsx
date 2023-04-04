@@ -9,14 +9,10 @@ export const RecommendCategoryContainer = styled.div`
 export const RecommandCategoryWrapper = styled.div`
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px 200px;
-  @media screen and (max-width: 1200px) {
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 50px auto;
+  @media screen and (max-width: 1300px) {
     grid-template-columns: repeat(3, 1fr);
-  }
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
   }
 `
 

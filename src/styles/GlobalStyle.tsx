@@ -12,7 +12,7 @@ const defaultStyle = css`
     box-sizing: border-box;
 
     shape-rendering: auto;
-    font-family: IBMPlexSans;
+    font-family: IBMPlexSansBold;
   }
   html,
   body {

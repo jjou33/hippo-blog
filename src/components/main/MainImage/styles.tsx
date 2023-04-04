@@ -76,7 +76,7 @@ export const MainImageDynamicText = styled.span`
     position: absolute;
     background-color: #e65454;
 
-    height: 100px;
+    /* height: 100%; */
     width: 5px;
     animation: ${blinkCursorKeyframe} 0.5s infinite;
     margin-top: 20px;
@@ -91,6 +91,7 @@ export const MainImageDynamicText = styled.span`
             }
           `
         : css`
+            height: 100px;
             font-size: 100px;
           `
     }}

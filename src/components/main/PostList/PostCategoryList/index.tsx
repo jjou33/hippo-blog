@@ -1,4 +1,3 @@
-import React from 'react'
 import * as S from './styles'
 import { useState, useEffect } from 'react'
 import { PostListItemType } from 'types/postItem'

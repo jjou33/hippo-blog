@@ -60,6 +60,9 @@ export const RecentPostContainer = styled.div`
 export const RecentPostsWrapper = styled.div`
   display: flex;
   height: 700px;
+  @media screen and (max-width: 768px) {
+    height: 500px;
+  }
 `
 
 export const FirstPostWrapper = styled.div`

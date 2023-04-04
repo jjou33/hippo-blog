@@ -15,9 +15,13 @@ export const ContentsWrapper = styled.div`
   flex: 4;
   align-items: center;
   margin: 50px auto;
-  max-width: 1400px;
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1900px) {
     margin: 50px 100px;
+    max-width: 1500px;
+  }
+  @media screen and (max-width: 1300px) {
+    margin: 50px 100px;
+    max-width: 1200px;
   }
   @media screen and (max-width: 768px) {
     margin: 50px 20px;

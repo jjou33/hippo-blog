@@ -17,7 +17,7 @@ export type PostHeadInfoProps = {
 
 const PostHeadInfo = ({ title, date, categories }: PostHeadInfoProps) => {
   const goBackPage = () => window.history.back()
-
+  console.log('cate : ', categories)
   return (
     <S.PostHeadInfoWrapper>
       <S.BadgeWrapper>

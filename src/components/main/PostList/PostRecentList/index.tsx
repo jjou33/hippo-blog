@@ -10,10 +10,9 @@ import * as S from './styles'
 
 interface RecentPostPropsType {
   posts: PostListItemType[]
-  imagePath: ImagePathPropsType
 }
 
-const RecentPosts = ({ posts, imagePath }: RecentPostPropsType) => {
+const RecentPosts = ({ posts }: RecentPostPropsType) => {
   const {
     node: {
       id,

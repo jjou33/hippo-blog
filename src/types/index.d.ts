@@ -15,3 +15,4 @@ declare namespace JSX {
 declare module '*.gltf'
 declare module '*.png'
 declare module '*.ttf'
+declare module '*.woff2'

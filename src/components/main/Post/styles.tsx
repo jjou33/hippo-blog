@@ -135,7 +135,7 @@ export const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 768px;
+  width: 1000px;
   margin: 45px auto;
   /* padding: 100px 0; */
   word-break: break-all;
@@ -195,6 +195,12 @@ export const MarkdownRenderer = styled.div`
 
   h4 {
     font-size: 25px;
+    &::before {
+      content: '';
+      padding-left: 5px;
+      margin-right: 15px;
+      background: #eccb37;
+    }
   }
 
   h5 {
@@ -234,9 +240,9 @@ export const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 20px 50px;
+    margin: 20px 0px;
     /* padding: 15px; */
-
+    border-radius: 10px;
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
       border-radius: 3px;
