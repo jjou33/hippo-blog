@@ -60,6 +60,8 @@ export const RecentPostContainer = styled.div`
 export const RecentPostsWrapper = styled.div`
   display: flex;
   height: 700px;
+  width: 90%;
+  margin: 0 auto;
   @media screen and (max-width: 768px) {
     height: 500px;
   }
@@ -103,7 +105,6 @@ export const OtherItemContainer = styled.div`
 export const PostItemContainer = styled.div`
   height: 100%;
 
-  margin: 0 auto;
   border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: #e5e7eb;
@@ -168,12 +169,18 @@ export const Title = styled.div`
   -webkit-box-orient: vertical;
   font-size: 30px;
   font-weight: 700;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `
 
 export const Date = styled.div`
   font-size: 20px;
   font-weight: 400;
   opacity: 0.7;
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 export const Category = styled.div`
@@ -203,4 +210,7 @@ export const Summary = styled.div`
   -webkit-box-orient: vertical;
   font-size: 16px;
   opacity: 0.8;
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+  }
 `

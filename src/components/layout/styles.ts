@@ -50,38 +50,9 @@ export const HeaderContainer = styled.header`
   left: 0;
   z-index: 1100;
   width: 100vw;
-
   height: 50px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
-  ${(props: { scroll: number; isMainPage: boolean }) => {
-    if (props.isMainPage && props.scroll > 22) {
-      return css`
-        width: 1400px;
-        margin: 5px calc((100vw - 1400px) / 2);
-        height: 65px;
-        border-radius: 20px;
-        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-        animation: ${bounceFrame} 0.5s;
-        animation-direction: alternate;
-        animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
-        animation-iteration-count: 2;
-      `
-    } else {
-      return css``
-    }
-  }}
-  @media screen and (max-width: 1400px) {
-    width: 80vw;
-    margin: 5px calc(20vw / 2);
-    font-size: 15px;
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 100vw;
-    margin: 0;
-    height: 50px;
-  }
 `
 
 export const HeaderItemTitle = styled(Link)`

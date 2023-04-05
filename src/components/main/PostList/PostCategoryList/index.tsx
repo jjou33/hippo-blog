@@ -4,7 +4,7 @@ import { PostListItemType } from 'types/postItem'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-
+import Pagination from '../PageNation'
 import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
 import PostCategoryItem from './PostCategoryItem'
 
@@ -85,6 +85,12 @@ const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
           ),
         )}
       </S.PostCateListWrapper>
+      <Pagination
+        total={postList.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </S.PostCategoryContainer>
   )
 }

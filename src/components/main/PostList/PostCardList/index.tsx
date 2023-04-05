@@ -5,6 +5,7 @@ import { navigate } from 'gatsby'
 import PostCategoryHeader from '../PostCategoryHeader'
 import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
+
 import useInfiniteScroll, {
   useInfiniteScrollType,
 } from 'hooks/useInfiniteScroll'
@@ -43,12 +44,6 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
         )}
       </S.PostListWrapper>
       <S.Button onClick={goToAllPost}>더 보기</S.Button>
-      {/* <Pagination
-        total={postList.length}
-        limit={limit}
-        page={page}
-        setPage={setPage}
-      /> */}
     </S.PostCardListContainer>
   )
 }

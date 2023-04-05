@@ -32,6 +32,12 @@ interface PostItemContainerPropsType {
 }
 
 export const PostItemContainer = styled.div`
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  }
   ${(props: PostItemContainerPropsType) =>
     props.inview
       ? css`
@@ -47,6 +53,7 @@ export const PostItemContainer = styled.div`
 `
 export const PostItemWrapper = styled(Link)`
   display: flex;
+  height: 100%;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
