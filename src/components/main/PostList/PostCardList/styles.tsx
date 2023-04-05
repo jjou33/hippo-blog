@@ -13,7 +13,7 @@ export const PostListWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   margin: 0 auto;
-  padding: 0px 50px 100px;
+  padding: 0px 50px 50px;
 
   @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
@@ -123,4 +123,28 @@ export const Summary = styled.div`
   -webkit-box-orient: vertical;
   font-size: 16px;
   opacity: 0.8;
+`
+
+export const Button = styled.button`
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+  border: 1px solid;
+  font-size: 20px;
+  color: white;
+  font-weight: 800;
+  background: #ff7b5d;
+  transform: scale(1);
+  transition: transform 0.5s;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
 `

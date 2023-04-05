@@ -18,6 +18,9 @@ export const Container = styled.div`
 
   /* flex: 1 0 auto; */
 `
+export const Temp = styled.div`
+  display: flex;
+`
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,7 +37,11 @@ interface ScrollStateIconType {
   scroll: number
 }
 
-export const HeaderContainer = styled.nav`
+export const bounceFrame = keyframes`
+  from {transform: translate3d(0, 0, 0);}
+  to {transform: translate3d(0, 15px, 0);}
+`
+export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background: rgba(255, 255, 255, 0.1);
@@ -42,10 +49,39 @@ export const HeaderContainer = styled.nav`
   backdrop-filter: saturate(180%) blur(50px);
   left: 0;
   z-index: 1100;
-  width: 100%;
+  width: 100vw;
+
   height: 50px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
+  ${(props: { scroll: number; isMainPage: boolean }) => {
+    if (props.isMainPage && props.scroll > 22) {
+      return css`
+        width: 1400px;
+        margin: 5px calc((100vw - 1400px) / 2);
+        height: 65px;
+        border-radius: 20px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+        animation: ${bounceFrame} 0.5s;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+        animation-iteration-count: 2;
+      `
+    } else {
+      return css``
+    }
+  }}
+  @media screen and (max-width: 1400px) {
+    width: 80vw;
+    margin: 5px calc(20vw / 2);
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    margin: 0;
+    height: 50px;
+  }
 `
 
 export const HeaderItemTitle = styled(Link)`
@@ -77,10 +113,12 @@ export const HeaderWrapper = styled.div`
   }
 
   ${HeaderItemTitle} {
-    /* margin-right: auto; */
     margin: auto;
-    font-size: 1.4rem;
+    font-size: 30px;
     font-weight: bold;
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
   }
 `
 
@@ -251,13 +289,11 @@ export const ProgressBarContainer = styled.div`
   left: 0;
   opacity: 0.5;
 `
-interface ProgressBarPropsType {
-  scroll: number
-}
+
 export const ProgressBar = styled.div`
   background: red;
   transform-origin: top left;
-  width: ${(props: ProgressBarPropsType) => props.scroll};
+  width: ${(props: { scroll: number }) => `${props.scroll}%`};
   height: 3px;
   opacity: 1;
   z-index: 1100;

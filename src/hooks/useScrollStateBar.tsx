@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const useScrollStateBar = () => {
-  const [scroll, setScroll] = useState('')
+  const [scroll, setScroll] = useState(0)
 
   useEffect(() => {
     const progressBarHandler = () => {
@@ -10,7 +10,7 @@ export const useScrollStateBar = () => {
       const winddowHeight =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight
-      const scroll = `${(totalScroll / winddowHeight) * 100}%`
+      const scroll = (totalScroll / winddowHeight) * 100
 
       setScroll(scroll)
     }

@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 import PostCardItem from './PostCardItem'
-import Pagination from 'components/main/PostList/PageNation'
+import { navigate } from 'gatsby'
 import PostCategoryHeader from '../PostCategoryHeader'
 import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
@@ -23,6 +23,9 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
     posts,
   )
 
+  const goToAllPost = (): void => {
+    navigate('/AllPost')
+  }
   return (
     <S.PostCardListContainer>
       <PostCategoryHeader selectedCategory="ALL POSTS 🐳" fontSize={60} />
@@ -39,13 +42,13 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
           ),
         )}
       </S.PostListWrapper>
-
-      <Pagination
+      <S.Button onClick={goToAllPost}>더 보기</S.Button>
+      {/* <Pagination
         total={postList.length}
         limit={limit}
         page={page}
         setPage={setPage}
-      />
+      /> */}
     </S.PostCardListContainer>
   )
 }

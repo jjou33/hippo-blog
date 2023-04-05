@@ -19,7 +19,7 @@ export const CategoryListContainer = styled.div`
   z-index: 1010;
 `
 
-export const CategoryListWrapper = styled.div`
+export const CategoryListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   margin: 10px 0 0 0;
@@ -133,7 +133,7 @@ export const CategoryItemOpenArrow = styled.div`
         `};
 `
 
-export const CategoryTitleContainer = styled.div`
+export const CategoryTitleContainer = styled.li`
   position: relative;
   display: flex;
   gap: 5px;
@@ -156,13 +156,6 @@ export const CategoryTitleContainer = styled.div`
     transform-origin: right;
     transition: transform 0.5s;
   }
-
-  ${(props: IsOpenPropsType) =>
-    props.isOpen
-      ? css`
-          background: #dcfbed;
-        `
-      : css``}
 
   &:hover {
     background: #dcfbed;
