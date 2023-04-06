@@ -67,6 +67,7 @@ export const HeaderMenuButton = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 export const HeaderWrapper = styled.div`
   display: flex;

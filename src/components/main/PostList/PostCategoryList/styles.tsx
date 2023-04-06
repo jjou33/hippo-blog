@@ -6,12 +6,10 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 export const PostCategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1400px;
+  width: 1100px;
   margin: 40px auto;
   height: 100%;
-  @media screen and (max-width: 1400px) {
-    width: 1200px;
-  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -34,10 +32,11 @@ export const PostItemContainer = styled.div`
   border-radius: 10px;
   transform: scale(1);
   transition: transform 0.5s;
+  box-shadow: 0px 9px 10px -2px rgb(0 0 0 / 10%);
   &:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
-    box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
+    box-shadow: 0px 12px 15px 0px rgb(0 0 0 / 20%);
   }
 `
 
@@ -136,8 +135,8 @@ export const ThumbnailWrapper = styled.div`
   padding: 10px;
 `
 export const ThumbnailImage = styled(GatsbyImage)`
-  height: 200px;
-  width: 200px;
+  height: 190px;
+  width: 190px;
   border-radius: 20px;
 
   ${(props: { type: string }) =>

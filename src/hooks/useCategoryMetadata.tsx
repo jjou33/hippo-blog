@@ -10,12 +10,7 @@ export const useCategoryMetadata = () => {
   const data: CategoryMetadataType['data'] = useStaticQuery(
     graphql`
       query getCategoryList {
-        allMarkdownRemark(
-          sort: {
-            order: ASC
-            fields: [frontmatter___domain, frontmatter___sideTitle]
-          }
-        ) {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
               id
@@ -32,7 +27,7 @@ export const useCategoryMetadata = () => {
                 sideTitle
                 thumbnail {
                   childImageSharp {
-                    gatsbyImageData(width: 768, height: 400)
+                    gatsbyImageData(width: 200, height: 200)
                   }
                 }
                 categoryIcon {

@@ -6,6 +6,7 @@ import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
 import RecommendCategoryList from './PostList/RecommendCategoryList'
 import ProjectDiaryList from './PostList/ProjectDiaryList'
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import type { PostListItemType } from 'types/postItem'
 import type { ImagePathPropsType } from 'types/image/index'
 
@@ -21,13 +22,18 @@ interface MainSectionProps {
 const MainSection = ({
   mainSectionProp: { imagePath, allMarkdownRemark },
 }: MainSectionProps) => {
+  const {
+    data: {
+      allMarkdownRemark: { edges },
+    },
+  } = useCategoryMetadata()
   return (
     <S.MainContainer>
       <MainImage imagePath={imagePath} />
       <S.ContentsWrapper>
         <MainIntro />
         <RecommendCategoryList imagePath={imagePath} />
-        <RecentPost posts={allMarkdownRemark.edges} />
+        <RecentPost posts={edges} widePost={allMarkdownRemark.edges} />
         <ProjectDiaryList imagePath={imagePath} />
         <PostCardList selectedCategory="All" posts={allMarkdownRemark.edges} />
       </S.ContentsWrapper>

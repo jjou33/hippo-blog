@@ -143,6 +143,10 @@ export const MarkdownRenderer = styled.div`
   line-height: 1.8;
   font-size: 25px;
 
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select:text
   // Apply Padding Attribute to All Elements
   p {
     padding: 10px 0;

@@ -41,7 +41,7 @@ export const ProjectDiaryItemComtainer = styled(
   margin: 0 auto;
   flex-direction: column;
   padding: 200px 20px 0px 20px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 9px 10px -2px rgb(0 0 0 / 10%);
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;

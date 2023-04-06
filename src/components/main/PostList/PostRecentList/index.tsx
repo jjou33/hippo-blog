@@ -1,18 +1,18 @@
+import * as S from './styles'
+
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
-
+import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import { navIconSet } from 'assets/svg/NavIconSet'
 import { PostListItemType } from 'types/postItem'
 
-import type { ImagePathPropsType } from 'types/image/imagePathType'
-import * as S from './styles'
-
 interface RecentPostPropsType {
   posts: PostListItemType[]
+  widePost: PostListItemType[]
 }
 
-const RecentPosts = ({ posts }: RecentPostPropsType) => {
+const RecentPosts = ({ posts, widePost }: RecentPostPropsType) => {
   const {
     node: {
       id,
@@ -26,7 +26,11 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
       <RecentPostHeader selectedCategory="최신 포스트 🎃" fontSize={60} />
       <S.RecentPostsWrapper>
         <S.FirstPostWrapper>
-          <FirstPostItem {...frontmatter} link={slug} key={id} />
+          <FirstPostItem
+            {...widePost[0].node.frontmatter}
+            link={widePost[0].node.fields.slug}
+            key={widePost[0].node.id}
+          />
         </S.FirstPostWrapper>
         <S.OtherPostWrapper>
           {posts.map(
@@ -40,6 +44,9 @@ const RecentPosts = ({ posts }: RecentPostPropsType) => {
               }: PostListItemType,
               index,
             ) => {
+              console.log('index : ', index)
+              console.log({ ...frontmatter })
+
               if (index > 0 && index < 4) {
                 return (
                   <S.OtherItemContainer key={index}>

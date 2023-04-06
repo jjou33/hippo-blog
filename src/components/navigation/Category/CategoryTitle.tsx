@@ -1,9 +1,10 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { useCategoryState } from 'hooks/useCategoryOpenState'
-import { getSvgJSXElement } from 'utils/Image'
+// import { getSvgJSXElement } from 'utils/Image'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
-
+import { navigationIcon } from 'assets/svg/navigationIcon'
+import { getSvgJSXElement } from 'utils/Image/getNavigationIcon'
 import * as S from './styles'
 /**
  * @description CategoryTitle 타입
@@ -38,6 +39,7 @@ const CategoryTitle = ({
       }, 250)
     }
   }, [isOpen])
+  console.log('cate : ', categoryItem)
 
   return (
     <>

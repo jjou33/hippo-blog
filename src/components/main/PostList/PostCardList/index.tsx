@@ -24,8 +24,8 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
     posts,
   )
 
-  const goToAllPost = (): void => {
-    navigate('/AllPost')
+  const goToAllPost = async (): Promise<void> => {
+    await navigate('/AllPost')
   }
   return (
     <S.PostCardListContainer>

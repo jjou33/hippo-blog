@@ -11,7 +11,7 @@ export const PostCardListContainer = styled.div`
 export const PostListWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  grid-gap: 50px;
   margin: 0 auto;
   padding: 0px 50px 50px;
 
@@ -33,11 +33,14 @@ interface PostItemContainerPropsType {
 
 export const PostItemContainer = styled.div`
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  border-radius: 20px;
   &:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   }
+
   ${(props: PostItemContainerPropsType) =>
     props.inview
       ? css`
@@ -50,12 +53,15 @@ export const PostItemContainer = styled.div`
           transform: scale(85%);
           transition: 2s;
         `}
+  @media screen and (max-width: 768px) {
+    height: 350px;
+  }
 `
 export const PostItemWrapper = styled(Link)`
   display: flex;
   height: 100%;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 0 8px rgba(151, 234, 219, 0.15);
   transition: 0.3s box-shadow;
 
@@ -68,8 +74,11 @@ export const PostItemWrapper = styled(Link)`
 
 export const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 200px;
+  height: 250px;
   border-radius: 10px 10px 0 0;
+  @media screen and (max-width: 768px) {
+    height: 200px;
+  }
 `
 
 export const PostItemContent = styled.div`
@@ -78,7 +87,7 @@ export const PostItemContent = styled.div`
   flex-direction: column;
   padding: 15px;
   background-color: var(--white-color);
-  border-radius: 10px;
+  border-radius: 0 0 20px 20px;
   border-width: 0px 0.5px 0.5px 0.5px;
   border-style: solid;
   border-color: #e5e7eb;

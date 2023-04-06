@@ -14,7 +14,6 @@ import useInfiniteScroll, {
 
 interface PostCategoryPropsType {
   selectedCategory: string
-  posts: PostListItemType[]
 }
 
 interface NodeFormatterType {
@@ -24,16 +23,21 @@ interface NodeFormatterType {
     }
   }
 }
-const PostCategory = ({ selectedCategory, posts }: PostCategoryPropsType) => {
+const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
   const limit = 6
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
   const setState = useSetRecoilState(menuOpenState)
-  const { categoryCount } = useCategoryMetadata()
+  const {
+    categoryCount,
+    data: {
+      allMarkdownRemark: { edges },
+    },
+  } = useCategoryMetadata()
 
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
     selectedCategory,
-    posts,
+    edges,
   )
 
   const setCategoryFormat = (

@@ -18,6 +18,10 @@ const defaultStyle = css`
   body {
     max-width: 100%;
     overflow-x: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 `
 

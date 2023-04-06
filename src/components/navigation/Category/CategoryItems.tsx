@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/category'
-import { getSvgJSXElement } from 'utils/Image'
-
+import { getSvgJSXElement } from 'utils/Image/getNavigationIcon'
 import CounterBadge from 'components/common/Badges/Badge'
 
 import * as S from './styles'
@@ -19,6 +18,7 @@ const CategoryItems = ({
   return (
     <S.CategoryItemContainer>
       {categoryList.map((categoryItem, idx): ReactNode => {
+        console.log('get ', getSvgJSXElement(categoryItem, '25'))
         return (
           <S.CategoryItemWrapper key={idx}>
             <span></span>

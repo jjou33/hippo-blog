@@ -69,8 +69,10 @@ export const RecentPostsWrapper = styled.div`
 
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
+  width: 50%;
   @media (max-width: 1400px) {
     margin: 0 auto;
+    width: 100%;
   }
 `
 export const OtherPostWrapper = styled.div`

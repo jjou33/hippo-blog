@@ -96,7 +96,7 @@ export const getMetaData = graphql`
             sideTitle
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
+                gatsbyImageData(width: 500, height: 500)
               }
             }
             categoryIcon {

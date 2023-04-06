@@ -32,26 +32,13 @@ export const MainImageTextWrapper = styled.div`
   font-family: 'MontserratAlternates';
   color: white;
   letter-spacing: 5px;
+  font-size: 60px;
+  background: -webkit-linear-gradient(white, #38495a);
+  -webkit-background-clip: text;
+  background-clip: text;
 
-  span {
-    background: -webkit-linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  ${(props: { totalHeight: number; totalWidth: number }) => {
-    const averageValue: number =
-      (props.totalHeight + props.totalWidth * 0.8) / 2
-    return props.totalHeight
-      ? css`
-          font-size: ${averageValue * 0.07}px;
-        `
-      : css`
-          font-size: 50px;
-        `
-  }}
   @media screen and (max-width: 768px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `
 export const MainImageStaticText = styled.h3`
@@ -76,25 +63,14 @@ export const MainImageDynamicText = styled.span`
     position: absolute;
     background-color: #e65454;
 
-    /* height: 100%; */
+    height: 55px;
     width: 5px;
     animation: ${blinkCursorKeyframe} 0.5s infinite;
     margin-top: 20px;
-    ${(props: { totalHeight: number; totalWidth: number }) => {
-      const averageValue: number =
-        (props.totalHeight + props.totalWidth * 0.8) / 2
-      return props.totalHeight
-        ? css`
-            height: ${averageValue * 0.07}px;
-            @media screen and (max-width: 768px) {
-              margin-top: 5px;
-            }
-          `
-        : css`
-            height: 100px;
-            font-size: 100px;
-          `
-    }}
+    @media screen and (max-width: 768px) {
+      height: 30px;
+      margin-top: 0;
+    }
   }
 `
 

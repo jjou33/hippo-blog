@@ -11,11 +11,11 @@ const ProjectDiaryList = ({ imagePath }: ImagePathPropsType) => {
       <S.ProjectDiaryItemWrapper>
         <ProjectDiaryItem
           imagepath={imagePath['vueProject']}
-          slug="vueProject"
+          slug="VueProject"
         />
         <ProjectDiaryItem
           imagepath={imagePath['reactProject']}
-          slug="reactProject"
+          slug="ReactProject"
         />
       </S.ProjectDiaryItemWrapper>
     </S.ProjectDiaryContainer>
