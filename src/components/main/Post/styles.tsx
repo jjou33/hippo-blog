@@ -166,13 +166,13 @@ export const MarkdownRenderer = styled.div`
   h4,
   h5 {
     /* font-weight: 800; */
-    margin: 20px 0 0 0;
+    margin: 20px 0 20px 0;
   }
 
   * + h1,
   * + h2,
   * + h3 {
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
 
   hr + h1,
@@ -184,31 +184,61 @@ export const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 45px;
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   h4 {
-    font-size: 25px;
+    font-size: 30px;
     &::before {
-      content: '';
+      content: '🖌️';
       padding-left: 5px;
       margin-right: 15px;
-      background: #eccb37;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin: 10px 0 0 0;
     }
   }
 
   h5 {
     font-size: 20px;
   }
-
+  hr {
+    border: 1px solid #000000;
+    height: 3px;
+    position: relative;
+    border: none;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      left: 0;
+      display: block;
+      clear: both;
+      background-color: #73c7f1;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      right: 0;
+      display: block;
+      clear: both;
+      background-color: #e2dfdf;
+    }
+    /* background: linear-gradient(to left, red, blue); */
+    margin-bottom: 20px;
+  }
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
@@ -229,10 +259,6 @@ export const MarkdownRenderer = styled.div`
   }
 
   // Adjust Horizontal Rule style
-  hr {
-    border: 1px solid #000000;
-    margin: 20px 0;
-  }
 
   // Adjust Link Element Style
   a {
@@ -242,17 +268,41 @@ export const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 20px 0px;
-    /* padding: 15px; */
-    border-radius: 10px;
+    margin: 35px 0px;
+
+    background: #282c34;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
+    border-radius: 0 0 10px 10px;
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
       border-radius: 3px;
     }
-    background: #192257;
-    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
-    @media (max-width: 768px) {
-      margin: 20px auto;
+  }
+
+  .gatsby-highlight {
+    position: relative;
+    &::before {
+      content: '';
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      width: 100%;
+      height: 35px;
+      left: 0;
+      display: block;
+      clear: both;
+      background-color: #3d3f44;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      margin: 10px 0 0 10px;
+      top: 0;
+      border-radius: 50%;
+      display: block;
+      clear: both;
+      background-color: red;
     }
   }
 
@@ -293,10 +343,6 @@ export const MarkdownRenderer = styled.div`
 
     img {
       width: 100%;
-    }
-
-    hr {
-      margin: 10px 0;
     }
   }
 `

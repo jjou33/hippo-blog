@@ -18,6 +18,12 @@ const fontStyle = css`
     src: url(${MontserratAlternates}) format('truetype');
   }
   @font-face {
+    font-family: 'MaplestoryLight';
+    src: local('MaplestoryLight'), local('MaplestoryLight');
+    font-style: normal;
+    src: url(${MaplestoryLight}) format('truetype');
+  }
+  @font-face {
     font-family: 'NanumSquareNeo';
     src: local('NanumSquareNeo');
     font-style: normal;

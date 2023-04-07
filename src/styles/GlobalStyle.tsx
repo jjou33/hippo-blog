@@ -14,6 +14,14 @@ const defaultStyle = css`
     shape-rendering: auto;
     font-family: NanumSquareNeo;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: MaplestoryLight;
+  }
   html,
   body {
     max-width: 100%;

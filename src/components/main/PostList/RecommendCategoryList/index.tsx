@@ -3,13 +3,14 @@ import * as S from './styles'
 
 import PostCategoryHeader from '../PostCategoryHeader'
 import type { ImagePathPropsType } from 'types/image/imagePathType'
+
 const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
   const RecommendCategoryList: string[] = [
-    'Basic',
+    'Javascript',
+    'react',
+    'vue',
     'vue3',
-    'vue3',
-    'vue3',
-    'vue3',
+    'Algorithm',
     'vue3',
     'vue3',
     'vue3',
@@ -28,6 +29,9 @@ const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
               <S.RecommendCategoryImg
                 imagePath={imagePath[`${categoryName}`]}
               />
+              <S.RecommendCategoryTitle>
+                {categoryName.toUpperCase()}
+              </S.RecommendCategoryTitle>
             </S.RecommentCategoryItemWrapper>
           )
         })}
