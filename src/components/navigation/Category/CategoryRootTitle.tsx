@@ -16,11 +16,13 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
       <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '28')}</S.CategoryRootIcon>
       <span></span>
       <S.CategoryRootTitle to={'/'}>
-        <ColorText text={'Root'} fontSize={30} />
+        <ColorText text={'Root'} fontSize={25} />
       </S.CategoryRootTitle>
       <S.CategoryRootCount>
         {categoryCount['All'] !== undefined ? (
-          <CounterBadge width="30">{categoryCount['All']}</CounterBadge>
+          <CounterBadge font="15px" radius="50px" fontWeight={800}>
+            {categoryCount['All']}
+          </CounterBadge>
         ) : (
           ''
         )}
