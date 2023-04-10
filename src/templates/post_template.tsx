@@ -6,7 +6,6 @@ import Template from 'components/layout/Template'
 import PostContent from 'components/main/Post/PostContent'
 import PostHead from 'components/main/Post/PostHead'
 import CommentWidget from 'components/main/Post/CommentWidget'
-
 import { graphql } from 'gatsby'
 import type { PostPageItemType } from 'types/post'
 
@@ -67,7 +66,7 @@ const PostTemplate = ({
           allFile={allFile}
         />
         <PostContent html={html} />
-        <CommentWidget />
+        {/* <CommentWidget /> */}
       </S.PostWrapper>
     </Template>
   )

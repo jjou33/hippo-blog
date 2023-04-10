@@ -111,7 +111,74 @@ export const PostHeadWrapper = styled.div`
     height: 500px;
   }
 `
-
+export const PostContentsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 45px auto;
+  padding: 100px 0;
+`
+export const PostTocContainer = styled.nav`
+  /* border-top: 1.2px;
+  border-left: 1.2px;
+  border-right: 1.2px;
+  border-style: solid;
+  border-color: #b0adad;
+  border-radius: 10px 10px 0 0; */
+  /* border-radius: 10px; */
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    padding: 0 20px;
+    font-size: 10px;
+  }
+`
+export const PostTocWrapper = styled.ul`
+  border-top: 1.2px;
+  border-left: 1.2px;
+  border-right: 1.2px;
+  border-style: solid;
+  border-color: #b0adad;
+  border-radius: 10px 10px 0 0;
+  counter-reset: item;
+  list-style-type: none;
+  list-style-position: inside;
+`
+export const PostTocTitle = styled.li`
+  /* font-size: 20px; */
+  /* border: 1px solid #b0adad; */
+  border-bottom: 1.2px;
+  border-style: solid;
+  border-color: #b0adad;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 10px;
+  font-weight: 800;
+  background-color: #ffd381;
+`
+export const PostTocItem = styled.li`
+  height: 100%;
+  border-bottom: 1.2px solid #b0adad;
+  /* font-size: 20px; */
+  &::before {
+    counter-increment: item;
+    content: counters(item, '.') '. ';
+  }
+  &.head3 {
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &.head4 {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &.head5 {
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+`
 export const BackgroundImage = styled((props: GatsbyImgProps) => (
   <GatsbyImage {...props} style={{ position: 'absolute' }} />
 ))`
@@ -132,11 +199,11 @@ export const BackgroundImage = styled((props: GatsbyImgProps) => (
 
 export const MarkdownRenderer = styled.div`
   // Renderer Style
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 1000px;
   margin: 45px auto;
-  /* padding: 100px 0; */
+  padding: 100px 0; */
   word-break: break-all;
 
   // Markdown Style
@@ -166,7 +233,7 @@ export const MarkdownRenderer = styled.div`
   h4,
   h5 {
     /* font-weight: 800; */
-    margin: 20px 0 20px 0;
+    margin: 60px 0 10px 0;
   }
 
   * + h1,
@@ -188,17 +255,17 @@ export const MarkdownRenderer = styled.div`
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 43px;
   }
 
   h3 {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   h4 {
-    font-size: 30px;
+    font-size: 35px;
     &::before {
-      content: '🖌️';
+      content: '📬';
       padding-left: 5px;
       margin-right: 15px;
     }
@@ -209,7 +276,17 @@ export const MarkdownRenderer = styled.div`
   }
 
   h5 {
-    font-size: 20px;
+    font-size: 30px;
+    &::before {
+      content: '📌';
+      padding-left: 5px;
+      margin-right: 15px;
+    }
+    text-indent: 15px;
+    @media (max-width: 768px) {
+      font-size: 15px;
+      margin: 10px 0 0 0;
+    }
   }
   hr {
     border: 1px solid #000000;
@@ -238,6 +315,7 @@ export const MarkdownRenderer = styled.div`
     }
     /* background: linear-gradient(to left, red, blue); */
     margin-bottom: 20px;
+    border-radius: 10px;
   }
   // Adjust Quotation Element Style
   blockquote {
@@ -250,7 +328,7 @@ export const MarkdownRenderer = styled.div`
   // Adjust List Element Style
   ol,
   ul {
-    margin-left: 20px;
+    margin-left: 15px;
     padding: 20px 0 20px 20px;
     li {
       list-style: disc;
@@ -311,7 +389,8 @@ export const MarkdownRenderer = styled.div`
     span {
     }
     tab-size: 2;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 22px;
     @media (max-width: 768px) {
       font-size: 10px;
     }

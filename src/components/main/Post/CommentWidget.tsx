@@ -14,8 +14,15 @@ type UtterancesAttributesType = {
 }
 
 const UtterancesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  .utterances {
+    margin: 50px auto;
+    max-width: 100%;
+  }
   @media (max-width: 768px) {
     padding: 0 20px;
+    width: 100vw;
   }
 `
 
