@@ -44,9 +44,6 @@ const RecentPosts = ({ posts, widePost }: RecentPostPropsType) => {
               }: PostListItemType,
               index,
             ) => {
-              console.log('index : ', index)
-              console.log({ ...frontmatter })
-
               if (index > 0 && index < 4) {
                 return (
                   <S.OtherItemContainer key={index}>

@@ -20,7 +20,8 @@
     "ecmaVersion": 12,
     "sourceType": "module",
     "project": "tsconfig.json",
-    "parser": "@typescript-eslint/parser"
+    "parser": "@typescript-eslint/parser",
+    "createDefaultProgram": true
   },
   "plugins": ["react", "@typescript-eslint"],
   "ignorePatterns": ["dist/", "node_modules/"],

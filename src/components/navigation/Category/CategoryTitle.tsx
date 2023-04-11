@@ -39,7 +39,6 @@ const CategoryTitle = ({
       }, 250)
     }
   }, [isOpen])
-  console.log('cate : ', categoryItem)
 
   return (
     <>

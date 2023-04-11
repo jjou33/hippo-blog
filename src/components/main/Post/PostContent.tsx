@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './styles'
-import PostToc from './PostToc'
+import PostToc from './PostTableOfContents/index'
 import CommentWidget from './CommentWidget'
 interface PostContentProps {
   html: string

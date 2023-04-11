@@ -18,7 +18,6 @@ const CategoryItems = ({
   return (
     <S.CategoryItemContainer>
       {categoryList.map((categoryItem, idx): ReactNode => {
-        console.log('get ', getSvgJSXElement(categoryItem, '25'))
         return (
           <S.CategoryItemWrapper key={idx}>
             <span></span>
