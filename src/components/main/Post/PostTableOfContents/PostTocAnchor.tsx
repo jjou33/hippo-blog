@@ -1,4 +1,4 @@
-import { getClassName } from './index'
+import { getClassName } from 'hooks/useNestedHeadings'
 
 interface NestedHeadingType {
   id: string

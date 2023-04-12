@@ -174,7 +174,7 @@ export const PostTocItem = styled.li`
       color: #f0506e;
       padding-right: 5px;
     }
-    &.head4 {
+    &.head3 {
       background-color: rgb(246 86 96 / 3%);
     }
     &:hover {
@@ -184,10 +184,16 @@ export const PostTocItem = styled.li`
       padding-left: 10px;
     }
   }
-  &.head5 > a {
-    padding-left: 50px;
+  &.head4 > a {
+    padding-left: 60px;
     @media screen and (max-width: 768px) {
       padding-left: 25px;
+    }
+  }
+  &.head5 > a {
+    padding-left: 100px;
+    @media screen and (max-width: 768px) {
+      padding-left: 35px;
     }
   }
 `
@@ -265,13 +271,22 @@ export const MarkdownRenderer = styled.div`
   }
 
   h3 {
-    font-size: 40px;
+    font-size: 45px;
+    &::before {
+      content: '📘';
+      padding-left: 5px;
+      margin-right: 15px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      margin: 10px 0 0 0;
+    }
   }
 
   h4 {
     font-size: 35px;
     &::before {
-      content: '📬';
+      content: '📒';
       padding-left: 5px;
       margin-right: 15px;
     }
@@ -282,9 +297,9 @@ export const MarkdownRenderer = styled.div`
   }
 
   h5 {
-    font-size: 30px;
+    font-size: 25px;
     &::before {
-      content: '📌';
+      content: '📕';
       padding-left: 5px;
       margin-right: 15px;
     }
