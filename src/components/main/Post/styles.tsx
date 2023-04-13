@@ -225,11 +225,12 @@ export const MarkdownRenderer = styled.div`
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
-  user-select:text
+  user-select: text;
   // Apply Padding Attribute to All Elements
   p {
     padding: 10px 0;
-    font-size: 18px;
+    margin: 5px 0;
+    font-size: 20px;
     strong {
       color: #006dd7;
     }
@@ -308,6 +309,35 @@ export const MarkdownRenderer = styled.div`
       font-size: 15px;
       margin: 10px 0 0 0;
     }
+  }
+  h3 + hr {
+    border: 1px solid #000000;
+    height: 3px;
+    position: relative;
+    border: none;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      left: 0;
+      display: block;
+      clear: both;
+      background-color: #539dfd;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      right: 0;
+      display: block;
+      clear: both;
+      background-color: #e2dfdf;
+    }
+    /* background: linear-gradient(to left, red, blue); */
+    margin-bottom: 20px;
+    border-radius: 10px;
   }
   h4 + hr {
     border: 1px solid #000000;
@@ -452,14 +482,14 @@ export const MarkdownRenderer = styled.div`
     }
     tab-size: 2;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     @media (max-width: 768px) {
       font-size: 10px;
     }
   }
 
   code[class*='language-text'] {
-    background-color: #94c6f7;
+    background-color: #c8e3fe;
     color: black;
     padding: 0 5px;
   }
