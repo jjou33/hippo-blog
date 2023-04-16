@@ -33,26 +33,6 @@ const PostToc = () => {
                     className={getClassName(headingItems.level)}
                   >
                     <PostTocAnchor {...headingItems} />
-                    {headingItems.items.length > 0 ? (
-                      <S.PostTocWrapper>
-                        {headingItems.items.map(
-                          (secondHeadingItmes: {
-                            id: string
-                            text: string
-                            level: number
-                          }) => (
-                            <S.PostTocItem
-                              key={secondHeadingItmes.id}
-                              className={getClassName(secondHeadingItmes.level)}
-                            >
-                              <PostTocAnchor {...secondHeadingItmes} />
-                            </S.PostTocItem>
-                          ),
-                        )}
-                      </S.PostTocWrapper>
-                    ) : (
-                      <></>
-                    )}
                   </S.PostTocItem>
                 ))}
               </S.PostTocWrapper>

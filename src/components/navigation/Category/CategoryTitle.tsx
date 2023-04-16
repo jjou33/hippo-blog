@@ -1,9 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react'
+
 import { useCategoryState } from 'hooks/useCategoryOpenState'
-// import { getSvgJSXElement } from 'utils/Image'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
-import { navigationIcon } from 'assets/svg/navigationIcon'
 import { getSvgJSXElement } from 'utils/Image/getNavigationIcon'
 import * as S from './styles'
 /**
@@ -23,7 +22,8 @@ const CategoryTitle = ({
 }: CategoryTitleProps) => {
   const state = useRecoilValue<{ [key: string]: boolean }>(recoilDropdownState)
 
-  const { isOpen, toggleTitle, titleRef } = useCategoryState(categoryItem)
+  const { isOpen, toggleTitle, titleRef } = useCategoryState()
+
   const [isAnimation, setIsAnimation] = useState(false)
 
   const isOpenFilter = (state: { [key: string]: boolean }) => {

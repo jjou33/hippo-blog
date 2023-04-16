@@ -23,7 +23,7 @@ const useInfiniteScroll = function (
       posts.filter(
         ({
           node: {
-            frontmatter: { categories, domain, sideTitle },
+            frontmatter: { categories },
           },
         }: PostListItemType) => {
           return selectedCategory !== 'All'

@@ -21,7 +21,7 @@ interface TemplateProps {
   isPost?: boolean
   navigationProps?: NavigationPropsType
   children: ReactNode
-  location?: Location
+  location: Location
 }
 
 interface NavigationPropsType {
@@ -83,7 +83,7 @@ const Template = ({
 
           <Header />
           <Modal>
-            <SideNavSection location={location} />
+            <SideNavSection {...location} />
           </Modal>
 
           <S.LayoutWrapper>{children}</S.LayoutWrapper>

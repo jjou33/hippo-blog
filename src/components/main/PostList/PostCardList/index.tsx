@@ -1,8 +1,10 @@
 import * as S from './styles'
 
 import PostCardItem from './PostCardItem'
-import { navigate } from 'gatsby'
 import PostCategoryHeader from '../PostCategoryHeader'
+
+import { Link } from 'gatsby'
+
 import { useState } from 'react'
 import { PostListItemType } from 'types/postItem'
 
@@ -24,9 +26,6 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
     posts,
   )
 
-  const goToAllPost = async (): Promise<void> => {
-    await navigate('/AllPost')
-  }
   return (
     <S.PostCardListContainer>
       <PostCategoryHeader selectedCategory="ALL POSTS 🐳" fontSize={60} />
@@ -43,7 +42,10 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
           ),
         )}
       </S.PostListWrapper>
-      <S.Button onClick={goToAllPost}>더 보기</S.Button>
+
+      <Link to="/AllPost">
+        <S.Button>더 보기</S.Button>
+      </Link>
     </S.PostCardListContainer>
   )
 }

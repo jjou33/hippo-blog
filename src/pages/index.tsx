@@ -59,10 +59,7 @@ const IndexPage = ({
           }}
         />
       ) : (
-        <PostCategory
-          selectedCategory={selectedCategory}
-          posts={allMarkdownRemark.edges}
-        />
+        <PostCategory selectedCategory={selectedCategory} />
       )}
     </Template>
   )

@@ -1,10 +1,10 @@
 import * as S from './styles'
 
-const ProjectDiaryItem = ({ imagepath, slug }) => {
+const ProjectDiaryItem = (props: { imagepath: string; slug: string }) => {
   return (
     <S.ProjectDiaryItemComtainer
-      imagepath={imagepath}
-      to={`/?category=${slug}`}
+      imagepath={props.imagepath}
+      to={`/?category=${props.slug}`}
     >
       <S.ItemImageWrapper></S.ItemImageWrapper>
       <S.ItemTextWrapper>
