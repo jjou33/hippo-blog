@@ -291,11 +291,6 @@ export const FooterFirstWaveAnimation = styled.div`
   }
 `
 
-interface FooterWavePropsType {
-  src: string
-  waveType: string
-}
-
 const animate = keyframes`
  0% {
    background-position-x: 0px;
@@ -315,10 +310,15 @@ const animate2 = keyframes`
  }
 `
 
+interface FooterWavePropsType {
+  src: string
+  waveType: string
+  totalHeight: number
+}
 export const FooterWaveStyle = styled.div`
   position: absolute;
   bottom: 0;
-  top: ${(props: any) => props.totalHeight - 97}px;
+
   width: 100%;
   height: 100px;
 
@@ -327,6 +327,7 @@ export const FooterWaveStyle = styled.div`
       switch (props.waveType) {
         case 'first':
           return css`
+            top: ${props.totalHeight - 97}px;
             background: url(${props.src});
             animation: ${animate} 30s linear infinite;
             z-index: 1000;
@@ -336,6 +337,7 @@ export const FooterWaveStyle = styled.div`
           `
         case 'second':
           return css`
+            top: ${props.totalHeight - 97}px;
             background: url(${props.src});
             animation: ${animate2} 15s linear infinite;
             z-index: 999;
@@ -345,6 +347,7 @@ export const FooterWaveStyle = styled.div`
           `
         case 'third':
           return css`
+            top: ${props.totalHeight - 97}px;
             background: url(${props.src});
             animation: ${animate2} 5s linear infinite;
             z-index: 998;
@@ -354,6 +357,7 @@ export const FooterWaveStyle = styled.div`
           `
         case 'fourth':
           return css`
+            top: ${props.totalHeight - 97}px;
             background: url(${props.src});
             animation: ${animate2} 15s linear infinite;
             z-index: 997;
@@ -363,6 +367,7 @@ export const FooterWaveStyle = styled.div`
           `
         case 'five':
           return css`
+            top: ${props.totalHeight - 97}px;
             background: url(${props.src});
             animation: ${animate2} 15s linear infinite;
             z-index: 997;

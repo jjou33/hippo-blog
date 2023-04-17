@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from '@reach/router'
 import GlobalStyle from 'styles/GlobalStyle'

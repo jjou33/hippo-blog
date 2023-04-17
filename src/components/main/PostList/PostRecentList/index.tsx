@@ -4,7 +4,7 @@ import * as S from './styles'
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
-import { navIconSet } from 'assets/svg/NavIconSet'
+import { getSvgJSXElement } from 'utils/imageBridge'
 import { PostListItemType } from 'types/post'
 
 interface RecentPostPropsType {
@@ -40,7 +40,7 @@ const RecentPosts = ({ posts, widePost }: RecentPostPropsType) => {
                 return (
                   <S.OtherItemContainer key={index}>
                     <S.PostSeqenceWrapper type="second">
-                      {navIconSet[`${index}`].icon('30', '30')}
+                      {getSvgJSXElement(`${index}`, '30')}
                     </S.PostSeqenceWrapper>
                     <PostCategoryItem
                       {...frontmatter}

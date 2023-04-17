@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
 import Introduction from 'components/navigation/Profile'

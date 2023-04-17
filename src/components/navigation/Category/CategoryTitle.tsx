@@ -45,12 +45,11 @@ const CategoryTitle = ({
       <S.CategoryTitleContainer
         isOpen={isOpenFilter(state)}
         ref={titleRef}
-        onClick={e => {
+        onClick={() => {
           toggleTitle(categoryItem)
         }}
       >
         <span></span>
-
         <S.CategoryTitleIconWrapper>
           {getSvgJSXElement(categoryItem, '25')}
         </S.CategoryTitleIconWrapper>

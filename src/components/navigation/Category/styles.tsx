@@ -226,6 +226,7 @@ export const CategoryTitleIcon = styled.div`
   align-items: center;
 `
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   <Link {...props} />
 ))<CategoryItemProps>`

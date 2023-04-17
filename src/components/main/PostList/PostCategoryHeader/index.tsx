@@ -1,6 +1,6 @@
 import * as S from './styles'
-import { navIconSet } from 'assets/svg/NavIconSet'
 
+import { getSvgJSXElement } from 'utils/imageBridge'
 interface PostCategoryHeaderProps {
   selectedCategory: string
   fontSize: number
@@ -16,7 +16,7 @@ const PostCategoryHeader = ({
     <S.PostCategoryHeaderContainer>
       <S.PostCategoryHeaderWrapper>
         <S.PostCategoryIconWrapper size={60}>
-          {navIconSet['hambergerMenu'].icon(`${fontSize}`, `${fontSize}`)}
+          {getSvgJSXElement('hambergerMenu', `${fontSize}`)}
         </S.PostCategoryIconWrapper>
         <S.PostCategoryTitleWrapper fontSize={fontSize}>
           {selectedCategory}

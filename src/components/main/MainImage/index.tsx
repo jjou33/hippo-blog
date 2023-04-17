@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import * as S from './styles'
 
 import MouseScrollIndicator from 'components/common/ScrollIndicator/MouseIndicator'
 
 import { useTypingTitle } from 'hooks/useTypingTitle'
-import type { ImagePathPropsType } from 'types/image/index'
 
 const typedList = ['JAVASCRIPT', 'REACT', 'VUE', 'HTML', 'CSS']
 
-const MainImage = ({ imagePath }: ImagePathPropsType) => {
+const MainImage = () => {
   const currentTitle = useTypingTitle(typedList)
   return (
     <S.MainAnimationContainer>

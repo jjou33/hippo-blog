@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './styles'
 
 import PostHeadInfo, { PostHeadInfoProps } from './PostHeadInfo'
-import WaveImageAnimation from 'components/common/Animations/WaveAnimation/WaveImageAnimation'
+import WaveImageAnimation from 'components/common/Animations/WaveAnimation'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { getImagePathSetList } from 'utils/imageBridge'
 

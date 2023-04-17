@@ -7,7 +7,6 @@ const NavigationTabMenu = () => {
     <S.NavTabMenuWrapper>
       <NavTabItems title="Home" href="/" />
       <NavTabItems title="Github" href="https://github.com/jjou33" />
-      {/* <NavTabItems title="Email" href="" /> */}
     </S.NavTabMenuWrapper>
   )
 }

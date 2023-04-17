@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import type { BadgeColorType } from './Badge'
+import type { BadgeColorType } from '.'
 
 export const BadgeWrapper = styled.div`
   display: flex;

@@ -6,12 +6,6 @@ declare module '*.svg' {
   export default src
 }
 
-declare namespace JSX {
-  interface IntrinsicElements {
-    'ion-icon': any
-  }
-}
-
 declare module '*.gltf'
 declare module '*.png'
 declare module '*.ttf'

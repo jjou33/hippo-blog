@@ -1,4 +1,4 @@
-import React, { EventHandler, MouseEvent, MouseEventHandler } from 'react'
+import React from 'react'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { menuOpenState } from 'states/menuOpenState'

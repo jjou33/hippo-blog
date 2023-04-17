@@ -5,7 +5,7 @@ import CategoryRootTitle from './CategoryRootTitle'
 
 import * as S from './styles'
 
-import type { CategoryListProps } from 'types/category'
+import type { CategoryListProps } from 'types/catgegory'
 
 /**----------------------------------------------------
  * @description Navigation Side Bar List 의 최상위 컴포넌트

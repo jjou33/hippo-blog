@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes, css } from '@emotion/react'
-import { boat_in_animation } from 'styles/AnimationKeyframes'
+import { keyframes } from '@emotion/react'
 
 export const MainAnimationContainer = styled.div`
   height: calc(100vh);

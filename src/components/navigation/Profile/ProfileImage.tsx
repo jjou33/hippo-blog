@@ -4,7 +4,6 @@ import * as S from './styles'
 
 interface ProfileImageProps {
   profileImage: string
-  roketImage: string
 }
 
 const ProfileImage = ({ profileImage }: ProfileImageProps) => {

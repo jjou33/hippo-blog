@@ -7,6 +7,7 @@ import { graphql } from 'gatsby'
 import type { PostPageItemType } from 'types/post'
 
 interface PostTemplateProps {
+  location: Location
   data: {
     allMarkdownRemark: {
       edges: PostPageItemType[]
@@ -19,15 +20,14 @@ interface PostTemplateProps {
       }[]
     }
   }
-  location: Location
 }
 
 const PostTemplate = ({
+  location,
   data: {
     allMarkdownRemark: { edges },
     allFile,
   },
-  location,
 }: PostTemplateProps) => {
   const {
     node: {
@@ -63,7 +63,6 @@ const PostTemplate = ({
           allFile={allFile}
         />
         <PostContent html={html} />
-        {/* <CommentWidget /> */}
       </S.PostWrapper>
     </Template>
   )

@@ -18,7 +18,7 @@ interface PostCardListPropsType {
 }
 const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
   const limit = 6
-  const [page, setPage] = useState(1)
+  const [page] = useState(1)
   const offset = (page - 1) * limit
 
   const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(

@@ -58,21 +58,13 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /\.inline\.svg$/,
-        }
-      }
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: '<https://my-website.com/>',
+        siteUrl: 'https://main--hippo-dev.netlify.app/',
         stripQueryString: true,
       },
     },

@@ -4,7 +4,6 @@ import PostCategoryList from 'components/main/PostList/PostCategoryList'
 import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
 
-import type { PostListItemType } from 'types/post'
 interface IndexPageProps {
   location: Location
   data: {
@@ -14,9 +13,6 @@ interface IndexPageProps {
         description: string
         siteUrl: string
       }
-    }
-    allMarkdownRemark: {
-      edges: PostListItemType[]
     }
     allFile: {
       edges: {
@@ -33,7 +29,6 @@ const AllPostTemplate = ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark: { edges },
     allFile,
   },
 }: IndexPageProps) => {

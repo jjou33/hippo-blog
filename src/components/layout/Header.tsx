@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import ColorText from 'components/common/TextEffects/ColorText'
-import { navIconSet } from 'assets/svg/NavIconSet'
+import React from 'react'
+import ColorText from 'components/common/TextEffect'
+
+import { getSvgJSXElement } from 'utils/imageBridge'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
@@ -24,7 +25,7 @@ const Header = () => {
       </S.ProgressBarContainer>
       <S.HeaderContainer>
         <S.HeaderMenuButton onClick={toggleMenuButton}>
-          {navIconSet['menu'].icon('40', '40')}
+          {getSvgJSXElement('menu', '40')}
         </S.HeaderMenuButton>
         <S.HeaderWrapper>
           <S.HeaderItemTitle to="/">
