@@ -24,7 +24,7 @@
     "createDefaultProgram": true
   },
   "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": ["dist/", "node_modules/"],
+  "ignorePatterns": ["public/", "node_modules/"],
   "rules": {
   }
 }
