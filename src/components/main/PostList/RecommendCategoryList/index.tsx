@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './styles'
 
 import PostCategoryHeader from '../PostCategoryHeader'
-import type { ImagePathPropsType } from 'types/image/imagePathType'
+import type { ImagePathPropsType } from 'types/image'
 
 const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
   const RecommendCategoryList: string[] = [

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/category'
-import { getSvgJSXElement } from 'utils/Image/getNavigationIcon'
+import { getSvgJSXElement } from 'utils/imageBridge'
 import CounterBadge from 'components/common/Badges/Badge'
 
 import * as S from './styles'

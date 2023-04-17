@@ -6,7 +6,7 @@ import PostCategoryHeader from '../PostCategoryHeader'
 import { Link } from 'gatsby'
 
 import { useState } from 'react'
-import { PostListItemType } from 'types/postItem'
+import { PostListItemType } from 'types/post'
 
 import useInfiniteScroll, {
   useInfiniteScrollType,

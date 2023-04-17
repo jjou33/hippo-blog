@@ -1,5 +1,20 @@
-import type { CategoryListProps } from 'types/category'
+import queryString, { ParsedQuery } from 'query-string'
+
+import type { CategoryListProps } from 'types/catgegory'
 import type { PostListItemType } from 'types/post'
+
+export const getSelectedCategory = (search: string): string => {
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'root'
+      : parsed.category === 'All'
+      ? 'All'
+      : parsed.category
+
+  return selectedCategory
+}
 
 export const getCategoryList = (allMarkdownRemark: {
   edges: PostListItemType[]

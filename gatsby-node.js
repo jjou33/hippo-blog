@@ -103,21 +103,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   gereatePostListPage()
   
-  const LandingComponent = path.resolve(
-    __dirname,
-    'src/templates/landing_template.tsx',
-  )
-
-  const GenerateLandingComponent = () => {
-    const pageOptions = {
-      path: '/introduce',
-      component: LandingComponent,
-    }
-
-    createPage(pageOptions)
-  }
-
-  GenerateLandingComponent()
 }
 
 // Generate a Slug Each Post Data

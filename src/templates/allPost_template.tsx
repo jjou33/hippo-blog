@@ -1,10 +1,10 @@
 import React from 'react'
 import Template from 'components/layout/Template'
 import PostCategoryList from 'components/main/PostList/PostCategoryList'
-import { getImagePathSetList } from 'utils/Image'
+import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
 
-import type { PostListItemType } from 'types/postItem'
+import type { PostListItemType } from 'types/post'
 interface IndexPageProps {
   location: Location
   data: {
@@ -47,7 +47,7 @@ const AllPostTemplate = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      <PostCategoryList selectedCategory="All" posts={edges} />
+      <PostCategoryList selectedCategory="All" />
     </Template>
   )
 }

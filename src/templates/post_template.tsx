@@ -1,11 +1,8 @@
 import React from 'react'
 import * as S from 'components/main/Post/styles'
-
-import ReactMarkdown from 'react-markdown'
 import Template from 'components/layout/Template'
 import PostContent from 'components/main/Post/PostContent'
 import PostHead from 'components/main/Post/PostHead'
-import CommentWidget from 'components/main/Post/CommentWidget'
 import { graphql } from 'gatsby'
 import type { PostPageItemType } from 'types/post'
 

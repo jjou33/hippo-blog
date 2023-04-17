@@ -1,9 +1,24 @@
-import { CategoryEdgeType } from 'types/category'
+import React, { ReactNode } from 'react'
+
+import { CategoryEdgeType } from 'types/catgegory'
+import { navigationIcon } from 'assets/svg/NavigationIcon'
 
 interface NodeType {
   node: {
     [key: string]: string
   }
+}
+
+export const getSvgJSXElement = (
+  iconName: string,
+  size: string,
+  color?: string,
+): ReactNode => {
+  return navigationIcon[iconName] !== undefined ? (
+    navigationIcon[iconName].icon(size, size, color)
+  ) : (
+    <></>
+  )
 }
 
 export const getImagePathSetList = (edges: CategoryEdgeType['edges']) => {

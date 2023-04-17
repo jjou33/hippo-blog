@@ -4,7 +4,7 @@ import * as S from './styles'
 import PostHeadInfo, { PostHeadInfoProps } from './PostHeadInfo'
 import WaveImageAnimation from 'components/common/Animations/WaveAnimation/WaveImageAnimation'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
-import { getImagePathSetList } from 'utils/Image'
+import { getImagePathSetList } from 'utils/imageBridge'
 
 interface PostHeadProps extends PostHeadInfoProps {
   thumbnail: IGatsbyImageData

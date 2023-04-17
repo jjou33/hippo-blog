@@ -1,6 +1,6 @@
 import * as S from './styles'
 import { useState, useEffect } from 'react'
-import { PostListItemType } from 'types/postItem'
+import { PostListItemType } from 'types/post'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'

@@ -1,11 +1,4 @@
-import {
-  LegacyRef,
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { LegacyRef, MutableRefObject, useRef, useState } from 'react'
 
 import { useSetRecoilState } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
@@ -35,7 +28,3 @@ export const useCategoryState = () => {
 
   return { isOpen, toggleTitle, titleRef }
 }
-
-/**
- * 클릭 -> toggleTitle 에서 전역 상태 추가 ->
- */

@@ -7,7 +7,7 @@ import RecentPost from 'components/main/PostList/PostRecentList'
 import RecommendCategoryList from './PostList/RecommendCategoryList'
 import ProjectDiaryList from './PostList/ProjectDiaryList'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-import type { PostListItemType } from 'types/postItem'
+import type { PostListItemType } from 'types/post'
 import type { ImagePathPropsType } from 'types/image/index'
 
 interface MainSectionProps {

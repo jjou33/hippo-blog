@@ -5,7 +5,7 @@ import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
 import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
 import { navIconSet } from 'assets/svg/NavIconSet'
-import { PostListItemType } from 'types/postItem'
+import { PostListItemType } from 'types/post'
 
 interface RecentPostPropsType {
   posts: PostListItemType[]

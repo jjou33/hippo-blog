@@ -1,8 +1,7 @@
-import { getImagePathSetList } from 'utils/Image'
-
+import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
-import { PostListItemType } from 'types/postItem'
-import { getSelectedCategory } from 'utils/Category'
+import { PostListItemType } from 'types/post'
+import { getSelectedCategory } from 'utils/category'
 
 import PostCategory from 'components/main/PostList/PostCategoryList'
 import Template from 'components/layout/Template'

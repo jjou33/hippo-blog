@@ -1,4 +1,4 @@
-import { getSvgJSXElement } from 'utils/Image'
+import { getSvgJSXElement } from 'utils/imageBridge'
 
 import * as S from './styles'
 

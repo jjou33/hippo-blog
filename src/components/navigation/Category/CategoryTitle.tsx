@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { useCategoryState } from 'hooks/useCategoryOpenState'
 import { useRecoilValue } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
-import { getSvgJSXElement } from 'utils/Image/getNavigationIcon'
+import { getSvgJSXElement } from 'utils/imageBridge'
 import * as S from './styles'
 /**
  * @description CategoryTitle 타입

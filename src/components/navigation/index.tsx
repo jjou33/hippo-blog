@@ -8,8 +8,8 @@ import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { menuOpenState } from 'states/menuOpenState'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-import { getCategoryList, getSelectedCategory } from 'utils/Category'
-import { getImagePathSetList } from 'utils/Image'
+import { getCategoryList, getSelectedCategory } from 'utils/category'
+import { getImagePathSetList } from 'utils/imageBridge'
 
 const SideNavSection = (location: Location) => {
   const [mount, setMount] = useState(false)
