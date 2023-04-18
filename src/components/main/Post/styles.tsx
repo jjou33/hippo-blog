@@ -247,6 +247,7 @@ export const MarkdownRenderer = styled.div`
   h5 {
     /* font-weight: 800; */
     margin: 60px 0 10px 0;
+    font-family: MaplestoryLight;
   }
 
   * + h1,

@@ -51,7 +51,7 @@ const RecentPosts = ({ posts, widePost }: RecentPostPropsType) => {
                   </S.OtherItemContainer>
                 )
               } else {
-                return <></>
+                return ''
               }
             },
           )}

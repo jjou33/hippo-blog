@@ -1,13 +1,8 @@
 import React, { ReactNode } from 'react'
-import GlobalStyle from 'styles/GlobalStyle'
 import Footer from 'components/layout/Footer'
-import Header from 'components/layout/Header'
-import Modal from 'components/common/Modal'
 
 import * as S from './styles'
-
-import SideNavSection from 'components/navigation'
-
+import Layout from './index'
 import { Helmet } from 'react-helmet'
 import { RecoilRoot } from 'recoil'
 
@@ -53,7 +48,6 @@ const Template = ({
     <>
       <S.Container>
         <RecoilRoot>
-          <GlobalStyle />
           <Helmet>
             <title>{title}</title>
             <meta name="description" content={description} />
@@ -79,13 +73,7 @@ const Template = ({
             <meta name="twitter:site" content="@사용자이름" />
             <meta name="twitter:creator" content="@사용자이름" />
           </Helmet>
-
-          <Header />
-          <Modal>
-            <SideNavSection {...location} />
-          </Modal>
-
-          <S.LayoutWrapper>{children}</S.LayoutWrapper>
+          <Layout location={location} children={children} />
         </RecoilRoot>
       </S.Container>
       <Footer />

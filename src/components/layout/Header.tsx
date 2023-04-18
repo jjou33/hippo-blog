@@ -5,7 +5,7 @@ import { getSvgJSXElement } from 'utils/imageBridge'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
-
+import { useToggleTheme } from 'hooks/useToggleTheme'
 import * as S from './styles'
 
 const Header = () => {
@@ -31,6 +31,7 @@ const Header = () => {
           <S.HeaderItemTitle to="/">
             <ColorText text="HIPPO DEV"></ColorText>
           </S.HeaderItemTitle>
+          <S.ThemeButton>ToggleButton</S.ThemeButton>
         </S.HeaderWrapper>
       </S.HeaderContainer>
     </>

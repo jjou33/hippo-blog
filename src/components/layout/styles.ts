@@ -407,3 +407,12 @@ export const islandIcon = styled.div`
   margin: 90px 0 0 1000px;
   z-index: 1001;
 `
+
+export const ThemeButton = styled.div`
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  margin-left: 50px;
+  padding-top: 10px;
+  padding-left: 50px;
+`
