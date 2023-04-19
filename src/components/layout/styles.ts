@@ -46,7 +46,7 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background: rgba(255, 255, 255, 0.1);
-  background-color: ${themedPalette.bg_page1};
+  /* background-color: ${themedPalette.bg_page1}; */
   color: ${themedPalette.text1};
   backdrop-filter: saturate(180%) blur(50px);
   left: 0;

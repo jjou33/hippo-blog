@@ -18,7 +18,7 @@ const Layout = (props: LayoutPropsType) => {
       <GlobalStyle />
       <Header />
       <Modal>
-        <SideNavSection {...location} />
+        <SideNavSection {...props.location} />
       </Modal>
       <S.LayoutWrapper>{props.children}</S.LayoutWrapper>
     </>
