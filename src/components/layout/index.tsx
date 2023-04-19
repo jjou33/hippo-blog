@@ -5,20 +5,13 @@ import Header from 'components/layout/Header'
 import Modal from 'components/common/Modal'
 import SideNavSection from 'components/navigation'
 import { useThemeEffect } from 'hooks/useThemeEffect'
-import { useTheme } from 'hooks/useTheme'
-import { generateStorage } from 'utils/storage'
+
 interface LayoutPropsType {
   location: Location
   children: ReactNode
 }
 const Layout = (props: LayoutPropsType) => {
-  const localStorage = generateStorage()
-  const loadTheme = () => {
-    const theme = localStorage.get('theme')
-    console.log('theme : ', theme)
-  }
-
-  loadTheme()
+  useThemeEffect()
 
   return (
     <>

@@ -11,11 +11,6 @@ const Reset = css`
     overflow-x: hidden;
     color: rgba(29, 29, 31);
     letter-spacing: -0.05em;
-    max-width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 
   div {

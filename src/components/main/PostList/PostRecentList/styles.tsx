@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { themedPalette } from 'styles/themeVariables'
 
 export const shakingIcon = keyframes`
 0% {
@@ -89,7 +90,7 @@ export const OtherPostWrapper = styled.div`
 export const OtherItemContainer = styled.div`
   border-width: 1px 1px 1px 1px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: ${themedPalette.border3};
   border-radius: 10px;
   transform: scale(1);
   transition: transform 0.5s;
@@ -98,7 +99,7 @@ export const OtherItemContainer = styled.div`
     transform: scale(1.05);
     transition: transform 0.5s;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-
+    background-color: ${themedPalette.bg_element1};
     ${PostSeqenceWrapper} {
       animation: ${shakingIcon} 0.5s ease;
     }
@@ -109,7 +110,7 @@ export const PostItemContainer = styled.div`
 
   border-width: 1px 1px 1px 1px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: ${themedPalette.border3};
   border-radius: 10px;
   transform: scale(1);
   transition: transform 0.5s;
@@ -137,6 +138,7 @@ export const PostItemWrapper = styled(Link)`
 
   &:hover {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    background-color: ${themedPalette.bg_element1};
   }
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -153,11 +155,11 @@ export const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: var(--white-color);
+  color: ${themedPalette.text1};
   border-radius: 10px;
   border-width: 0px 0.5px 0.5px 0.5px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: ${themedPalette.border3};
 `
 
 export const Title = styled.div`
@@ -195,10 +197,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: #ffc75d;
+  background: ${themedPalette.badge_color};
+  color: ${themedPalette.badge_text};
   font-size: 14px;
   font-weight: 700;
-  color: #191d23;
 `
 
 export const Summary = styled.div`

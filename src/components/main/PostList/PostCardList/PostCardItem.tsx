@@ -38,7 +38,9 @@ const PostItem = ({
           <S.Date>{date}</S.Date>
           <S.Category>
             {categories.map(category => (
-              <S.CategoryItem key={category}>{category}</S.CategoryItem>
+              <S.CategoryItem key={category}>
+                {category.toUpperCase()}
+              </S.CategoryItem>
             ))}
           </S.Category>
           <S.Summary>{summary}</S.Summary>

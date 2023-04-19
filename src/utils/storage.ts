@@ -143,6 +143,9 @@ class MemoStorage implements Storage {
   }
 
   public set(key: string, value: string) {
+    console.log('key : ', key)
+    console.log('value : ', value)
+
     this.storage.set(key, value)
   }
 

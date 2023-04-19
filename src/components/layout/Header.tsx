@@ -18,6 +18,7 @@ const Header = () => {
     })
   }
 
+  const toggleButton = useToggleTheme()
   return (
     <>
       <S.ProgressBarContainer>
@@ -31,7 +32,7 @@ const Header = () => {
           <S.HeaderItemTitle to="/">
             <ColorText text="HIPPO DEV"></ColorText>
           </S.HeaderItemTitle>
-          <S.ThemeButton>ToggleButton</S.ThemeButton>
+          <S.ThemeButton onClick={toggleButton[1]}>ToggleButton</S.ThemeButton>
         </S.HeaderWrapper>
       </S.HeaderContainer>
     </>

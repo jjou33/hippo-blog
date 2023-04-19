@@ -4,6 +4,7 @@ import { upDownAnimation } from 'styles/AnimationKeyframes'
 import { boat_in_animation } from 'styles/AnimationKeyframes'
 
 import { Link } from 'gatsby'
+import { themedPalette } from 'styles/themeVariables'
 
 /**
  * Template Component Styled Section
@@ -15,7 +16,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100vw;
   margin: 0 auto;
-
+  background-color: ${themedPalette.bg_page1};
   /* flex: 1 0 auto; */
 `
 export const Temp = styled.div`
@@ -45,13 +46,13 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background: rgba(255, 255, 255, 0.1);
-  background-color: white;
+  background-color: ${themedPalette.bg_page1};
+  color: ${themedPalette.text1};
   backdrop-filter: saturate(180%) blur(50px);
   left: 0;
   z-index: 1100;
   width: 100vw;
   height: 50px;
-  border-bottom: 1px solid #ddd;
   padding: 0 1rem;
 `
 
@@ -130,7 +131,9 @@ export const FooterWrapper = styled.div`
   font-size: 15px;
   text-align: center;
   line-height: 1.5;
-  border: 3px solid;
+  border: 1px solid;
+  background-color: ${themedPalette.bg_page1};
+  color: ${themedPalette.text1};
   @media (max-width: 768px) {
     font-size: 13px;
   }
@@ -256,17 +259,16 @@ export const ProgressBarContainer = styled.div`
   z-index: 1101;
   background: white;
   width: 100%;
-  height: 3px;
+  height: 4px;
   top: 0;
   left: 0;
-  opacity: 0.5;
 `
 
 export const ProgressBar = styled.div`
-  background: red;
+  background: ${themedPalette.scroll_color};
   transform-origin: top left;
   width: ${(props: { scroll: number }) => `${props.scroll}%`};
-  height: 3px;
+  height: 4px;
   opacity: 1;
   z-index: 1100;
 `

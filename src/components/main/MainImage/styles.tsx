@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+import { themedPalette } from 'styles/themeVariables'
 
 export const MainAnimationContainer = styled.div`
   height: calc(100vh);
@@ -116,7 +117,7 @@ export const CircleDiv = styled.div`
   width: 130px;
   height: 100px;
   border-radius: 50%;
-  background-color: white;
+  background-color: ${themedPalette.bg_page1};
   z-index: 998;
 
   @media (max-width: 768px) {

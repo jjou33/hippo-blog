@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
+import { themedPalette } from 'styles/themeVariables'
 
 export const PostCardListContainer = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ export const PostItemContainer = styled.div`
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   height: 500px;
   border-radius: 20px;
+
   &:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
@@ -86,11 +88,11 @@ export const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: var(--white-color);
+  color: ${themedPalette.text1};
   border-radius: 0 0 20px 20px;
   border-width: 0px 0.5px 0.5px 0.5px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: ${themedPalette.border3};
 `
 
 export const Title = styled.div`
@@ -122,10 +124,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: #ffc75d;
-  font-size: 14px;
+  background: ${themedPalette.badge_color};
+  color: ${themedPalette.badge_text};
+  font-size: 15px;
   font-weight: 700;
-  color: #191d23;
 `
 
 export const Summary = styled.div`
@@ -152,9 +154,9 @@ export const Button = styled.button`
   justify-content: center;
   border: 1px solid;
   font-size: 20px;
-  color: white;
+  color: ${themedPalette.button_text};
   font-weight: 800;
-  background: #ff7b5d;
+  background: ${themedPalette.button_color};
   transform: scale(1);
   transition: transform 0.5s;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

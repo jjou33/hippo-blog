@@ -2,7 +2,7 @@ import React from 'react'
 import { Global, css } from '@emotion/react'
 import Reset from './Reset'
 import FontStyle from './fontStyles'
-import { themes } from './themeVariables'
+import { themes, themedPalette } from './themeVariables'
 const defaultStyle = css`
   ${Reset}
   ${FontStyle}
@@ -17,7 +17,13 @@ const defaultStyle = css`
 
   html,
   body {
-    ${themes.dark}
+    overflow-x: hidden;
+    max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    ${themes.light}
   }
   @media (prefers-color-scheme: dark) {
     body {
@@ -26,7 +32,7 @@ const defaultStyle = css`
   }
 
   body[data-theme='light'] {
-    ${themes.dark};
+    ${themes.light};
   }
 
   body[data-theme='dark'] {

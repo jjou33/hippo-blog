@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+import { themedPalette } from 'styles/themeVariables'
 export const scroll = keyframes`
   0% {
     bottom: 80%;
@@ -61,7 +62,7 @@ export const MouseIndicator = styled.div`
   position: relative;
   width: 2.5em;
   height: 4em;
-  border: solid 4px #3e54ac;
+  border: solid 4px ${themedPalette.indicator_color};
   border-radius: 30px;
 
   &::before {
@@ -70,7 +71,7 @@ export const MouseIndicator = styled.div`
     width: 0.4em;
     height: 0.4em;
     border-radius: 50%;
-    background: #3e54ac;
+    background: ${themedPalette.indicator_color};
     left: 50%;
     transform: translateX(-50%);
     animation: ${scroll} 2s infinite;

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { themedPalette } from 'styles/themeVariables'
 
 /**
  * PostTemplate
@@ -9,6 +10,7 @@ export const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 4;
+  color: ${themedPalette.text1};
 `
 
 /**
@@ -17,6 +19,8 @@ export const PostWrapper = styled.div`
 
 export const PostHeadInfoWrapper = styled.div`
   display: flex;
+  position: relative;
+  z-index: 2;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -150,6 +154,7 @@ export const PostTocTitle = styled.li`
   padding: 10px 10px;
   font-weight: 800;
   background-color: #ffd381;
+  color: #212529;
 `
 
 export const PostTocItem = styled.li`
@@ -157,17 +162,13 @@ export const PostTocItem = styled.li`
   flex-direction: column;
   a {
     flex: 1;
-
     font-weight: normal;
-    color: #514949;
+    color: ${themedPalette.text1};
     line-height: 1.5;
     border-left: 1px solid #d4cfcf;
     border-right: 1px solid #d4cfcf;
     border-bottom: 1px solid #d4cfcf;
-
-    padding-left: 20px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+    padding: 12px 0 12px 20px;
     &::before {
       counter-increment: item;
       content: counters(item, '.') '. ';
@@ -200,7 +201,7 @@ export const PostTocItem = styled.li`
 export const BackgroundImage = styled((props: GatsbyImgProps) => (
   <GatsbyImage {...props} style={{ position: 'absolute' }} />
 ))`
-  z-index: -1;
+  z-index: 1;
   width: 100%;
   height: 90vh;
   object-fit: cover;
@@ -494,6 +495,7 @@ export const MarkdownRenderer = styled.div`
     color: black;
     padding: 0 5px;
   }
+
   // Markdown Responsive Design
   @media (max-width: 768px) {
     width: 100vw;

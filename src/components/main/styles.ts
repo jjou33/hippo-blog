@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
+import { themedPalette } from 'styles/themeVariables'
 
 export const MainContainer = styled.main`
   flex-grow: 1;
   width: calc(100% - 270px);
-  background-color: white;
+  background-color: ${themedPalette.bg_page1};
+  color: ${themedPalette.text1};
   @media (max-width: 768px) {
     margin-top: 44px;
   }

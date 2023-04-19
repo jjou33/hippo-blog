@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { themedPalette } from 'styles/themeVariables'
 
 export const PostCategoryContainer = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const PostCateListWrapper = styled.div`
 export const PostItemContainer = styled.div`
   border-width: 1px 1px 1px 1px;
   border-style: solid;
-  border-color: #e5e7eb;
+  border-color: ${themedPalette.border3};
   border-radius: 10px;
   transform: scale(1);
   transition: transform 0.5s;
@@ -64,8 +65,9 @@ export const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: white;
   border-radius: 10px;
+  color: ${themedPalette.text1};
+  border-color: ${themedPalette.border3};
 `
 
 export const Title = styled.div`
@@ -106,10 +108,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: #ffc75d;
+  background: ${themedPalette.badge_color};
+  color: ${themedPalette.badge_text};
   font-size: 14px;
   font-weight: 700;
-  color: #191d23;
 `
 
 export const Summary = styled.div`

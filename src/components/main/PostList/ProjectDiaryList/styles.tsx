@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+import { themedPalette } from 'styles/themeVariables'
 export const ProjectDiaryContainer = styled.div`
   width: 100%;
 `
@@ -76,10 +77,10 @@ export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: #ffc75d;
+  background: ${themedPalette.badge_color};
+  color: ${themedPalette.badge_text};
   font-size: 14px;
   font-weight: 700;
-  color: #191d23;
 `
 export const Summary = styled.p`
   overflow: hidden;
