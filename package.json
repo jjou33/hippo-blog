@@ -31,6 +31,7 @@
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^9.4.1",
+    "react-toggle-dark-mode": "^1.1.1",
     "recoil": "^0.7.6",
     "recoil-persist": "^4.2.0"
   },

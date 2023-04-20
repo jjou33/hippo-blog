@@ -46,18 +46,33 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background: rgba(255, 255, 255, 0.1);
-  /* background-color: ${themedPalette.bg_page1}; */
+  background-color: ${themedPalette.bg_page1};
   color: ${themedPalette.text1};
-  backdrop-filter: saturate(180%) blur(50px);
+  backdrop-filter: saturate(180%) blur(5px);
   left: 0;
   z-index: 1100;
   width: 100vw;
-  height: 50px;
+  height: 80px;
   padding: 0 1rem;
+  ${(props: { isHide: boolean }) =>
+    props.isHide
+      ? css`
+          transition: 0.4s ease-in-out;
+          transform: translateY(-80px);
+        `
+      : css`
+          transition: 0.4s ease-in-out;
+          transform: translateY(0px);
+        `}
 `
 
 export const HeaderItemTitle = styled(Link)`
-  /* margin-right: auto; */
+  margin: auto;
+  font-size: 30px;
+  font-weight: bold;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `
 export const HeaderItemLink = styled.div`
   margin: 0 2px;
@@ -78,20 +93,7 @@ export const HeaderWrapper = styled.div`
   height: 100%;
   margin: 0 50px;
 
-  a {
-    font-size: 0.8rem;
-  }
-  a:not(${HeaderItemTitle}) {
-    margin-left: 2px;
-  }
-
-  ${HeaderItemTitle} {
-    margin: auto;
-    font-size: 30px;
-    font-weight: bold;
-    @media screen and (max-width: 768px) {
-      font-size: 15px;
-    }
+  @media screen and (max-width: 768) {
   }
 `
 
@@ -383,38 +385,21 @@ export const FooterWaveStyle = styled.div`
 
   background-size: 1000px 100px;
 `
-export const BoatImage = styled.img``
-export const BoatIcon = styled.div`
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  /* margin: 90px 0 0 300px; */
-  z-index: 1001;
-  animation: ${boat_in_animation} 10s ease infinite;
 
-  ${(props: { totalHeight: number; totalWidth: number }) => {
-    return css`
-      /* margin: 0 0 ${props.totalHeight * 0.4}px ${props.totalHeight *
-      0.3}px; */
-      top: ${props.totalHeight * 0.82}px;
-      margin-left: ${props.totalWidth * 0.1}px;
-    `
-  }}
-`
+// export const ThemeButton = styled.div`
+//   cursor: pointer;
+//   width: 100px;
+//   height: 50px;
+//   margin-left: 50px;
+//   padding-top: 10px;
+//   padding-left: 50px;
+// `
 
-export const islandIcon = styled.div`
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  margin: 90px 0 0 1000px;
-  z-index: 1001;
-`
-
-export const ThemeButton = styled.div`
-  cursor: pointer;
-  width: 100px;
-  height: 50px;
-  margin-left: 50px;
-  padding-top: 10px;
-  padding-left: 50px;
+export const ToggleBackground = styled.div`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #606060;
+  padding-left: 10px;
+  padding-top: 8px;
 `

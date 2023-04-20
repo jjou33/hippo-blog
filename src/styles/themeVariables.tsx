@@ -74,7 +74,7 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     border3: '#4D4D4D',
     border4: '#2A2A2A',
     indicator_color: '#dfee6e',
-    button_color: 'linear-gradient(to top, #12c2e9, #c471ed, #f64f59)',
+    button_color: 'linear-gradient(to top, #2ebf91, #8360c3)',
     button_text: '#fff',
     badge_color: '#ff5353',
     badge_text: '#fff',
