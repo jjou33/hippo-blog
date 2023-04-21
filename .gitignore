@@ -61,13 +61,6 @@ public
 # Mac files
 .DS_Store
 
-# Yarn
-yarn-error.log
-.pnp/
-.pnp.js
-# Yarn Integrity file
-.yarn-integrity
-
 ### yarn ###
 # used Zero-Install
 .yarn/*
@@ -77,12 +70,3 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-# unused Zero-Install
-# .yarn/*
-# !.yarn/patches
-# !.yarn/releases
-# !.yarn/plugins
-# !.yarn/sdks
-# !.yarn/versions
-# .pnp.*

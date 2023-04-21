@@ -25,9 +25,8 @@ export const useScrollState = () => {
   const throttleScroll = throttle(handleScroll, 50)
 
   useEffect(() => {
-    documentRef.current.addEventListener('scroll', throttleScroll)
-    return () =>
-      documentRef.current.removeEventListener('scroll', throttleScroll)
+    window.addEventListener('scroll', throttleScroll)
+    return () => window.removeEventListener('scroll', throttleScroll)
   }, [pageY])
 
   return hide

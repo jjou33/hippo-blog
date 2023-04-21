@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ColorText from 'components/common/TextEffect'
 
-import { getSvgJSXElement } from 'utils/imageBridge'
 import { useScrollState } from 'hooks/useScrollState'
+import { getSvgJSXElement } from 'utils/imageBridge'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
@@ -41,16 +41,14 @@ const Header = () => {
             <ColorText text="HIPPO DEV"></ColorText>
           </S.HeaderItemTitle>
 
-          <S.ToggleBackground>
-            <DarkModeSwitch
-              style={{ marginBottom: '0' }}
-              checked={isDarkMode}
-              onChange={toggleDarkMode}
-              size={50}
-              sunColor="orange"
-              moonColor="yellow"
-            />
-          </S.ToggleBackground>
+          <DarkModeSwitch
+            style={{}}
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+            size={40}
+            sunColor="orange"
+            moonColor="yellow"
+          />
         </S.HeaderWrapper>
       </S.HeaderContainer>
     </>

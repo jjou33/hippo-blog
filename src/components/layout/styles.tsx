@@ -70,8 +70,10 @@ export const HeaderItemTitle = styled(Link)`
   margin: auto;
   font-size: 30px;
   font-weight: bold;
+  padding-left: 50px;
   @media screen and (max-width: 768px) {
     font-size: 20px;
+    padding-left: 0px;
   }
 `
 export const HeaderItemLink = styled.div`
@@ -93,7 +95,8 @@ export const HeaderWrapper = styled.div`
   height: 100%;
   margin: 0 50px;
 
-  @media screen and (max-width: 768) {
+  @media screen and (max-width: 768px) {
+    margin: 0 0px;
   }
 `
 
@@ -386,20 +389,7 @@ export const FooterWaveStyle = styled.div`
   background-size: 1000px 100px;
 `
 
-// export const ThemeButton = styled.div`
-//   cursor: pointer;
-//   width: 100px;
-//   height: 50px;
-//   margin-left: 50px;
-//   padding-top: 10px;
-//   padding-left: 50px;
-// `
-
 export const ToggleBackground = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: #606060;
-  padding-left: 10px;
-  padding-top: 8px;
+  @media screen and (max-width: 768px) {
+  }
 `
