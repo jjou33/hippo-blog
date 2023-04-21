@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 const throttle = (callback: () => void, waitTime: number) => {
   let timerId: number | null = null
@@ -13,7 +13,7 @@ const throttle = (callback: () => void, waitTime: number) => {
 export const useScrollState = () => {
   const [hide, setHide] = useState(false)
   const [pageY, setPageY] = useState(0)
-  const documentRef = useRef(document)
+
   const handleScroll = () => {
     const { pageYOffset } = window
     const deltaY = pageYOffset - pageY
