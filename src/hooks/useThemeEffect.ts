@@ -19,11 +19,12 @@ export const useThemeEffect = () => {
   }, [])
 
   useEffect(() => {
-    console.log('st : ', localStorage.get('theme'))
     if (theme !== 'default') {
       document.body.dataset.theme = theme as string
     } else {
-      document.body.dataset.theme = systemPrefersDarkValue as string
+      if (localStorage.get('theme')) {
+        document.body.dataset.theme = localStorage.get('theme')
+      }
     }
   }, [theme, systemPrefersDarkValue])
 }

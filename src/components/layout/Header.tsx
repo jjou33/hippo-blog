@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ColorText from 'components/common/TextEffect'
-
+import { generateStorage } from 'utils/storage'
 import { useScrollState } from 'hooks/useScrollState'
 import { getSvgJSXElement } from 'utils/imageBridge'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useToggleTheme } from 'hooks/useToggleTheme'
-import { useTheme } from 'hooks/useTheme'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
+import { darkModeSelector } from 'states/darkModeState'
 import * as S from './styles'
 
 const Header = () => {
-  const [isDarkMode, setDarkMode] = useState(true)
+  const isDark = () =>
+    generateStorage().get('theme') === 'dark' ? true : false
+  const [isDarkMode, setDarkMode] = useState(isDark())
   const setState = useSetRecoilState(menuOpenState)
   const scroll = useScrollStateBar()
+  const setThemeState = useSetRecoilState(darkModeSelector('theme'))
   const hideState = useScrollState()
   const { toggle } = useToggleTheme()
   const toggleMenuButton = () => {
@@ -22,11 +25,16 @@ const Header = () => {
       return !oldOpenState
     })
   }
-  console.log('isDarkMode : ', isDarkMode)
+
   const toggleDarkMode = (checked: boolean) => {
     setDarkMode(checked)
     toggle()
   }
+
+  useEffect(() => {
+    setDarkMode(isDark())
+    setThemeState(generateStorage().get('theme'))
+  }, [])
 
   return (
     <>

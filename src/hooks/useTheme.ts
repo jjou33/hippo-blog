@@ -8,8 +8,6 @@ export const useTheme = () => {
 
   console.log('state : ', darkModeState)
   const theme = (() => {
-    // console.log('sys : ', darkModeState.systemTheme)
-
     if (darkModeState.systemTheme === 'not-ready') return 'light'
     if (darkModeState.theme !== 'default') return darkModeState.theme
     return darkModeState.systemTheme
