@@ -29,10 +29,7 @@ const SideNavSection = (location: Location) => {
 
   return (
     <S.NavigationContainer isOpen={state}>
-      <Introduction
-        profileImage={imagePath['superHero']}
-        roketImage={imagePath['rocket']}
-      />
+      <Introduction profileImage={imagePath['superHero']} />
       <S.NavigationWrapper>
         {mount ? (
           <CategoryList

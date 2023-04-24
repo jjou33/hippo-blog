@@ -1,8 +1,5 @@
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { upDownAnimation } from 'styles/AnimationKeyframes'
-import { boat_in_animation } from 'styles/AnimationKeyframes'
-
 import { Link } from 'gatsby'
 import { themedPalette } from 'styles/themeVariables'
 
@@ -10,6 +7,15 @@ import { themedPalette } from 'styles/themeVariables'
  * Template Component Styled Section
  * 템플릿 컴포넌트 스타일 영역
  */
+
+const upDownAnimation = keyframes`
+ from{
+   transform: translatey(2px);
+ }
+ to{
+   transform: translatey(-2px);
+ }
+`
 
 export const Container = styled.div`
   display: flex;
@@ -382,7 +388,11 @@ export const FooterWaveStyle = styled.div`
             animation-delay: -1s;
             bottom: 15px;
           `
+        default:
+          return css``
       }
+    } else {
+      return css``
     }
   }}
 

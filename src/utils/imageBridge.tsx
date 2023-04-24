@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import { CategoryEdgeType } from 'types/catgegory'
-import { navigationIcon } from 'assets/svg/NavigationIcon'
+import { navigationIcon } from 'assets/svg/navigationIcon'
 
 interface NodeType {
   node: {

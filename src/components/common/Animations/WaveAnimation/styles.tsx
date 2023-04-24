@@ -1,6 +1,22 @@
 import styled from '@emotion/styled'
 import { keyframes, css } from '@emotion/react'
-import { boat_in_animation } from 'styles/AnimationKeyframes'
+
+/**
+ * @description Hover 혹은 Event 발생 시 양옆으로 흔들리는 Keyframes
+ */
+export const boat_in_animation = keyframes`
+ 0% {
+   transform: rotate(10deg);
+ }
+
+ 50% {
+   transform: rotate(-10deg);
+ }
+ 100% {
+   transform: rotate(10deg);
+ }
+ `
+
 export const WaveAnimationWrapper = styled.div`
   margin-bottom: 20px;
 `

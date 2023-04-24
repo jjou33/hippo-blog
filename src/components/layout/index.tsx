@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import * as S from './styles'
-import GlobalStyle from 'styles/GlobalStyle'
+import GlobalStyle from 'styles/globalStyle'
 import Header from 'components/layout/Header'
 import Modal from 'components/common/Modal'
 import SideNavSection from 'components/navigation'

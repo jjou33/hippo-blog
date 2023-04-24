@@ -1,6 +1,25 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-import { shaking_in_animation } from 'styles/AnimationKeyframes'
+
+/**
+ * @description Hover 혹은 Event 발생 시 양옆으로 흔들리는 Keyframes
+ */
+export const shaking_in_animation = keyframes`
+ 0% {
+   transform: rotate(15deg);
+ }
+ 
+ 30% {
+   transform: rotate(-15deg);
+ }
+ 
+ 70% {
+   transform: rotate(15deg);
+ }
+ 100% {
+   transform: rotate(-15deg);
+ }
+ `
 
 /**
  * Introduction Component Styled Section

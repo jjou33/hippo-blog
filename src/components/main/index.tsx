@@ -29,7 +29,7 @@ const MainSection = ({
   } = useCategoryMetadata()
   return (
     <S.MainContainer>
-      <MainImage imagePath={imagePath} />
+      <MainImage />
       <S.ContentsWrapper>
         <MainIntro />
         <RecommendCategoryList imagePath={imagePath} />

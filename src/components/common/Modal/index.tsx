@@ -13,7 +13,7 @@ const Modal = ({ children }: DimmedModalPropsType) => {
   const state = useRecoilValue<boolean>(menuOpenState)
   const setState = useSetRecoilState(menuOpenState)
 
-  const onMaskClick = (e: Event) => {
+  const onMaskClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       setState((oldValue: boolean) => !oldValue)
     }

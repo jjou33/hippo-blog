@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Link } from '@reach/router'
-import GlobalStyle from 'styles/GlobalStyle'
+import { Link } from 'gatsby'
+import GlobalStyle from 'styles/globalStyle'
 
 const NotFoundPageWrapper = styled.div`
   display: flex;

@@ -8,6 +8,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
 
     "paths": {
@@ -19,11 +20,11 @@
       "assets/*": ["src/assets/*"],
       "states/*": ["src/states/*"]
     },
- 
+
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": false,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.tsx", "src/**/*.d.ts","src/**/*.ts", "./eslintrc.json"],
+  "include": ["src/**/*.tsx", "src/**/*.d.ts", "src/**/*.ts", "./eslintrc.json"]
 }

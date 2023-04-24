@@ -1,8 +1,10 @@
 import { atom, selectorFamily } from 'recoil'
 
-export type DarkModeState = {
-  theme: 'dark' | 'light' | 'default'
-  systemTheme: 'dark' | 'light' | 'not-ready'
+export type DarkModeFieldState = 'theme' | 'systemTheme' | 'all'
+
+export interface DarkModeState {
+  theme: string
+  systemTheme: string
 }
 
 const defaultState: DarkModeState = {
@@ -17,7 +19,7 @@ export const darkMode = atom({
 export const darkModeSelector = selectorFamily({
   key: 'darkModeSelector',
   get:
-    field =>
+    (field: DarkModeFieldState) =>
     ({ get }) => {
       if (field === 'all') {
         return get(darkMode)
@@ -26,7 +28,7 @@ export const darkModeSelector = selectorFamily({
       }
     },
   set:
-    field =>
+    (field: DarkModeFieldState) =>
     ({ set }, newValue) =>
       set(darkMode, prevState => ({ ...prevState, [field]: newValue })),
 })

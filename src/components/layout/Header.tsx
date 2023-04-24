@@ -7,6 +7,7 @@ import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useScrollStateBar } from 'hooks/useScrollStateBar'
 import { useToggleTheme } from 'hooks/useToggleTheme'
+import { useTheme } from 'hooks/useTheme'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import * as S from './styles'
 
@@ -21,7 +22,7 @@ const Header = () => {
       return !oldOpenState
     })
   }
-
+  console.log('isDarkMode : ', isDarkMode)
   const toggleDarkMode = (checked: boolean) => {
     setDarkMode(checked)
     toggle()

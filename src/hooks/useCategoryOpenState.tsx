@@ -1,4 +1,4 @@
-import { LegacyRef, MutableRefObject, useRef, useState } from 'react'
+import { MutableRefObject, useRef, useState } from 'react'
 
 import { useSetRecoilState } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
@@ -15,7 +15,7 @@ export const useCategoryState = () => {
   const setState = useSetRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
 
-  const titleRef = useRef<LegacyRef<HTMLDivElement | null>>(null)
+  const titleRef = useRef(null)
 
   const toggleTitle = (categoryItem: string) => {
     setIsOpen(!isOpen)

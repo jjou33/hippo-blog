@@ -43,7 +43,6 @@ const CategoryTitle = ({
   return (
     <>
       <S.CategoryTitleContainer
-        isOpen={isOpenFilter(state)}
         ref={titleRef}
         onClick={() => {
           toggleTitle(categoryItem)

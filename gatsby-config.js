@@ -3,11 +3,11 @@ module.exports = {
     title: `HIPPO 를 닯은 개발자의 블로그`,
     description: `기록을 중요시하는 나만의 개발 일기장입니다.`,
     author: `HIPPO`,
-    siteUrl: 'https://my-website-link.com', // 배포 후 변경 예정
+    siteUrl: "https://my-website-link.com", // 배포 후 변경 예정
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-typescript',
+      resolve: "gatsby-plugin-typescript",
       options: {
         isTSX: true,
         allExtensions: true,
@@ -52,35 +52,35 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: ['auto', 'webp'],
+          formats: ["auto", "webp"],
           quality: 100,
-          placeholder: 'blurred',
-        }
-      }
+          placeholder: "blurred",
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-sitemap",
     {
-      resolve: 'gatsby-plugin-canonical-urls',
+      resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: 'https://main--hippo-dev.netlify.app/',
+        siteUrl: "https://hippo-dev.vercel.app/",
         stripQueryString: true,
       },
     },
-    
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-smartypants',
+            resolve: "gatsby-remark-smartypants",
             options: {
-              dashes: 'oldschool',
+              dashes: "oldschool",
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
               classPrefix: "language-",
               inlineCodeMarker: null,
@@ -90,7 +90,7 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 768,
               quality: 100,
@@ -98,18 +98,18 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: "gatsby-remark-copy-linked-files",
             options: {},
           },
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-              rel: 'nofollow',
+              target: "_blank",
+              rel: "nofollow",
             },
           },
         ],
       },
     },
   ],
-}
+};

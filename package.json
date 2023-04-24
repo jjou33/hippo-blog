@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "hippo-dev-project",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "develped By Hippo-Dev",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "HIPPO-DEV<zanda33@naver.com>",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -55,19 +55,11 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "dev": "rm -rf ./.cache && rm -rf ./public && gatsby develop",
-    "start": "gatsby develop",
+    "dev": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "eslint --cache --max-warnings 0 \"./src/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "typecheck": "tsc --noEmit"
   },
   "resolutions": {
     "babel-plugin-lodash/@babel/types": "~7.20.0"

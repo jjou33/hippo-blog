@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import type { BadgeColorType } from '.'
-import { themedPalette } from 'styles/themeVariables'
 
 export const BadgeWrapper = styled.div`
   display: flex;

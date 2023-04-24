@@ -1,19 +1,12 @@
 import React from 'react'
+import reset from './reset'
+import fontStyle from '../assets/fonts/index'
 import { Global, css } from '@emotion/react'
-import Reset from './Reset'
-import FontStyle from './fontStyles'
-import { themes, themedPalette } from './themeVariables'
-const defaultStyle = css`
-  ${Reset}
-  ${FontStyle}
+import { themes } from './themeVariables'
 
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    shape-rendering: auto;
-    font-family: NanumSquareNeo;
-  }
+const defaultStyle = css`
+  ${reset}
+  ${fontStyle}
 
   html,
   body {
@@ -25,11 +18,11 @@ const defaultStyle = css`
     user-select: none;
     ${themes.light}
   }
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     body {
       ${themes.dark}
     }
-  }
+  } */
 
   body[data-theme='light'] {
     ${themes.light};
