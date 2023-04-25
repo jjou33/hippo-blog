@@ -19,8 +19,8 @@
 
 | Name               | Description                                      |
 | ------------------ | ------------------------------------------------ |
-| React              | Frontend FrameWork                               |
-| Recoil             | 전역 상태 관리                                   |
+| React              | Frontend Library                               |
+| Recoil             | 상태 관리                                   |
 | Type-script        | 작성 언어                                        |
 | gatsby, webpack... | 환경 구성 관련 (서버사이드, 번들링, 플러그인 등) |
 | yarn berry         | Package Manager                                  |
@@ -39,10 +39,21 @@
 ✅ 프로젝트 실행 방법
 
 ---
+```bash
+필수적으로 필요한 Extention 을 .vscode 파일에 추가해 두었으며, 
+install 후 vscode 우측 하단 추천 Extention 추가 필요
+```
+<br />
+
+✅ yarn 설치 
+
+```bash
+npm install -g yarn
+```
 
 <br />
 
-✅ 의존성 설치 (<strong>yarn `설치 작업` 선행 후 진행</strong>)
+✅ 의존성 설치 (<strong style="color: red">yarn 설치 작업 선행 후 진행</strong>)
 
 ```bash
 yarn install
@@ -56,15 +67,8 @@ yarn install
 yarn dev
 ```
 
-<br />
+## Coding Convention Check
 
-✅ 프로젝트 빌드
-
-```bash
-yarn build
-```
-
-<br />
 
 ✅ LINT 검사
 
@@ -91,7 +95,7 @@ yarn typecheck
 
 ✅ 파일 구조 및 설명
 
-```json
+```md
 hippo-blog
 ├─ .vscode 
 │  ├─ extensions.json
