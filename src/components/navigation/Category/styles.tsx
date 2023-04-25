@@ -274,6 +274,7 @@ export const CategoryItemWrapper = styled.li`
   border-radius: 5px;
   transition: background, 0.5s;
   gap: 10px;
+  margin-left: 20px;
   &:hover {
     background: #ebfeff;
     color: black;

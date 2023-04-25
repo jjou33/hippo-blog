@@ -7,6 +7,89 @@ export interface IconPropsType {
 }
 
 export const navigationIcon: IconPropsType = {
+  Design: {
+    icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
+      <svg
+        fill={color}
+        width={width}
+        height={height}
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>file_type_html</title>
+        <polygon
+          points="5.902 27.201 3.655 2 28.345 2 26.095 27.197 15.985 30 5.902 27.201"
+          fill="#e44f26"
+        />
+        <polygon
+          points="16 27.858 24.17 25.593 26.092 4.061 16 4.061 16 27.858"
+          fill="#f1662a"
+        />
+        <polygon
+          points="16 13.407 11.91 13.407 11.628 10.242 16 10.242 16 7.151 15.989 7.151 8.25 7.151 8.324 7.981 9.083 16.498 16 16.498 16 13.407"
+          fill="#ebebeb"
+        />
+        <polygon
+          points="16 21.434 15.986 21.438 12.544 20.509 12.324 18.044 10.651 18.044 9.221 18.044 9.654 22.896 15.986 24.654 16 24.65 16 21.434"
+          fill="#ebebeb"
+        />
+        <polygon
+          points="15.989 13.407 15.989 16.498 19.795 16.498 19.437 20.507 15.989 21.437 15.989 24.653 22.326 22.896 22.372 22.374 23.098 14.237 23.174 13.407 22.341 13.407 15.989 13.407"
+          fill="#fff"
+        />
+        <polygon
+          points="15.989 7.151 15.989 9.071 15.989 10.235 15.989 10.242 23.445 10.242 23.445 10.242 23.455 10.242 23.517 9.548 23.658 7.981 23.732 7.151 15.989 7.151"
+          fill="#fff"
+        />
+      </svg>
+    ),
+  },
+  Javascript: {
+    icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="JavaScript"
+        role="img"
+        fill={color}
+        width={width}
+        height={height}
+        viewBox="0 0 512 512"
+      >
+        <rect width="512" height="512" rx="15%" fill="#f7df1e" />
+        <path d="M324 370c10 17 24 29 47 29c20 0 33-10 33 -24c0-16 -13 -22 -35 -32l-12-5c-35-15 -58 -33 -58 -72c0-36 27 -64 70 -64c31 0 53 11 68 39l-37 24c-8-15 -17 -21 -31 -21c-14 0-23 9 -23 21c0 14 9 20 30 29l12 5c41 18 64 35 64 76c0 43-34 67 -80 67c-45 0-74 -21 -88 -49zm-170 4c8 13 14 25 31 25c16 0 26-6 26 -30V203h48v164c0 50-29 72 -72 72c-39 0-61 -20 -72 -44z" />
+      </svg>
+    ),
+  },
+  FrameWork: {
+    icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
+      <svg
+        fill={color}
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        id="architecture"
+        data-name="Flat Line"
+        xmlns="http://www.w3.org/2000/svg"
+        className="icon flat-line"
+      >
+        <path
+          id="secondary"
+          d="M17,7.58a1,1,0,0,0-.5-.87L10,3,3.5,6.71a1,1,0,0,0-.5.87V21H9l8-6.67Z"
+          fill="rgb(44, 169, 188)"
+          strokeWidth={2}
+        ></path>
+        <path
+          id="primary"
+          d="M17,14.33,9,21H3V7.58a1,1,0,0,1,.5-.87L10,3l6.5,3.71a1,1,0,0,1,.5.87ZM9,21H21V11Z"
+          fill="none"
+          stroke="rgb(0, 0, 0)"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        ></path>
+      </svg>
+    ),
+  },
   NonFilledArrow: {
     icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
       <svg

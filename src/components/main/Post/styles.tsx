@@ -180,6 +180,7 @@ export const PostTocItem = styled.li`
     }
     &:hover {
       background-color: #fcf8eb;
+      background-color: ${themedPalette.hover_color};
     }
     @media screen and (max-width: 768px) {
       padding-left: 10px;
@@ -233,7 +234,7 @@ export const MarkdownRenderer = styled.div`
     margin: 5px 0;
     font-size: 20px;
     strong {
-      color: #006dd7;
+      color: ${themedPalette.strong_text_color};
     }
     @media (max-width: 768px) {
       font-size: 12px;
@@ -491,8 +492,10 @@ export const MarkdownRenderer = styled.div`
   }
 
   code[class*='language-text'] {
-    background-color: #c8e3fe;
-    color: black;
+    background-color: ${themedPalette.bg_element4};
+    color: ${themedPalette.code_text_color};
+    font-weight: 800;
+    font-style: bold;
     padding: 0 5px;
   }
 

@@ -24,7 +24,7 @@ interface NodeFormatterType {
   }
 }
 const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
-  const limit = 6
+  const limit = 10
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
   const setState = useSetRecoilState(menuOpenState)

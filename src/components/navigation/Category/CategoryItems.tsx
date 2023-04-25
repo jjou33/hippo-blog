@@ -24,9 +24,9 @@ const CategoryItems = ({
             <S.CategoryItemArrow>
               {getSvgJSXElement('NonFilledArrow', '15')}
             </S.CategoryItemArrow>
-            <S.CategoryTitleIcon>
+            {/* <S.CategoryTitleIcon>
               {getSvgJSXElement(categoryItem, '25')}
-            </S.CategoryTitleIcon>
+            </S.CategoryTitleIcon> */}
             <S.CategoryItem
               to={`/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}

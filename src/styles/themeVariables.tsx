@@ -23,6 +23,9 @@ type ThemeVariables = {
   deep_white: string
   deep_black: string
   scroll_color: string
+  hover_color: string
+  code_text_color: string
+  strong_text_color: string
 }
 
 type Theme = 'light' | 'dark'
@@ -55,6 +58,9 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     deep_white: '#fff',
     deep_black: '#000',
     scroll_color: '#3981f3',
+    hover_color: '#fcf8eb',
+    code_text_color: '#519D9E',
+    strong_text_color: '#9055A2',
   },
   dark: {
     bg_page1: '#232323',
@@ -81,6 +87,9 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     deep_white: '#fff',
     deep_black: '#000',
     scroll_color: '#ff5353',
+    hover_color: '#131313',
+    code_text_color: '#A593E0',
+    strong_text_color: '#ffd381',
   },
 }
 
