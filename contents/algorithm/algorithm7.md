@@ -1,0 +1,109 @@
+---
+date: "2021-09-21"
+title: "[Algorithm] 가장 짧은 거리 구하기"
+categories: ["Algorithm", "Basic"]
+index: 1
+domain: "Algorithm"
+sideTitle: "Basic"
+summary: "홈페이지를 운영하는 많은 사람들 또는 기업들이 검색 페이지 최상단에 보여지게 하기 위해 어떤 최적화 작업을 하는지 알아보자."
+thumbnail: "./thumbnail/mainImage.png"
+categoryIcon: "../sumnail.png"
+---
+
+
+### 문제 요건
+***
+**문자열(String) 과 특정 문자**를 입력받고 String안에서 **특정문자**와 각각의 **이외의 문자와의 차이 중 가장 짧은 거리**를 구하자.
+
+### 코드
+***
+
+```javascript
+//ASCII Code 값 비교를 통한 문자 제거
+function solution(str, char) {
+    let answer = []
+    let checkIdx = []
+
+    for(let i=0; i<str.length; i++) {
+        if (str[i] === char) {
+            checkIdx.push(i)
+        }
+    }
+
+    // max 함수 사용
+    // for(let i=0; i <str.length; i++) {
+    //     let tempArr = []
+    //     for(let j=0; j< checkIdx.length; j++) {
+    //         tempArr.push(Math.abs(checkIdx[j]-i))
+    //     }
+    //     answer.push(Math.min(...tempArr))
+    // }
+
+    // max 함수 미사용
+    for (let i = 0; i < str.length; i++) {
+        let tempArr = []
+        let min = Number.MAX_SAFE_INTEGER
+        for (let j = 0; j < checkIdx.length; j++) {
+            if(Math.abs(checkIdx[j]-i) < min) {
+                min = Math.abs(checkIdx[j]-i)
+            }
+        }
+        answer.push(min)
+    }
+    
+    return answer
+}
+let str = 'teachermode'
+let char = 'e'
+```
+
+```javascript
+// 시간복잡도 O(n) 으로 훨씬 짧다.
+// 배열을 양방향으로 훑으면서 작은 값을 넣어주는 방식
+function solution2(str, char) {
+    let answer = []
+    let flag = 1000
+    for(let x of str) {
+        if(x !== char) {
+            flag++
+        } else {
+            flag = 0
+        }
+        answer.push(flag)
+    }
+    flag = 1000
+    for(let i=str.length-1; i >= 0; i--) {
+        if(str[i] !== char) {
+            flag++
+            answer[i] = Math.min(answer[i], flag)
+        } else {
+            flag = 0
+        }
+    }
+    return answer
+}
+
+let str = 'teachermode'
+let char = 'e'
+```
+
+### 결과정리
+***
+
+이 문제를 푸는데 가장 중요한 부분은 **문제 해결을 위한 접근 방법** 이다.
+
+어떻게 비교를 할 지에 대한 두가지 방법을 기록한다.
+
+**첫번째 solution** 의 경우 str 내에 'e' 의 인덱스를 가지는 배열을 구한다.
+이후 2중 for 문을 통해 str 각 문자의 인덱스와 'e' 의 인덱스 배열의 차이의 절대값중 가장 짧은 것을 구하여 return 하는 방법으로 풀었다
+
+이후 강의를 보면서 solution2 의 아이디어를 알게 되었다.
+
+**solution2 의 경우**는 무엇보다 **시간복잡도에서 O(n)**으로 내가 풀어본 것(solution)보다 효율적일 수 있다고 생각한다.
+요지는 **양방향으로 for 문을 2번 돌려 첫번째는 e 로부터의 cnt 값을 1씩 올리며 문자열마다 e 와의 거리를 배열에 넣은 후** 
+**반대쪽에서 다시 동일하게 검사하되 만약 작다면 바꿔치기 한다.**
+
+### Key Point
+***
+
+**문자 인덱스 간의 거리를 구할 때 양방향으로 검사하는 아이디어**

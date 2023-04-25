@@ -1,5 +1,5 @@
 ---
-date: "2021-09-02"
+date: "2021-09-10"
 title: "[Algorithm] 앞 수들 보다 큰 수만 구하기"
 categories: ["Algorithm", "Basic"]
 index: 4
@@ -10,7 +10,7 @@ thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---
 
-#### 1. 문제 요건
+### 문제 요건
 
 ---
 
@@ -18,7 +18,7 @@ categoryIcon: "../sumnail.png"
 
 맨앞에서 볼 때 보이는 사람일경우 즉, **자신의 앞 모든사람보다 키가 큰 사람**을 구하라
 
-#### 2. 코드
+### 코드
 
 ---
 
@@ -57,7 +57,7 @@ function solution2(arr) {
 }
 ```
 
-#### 3. 결과정리
+### 결과정리
 
 ---
 
