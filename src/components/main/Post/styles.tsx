@@ -404,10 +404,12 @@ export const MarkdownRenderer = styled.div`
 
   // Adjust Quotation Element Style
   blockquote {
-    margin: 30px 0;
+    margin: 20px 0;
     padding: 5px 15px;
     border-left: 2px solid #000000;
     font-weight: 800;
+    background-color: #36466a;
+    color: #a8c2b2;
   }
 
   // Adjust List Element Style
@@ -418,6 +420,9 @@ export const MarkdownRenderer = styled.div`
     li {
       list-style: disc;
       padding-left: 10px;
+      strong {
+        color: ${themedPalette.strong_text_color};
+      }
     }
   }
 
@@ -426,7 +431,7 @@ export const MarkdownRenderer = styled.div`
   // Adjust Link Element Style
   a {
     color: #4263eb;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   // Adjust Code Style

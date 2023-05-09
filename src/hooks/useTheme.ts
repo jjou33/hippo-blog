@@ -6,7 +6,6 @@ export const useTheme = () => {
     darkModeSelector('all'),
   ) as DarkModeState
 
-  console.log('state : ', darkModeState)
   const theme = (() => {
     if (darkModeState.systemTheme === 'not-ready') return 'light'
     if (darkModeState.theme !== 'default') return darkModeState.theme

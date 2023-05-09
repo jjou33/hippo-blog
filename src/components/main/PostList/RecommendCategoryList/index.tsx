@@ -9,11 +9,11 @@ const RecommendCategoryList = ({ imagePath }: ImagePathPropsType) => {
     'Javascript',
     'react',
     'vue',
-    'vue3',
+    'Babel',
     'Algorithm',
-    'vue3',
-    'vue3',
-    'vue3',
+    'HTML',
+    'Browser',
+    'Mac',
   ]
 
   return (

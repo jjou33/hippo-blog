@@ -5,7 +5,7 @@ categories: ["Algorithm", "Basic"]
 index: 4
 domain: "Algorithm"
 sideTitle: "Basic"
-summary: "홈페이지를 운영하는 많은 사람들 또는 기업들이 검색 페이지 최상단에 보여지게 하기 위해 어떤 최적화 작업을 하는지 알아보자."
+summary: "알고리즘 공부 간 기록이 필요한 문제들에 대한 정리를 기록하는 포스트 입니다."
 thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---

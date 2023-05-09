@@ -10,11 +10,7 @@ thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---
 
-<hr>
-:raising_hand:  ```vue3 관련 공부 내용을 기록하기 위한 포스트입니다.```
-<hr>
-
-#### 개요
+### 개요
 
 ---
 
@@ -26,7 +22,7 @@ categoryIcon: "../sumnail.png"
 
 그러나, 이번에 고도화를 진행하면서 **Composition API**를 사용하여 구현하기로 정함으로써 **Composition API**와 **Vue2**와 대비되는 점에 대해서 간단히 기록한다.
 
-#### Composition API 등장 배경
+### Composition API 등장 배경
 
 ---
 
@@ -44,7 +40,7 @@ categoryIcon: "../sumnail.png"
 **두번째**, 앞으로 조금 더 학습이 필요한 부분이지만, **Composables**를 통해 **코드 재사용**을 더 쉽게 할 수 있다고 한다.
 이부분은 조금 더 보강해서 추후 작성할 예정이다.
 
-#### Typescript 의 안정적인 지원
+### Typescript 의 안정적인 지원
 
 ---
 
@@ -52,7 +48,7 @@ categoryIcon: "../sumnail.png"
 
 예를들어, **Vue2**의 `Vuex, Route, Vetur` 또한 **Vue3**에서는 조금 더 **Typescript**를 사용하기 편해진 점이다.
 
-#### 최종결론
+### 최종결론
 
 ---
 
@@ -60,7 +56,7 @@ categoryIcon: "../sumnail.png"
 
 따라서, 앞으로 조금 더 진행하면서 관련 글을 포스팅할 예정이다.
 
-#### 참고 사이트
+### 참고 사이트
 
 ---
 

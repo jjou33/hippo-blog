@@ -60,7 +60,7 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     scroll_color: '#3981f3',
     hover_color: '#fcf8eb',
     code_text_color: '#519D9E',
-    strong_text_color: '#9055A2',
+    strong_text_color: '#ea5263',
   },
   dark: {
     bg_page1: '#232323',

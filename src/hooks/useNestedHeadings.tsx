@@ -37,16 +37,15 @@ const getNestedHeadings = (headingList: NodeListOf<HTMLElement>) => {
         level: headingsLevel,
         items: [],
       })
-    } else if (
-      headingsLevel === 5 &&
-      nestedList[nestedList.length - 1].items.length > 0
-    ) {
+    } else if (headingsLevel === 5) {
       const closestArray = nestedList[nestedList.length - 1].items
-      closestArray[closestArray.length - 1].items.push({
-        id,
-        text: innerText,
-        level: headingsLevel,
-      })
+      if (nestedList[nestedList.length - 1].items.length > 0) {
+        closestArray[closestArray.length - 1].items.push({
+          id,
+          text: innerText,
+          level: headingsLevel,
+        })
+      }
     }
   })
 
