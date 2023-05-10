@@ -11,14 +11,14 @@ categoryIcon: "../sumnail.png"
 ---
 
 
-#### 1. 개요
+#### 개요
 
 ---
 
 공부를 하다가 리마인드할겸 간단하게 적어본다.
 이벤트 코드 관련 동작에서 많이 사용되는 `preventDefault`에 대하여 기록해본다.
 
-#### 2. e.preventDefault() 는 무엇인가?
+#### e.preventDefault() 는 무엇인가?
 
 ---
 
@@ -27,7 +27,7 @@ categoryIcon: "../sumnail.png"
 
 `a Tag` 의 경우 정의한 `url` 로 페이지를 이동해주는 기능을 가지고 있으나, `preventDefault` 메서드를 실행시키면 이동하지 않는것과 같다.
 
-#### 3. 실행 예
+#### 실행 예
 
 ---
 

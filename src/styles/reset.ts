@@ -172,6 +172,9 @@ const Reset = css`
       display: none;
     }
   }
+  img {
+    width: 100%;
+  }
 
   body,
   input,

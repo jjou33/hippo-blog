@@ -13,6 +13,7 @@ module.exports = {
         allExtensions: true,
       },
     },
+    'gatsby-plugin-pnpm',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -33,7 +34,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -10,18 +10,18 @@ export const navigationIcon: IconPropsType = {
   Vite: {
     icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
       <svg
-        width="800px"
-        height="800px"
+        width={width}
+        height={height}
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
       >
-        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+        <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
 
         <g id="SVGRepo_iconCarrier">
@@ -47,9 +47,9 @@ export const navigationIcon: IconPropsType = {
               gradientUnits="userSpaceOnUse"
               gradientTransform="matrix(.07142 0 0 .07142 1.3398 1.8944)"
             >
-              <stop stop-color="#41D1FF" id="stop38" />
+              <stop stopColor="#41D1FF" id="stop38" />
 
-              <stop offset="1" stop-color="#BD34FE" id="stop40" />
+              <stop offset="1" stopColor="#BD34FE" id="stop40" />
             </linearGradient>
 
             <linearGradient
@@ -61,11 +61,11 @@ export const navigationIcon: IconPropsType = {
               gradientUnits="userSpaceOnUse"
               gradientTransform="matrix(.07142 0 0 .07142 1.3398 1.8944)"
             >
-              <stop stop-color="#FFEA83" id="stop43" />
+              <stop stopColor="#FFEA83" id="stop43" />
 
-              <stop offset=".0833" stop-color="#FFDD35" id="stop45" />
+              <stop offset=".0833" stopColor="#FFDD35" id="stop45" />
 
-              <stop offset="1" stop-color="#FFA800" id="stop47" />
+              <stop offset="1" stopColor="#FFA800" id="stop47" />
             </linearGradient>
           </defs>
         </g>

@@ -49,7 +49,7 @@ const AllPostTemplate = ({
 
 export default AllPostTemplate
 export const PostListMetaData = graphql`
-  query getMetaData {
+  query PostListMetaData {
     site {
       siteMetadata {
         title
