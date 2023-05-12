@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const throttle = (callback: () => void, waitTime: number) => {
-  let timerId: number | null = null
+  let timerId: NodeJS.Timeout | null = null
   return () => {
     if (timerId) return
     timerId = setTimeout(() => {
