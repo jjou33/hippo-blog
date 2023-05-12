@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 import PostCardList from 'components/main/PostList/PostCardList'
-import MainImage from 'components/main/MainImage'
+import MainImage from 'components/organisms/MainImage'
 import MainIntro from 'components/main/MainIntro'
 import RecentPost from 'components/main/PostList/PostRecentList'
 import RecommendCategoryList from './PostList/RecommendCategoryList'
