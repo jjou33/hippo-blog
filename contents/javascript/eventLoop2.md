@@ -88,7 +88,7 @@ categoryIcon: "../sumnail.png"
 
 그렇게 되면 `Javascript Engine` 은 읽던 코드가 아닌 `Event Loop`에 의해 전달된 `Call back` 함수를 실행하는 것이다.
 
-#### 3-1. 실습
+### 3-1. 실습
 
 ---
 

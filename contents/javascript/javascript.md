@@ -17,7 +17,7 @@ categoryIcon: "../sumnail.png"
 - NULL : 값이 없음을 나타낸다.
 - undefined : 값이 할당되지 않았음을 나타낸다.
 
-#### 예제
+### 예제
 
 ---
 
@@ -29,7 +29,7 @@ console.log(typeof value1, value1);
 console.log(typeof value2, value2);
 ```
 
-#### 결과
+### 결과
 
 ---
 
@@ -37,7 +37,7 @@ console.log(typeof value2, value2);
 
 **undefined 의 경우는 타입과 값이 모두 'undefined' 로 나오지만 null 의 경우 타입이 Object 로 출력되는 것을 기억하자**
 
-##### Symbol
+#### Symbol
 
 ---
 
@@ -58,7 +58,7 @@ console.log(value1 == value2); // false
 console.log(value1 === value2); // false
 ```
 
-#### ==(동등 연산자) VS ===(일치 연산자)
+### ==(동등 연산자) VS ===(일치 연산자)
 
 ---
 

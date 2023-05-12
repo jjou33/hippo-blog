@@ -33,7 +33,7 @@ categoryIcon: "../sumnail.png"
 
 V8 은 **Crome** 과 **Node.js** 에서 사용하며 **메모리 힙(Heap)** 과 **Call Stack** 으로 구성되어 있다.
 
-#### JavaScript Engine 구성도
+### JavaScript Engine 구성도
 
 ---
 
@@ -42,7 +42,7 @@ V8 은 **Crome** 과 **Node.js** 에서 사용하며 **메모리 힙(Heap)** 과
 - `Memory Heap` : 메모리 할당이 일어나는 곳
 - `Call Stack` : 실제 실행되고 있는 작업(호출 스택)이 쌓이는 곳
 
-#### V8 메모리 구조
+### V8 메모리 구조
 
 ---
 
@@ -65,7 +65,7 @@ V8 은 **Crome** 과 **Node.js** 에서 사용하며 **메모리 힙(Heap)** 과
 **Call Stack** 은 현재 진행중인 작업 즉, 실행되고 있는 웹이 어디에 있는지를 기록하는 **자료구조** 이다.
 현재 실행되고 있는 함수가 끝나 리턴값을 돌려주면 **Call Stack** 은 해당 함수를 제거하고 다음 Stack 을 실행하거나 모두 비었을 경우 **Task Queue** 에서 대기하고 있는 콜백 함수를 실행시킨다.
 
-#### Call Stack 예시
+### Call Stack 예시
 
 ---
 
