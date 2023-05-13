@@ -99,7 +99,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const pageOptions = {
       path: "/AllPost",
       component: PostListTemplateComponent,
-      defer: true
     };
 
     createPage(pageOptions);
