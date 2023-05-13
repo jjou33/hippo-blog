@@ -101,7 +101,7 @@ console.log(result.toLocaleString());
 
 이를 가능하게 해주는 것이 `tsc 명령어` 이고 이는 `ts`라이브러리를 설치해야 한다.
 
-```cmd
+```bash
 npm i typescript -g
 ```
 

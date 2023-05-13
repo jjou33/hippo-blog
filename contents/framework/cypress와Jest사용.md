@@ -67,7 +67,7 @@ categoryIcon: "../sumnail.png"
 
 ![image](https://user-images.githubusercontent.com/56063287/231739770-2a8d564f-7bff-4171-9074-b0c9f9805bde.png)
 
-```command
+```bash
 cannot be compiled under '--isolatedModules'
 because it is considered a global script file.
 Add an import, export, or an empty 'export {}' statement to make it a module.
@@ -125,7 +125,7 @@ test("adds 1 + 2 to equal 3", () => {
 
 해당 내용은 [공식 홈페이지](jestjs.io/docs/en/getting-started)에 나와 있지만, 필자는 `ts-jest` 라이브러리를 통해서 해결하였다.
 
-```command
+```bash
 pnpm add -D ts-jest
 ```
 

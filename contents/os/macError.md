@@ -13,7 +13,7 @@ categoryIcon: "../sumnail.png"
 ### MAC 사용중인 포트의 PID 찾기
 ***
 
-```command
+```bash
 sudo lsof -i:포트번호
 ```
 
