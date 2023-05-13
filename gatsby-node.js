@@ -69,7 +69,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Import Post Template Component
   const PostTemplateComponent = path.resolve(
     __dirname,
-    "src/templates/post_template.tsx"
+    "src/templates/post/PostTemplate.tsx"
   );
 
   // Page Generating Function
@@ -92,13 +92,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const PostListTemplateComponent = path.resolve(
     __dirname,
-    "src/templates/allPost_template.tsx"
+    "src/templates/post/PostListTemplate.tsx"
   );
 
   const gereatePostListPage = () => {
     const pageOptions = {
       path: "/AllPost",
       component: PostListTemplateComponent,
+      defer: true
     };
 
     createPage(pageOptions);
