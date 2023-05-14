@@ -1,32 +1,30 @@
+import { ReactNode } from 'react'
 import * as S from './styles'
 
-interface StaticTextPropsType {
-  text: string
+interface TitleTextPropsType {
+  children: ReactNode
   fontFamily?: string
   fontColor?: string
   fontSize?: number
   fontWeight?: number
-  mediaSize?: number
 }
-const StaticText = ({
-  text,
+const TitleText = ({
   fontFamily,
   fontColor,
   fontSize,
   fontWeight,
-  mediaSize,
-}: StaticTextPropsType) => {
+  children,
+}: TitleTextPropsType) => {
   return (
-    <S.StaticText
+    <S.IntroTitle
       fontFamily={fontFamily}
       fontColor={fontColor}
       fontSize={fontSize}
       fontWeight={fontWeight}
-      mediaSize={mediaSize}
     >
-      {text}
-    </S.StaticText>
+      {children}
+    </S.IntroTitle>
   )
 }
 
-export default StaticText
+export default TitleText

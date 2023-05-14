@@ -3,7 +3,8 @@ import * as S from './styles'
 
 import FirstPostItem from './FirstPostItem'
 import PostCategoryItem from 'components/main/PostList/PostCategoryList/PostCategoryItem'
-import RecentPostHeader from 'components/main/PostList/PostCategoryHeader'
+
+import MainSectionHeader from 'components/molecules/MainSectionHeader'
 import { getSvgJSXElement } from 'utils/imageBridge'
 import { PostListItemType } from 'types/post'
 
@@ -15,7 +16,7 @@ interface RecentPostPropsType {
 const RecentPosts = ({ posts, widePost }: RecentPostPropsType) => {
   return (
     <S.RecentPostContainer>
-      <RecentPostHeader selectedCategory="최신 포스트 🎃" fontSize={60} />
+      <MainSectionHeader selectedCategory="최신 포스트 🎃" fontSize={60} />
       <S.RecentPostsWrapper>
         <S.FirstPostWrapper>
           <FirstPostItem

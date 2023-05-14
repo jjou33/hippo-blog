@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 
 const blinkCursorKeyframe = keyframes`
   50% {
@@ -18,7 +18,12 @@ export const MainImageDynamicText = styled.span`
     props.fontFamily ? props.fontFamily : ''};
   color: ${(props: StaticTextPropsType) =>
     props.fontColor ? props.fontColor : 'rgb(238, 240, 124)'};
-
+  ${(props: StaticTextPropsType) =>
+    props.fontSize
+      ? css`
+          font-size: ${props.fontSize}px;
+        `
+      : css``};
   &::after {
     content: '';
     position: absolute;

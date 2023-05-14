@@ -5,7 +5,8 @@ import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import Pagination from '../PageNation'
-import PostCategoryHeader from 'components/main/PostList/PostCategoryHeader'
+
+import MainSectionHeader from 'components/molecules/MainSectionHeader'
 import PostCategoryItem from './PostCategoryItem'
 
 import useInfiniteScroll, {
@@ -59,7 +60,7 @@ const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
 
   return (
     <S.PostCategoryContainer>
-      <PostCategoryHeader
+      <MainSectionHeader
         selectedCategory={
           selectedCategory === 'All' ? 'ALL POST' : categoryHeader
         }

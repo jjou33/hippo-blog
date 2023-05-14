@@ -2,10 +2,11 @@ import * as S from './styles'
 
 import PostCardList from 'components/main/PostList/PostCardList'
 import MainImage from 'components/organisms/MainImage'
-import MainIntro from 'components/main/MainIntro'
+
 import RecentPost from 'components/main/PostList/PostRecentList'
 import RecommendCategoryList from './PostList/RecommendCategoryList'
 import ProjectDiaryList from './PostList/ProjectDiaryList'
+import Introduction from 'components/organisms/Introduction'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import type { PostListItemType } from 'types/post'
 import type { ImagePathPropsType } from 'types/image/index'
@@ -31,7 +32,7 @@ const MainSection = ({
     <S.MainContainer>
       <MainImage />
       <S.ContentsWrapper>
-        <MainIntro />
+        <Introduction />
         <RecommendCategoryList imagePath={imagePath} />
         <RecentPost posts={edges} widePost={allMarkdownRemark.edges} />
         <ProjectDiaryList imagePath={imagePath} />
