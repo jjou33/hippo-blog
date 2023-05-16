@@ -3,6 +3,17 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { themedPalette } from 'styles/themeVariables'
+
+export const CardTitleWrapper = styled.div`
+  padding: 200px 20px 0 20px;
+`
+
+export const BadgeWrapper = styled.div`
+  margin: 20px 0 10px 0;
+  display: flex;
+  flex-direction: row;
+`
+
 export const ProjectDiaryContainer = styled.div`
   width: 100%;
 `
@@ -41,7 +52,7 @@ export const ProjectDiaryItemComtainer = styled(
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  padding: 200px 20px 0px 20px;
+  // padding: 150px 20px 0px 20px;
   box-shadow: 0px 9px 10px -2px rgb(0 0 0 / 10%);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -73,6 +84,7 @@ export const Category = styled.div`
   margin-top: 10px;
   margin: 10px -5px;
 `
+
 export const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 10px;

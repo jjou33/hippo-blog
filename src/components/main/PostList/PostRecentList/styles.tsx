@@ -68,6 +68,9 @@ export const RecentPostsWrapper = styled.div`
   }
 `
 
+export const Temp = styled.div`
+  margin-right: 20px;
+`
 export const FirstPostWrapper = styled.div`
   margin-right: 30px;
   width: 50%;

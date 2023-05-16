@@ -5,6 +5,25 @@ import { ReactNode } from 'react'
 import { Link } from 'gatsby'
 import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 
+export const CategoryItemContainer = styled.ul``
+
+export const CategoryItemWrapper = styled.li`
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 5px;
+  transition: background, 0.5s;
+  gap: 10px;
+  margin-left: 20px;
+  &:hover {
+    background: #ebfeff;
+    color: black;
+  }
+`
+
+///////////////////////////////
+export const CategoryBadgeWrapper = styled.div``
 /**
  * @description Hover 혹은 Event 발생 시 양옆으로 흔들리는 Keyframes
  */
@@ -59,10 +78,10 @@ export const upDownAnimation = keyframes`
  }
 `
 
-export const RootTitleWrapper = styled.div`
+export const CategoryRootContainer = styled.div`
   display: flex;
   margin: 15px 0 0 0;
-  gap: 18px;
+  gap: 10px;
   align-items: center;
   span {
     display: block;
@@ -99,7 +118,9 @@ export const CategoryRootIcon = styled.div`
   animation: ${upDownAnimation} 0.6s infinite ease-in-out alternate;
 `
 
-export const CategoryRootTitle = styled(Link)``
+export const CategoryRootTitle = styled(Link)`
+  margin-left: 10px;
+`
 /**
  * CategoryTitle Component Styled Section
  * 카테고리 타이틀 컴포넌트 스타일 영역
@@ -266,20 +287,6 @@ export const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
     font-size: 15px;
   }
 `
-export const CategoryItemWrapper = styled.li`
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  width: 100%;
-  border-radius: 5px;
-  transition: background, 0.5s;
-  gap: 10px;
-  margin-left: 20px;
-  &:hover {
-    background: #ebfeff;
-    color: black;
-  }
-`
 
 export const CategoryItemArrow = styled.div`
   display: flex;
@@ -287,7 +294,6 @@ export const CategoryItemArrow = styled.div`
 `
 
 export const CategoryItemCount = styled.div``
-export const CategoryItemContainer = styled.ul``
 
 /**
  * Category Skeleton Ui Component Styled Section

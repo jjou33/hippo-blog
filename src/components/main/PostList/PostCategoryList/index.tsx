@@ -6,7 +6,8 @@ import { useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import Pagination from '../PageNation'
 
-import MainSectionHeader from 'components/molecules/MainSectionHeader'
+import HorizonCard from 'components/molecules/HorizonCard'
+import SectionHeader from 'components/molecules/SectionHeader'
 import PostCategoryItem from './PostCategoryItem'
 
 import useInfiniteScroll, {
@@ -60,12 +61,16 @@ const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
 
   return (
     <S.PostCategoryContainer>
-      <MainSectionHeader
+      <SectionHeader
         selectedCategory={
           selectedCategory === 'All' ? 'ALL POST' : categoryHeader
         }
         fontSize={50}
         categoryCount={categoryCount[selectedCategory]}
+        iconName="hambergerMenu"
+        iconSize={60}
+        iconMediaSize={35}
+        mediaSize={25}
       />
       <S.PostCateListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
@@ -80,11 +85,17 @@ const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
             index,
           ) => (
             <S.PostItemContainer key={index}>
-              <PostCategoryItem
-                type={'category'}
+              <HorizonCard
                 {...frontmatter}
+                width={190}
+                height={190}
+                radius="20px"
+                mediaSize={100}
+                fontSize={20}
+                textMediaSize={15}
                 link={slug}
                 key={id}
+                type={'category'}
               />
             </S.PostItemContainer>
           ),

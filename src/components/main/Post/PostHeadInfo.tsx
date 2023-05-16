@@ -1,4 +1,4 @@
-import Badge from 'components/common/Badges'
+import Badge from 'components/atom/Badges'
 
 import * as S from './styles'
 

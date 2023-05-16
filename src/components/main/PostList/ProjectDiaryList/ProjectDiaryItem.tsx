@@ -1,13 +1,30 @@
 import * as S from './styles'
+import Badge from 'components/atom/Badges'
+import CardText from 'components/atom/CardText'
+import CardTitle from 'components/atom/CardText'
 
 const ProjectDiaryItem = (props: { imagepath: string; slug: string }) => {
+  const badgeList = ['Vue3', 'React']
   return (
     <S.ProjectDiaryItemComtainer
       imagepath={props.imagepath}
       to={`/?category=${props.slug}`}
     >
-      <S.ItemImageWrapper></S.ItemImageWrapper>
-      <S.ItemTextWrapper>
+      <S.CardTitleWrapper>
+        <S.BadgeWrapper>
+          {badgeList.map(value => {
+            return <Badge text={value} font="13px" color="" />
+          })}
+        </S.BadgeWrapper>
+        <CardText
+          text="summarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummary"
+          fontSize={20}
+          opacity={0.8}
+          fontColor="white"
+        />
+      </S.CardTitleWrapper>
+
+      {/* <S.ItemTextWrapper>
         <S.Category>
           <S.CategoryItem />
         </S.Category>
@@ -16,7 +33,7 @@ const ProjectDiaryItem = (props: { imagepath: string; slug: string }) => {
         <S.Summary>
           summarysummarysummarysummarysummarysummarysummarysummarysummarysummary
         </S.Summary>
-      </S.ItemTextWrapper>
+      </S.ItemTextWrapper> */}
     </S.ProjectDiaryItemComtainer>
   )
 }

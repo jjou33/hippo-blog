@@ -1,21 +1,36 @@
 import * as S from './styles'
 
-import MainSectionHeader from 'components/molecules/MainSectionHeader'
-import ProjectDiaryItem from './ProjectDiaryItem'
+import SectionHeader from 'components/molecules/SectionHeader'
 
+import ImageBackgroundCard from 'components/molecules/ImageBackgroundCard'
 import type { ImagePathPropsType } from 'types/image/index'
 const ProjectDiaryList = ({ imagePath }: ImagePathPropsType) => {
   return (
     <S.ProjectDiaryContainer>
-      <MainSectionHeader selectedCategory="프로젝트 일기 📝" fontSize={60} />
+      <SectionHeader
+        selectedCategory="프로젝트 일기 📝"
+        fontSize={50}
+        iconName="hambergerMenu"
+        iconSize={60}
+        iconMediaSize={35}
+        mediaSize={25}
+      />
       <S.ProjectDiaryItemWrapper>
-        <ProjectDiaryItem
-          imagepath={imagePath['vueProject']}
+        <ImageBackgroundCard
+          imagePath={imagePath['vueProject']}
           slug="VueProject"
+          categories={['Vue3']}
+          fontSize={20}
+          summary="summarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummary"
+          fontColor="white"
         />
-        <ProjectDiaryItem
-          imagepath={imagePath['reactProject']}
-          slug="ReactProject"
+        <ImageBackgroundCard
+          imagePath={imagePath['reactProject']}
+          slug="VueProject"
+          categories={['React', 'Gatsby', 'Blog']}
+          fontSize={20}
+          summary="summarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummarysummary"
+          fontColor="white"
         />
       </S.ProjectDiaryItemWrapper>
     </S.ProjectDiaryContainer>

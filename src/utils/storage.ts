@@ -143,8 +143,6 @@ class MemoStorage implements Storage {
   }
 
   public set(key: string, value: string) {
-
-
     this.storage.set(key, value)
   }
 

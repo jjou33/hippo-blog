@@ -1,8 +1,8 @@
 import * as S from './styles'
-import CounterBadge from 'components/common/Badges'
-import ColorText from 'components/common/TextEffect'
-import { getSvgJSXElement } from 'utils/imageBridge'
+import CounterBadge from 'components/atom/Badges'
+import ColorText from 'components/atom/ColorText'
 
+import IconWrapper from 'components/atom/IconWrapper'
 import type { CategoryCount } from 'types/catgegory'
 
 /**
@@ -11,23 +11,24 @@ import type { CategoryCount } from 'types/catgegory'
 
 const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
   return (
-    <S.RootTitleWrapper>
-      {getSvgJSXElement('Dot', '18')}
-      <S.CategoryRootIcon>{getSvgJSXElement('Ghost', '28')}</S.CategoryRootIcon>
-      <span></span>
-      <S.CategoryRootTitle to={'/'}>
+    <S.CategoryRootContainer>
+      <IconWrapper iconName="Dot" iconSize={18} />
+      <S.CategoryRootIcon>
+        <IconWrapper iconName="Ghost" iconSize={25} />
+      </S.CategoryRootIcon>
+      <S.CategoryRootTitle to={'/AllPost'}>
         <ColorText text={'Root'} fontSize={25} />
       </S.CategoryRootTitle>
-      <S.CategoryRootCount>
-        {categoryCount['All'] !== undefined ? (
-          <CounterBadge font="15px" radius="50px" fontWeight={800}>
-            {categoryCount['All']}
-          </CounterBadge>
-        ) : (
-          ''
-        )}
-      </S.CategoryRootCount>
-    </S.RootTitleWrapper>
+      <CounterBadge
+        text={`${categoryCount['All']}`}
+        backgroundColor="white"
+        borderStyle="1px #f65660cc solid"
+        fontSize={13}
+        radius="50px"
+        color="red"
+        fontWeight={800}
+      />
+    </S.CategoryRootContainer>
   )
 }
 

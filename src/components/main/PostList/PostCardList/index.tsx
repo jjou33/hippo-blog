@@ -2,7 +2,7 @@ import * as S from './styles'
 
 import PostCardItem from './PostCardItem'
 
-import MainSectionHeader from 'components/molecules/MainSectionHeader'
+import SectionHeader from 'components/molecules/SectionHeader'
 import { Link } from 'gatsby'
 
 import { useState } from 'react'
@@ -28,7 +28,14 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
 
   return (
     <S.PostCardListContainer>
-      <MainSectionHeader selectedCategory="ALL POSTS 🐳" fontSize={60} />
+      <SectionHeader
+        selectedCategory="ALL POSTS 🐳"
+        fontSize={50}
+        iconName="hambergerMenu"
+        iconSize={60}
+        iconMediaSize={35}
+        mediaSize={25}
+      />
       <S.PostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
           ({

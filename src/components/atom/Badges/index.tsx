@@ -2,35 +2,33 @@ import * as S from './styles'
 
 export interface BadgeColorType {
   color?: string
-  width?: string
-  height?: string
   backgroundColor?: string
   borderStyle?: string
   fontWeight?: number
-  font?: string
+  fontSize?: number
   radius?: string
-  children: string | number
+  text: string
 }
 
 const Badge = ({
-  color = 'red',
-  backgroundColor = 'white',
-  borderStyle = '1px #f65660cc solid',
-  font = '6px',
+  color,
+  backgroundColor,
+  borderStyle,
+  fontSize = 6,
   fontWeight = 0,
   radius = '30px',
-  children,
+  text,
 }: BadgeColorType) => {
   return (
     <S.BadgeWrapper
       color={color}
       backgroundColor={backgroundColor}
       borderStyle={borderStyle}
-      font={font}
+      fontSize={fontSize}
       fontWeight={fontWeight}
       radius={radius}
     >
-      {children}
+      {text ? text.toUpperCase() : text}
     </S.BadgeWrapper>
   )
 }

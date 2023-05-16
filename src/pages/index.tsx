@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/post'
 import { getSelectedCategory } from 'utils/category'
 
+import PostList from 'components/organisms/Post/PostList'
 import PostCategory from 'components/main/PostList/PostCategoryList'
 import Template from 'components/layout/Template'
 import MainSection from 'components/main'
@@ -58,7 +59,7 @@ const IndexPage = ({
           }}
         />
       ) : (
-        <PostCategory selectedCategory={selectedCategory} />
+        <PostList selectedCategory={selectedCategory} />
       )}
     </Template>
   )

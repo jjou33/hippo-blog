@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { CategoryCount } from 'types/catgegory'
 import { getSvgJSXElement } from 'utils/imageBridge'
-import CounterBadge from 'components/common/Badges'
+import CounterBadge from 'components/atom/Badges'
 
 import * as S from './styles'
 
@@ -24,9 +24,6 @@ const CategoryItems = ({
             <S.CategoryItemArrow>
               {getSvgJSXElement('NonFilledArrow', '15')}
             </S.CategoryItemArrow>
-            {/* <S.CategoryTitleIcon>
-              {getSvgJSXElement(categoryItem, '25')}
-            </S.CategoryTitleIcon> */}
             <S.CategoryItem
               to={`/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}
@@ -36,9 +33,12 @@ const CategoryItems = ({
             </S.CategoryItem>
             <S.CategoryItemCount>
               {categoryCount[categoryItem] !== undefined ? (
-                <CounterBadge color="red" width="20" height="15">
-                  {categoryCount[categoryItem]}
-                </CounterBadge>
+                <CounterBadge
+                  text={`${categoryCount[categoryItem]}`}
+                  color="red"
+                  backgroundColor="white"
+                  borderStyle="1px #f65660cc solid"
+                />
               ) : (
                 ''
               )}

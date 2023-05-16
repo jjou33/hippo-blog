@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import { PostFrontmatterType } from 'types/post'
 import { useInView } from 'react-intersection-observer'
+
+import ThumnailImage from 'components/atom/ThumnailImage'
+import Badge from 'components/atom/Badges'
+import CardText from 'components/atom/CardText'
 interface PostItemProps extends PostFrontmatterType {
   link: string
   type: string
@@ -32,23 +36,24 @@ const PostCategoryItem = ({
   return (
     <S.PostItemWrapper to={link} type={type}>
       <S.PostItemContent>
-        <S.Title>{title}</S.Title>
-        <S.Date>{date}</S.Date>
+        <CardText text={title} fontSize={18} fontWeight={800} mediaSize={15} />
+
+        <CardText text={date} fontSize={14} fontWeight={400} />
 
         <S.Category>
           {categories.map(category => (
-            <S.CategoryItem key={category}>
-              {category.toUpperCase()}
-            </S.CategoryItem>
+            <Badge text={category} font={`${15}`} fontWeight={700} />
           ))}
         </S.Category>
-        <S.Summary>{summary}</S.Summary>
+        <CardText text={summary} fontSize={16} opacity={0.8} />
       </S.PostItemContent>
       <S.ThumbnailWrapper>
-        <S.ThumbnailImage
-          type={type}
+        <ThumnailImage
           image={gatsbyImageData}
-          alt="Post Item Image"
+          width={190}
+          height={190}
+          radius="20px"
+          mediaSize={100}
         />
       </S.ThumbnailWrapper>
     </S.PostItemWrapper>

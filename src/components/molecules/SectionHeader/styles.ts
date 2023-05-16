@@ -2,13 +2,13 @@ import styled from '@emotion/styled'
 
 import { themedPalette } from 'styles/themeVariables'
 
-export const MainSectionHeaderContainer = styled.div`
+export const SectionHeaderContainer = styled.div`
   display: flex;
   border-bottom: 1px solid ${themedPalette.border2};
   margin: 50px 0;
 `
 
-export const MainSectionHeaderWrapper = styled.div`
+export const SectionHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

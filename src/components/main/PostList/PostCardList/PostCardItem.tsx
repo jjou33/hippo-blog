@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
+import ThumnailImage from 'components/atom/ThumnailImage'
+import Badge from 'components/atom/Badges'
+import CardText from 'components/atom/CardText'
+import VerticalCard from 'components/molecules/VerticalCard'
 import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/post'
 
 interface PostItemProps extends PostFrontmatterType {
+  width: number
+  height: number
+  radius: string
+  mediaSize: string
   link: string
 }
 
@@ -32,19 +40,19 @@ const PostItem = ({
   return (
     <S.PostItemContainer ref={ref} inview={inViewState}>
       <S.PostItemWrapper to={link}>
-        <S.ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-        <S.PostItemContent>
-          <S.Title>{title}</S.Title>
-          <S.Date>{date}</S.Date>
-          <S.Category>
-            {categories.map(category => (
-              <S.CategoryItem key={category}>
-                {category.toUpperCase()}
-              </S.CategoryItem>
-            ))}
-          </S.Category>
-          <S.Summary>{summary}</S.Summary>
-        </S.PostItemContent>
+        {/* <VerticalCard
+          image={gatsbyImageData}
+          width={100}
+          height={250}
+          radius="10px 10px 0 0"
+          mediaSize={200}
+          title={title}
+          date={date}
+          categories={categories}
+          summary={summary}
+          fontSize={20}
+          textMediaSize={15}
+        /> */}
       </S.PostItemWrapper>
     </S.PostItemContainer>
   )

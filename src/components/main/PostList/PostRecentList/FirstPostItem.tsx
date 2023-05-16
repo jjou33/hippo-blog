@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import VerticalCard from 'components/molecules/VerticalCard'
 import { getSvgJSXElement } from 'utils/imageBridge'
 import { useInView } from 'react-intersection-observer'
 import { PostFrontmatterType } from 'types/post'

@@ -111,7 +111,7 @@ export const Title = styled.div`
 export const Date = styled.div`
   font-size: 14px;
   font-weight: 400;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 `
 
 export const Category = styled.div`

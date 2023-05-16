@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import CategoryItems from './CategoryItems'
 import CategoryTitle from './CategoryTitle'
-import CategoryRootTitle from './CategoryRootTitle'
-
+import CategoryRootTitle from 'components/molecules/CategoryRoot'
+import CategoryItemTitle from 'components/molecules/CategoryItemTitle'
 import * as S from './styles'
 
 import type { CategoryListProps } from 'types/catgegory'
@@ -22,7 +22,7 @@ const CategoryList = ({
       {Object.entries(categoryList).map((categoryItems, idx): ReactNode => {
         return (
           <S.CategoryListWrapper key={idx}>
-            <CategoryTitle
+            <CategoryItemTitle
               categoryItem={categoryItems[0]}
               categoryItemCount={categoryItems[1]['childrenCount']}
             >
@@ -32,7 +32,7 @@ const CategoryList = ({
                 categoryList={categoryItems[1]['children']}
                 categoryCount={categoryCount}
               />
-            </CategoryTitle>
+            </CategoryItemTitle>
           </S.CategoryListWrapper>
         )
       })}

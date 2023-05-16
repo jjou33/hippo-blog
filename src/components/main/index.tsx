@@ -1,12 +1,14 @@
 import * as S from './styles'
 
 import PostCardList from 'components/main/PostList/PostCardList'
-import MainImage from 'components/organisms/MainImage'
-
+import MainImage from 'components/organisms/Main/MainImage'
+import AllPostList from 'components/organisms/Main/MainPostList'
 import RecentPost from 'components/main/PostList/PostRecentList'
-import RecommendCategoryList from './PostList/RecommendCategoryList'
+import ProjectDiary from 'components/organisms/Main/ProjectDiary'
+import RecommendCategory from 'components/organisms/Main/RecommendCategory'
 import ProjectDiaryList from './PostList/ProjectDiaryList'
-import Introduction from 'components/organisms/Introduction'
+import Introduction from 'components/organisms/Main/Introduction'
+import RecentPostList from 'components/organisms/Main/RecentPostList'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
 import type { PostListItemType } from 'types/post'
 import type { ImagePathPropsType } from 'types/image/index'
@@ -33,10 +35,10 @@ const MainSection = ({
       <MainImage />
       <S.ContentsWrapper>
         <Introduction />
-        <RecommendCategoryList imagePath={imagePath} />
-        <RecentPost posts={edges} widePost={allMarkdownRemark.edges} />
-        <ProjectDiaryList imagePath={imagePath} />
-        <PostCardList selectedCategory="All" posts={allMarkdownRemark.edges} />
+        <RecommendCategory imagePath={imagePath} />
+        <RecentPostList posts={edges} widePost={allMarkdownRemark.edges} />
+        <ProjectDiary imagePath={imagePath} />
+        <AllPostList selectedCategory="All" posts={allMarkdownRemark.edges} />
       </S.ContentsWrapper>
     </S.MainContainer>
   )

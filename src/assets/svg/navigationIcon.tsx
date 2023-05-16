@@ -75,8 +75,8 @@ export const navigationIcon: IconPropsType = {
   TypeScript: {
     icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
       <svg
-        width="800px"
-        height="800px"
+        width={width}
+        height={height}
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -472,10 +472,10 @@ export const navigationIcon: IconPropsType = {
     ),
   },
   Infra: {
-    icon: () => (
+    icon: (width: string, height: string, color = 'rgba(0, 0, 0, 0.5)') => (
       <svg
-        width="80px"
-        height="80px"
+        width={width}
+        height={height}
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
