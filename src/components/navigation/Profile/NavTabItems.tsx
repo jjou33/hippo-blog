@@ -1,5 +1,6 @@
 import { getSvgJSXElement } from 'utils/imageBridge'
 
+import IconWrapper from 'components/atom/IconWrapper'
 import * as S from './styles'
 
 interface NavTabPropsType {
@@ -11,9 +12,7 @@ const NavigationTabMenu = ({ title, href }: NavTabPropsType) => {
   return (
     <S.NavTabMenuItemContainer>
       <S.NavTabMenuItemWrapper href={href} target="_blank">
-        <S.NavTabMenuItemIcon>
-          {getSvgJSXElement(title, '20')}
-        </S.NavTabMenuItemIcon>
+        <IconWrapper iconName={title} iconSize={25} />
       </S.NavTabMenuItemWrapper>
     </S.NavTabMenuItemContainer>
   )

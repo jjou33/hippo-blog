@@ -6,7 +6,7 @@ interface RoundImagePropsType {
   height: string
   radius?: string
   imagePath: string
-  mediaSize?: string
+  mediasize?: string
 }
 export const RoundImage = styled.img`
   width: ${(props: RoundImagePropsType) => (props.width ? props.width : '')};
@@ -25,11 +25,11 @@ export const RoundImage = styled.img`
   border: none;
   margin: auto;
   ${(props: RoundImagePropsType) =>
-    props.mediaSize
+    props.mediasize
       ? css`
           @media screen and (max-width: 1200px) {
-            width: ${props.mediaSize}px;
-            height: ${props.mediaSize}px;
+            width: ${props.mediasize}px;
+            height: ${props.mediasize}px;
           }
         `
       : css``}

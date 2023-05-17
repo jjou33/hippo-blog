@@ -12,8 +12,8 @@ const ProjectDiaryList = ({ imagePath }: ImagePathPropsType) => {
         fontSize={50}
         iconName="hambergerMenu"
         iconSize={60}
-        iconMediaSize={35}
-        mediaSize={25}
+        iconmediasize={35}
+        mediasize={25}
       />
       <S.ProjectDiaryItemWrapper>
         <ImageBackgroundCard

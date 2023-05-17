@@ -5,9 +5,9 @@ interface StaticTextPropsType {
   fontColor?: string
   fontSize?: number
   fontWeight?: number
-  mediaSize?: number
+  mediasize?: number
 }
-export const StaticText = styled.h3`
+export const StaticText = styled.p`
   font-family: ${(props: StaticTextPropsType) =>
     props.fontFamily ? props.fontFamily : ''};
   color: ${(props: StaticTextPropsType) =>
@@ -20,12 +20,12 @@ export const StaticText = styled.h3`
         `
       : css``}
   ${(props: StaticTextPropsType) =>
-    props.mediaSize
+    props.mediasize
       ? css`
           font-size: ${props.fontSize}px;
 
           @media screen and (max-width: 768px) {
-            font-size: ${props.mediaSize}px;
+            font-size: ${props.mediasize}px;
           }
         `
       : css`

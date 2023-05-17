@@ -5,13 +5,13 @@ const RoundImage = ({
   height,
   radius,
   imagePath,
-  imageMediaSize,
+  imagemediasize,
 }: {
   width: string
   height: string
   radius?: string
   imagePath: string
-  imageMediaSize?: string
+  imagemediasize?: string
 }) => {
   return (
     <S.RoundImage
@@ -19,7 +19,7 @@ const RoundImage = ({
       width={width}
       height={height}
       radius={radius}
-      mediaSize={imageMediaSize}
+      mediasize={imagemediasize}
     />
   )
 }

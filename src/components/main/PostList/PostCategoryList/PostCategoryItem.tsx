@@ -36,7 +36,7 @@ const PostCategoryItem = ({
   return (
     <S.PostItemWrapper to={link} type={type}>
       <S.PostItemContent>
-        <CardText text={title} fontSize={18} fontWeight={800} mediaSize={15} />
+        <CardText text={title} fontSize={18} fontWeight={800} mediasize={15} />
 
         <CardText text={date} fontSize={14} fontWeight={400} />
 
@@ -53,7 +53,7 @@ const PostCategoryItem = ({
           width={190}
           height={190}
           radius="20px"
-          mediaSize={100}
+          mediasize={100}
         />
       </S.ThumbnailWrapper>
     </S.PostItemWrapper>

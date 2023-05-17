@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './styles'
-import type { IGatsbyImageData } from 'gatsby-plugin-image'
+
 import ThumnailImage from 'components/atom/ThumnailImage'
 import Badge from 'components/atom/Badges'
 import CardText from 'components/atom/CardText'
@@ -12,10 +12,10 @@ interface VerticalCardPropsType extends PostFrontmatterType {
   width: number
   height: number
   radius: string
-  mediaSize: number
+  mediasize: number
   link: string
   fontSize: number
-  textMediaSize: number
+  textmediasize: number
   inViewAnimation?: boolean
 }
 
@@ -23,9 +23,9 @@ const VerticalCard = ({
   width,
   height,
   radius,
-  mediaSize,
+  mediasize,
   fontSize,
-  textMediaSize,
+  textmediasize,
   title,
   date,
   categories,
@@ -57,19 +57,24 @@ const VerticalCard = ({
           width={width}
           height={height}
           radius={radius}
-          mediaSize={mediaSize}
+          mediasize={mediasize}
         />
         <S.PostItemContent>
           <CardText
             text={title}
             fontSize={fontSize}
             fontWeight={800}
-            mediaSize={textMediaSize}
+            mediasize={textmediasize}
           />
           <CardText text={date} fontSize={fontSize - 6} fontWeight={400} />
           <S.Category>
-            {categories.map(category => (
-              <Badge text={category} fontSize={fontSize - 5} fontWeight={700} />
+            {categories.map((category, index) => (
+              <Badge
+                text={category}
+                fontSize={fontSize - 5}
+                fontWeight={700}
+                key={index}
+              />
             ))}
           </S.Category>
           <CardText text={summary} fontSize={fontSize - 4} opacity={0.8} />

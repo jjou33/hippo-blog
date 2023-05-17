@@ -10,10 +10,10 @@ interface SquareCardPropsType {
   width: string
   height: string
   radius?: string
-  imageMediaSize?: string
+  imagemediasize?: string
   fontWeight?: number
   fontSize?: number
-  mediaSize?: number
+  mediasize?: number
 }
 
 const SquareCard = ({
@@ -22,10 +22,10 @@ const SquareCard = ({
   width,
   height,
   radius,
-  imageMediaSize,
+  imagemediasize,
   fontSize,
   fontWeight,
-  mediaSize,
+  mediasize,
 }: SquareCardPropsType) => {
   return (
     <S.SquareCardWrapper to={`/?category=${categoryName}`}>
@@ -34,14 +34,14 @@ const SquareCard = ({
         width={width}
         height={height}
         radius={radius}
-        imageMediaSize={imageMediaSize}
+        imagemediasize={imagemediasize}
       />
       <S.SquareCardTextWrapper>
         <StaticText
           text={categoryName.toUpperCase()}
           fontWeight={fontWeight}
           fontSize={fontSize}
-          mediaSize={mediaSize}
+          mediasize={mediasize}
         />
       </S.SquareCardTextWrapper>
     </S.SquareCardWrapper>

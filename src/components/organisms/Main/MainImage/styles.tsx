@@ -76,7 +76,8 @@ export const MainImageDynamicText = styled.span`
 
 export const MainImageWrapper = styled.div`
   width: 100vw;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 70px);
+
   position: relative;
 
   &::after {
@@ -93,16 +94,11 @@ export const MainImageWrapper = styled.div`
     }
   }
 `
-export const MainImage = styled.img`
-  width: 100vw;
+
+export const ImageWrapper = styled.div`
   height: calc(100vh - 70px);
   background-color: rgba(0, 0, 0, 0.6);
   margin-top: 40px;
-  cursor: auto;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
 
   @media (max-width: 768px) {
     height: 60vh;

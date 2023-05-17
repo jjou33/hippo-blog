@@ -69,8 +69,8 @@ const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
         categoryCount={categoryCount[selectedCategory]}
         iconName="hambergerMenu"
         iconSize={60}
-        iconMediaSize={35}
-        mediaSize={25}
+        iconmediasize={35}
+        mediasize={25}
       />
       <S.PostCateListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
@@ -90,9 +90,9 @@ const PostCategory = ({ selectedCategory }: PostCategoryPropsType) => {
                 width={190}
                 height={190}
                 radius="20px"
-                mediaSize={100}
+                mediasize={100}
                 fontSize={20}
-                textMediaSize={15}
+                textmediasize={15}
                 link={slug}
                 key={id}
                 type={'category'}

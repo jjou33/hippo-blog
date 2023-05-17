@@ -5,14 +5,14 @@ interface ThumnailImagePropsType {
   width: number
   height: number
   radius?: string
-  mediaSize?: number
+  mediasize?: number
 }
 const ThumnailImage = ({
   image,
   width,
   height,
   radius,
-  mediaSize,
+  mediasize,
 }: ThumnailImagePropsType) => {
   return (
     <S.ThumbnailImage
@@ -21,7 +21,7 @@ const ThumnailImage = ({
       width={width}
       height={height}
       radius={radius}
-      mediaSize={mediaSize}
+      mediasize={mediasize}
     ></S.ThumbnailImage>
   )
 }

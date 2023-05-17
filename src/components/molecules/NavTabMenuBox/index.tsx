@@ -1,8 +1,7 @@
+import LinkedIcon from 'components/atom/LinkedIcon'
 import * as S from './styles'
 
-import LinkedIcon from 'components/atom/LinkedIcon'
-
-const NavTabMenuBox = () => {
+const NavigationTabMenu = () => {
   return (
     <S.NavTabMenuContainer>
       <LinkedIcon title="Home" href="/" iconSize={25} />
@@ -15,4 +14,4 @@ const NavTabMenuBox = () => {
   )
 }
 
-export default NavTabMenuBox
+export default NavigationTabMenu

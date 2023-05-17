@@ -22,8 +22,8 @@ const RecommendCategory = ({ imagePath }: ImagePathPropsType) => {
         fontSize={50}
         iconName="hambergerMenu"
         iconSize={60}
-        iconMediaSize={35}
-        mediaSize={25}
+        iconmediasize={35}
+        mediasize={25}
       />
       <S.RecommandCategoryWrapper>
         {RecommendCategoryList.map((categoryName, index) => {
@@ -35,10 +35,10 @@ const RecommendCategory = ({ imagePath }: ImagePathPropsType) => {
               width="65%"
               height="65%"
               radius="50%"
-              imageMediaSize="70"
+              imagemediasize="70"
               fontSize={15}
               fontWeight={800}
-              mediaSize={12}
+              mediasize={12}
             />
           )
         })}

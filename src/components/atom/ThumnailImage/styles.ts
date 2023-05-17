@@ -6,7 +6,7 @@ interface ThumbnailImagePropsType {
   width: number
   height: number
   radius?: string
-  mediaSize?: number
+  mediasize?: number
 }
 export const ThumbnailImage = styled(GatsbyImage)`
   width: ${(props: ThumbnailImagePropsType) => `${props.width}%`};
@@ -18,10 +18,10 @@ export const ThumbnailImage = styled(GatsbyImage)`
         `
       : css``};
   ${(props: ThumbnailImagePropsType) =>
-    props.mediaSize
+    props.mediasize
       ? css`
           @media screen and (max-width: 768px) {
-            height: ${props.mediaSize}px;
+            height: ${props.mediasize}px;
           }
         `
       : css``};

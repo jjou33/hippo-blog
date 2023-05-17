@@ -4,7 +4,7 @@ interface CardTitlePropsType {
   text: string
   fontSize: number
   fontWeight?: number
-  mediaSize?: number
+  mediasize?: number
   opacity?: number
   fontColor?: string
 }
@@ -12,7 +12,7 @@ const CardTitle = ({
   text,
   fontSize,
   fontWeight,
-  mediaSize,
+  mediasize,
   opacity,
   fontColor,
 }: CardTitlePropsType) => {
@@ -20,7 +20,7 @@ const CardTitle = ({
     <S.Title
       fontSize={fontSize}
       fontWeight={fontWeight}
-      mediaSize={mediaSize}
+      mediasize={mediasize}
       opacity={opacity}
       fontColor={fontColor}
     >

@@ -21,7 +21,7 @@ export const BadgeWrapper = styled.div`
     props.backgroundColor ? props.backgroundColor : themedPalette.badge_color};
   border: ${(props: BadgeColorType) =>
     props.borderStyle ? props.borderStyle : ''};
-  font-size: ${(props: BadgeColorType) => props.fontSize};
+  font-size: ${(props: BadgeColorType) => `${props.fontSize}px`};
   border-radius: ${(props: BadgeColorType) => props.radius};
   padding: 2px 10px;
   margin: 2.5px 5px;

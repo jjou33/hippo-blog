@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 interface CardTitlePropsType {
   fontSize: number
   fontWeight?: number
-  mediaSize?: number
+  mediasize?: number
   opacity?: number
   fontColor?: string
 }
@@ -14,10 +14,10 @@ export const Title = styled.div`
   color: ${(props: CardTitlePropsType) =>
     props.fontColor ? props.fontColor : ''} 
   ${(props: CardTitlePropsType) =>
-    props.mediaSize
+    props.mediasize
       ? css`
           @media screen and (max-width: 768px) {
-            font-size: ${props.mediaSize}px;
+            font-size: ${props.mediasize}px;
           }
         `
       : css``}

@@ -1,6 +1,4 @@
 import React, { ReactNode } from 'react'
-
-import IconWrapper from 'components/atom/IconWrapper'
 import { CategoryCount } from 'types/catgegory'
 import { getSvgJSXElement } from 'utils/imageBridge'
 import CounterBadge from 'components/atom/Badges'
@@ -22,8 +20,9 @@ const CategoryItems = ({
       {categoryList.map((categoryItem, idx): ReactNode => {
         return (
           <S.CategoryItemWrapper key={idx}>
+            <span></span>
             <S.CategoryItemArrow>
-              <IconWrapper iconName="NonFilledArrow" iconSize={15} />
+              {getSvgJSXElement('NonFilledArrow', '15')}
             </S.CategoryItemArrow>
             <S.CategoryItem
               to={`/?category=${categoryItem}`}

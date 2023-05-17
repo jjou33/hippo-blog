@@ -33,8 +33,8 @@ const AllPostList = ({ selectedCategory, posts }: PostCardListPropsType) => {
         fontSize={50}
         iconName="hambergerMenu"
         iconSize={60}
-        iconMediaSize={35}
-        mediaSize={25}
+        iconmediasize={35}
+        mediasize={25}
       />
       <S.AllPostListWrapper ref={containerRef}>
         {postList.slice(offset, offset + limit).map(
@@ -50,9 +50,9 @@ const AllPostList = ({ selectedCategory, posts }: PostCardListPropsType) => {
               width={100}
               height={250}
               radius="10px 10px 0 0"
-              mediaSize={200}
+              mediasize={200}
               fontSize={20}
-              textMediaSize={15}
+              textmediasize={15}
               link={slug}
               key={id}
             />

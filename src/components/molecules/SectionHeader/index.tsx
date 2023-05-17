@@ -8,9 +8,9 @@ interface SectionHeaderPropsType {
   categoryCount?: number
   iconSize: number
   iconName: string
-  iconMediaSize: number
+  iconmediasize: number
   fontSize: number
-  mediaSize: number
+  mediasize: number
 }
 
 const SectionHeader = ({
@@ -18,9 +18,9 @@ const SectionHeader = ({
   categoryCount,
   iconSize,
   iconName,
-  iconMediaSize,
+  iconmediasize,
   fontSize,
-  mediaSize,
+  mediasize,
 }: SectionHeaderPropsType) => {
   return (
     <S.SectionHeaderContainer>
@@ -28,19 +28,19 @@ const SectionHeader = ({
         <IconWrapper
           iconName={iconName}
           iconSize={iconSize}
-          mediaSize={iconMediaSize}
+          mediasize={iconmediasize}
         />
         <StaticText
           text={selectedCategory}
           fontSize={fontSize - 10}
-          mediaSize={mediaSize}
+          mediasize={mediasize}
         />
 
         {categoryCount ? (
           <StaticText
             text={`${categoryCount}`}
             fontSize={fontSize - 10}
-            mediaSize={mediaSize}
+            mediasize={mediasize}
           />
         ) : (
           ''

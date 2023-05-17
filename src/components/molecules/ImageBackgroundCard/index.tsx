@@ -21,7 +21,6 @@ const ImageBackgroundCard = ({
   opacity = 1,
   fontColor = 'white',
 }: ImageCardPropsType) => {
-  const badgeList = ['Vue3', 'React']
   return (
     <S.ProjectDiaryItemComtainer
       imagepath={imagePath}
@@ -29,13 +28,14 @@ const ImageBackgroundCard = ({
     >
       <S.CardTitleWrapper>
         <S.BadgeWrapper>
-          {categories.map(value => {
+          {categories.map((value, index) => {
             return (
               <Badge
                 text={value}
                 fontSize={fontSize - 7}
                 color=""
                 fontWeight={800}
+                key={index}
               />
             )
           })}

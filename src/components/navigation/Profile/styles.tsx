@@ -90,17 +90,17 @@ export const ProfileImageWrapper = styled.img`
  *  사이드 네비게이션 메뉴 컴포넌트 스타일 영역
  */
 
-export const NavTabMenuContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 10px auto;
-  background-color: #98a4aa;
-  border-radius: 30px;
-  width: 250px;
-  height: 60px;
-`
-export const NavTabMenuWrapper = styled.ul`
+// export const NavTabMenuContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 50px 10px auto;
+//   background-color: #98a4aa;
+//   border-radius: 30px;
+//   width: 250px;
+//   height: 60px;
+// `
+export const NavTabMenuContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,6 +110,7 @@ export const NavTabMenuWrapper = styled.ul`
   height: 50px;
   border-radius: 30px;
   box-shadow: 1px 1px 1px gray, inset 0 0 1px gray, 0 0 5px gray;
+  gap: 40px;
 `
 /**
  * Navigation Menu Items Component Styled Section
@@ -118,7 +119,7 @@ export const NavTabMenuWrapper = styled.ul`
 
 export const NavTabMenuItemContainer = styled.li`
   list-style: none;
-  width: 80px;
+  width: 70px;
 `
 
 export const NavTabMenuItemWrapper = styled.a`
@@ -135,8 +136,6 @@ export const NavTabMenuItemIcon = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 70px;
 `
 
 /**

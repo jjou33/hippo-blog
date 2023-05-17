@@ -6,7 +6,7 @@ interface StaticTextPropsType {
   fontColor?: string
   fontSize?: number
   fontWeight?: number
-  mediaSize?: number
+  mediasize?: number
 }
 const StaticText = ({
   text,
@@ -14,7 +14,7 @@ const StaticText = ({
   fontColor,
   fontSize,
   fontWeight,
-  mediaSize,
+  mediasize,
 }: StaticTextPropsType) => {
   return (
     <S.StaticText
@@ -22,7 +22,7 @@ const StaticText = ({
       fontColor={fontColor}
       fontSize={fontSize}
       fontWeight={fontWeight}
-      mediaSize={mediaSize}
+      mediasize={mediasize}
     >
       {text}
     </S.StaticText>

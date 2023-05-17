@@ -89,7 +89,7 @@ export const CategoryTitleContainer = styled.li`
   }
 `
 
-export const CartegoryTitleText = styled.p`
+export const CartegoryTitleText = styled.div`
   cursor: pointer;
   flex-grow: 1;
   display: flex;

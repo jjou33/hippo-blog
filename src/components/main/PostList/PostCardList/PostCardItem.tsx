@@ -12,7 +12,7 @@ interface PostItemProps extends PostFrontmatterType {
   width: number
   height: number
   radius: string
-  mediaSize: string
+  mediasize: string
   link: string
 }
 
@@ -45,13 +45,13 @@ const PostItem = ({
           width={100}
           height={250}
           radius="10px 10px 0 0"
-          mediaSize={200}
+          mediasize={200}
           title={title}
           date={date}
           categories={categories}
           summary={summary}
           fontSize={20}
-          textMediaSize={15}
+          textmediasize={15}
         /> */}
       </S.PostItemWrapper>
     </S.PostItemContainer>

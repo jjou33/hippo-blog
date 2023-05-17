@@ -20,8 +20,8 @@ const RecentPostList = ({ posts, widePost }: RecentPostPropsType) => {
         fontSize={50}
         iconName="hambergerMenu"
         iconSize={60}
-        iconMediaSize={35}
-        mediaSize={25}
+        iconmediasize={35}
+        mediasize={25}
       />
 
       <S.RecentPostsWrapper>
@@ -29,13 +29,12 @@ const RecentPostList = ({ posts, widePost }: RecentPostPropsType) => {
           <VerticalCard
             {...widePost[0].node.frontmatter}
             link={widePost[0].node.fields.slug}
-            key={widePost[0].node.id}
             radius="10px 10px 0 0"
             fontSize={20}
-            textMediaSize={15}
+            textmediasize={15}
             width={100}
             height={350}
-            mediaSize={200}
+            mediasize={200}
             inViewAnimation={true}
           />
         </S.VerticalPostWrapper>
@@ -62,9 +61,9 @@ const RecentPostList = ({ posts, widePost }: RecentPostPropsType) => {
                       width={190}
                       height={190}
                       radius="20px"
-                      mediaSize={100}
+                      mediasize={100}
                       fontSize={20}
-                      textMediaSize={15}
+                      textmediasize={15}
                       link={slug}
                       key={id}
                       type="main"
