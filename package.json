@@ -4,10 +4,24 @@
   "description": "Developed By Hippo-Dev",
   "version": "1.0",
   "author": "HIPPO-DEV<zanda33@naver.com>",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint --cache --max-warnings 0 \"./src/**/*.{ts,tsx}\" --fix",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.23.1",
     "gatsby-plugin-canonical-urls": "^4.23.0",
     "gatsby-plugin-emotion": "^7.23.0",
@@ -39,7 +53,7 @@
     "@types/react": "^18.0.21",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.38.1",
-    "@yarnpkg/sdks": "^3.0.0-rc.34",
+    "@types/react-helmet": "^6.1.5",
     "file-loader": "^6.2.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.3",
@@ -49,19 +63,10 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "lint": "eslint --cache --max-warnings 0 \"./src/**/*.{ts,tsx}\" --fix",
-    "typecheck": "tsc --noEmit"
+
+  "overrides": {
+    "babel-plugin-lodash": {
+      "@babel/types": "~7.20.0"
+    }
   }
 }
