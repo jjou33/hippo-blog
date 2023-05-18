@@ -7,13 +7,13 @@ interface IntroductionProps {
   profileImage: string
 }
 
-const Introduction = ({ profileImage }: IntroductionProps) => {
+const NavIntroduction = ({ profileImage }: IntroductionProps) => {
   const tabMenuList = [
     { title: 'Home', link: '/', size: 25 },
     { title: 'Github', link: 'https://github.com/jjou33', size: 25 },
   ]
   return (
-    <S.IntroductionWrapper>
+    <S.NavIntroContainer>
       <S.ImageWrapper>
         <ImageComponent src={profileImage} />
       </S.ImageWrapper>
@@ -24,8 +24,8 @@ const Introduction = ({ profileImage }: IntroductionProps) => {
         mediasize={15}
       />
       <NavTabMenuBox NavTabMenuList={tabMenuList} />
-    </S.IntroductionWrapper>
+    </S.NavIntroContainer>
   )
 }
 
-export default Introduction
+export default NavIntroduction

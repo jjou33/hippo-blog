@@ -28,7 +28,7 @@ const SquareCard = ({
   mediasize,
 }: SquareCardPropsType) => {
   return (
-    <S.SquareCardWrapper to={`/?category=${categoryName}`}>
+    <S.SquareCardWrapper to={`/postList/?category=${categoryName}`}>
       <RoundImage
         imagePath={imagePath[`${categoryName}`]}
         width={width}

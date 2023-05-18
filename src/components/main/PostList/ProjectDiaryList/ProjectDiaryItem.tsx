@@ -8,12 +8,12 @@ const ProjectDiaryItem = (props: { imagepath: string; slug: string }) => {
   return (
     <S.ProjectDiaryItemComtainer
       imagepath={props.imagepath}
-      to={`/?category=${props.slug}`}
+      to={`postList/?category=${props.slug}`}
     >
       <S.CardTitleWrapper>
         <S.BadgeWrapper>
           {badgeList.map(value => {
-            return <Badge text={value} font="13px" color="" />
+            return <Badge text={value} fontSize={13} color="" />
           })}
         </S.BadgeWrapper>
         <CardText

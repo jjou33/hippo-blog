@@ -1,10 +1,6 @@
 import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/post'
-import { getSelectedCategory } from 'utils/category'
-
-import PostList from 'components/organisms/Post/PostList'
-import PostCategory from 'components/main/PostList/PostCategoryList'
 import Template from 'components/layout/Template'
 import MainSection from 'components/main'
 
@@ -41,7 +37,6 @@ const IndexPage = ({
     allFile,
   },
 }: IndexPageProps) => {
-  const selectedCategory: string = getSelectedCategory(location.search)
   const imagePath = getImagePathSetList(allFile.edges)
   return (
     <Template
@@ -51,16 +46,12 @@ const IndexPage = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      {selectedCategory === 'root' ? (
-        <MainSection
-          mainSectionProp={{
-            imagePath,
-            allMarkdownRemark,
-          }}
-        />
-      ) : (
-        <PostList selectedCategory={selectedCategory} />
-      )}
+      <MainSection
+        mainSectionProp={{
+          imagePath,
+          allMarkdownRemark,
+        }}
+      />
     </Template>
   )
 }

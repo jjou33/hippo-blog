@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Template from 'components/layout/Template'
-import PostCategoryList from 'components/main/PostList/PostCategoryList'
+import PostList from 'components/organisms/Post/PostList'
+import { getSelectedCategory } from 'utils/category'
 import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
 
@@ -23,7 +24,7 @@ interface IndexPageProps {
     }
   }
 }
-const AllPostTemplate = ({
+const PostListMapper = ({
   location,
   data: {
     site: {
@@ -33,6 +34,10 @@ const AllPostTemplate = ({
   },
 }: IndexPageProps) => {
   const imagePath = getImagePathSetList(allFile.edges)
+  const [state, setState] = useState('All')
+  useEffect(() => {
+    setState(getSelectedCategory(location.search))
+  }, [location])
   return (
     <Template
       isPost={true}
@@ -42,12 +47,12 @@ const AllPostTemplate = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      <PostCategoryList selectedCategory="All" />
+      <PostList selectedCategory={state} />
     </Template>
   )
 }
 
-export default AllPostTemplate
+export default PostListMapper
 export const PostListMetaData = graphql`
   query PostListMetaData {
     site {
@@ -55,30 +60,6 @@ export const PostListMetaData = graphql`
         title
         description
         siteUrl
-      }
-    }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            summary
-            date(formatString: "YYYY.MM.DD.")
-            categories
-            index
-            domain
-            sideTitle
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
-              }
-            }
-          }
-        }
       }
     }
     allFile(

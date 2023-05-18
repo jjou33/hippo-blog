@@ -24,7 +24,7 @@ const ImageBackgroundCard = ({
   return (
     <S.ProjectDiaryItemComtainer
       imagepath={imagePath}
-      to={`/?category=${slug}`}
+      to={`/postList/?category=${slug}`}
     >
       <S.CardTitleWrapper>
         <S.BadgeWrapper>

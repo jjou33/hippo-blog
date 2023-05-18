@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `HIPPO 를 닯은 개발자의 블로그`,
-    description: `기록을 중요시하는 나만의 개발 일기장입니다.`,
+    title: `개발 일기장`,
+    description: `열심히 노력합니다.`,
     author: `HIPPO`,
-    siteUrl: "https://my-website-link.com", // 배포 후 변경 예정
+    siteUrl: "https://hippo-dev.vercel.app/", // 배포 후 변경 예정
   },
   plugins: [
     {

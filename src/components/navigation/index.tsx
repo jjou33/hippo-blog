@@ -4,7 +4,8 @@ import * as S from './styles'
 import Introduction from 'components/navigation/Profile'
 import CategoryList from 'components/navigation/Category'
 import CategorySkeleton from 'components/navigation/Category/CategorySkeleton'
-import NavCategory from 'components/organisms/NavCategory'
+import NavIntroduction from 'components/organisms/NavCategory/NavIntroduction'
+import NavCategory from 'components/organisms/NavCategory/NavCategoryList'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { menuOpenState } from 'states/menuOpenState'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
@@ -29,7 +30,7 @@ const SideNavSection = (location: Location) => {
 
   return (
     <S.NavigationContainer isOpen={state}>
-      <Introduction profileImage={imagePath['superHero']} />
+      <NavIntroduction profileImage={imagePath['superHero']} />
       <S.NavigationWrapper>
         <NavCategory
           categoryList={categoryList}

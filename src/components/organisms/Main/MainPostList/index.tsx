@@ -60,7 +60,7 @@ const AllPostList = ({ selectedCategory, posts }: PostCardListPropsType) => {
         )}
       </S.AllPostListWrapper>
 
-      <Link to="/AllPost">
+      <Link to="/postList/">
         <Button
           width={150}
           height={50}

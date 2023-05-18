@@ -50,7 +50,7 @@ const PostCardList = ({ selectedCategory, posts }: PostCardListPropsType) => {
         )}
       </S.PostListWrapper>
 
-      <Link to="/AllPost">
+      <Link to="/postList">
         <S.Button>더 보기</S.Button>
       </Link>
     </S.PostCardListContainer>

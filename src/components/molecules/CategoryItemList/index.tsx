@@ -25,7 +25,7 @@ const CategoryItems = ({
               {getSvgJSXElement('NonFilledArrow', '15')}
             </S.CategoryItemArrow>
             <S.CategoryItem
-              to={`/?category=${categoryItem}`}
+              to={`/postList/?category=${categoryItem}`}
               active={categoryItem === selectedCategory}
               key={categoryItem}
             >

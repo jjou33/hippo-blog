@@ -17,7 +17,7 @@ const CategoryRootTitle = ({ categoryCount }: CategoryCount) => {
       <S.CategoryRootIcon>
         <IconWrapper iconName="Ghost" iconSize={25} />
       </S.CategoryRootIcon>
-      <S.CategoryRootTitle to={'/AllPost'}>
+      <S.CategoryRootTitle to={'/postList'}>
         <ColorText text={'Root'} fontSize={25} />
       </S.CategoryRootTitle>
       <CounterBadge

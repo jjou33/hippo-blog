@@ -18,17 +18,17 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         states: path.resolve(__dirname, "src/states"),
       },
     },
-    module: {
-      rules: [
-        {
-          test: /\.(png|svg|jpe?g|bin|gif|glb|gltf|jpeg)$/,
-          loader: "file-loader",
-          options: {
-            esModule: false,
-          },
-        },
-      ],
-    },
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.(png|svg|jpe?g|bin|gif|glb|gltf|jpeg)$/,
+    //       loader: "file-loader",
+    //       options: {
+    //         esModule: false,
+    //       },
+    //     },
+    //   ],
+    // },
   });
 };
 
@@ -39,23 +39,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Get All Markdown File For Paging
   const queryAllMarkdownData = await graphql(
     `
-      {
-        allMarkdownRemark(
-          sort: {
-            order: DESC
-            fields: [frontmatter___date, frontmatter___title]
-          }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
+    {
+      allMarkdownRemark(
+        sort: {order: DESC, fields: [frontmatter___date, frontmatter___title]}
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              categories
             }
           }
         }
       }
+    }
     `
   );
 
@@ -69,7 +68,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Import Post Template Component
   const PostTemplateComponent = path.resolve(
     __dirname,
-    "src/templates/post/PostTemplate.tsx"
+    "src/templates/PostTemplate.tsx"
   );
 
   // Page Generating Function
@@ -92,12 +91,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const PostListTemplateComponent = path.resolve(
     __dirname,
-    "src/templates/post/PostListTemplate.tsx"
+    "src/templates/PostListTemplate.tsx"
   );
 
   const gereatePostListPage = () => {
     const pageOptions = {
-      path: "/AllPost",
+      path: "/postList",
       component: PostListTemplateComponent
     };
 
@@ -117,3 +116,4 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({ node, name: "slug", value: slug });
   }
 };
+

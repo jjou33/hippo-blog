@@ -26,15 +26,6 @@ export const shaking_in_animation = keyframes`
  * 사이드 상단 프로필 영역 컴포넌트 스타일 영역
  */
 
-const animate = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(200vh);
-  }
-`
-
 export const IntroductionWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,6 +68,18 @@ export const ProfileImageWrapper = styled.img`
   width: 100px;
   height: 100px;
   margin: 50px 0px 0px 0px;
+  border-radius: 15px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+`
+
+export const ImageWrapper = styled.div`
+  width: 100px;
+  height: 100px;
+  margin: 50px 20px 0px 0px;
   border-radius: 15px;
 
   @media (max-width: 768px) {

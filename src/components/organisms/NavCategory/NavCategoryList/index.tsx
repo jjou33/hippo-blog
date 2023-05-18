@@ -27,7 +27,6 @@ const NavCategory = ({
               categoryItemCount={categoryItems[1]['childrenCount']}
             >
               <CategoryItemList
-                key={idx}
                 selectedCategory={selectedCategory}
                 categoryList={categoryItems[1]['children']}
                 categoryCount={categoryCount}
