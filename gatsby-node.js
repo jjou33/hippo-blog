@@ -18,17 +18,17 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         states: path.resolve(__dirname, "src/states"),
       },
     },
-    // module: {
-    //   rules: [
-    //     {
-    //       test: /\.(png|svg|jpe?g|bin|gif|glb|gltf|jpeg)$/,
-    //       loader: "file-loader",
-    //       options: {
-    //         esModule: false,
-    //       },
-    //     },
-    //   ],
-    // },
+    module: {
+      rules: [
+        {
+          test: /\.(png|svg|jpe?g|bin|gif|glb|gltf|jpeg)$/,
+          loader: "file-loader",
+          options: {
+            esModule: false,
+          },
+        },
+      ],
+    },
   });
 };
 
@@ -41,7 +41,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     `
     {
       allMarkdownRemark(
-        sort: {order: DESC, fields: [frontmatter___date, frontmatter___title]}
+          sort: {
+            order: DESC
+            fields: [frontmatter___date, frontmatter___title]
+          }
+          limit: 1000
       ) {
         edges {
           node {

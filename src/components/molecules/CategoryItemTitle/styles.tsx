@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 import { css } from '@emotion/react'
-import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 
 export const shaking_in_animation = keyframes`
  0% {
@@ -114,67 +113,4 @@ export const DropdownWrapper = styled.article`
       `
     }
   }}
-`
-
-/**
- * Category Skeleton Ui Component Styled Section
- * @description: 카테고리 리스트 깜박임 방지 Skeleton UI 영역
- */
-
-export const SkeletonContainer = styled.div`
-  width: 100%;
-  margin-top: 15px;
-  margin-right: 3px;
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 50px;
-    padding: 0 20px;
-  }
-`
-
-export const SkeletonRootTitle = styled.div`
-  display: flex;
-  margin: 25px 10px 10px 0px;
-  width: 100%;
-`
-
-export const SkeletonRootIcon = styled(SkeletonUI)`
-  margin: 0px 5px 10px 10px;
-  width: 30px;
-`
-
-export const SkeletonRootItem = styled(SkeletonUI)`
-  width: 100px;
-`
-
-export const SkeletonTitleContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  width: 230px;
-  height: 40px;
-  margin: 10px 0 0 10px;
-  border-radius: 5px;
-`
-export const SkeletonTitleIcon = styled(SkeletonUI)`
-  display: flex;
-  border-radius: 50%;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  margin: -8px 8px 0 10px;
-`
-export const SkeletonItemWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0 0 0;
-`
-
-export const SkeletonTitleText = styled(SkeletonUI)`
-  cursor: pointer;
-  flex-grow: 1;
-  align-items: center;
-  width: 100px;
-  margin: -8px 8px 0 0px;
 `

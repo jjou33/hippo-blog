@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Template from 'components/layout/Template'
+import Template from 'components/common/Template'
 import PostList from 'components/organisms/Post/PostList'
 import { getSelectedCategory } from 'utils/category'
-import { getImagePathSetList } from 'utils/imageBridge'
+
 import { graphql } from 'gatsby'
 
 interface IndexPageProps {
@@ -30,10 +30,13 @@ const PostListMapper = ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allFile,
+    allFile: { edges },
   },
 }: IndexPageProps) => {
-  const imagePath = getImagePathSetList(allFile.edges)
+  const {
+    node: { publicURL },
+  } = edges[0]
+
   const [state, setState] = useState('All')
   useEffect(() => {
     setState(getSelectedCategory(location.search))
@@ -44,7 +47,7 @@ const PostListMapper = ({
       title={title}
       description={description}
       url={siteUrl}
-      image={imagePath['profile-image']}
+      image={publicURL}
       location={location}
     >
       <PostList selectedCategory={state} />
@@ -62,10 +65,40 @@ export const PostListMetaData = graphql`
         siteUrl
       }
     }
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            summary
+            date(formatString: "YYYY.MM.DD.")
+            categories
+            index
+            domain
+            sideTitle
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 200, height: 200)
+              }
+            }
+            categoryIcon {
+              childImageSharp {
+                gatsbyImageData(width: 10, height: 10)
+              }
+            }
+          }
+        }
+      }
+    }
     allFile(
       filter: {
         extension: { regex: "/(jpg)|(png)|(svg)|(gltf)|(bin)/" }
         sourceInstanceName: { eq: "images" }
+        publicURL: { regex: "/(superHero)/" }
       }
     ) {
       edges {

@@ -1,8 +1,16 @@
+import * as S from 'components/organisms/Main/styles'
+import Template from 'components/common/Template'
+import MainImage from 'components/organisms/Main/MainImage'
+import AllPostList from 'components/organisms/Main/MainPostList'
+
+import ProjectDiary from 'components/organisms/Main/ProjectDiary'
+import RecommendCategory from 'components/organisms/Main/RecommendCategory'
+import Introduction from 'components/organisms/Main/Introduction'
+import RecentPostList from 'components/organisms/Main/RecentPostList'
+
 import { getImagePathSetList } from 'utils/imageBridge'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/post'
-import Template from 'components/layout/Template'
-import MainSection from 'components/main'
 
 interface IndexPageProps {
   location: Location
@@ -38,6 +46,7 @@ const IndexPage = ({
   },
 }: IndexPageProps) => {
   const imagePath = getImagePathSetList(allFile.edges)
+
   return (
     <Template
       title={title}
@@ -46,12 +55,16 @@ const IndexPage = ({
       image={imagePath['profile-image']}
       location={location}
     >
-      <MainSection
-        mainSectionProp={{
-          imagePath,
-          allMarkdownRemark,
-        }}
-      />
+      <S.MainContainer>
+        <MainImage />
+        <S.ContentsWrapper>
+          <Introduction />
+          <RecommendCategory imagePath={imagePath} />
+          <RecentPostList posts={allMarkdownRemark.edges} />
+          <ProjectDiary imagePath={imagePath} />
+          <AllPostList selectedCategory="All" posts={allMarkdownRemark.edges} />
+        </S.ContentsWrapper>
+      </S.MainContainer>
     </Template>
   )
 }
@@ -84,7 +97,7 @@ export const getMetaData = graphql`
             sideTitle
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 500, height: 500)
+                gatsbyImageData(width: 200, height: 200)
               }
             }
             categoryIcon {

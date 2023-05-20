@@ -4,8 +4,7 @@ import { PostListItemType } from 'types/post'
 import { menuOpenState } from 'states/menuOpenState'
 import { useSetRecoilState } from 'recoil'
 import { useCategoryMetadata } from 'hooks/useCategoryMetadata'
-import Pagination from 'components/main/PostList/PageNation'
-
+import PageNation from 'components/molecules/PageNation'
 import HorizonCard from 'components/molecules/HorizonCard'
 import SectionHeader from 'components/molecules/SectionHeader'
 
@@ -100,7 +99,7 @@ const PostList = ({ selectedCategory }: PostCategoryPropsType) => {
           ),
         )}
       </S.PostCateListWrapper>
-      <Pagination
+      <PageNation
         total={postList.length}
         limit={limit}
         page={page}

@@ -1,8 +1,11 @@
 import React from 'react'
-import * as S from 'components/main/Post/styles'
-import Template from 'components/layout/Template'
-import PostContent from 'components/main/Post/PostContent'
-import PostHead from 'components/main/Post/PostHead'
+import styled from '@emotion/styled'
+import Template from 'components/common/Template'
+
+import PostHead from 'components/organisms/Post/PostHead'
+import PostContent from 'components/organisms/Post/PostContents'
+import { getImagePathSetList } from 'utils/imageBridge'
+import { themedPalette } from 'styles/themeVariables'
 import { graphql } from 'gatsby'
 import type { PostPageItemType } from 'types/post'
 
@@ -21,6 +24,17 @@ interface PostTemplateProps {
     }
   }
 }
+
+/**
+ * PostTemplate
+ */
+
+export const PostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+  color: ${themedPalette.text1};
+`
 
 const PostTemplate = ({
   location,
@@ -44,6 +58,7 @@ const PostTemplate = ({
       },
     },
   } = edges[0]
+  const imagePath = getImagePathSetList(allFile.edges)
 
   return (
     <Template
@@ -54,16 +69,16 @@ const PostTemplate = ({
       image={publicURL}
       location={location}
     >
-      <S.PostWrapper>
+      <PostWrapper>
         <PostHead
           title={title}
           date={date}
           categories={categories}
           thumbnail={gatsbyImageData}
-          allFile={allFile}
+          imagePath={imagePath['wave']}
         />
         <PostContent html={html} />
-      </S.PostWrapper>
+      </PostWrapper>
     </Template>
   )
 }

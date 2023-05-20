@@ -12,7 +12,7 @@ export const Title = styled.div`
   font-size: ${(props: CardTitlePropsType) => `${props.fontSize}px`};
   font-weight: ${(props: CardTitlePropsType) => props.fontWeight};
   color: ${(props: CardTitlePropsType) =>
-    props.fontColor ? props.fontColor : ''} 
+    props.fontColor ? props.fontColor : ''};
   ${(props: CardTitlePropsType) =>
     props.mediasize
       ? css`
@@ -20,13 +20,13 @@ export const Title = styled.div`
             font-size: ${props.mediasize}px;
           }
         `
-      : css``}
+      : css``};
   ${(props: CardTitlePropsType) =>
     props.opacity
       ? css`
           opacity: ${props.opacity};
         `
-      : css``}
+      : css``};
   display: -webkit-box;
   overflow: hidden;
   margin: auto 0;

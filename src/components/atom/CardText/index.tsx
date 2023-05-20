@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-interface CardTitlePropsType {
+interface CardTextPropsType {
   text: string
   fontSize: number
   fontWeight?: number
@@ -8,14 +8,14 @@ interface CardTitlePropsType {
   opacity?: number
   fontColor?: string
 }
-const CardTitle = ({
+const CardText = ({
   text,
   fontSize,
   fontWeight,
   mediasize,
   opacity,
   fontColor,
-}: CardTitlePropsType) => {
+}: CardTextPropsType) => {
   return (
     <S.Title
       fontSize={fontSize}
@@ -29,4 +29,4 @@ const CardTitle = ({
   )
 }
 
-export default CardTitle
+export default CardText

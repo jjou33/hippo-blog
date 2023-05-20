@@ -9,10 +9,9 @@ import { PostListItemType } from 'types/post'
 
 interface RecentPostPropsType {
   posts: PostListItemType[]
-  widePost: PostListItemType[]
 }
 
-const RecentPostList = ({ posts, widePost }: RecentPostPropsType) => {
+const RecentPostList = ({ posts }: RecentPostPropsType) => {
   return (
     <S.RecentPostContainer>
       <SectionHeader
@@ -27,8 +26,8 @@ const RecentPostList = ({ posts, widePost }: RecentPostPropsType) => {
       <S.RecentPostsWrapper>
         <S.VerticalPostWrapper>
           <VerticalCard
-            {...widePost[0].node.frontmatter}
-            link={widePost[0].node.fields.slug}
+            {...posts[0].node.frontmatter}
+            link={posts[0].node.fields.slug}
             radius="10px 10px 0 0"
             fontSize={20}
             textmediasize={15}
