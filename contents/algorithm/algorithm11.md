@@ -11,11 +11,11 @@ categoryIcon: "../sumnail.png"
 ---
 
 ### 문제 요건
-***
+---
   **M(자본금)** 과 **학생 선물의 가격(가격, 배송비) 배열**을 입력받고 **최대**로 살 수 있는 갯수 구하기**(상품50% 쿠폰1개 존재)**
 
 ### 코드
-***
+---
 
 ```javascript
 ffunction solution(product, m) {

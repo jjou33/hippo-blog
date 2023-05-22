@@ -91,39 +91,52 @@ pnpm typecheck
 
 ✅ 파일 구조 및 설명
 
+
 ```md
 hippo-blog
-├─ .vscode 
+├─ .vscode
 │  ├─ extensions.json
 │  └─ settings.json
 ├─ contents // Markup 포스팅 파일 
-│  ├─ algorithm // 대주제
-│  │  ├─ thumbnail // 썸네일 이미지 파일
-│  │  ├─ 등수구하기.md // MarkupText 파일
-│  │  └─ 앞 수들 보다 큰 수만 구하기.md // MarkupText 파일
 │  ...
 ├─ src
 │  ├─ assets
 │  │  ├─ fonts // Font 파일 정보
 │  │  └─ svg // SVG Template 모듈 저장 파일
 │  ├─ components
-│  │  ├─ common // 공용성 컴포넌트
-│  │  ├─ layout // Layout 컴포넌트
-│  │  ├─ main // Main 영역 컴포넌트
-│  │  │  ├─ MainImage // 렌딩 페이지 GIF 이미지 컴포넌트 
-│  │  │  ├─ MainIntro // 이미지 텍스트 컴포넌트
-│  │  │  ├─ Post // 마크업 포스트 페이지 컴포넌트(SSG)
-│  │  │  ├─ PostList // 포스트 리스트 페이지 컴포넌트
-│  │  │  │  ├─ PageNation // PageNation 컴포넌트
-│  │  │  │  ├─ PostCardList // 카드 디자인 리스트 컴포넌트
-│  │  │  │  ├─ PostCategoryHeader // 리스트 헤더 컴포넌트
-│  │  │  │  ├─ PostCategoryList // 가로형 리스트 컴포넌트
-│  │  │  │  ├─ PostRecentList // 최근 포스트 영역 컴포넌트
-│  │  │  │  ├─ ProjectDiaryList // 프로젝트 다이어리 영역 컴포넌트
-│  │  │  │  └─ RecommendCategoryList // 추천 카테고리 영역 컴포넌트
-│  │  └─ navigation // Navigation 영역 컴포넌트
-│  │     ├─ Category // 카테고리 영역 컴포넌트
-│  │     ├─ Profile // 상단 프로파일 영역 컴포넌트
+│  │  ├─ atom // 원자 단위의 컴포넌트
+│  │  │  ├─ Badges
+│  │  │  ├─ Button
+│  │  │  ├─ CardText
+│  │  │  ├─ CircleNavigator
+│  │  │  ├─ ColorText
+│  │  │  ...
+│  │  ├─ common // 공용성으로 사용되는 컴포넌트
+│  │  │  ├─ Footer
+│  │  │  ├─ Header
+│  │  │  ├─ Layout
+│  │  │  ├─ Modal
+│  │  │  └─ Template
+│  │  ├─ molecules // 분자 단위의 컴포넌트
+│  │  │  ├─ CategoryItemList
+│  │  │  ├─ CategoryItemTitle
+│  │  │  ├─ CategoryRoot
+│  │  │  ├─ HorizonCard
+│  │  │  ...
+│  │  └─ organisms // 유기체 단위의 컴포넌트
+│  │     ├─ Main // Landing Page (Main 페이지관련)
+│  │     │  ├─ Introduction
+│  │     │  ├─ MainImage
+│  │     │  ├─ MainPostList
+│  │     │  ...
+│  │     │  └─ styles.ts
+│  │     ├─ NavCategory // SideBar Category 관련
+│  │     │  ├─ NavCategoryList
+│  │     │  ├─ NavIntroduction
+│  │     └─ Post // POST 관련
+│  │        ├─ PostContents
+│  │        ├─ PostHead
+│  │        └─ PostList
 │  ├─ hooks // 커스텀 Hook
 │  ├─ pages // Index Page 폴터
 │  ├─ states // Recoil 상태 관리 폴더
@@ -137,19 +150,17 @@ hippo-blog
 │  │  ├─ image
 │  │  └─ post
 │  └─ utils // 공용성 Util
-├─ static // 정적 이미지 폴더
-├─ gatsby-browser.js
-├─ gatsby-config.js
-├─ gatsby-node.js
-├─ gatsby-ssr.js
-├─ package.json
-├─ tsconfig.json 
+├─ LICENSE
 ├─ .babelrc.json
 ├─ .eslintignore
 ├─ .eslintrc.json
 ├─ .gitignore
 ├─ .prettierignore
-├─ LICENSE
-└─ README.md
+├─ gatsby-browser.js
+├─ gatsby-config.js
+├─ gatsby-node.js
+├─ gatsby-ssr.js
+├─ package.json
+├─ pnpm-lock.yaml
+├─ README.md
 ```
-

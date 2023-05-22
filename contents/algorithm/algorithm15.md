@@ -10,11 +10,11 @@ thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---
 ### 문제 요건
-***
+---
 **N 일간의 매출 기록**이 주어지고 **K 일간의 연속된 매출** 중 **최대 매출**을 구하라
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(k, arr) {
@@ -34,7 +34,7 @@ let arr = [12,15,11,20,25,10,20,19,13,15]
 ```
 
 ### 결과정리
-***
+---
 
 이 문제는 **슬라이딩 윈도우(Sliding Window)** 방법이며 주어진 배열에서 **K 개의 숫자를 옆으로 이동**하며 로직을 완성하는 방법이다.
 

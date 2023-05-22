@@ -66,7 +66,7 @@ const VerticalCard = ({
             fontWeight={800}
             mediasize={textmediasize}
           />
-          <CardText text={date} fontSize={fontSize - 6} fontWeight={400} />
+          <CardText text={date} fontSize={fontSize - 3} fontWeight={400} />
           <S.Category>
             {categories.map((category, index) => (
               <Badge

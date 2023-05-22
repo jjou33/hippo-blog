@@ -1,8 +1,8 @@
 import * as S from 'components/organisms/Main/styles'
+
 import Template from 'components/common/Template'
 import MainImage from 'components/organisms/Main/MainImage'
 import AllPostList from 'components/organisms/Main/MainPostList'
-
 import ProjectDiary from 'components/organisms/Main/ProjectDiary'
 import RecommendCategory from 'components/organisms/Main/RecommendCategory'
 import Introduction from 'components/organisms/Main/Introduction'

@@ -224,7 +224,25 @@ export const MarkdownRenderer = styled.div`
       }
     }
   }
-
+  table {
+    thead {
+      color: black;
+      background-color: #bcebe4;
+    }
+    tr {
+      color: black;
+      background-color: #bcebe4;
+    }
+    th {
+      padding: 0 10px;
+    }
+    td {
+      color: black;
+      padding: 0 10px;
+      background-color: whitesmoke;
+      border-style: solid;
+    }
+  }
   // Adjust Horizontal Rule style
 
   // Adjust Link Element Style
@@ -296,8 +314,8 @@ export const MarkdownRenderer = styled.div`
   }
 
   code[class*='language-text'] {
-    background-color: ${themedPalette.bg_element4};
-    color: ${themedPalette.code_text_color};
+    /* background-color: ${themedPalette.bg_element4};
+    color: ${themedPalette.code_text_color}; */
     font-weight: 800;
     font-style: bold;
     padding: 0 5px;

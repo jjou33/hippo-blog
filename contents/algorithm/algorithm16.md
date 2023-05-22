@@ -11,11 +11,11 @@ categoryIcon: "../sumnail.png"
 ---
 
 ### 문제 요건
-***
+---
 **두개의 문자열 a,b** 가 주어지고 **a 에서 b** 와 **아나그램**이 부합하는 경우의 수를 구하여라
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(a,b) {
@@ -78,7 +78,7 @@ let b = 'abc'
 ```
 
 ### 결과정리
-***
+---
 
 이문제는 지금까지 공부했던 **hash, Sliding Window, 투포인트 알고리즘**을 모두 사용한다.
 

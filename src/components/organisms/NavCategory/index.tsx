@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import * as S from './styles'
 import NavIntroduction from 'components/organisms/NavCategory/NavIntroduction'
 import NavCategory from 'components/organisms/NavCategory/NavCategoryList'
@@ -10,7 +10,6 @@ import { getCategoryList, getSelectedCategory } from 'utils/category'
 import { getImagePathSetList } from 'utils/imageBridge'
 
 const SideNavSection = (location: Location) => {
-  const [mount, setMount] = useState(false)
   const state = useRecoilValue<boolean>(menuOpenState)
   const setState = useSetRecoilState(menuOpenState)
   const staticData = useCategoryMetadata()
@@ -21,7 +20,6 @@ const SideNavSection = (location: Location) => {
   const categoryList = getCategoryList(staticData.data.allMarkdownRemark)
 
   useEffect(() => {
-    setMount(true)
     setState(false)
   }, [])
 

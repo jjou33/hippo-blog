@@ -85,7 +85,7 @@ console.log(solution(8, 3));
 
 ---
 
-**Queue**를 사용하여 구한 `solution` 과 사용하지 않은 `mySolution` 이 있다.
+**Queue**를 사용하여 구한 **solution** 과 사용하지 않은 **mySolution** 이 있다.
 
 **Queue** 를 사용하면 훨씬 간단하게 풀 수 있는것을 확인할 수 있었다.
 가장 중요한 **포인트** 는 **Queue** 배열에 **K** 번째가 아닌 인원들을 뒤로 보내는 **아이디어** 이다.

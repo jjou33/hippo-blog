@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import { themedPalette } from 'styles/themeVariables'
 
 interface GatsbyLinkProps {
   children: ReactNode

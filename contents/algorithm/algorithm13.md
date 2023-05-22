@@ -11,11 +11,11 @@ categoryIcon: "../sumnail.png"
 ---
 
 ### 문제 요건
-***
+---
 **N 개의 원소**를 갖는 배열에서 연속된 수의 합이 6이 되는 경우 구하기
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(arr, m) {

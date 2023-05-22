@@ -10,11 +10,11 @@ thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---
 ### 문제 요건
-***
+---
 **후위식 연산값**을 입력받고 결과값을 리턴하여라
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(s) {
@@ -47,7 +47,7 @@ let str = '352+*9-'
 ```
 
 ### 결과정리
-***
+---
 
 **스택**문제를 연습할때 가장 **기본적인 문제**로 **숫자는 스택에 쌓고** **연산자**가 나오면 **앞선 두개의 스택값을 pop** 하여 연산하는 방식
 

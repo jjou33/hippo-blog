@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/react'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 import { themedPalette } from 'styles/themeVariables'
 

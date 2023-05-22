@@ -8,11 +8,11 @@ const RecommendCategory = ({ imagePath }: ImagePathPropsType) => {
     'Javascript',
     'react',
     'vue',
-    'Babel',
+    'AtomicDesign',
     'Algorithm',
     'HTML',
     'Browser',
-    'Mac',
+    'typescript',
   ]
 
   return (

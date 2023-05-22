@@ -1,9 +1,6 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-import { css } from '@emotion/react'
-import { ReactNode } from 'react'
 import { Link } from 'gatsby'
-import SkeletonUI from 'components/common/Skeleton/SkeletonUI'
 
 export const CategoryRootTitle = styled(Link)``
 

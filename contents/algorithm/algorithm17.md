@@ -11,11 +11,11 @@ categoryIcon: "../sumnail.png"
 ---
 
 ### 문제 요건
-***
+---
 **괄호와문자**로 이루어진 문자열을 입력받고 **괄호 사이에 들어가있는 단어**를 모두 제거하라
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(s) {
@@ -34,7 +34,7 @@ let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)"
 ```
 
 ### 결과정리
-***
+---
 
 **Javscript 에서 스택**은 **push, pop** 을 이용하며 **LIFO** 만 잘 기억하자.
 

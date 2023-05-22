@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { themedPalette } from 'styles/themeVariables'
 
 export const PostTocContainer = styled.nav`

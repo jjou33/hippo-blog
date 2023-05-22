@@ -11,11 +11,11 @@ categoryIcon: "../sumnail.png"
 ---
 
 ### 문제 요건
-***
+---
 **N개의 숫자**가 주어지면 연속부분수열의 합이 5 이하가 되는 경우를 구하여라
 
 ### 코드
-***
+---
 
 ```javascript
 function solution(arr, m) {
