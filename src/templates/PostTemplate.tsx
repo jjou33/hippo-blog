@@ -12,6 +12,13 @@ import type { PostPageItemType } from 'types/post'
 interface PostTemplateProps {
   location: Location
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+      }
+    }
     allMarkdownRemark: {
       edges: PostPageItemType[]
     }
@@ -39,6 +46,7 @@ export const PostWrapper = styled.div`
 const PostTemplate = ({
   location,
   data: {
+    site: { siteMetadata },
     allMarkdownRemark: { edges },
     allFile,
   },
@@ -62,7 +70,6 @@ const PostTemplate = ({
 
   return (
     <Template
-      isPost={true}
       title={title}
       description={summary}
       url={location.href}
@@ -87,6 +94,13 @@ export default PostTemplate
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
       edges {
         node {

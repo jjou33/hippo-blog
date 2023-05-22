@@ -23,7 +23,7 @@ interface LayoutPropsType {
   children: ReactNode
 }
 
-const Layout = (props: LayoutPropsType) => {
+const Layout = ({ location, children }: LayoutPropsType) => {
   useThemeEffect()
   return (
     <>
@@ -32,7 +32,7 @@ const Layout = (props: LayoutPropsType) => {
       <Modal>
         <NavCategory {...location} />
       </Modal>
-      <LayoutWrapper>{props.children}</LayoutWrapper>
+      <LayoutWrapper>{children}</LayoutWrapper>
       <Footer />
     </>
   )

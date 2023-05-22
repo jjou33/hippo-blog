@@ -12,12 +12,11 @@ interface TemplateProps {
   description: string
   url: string
   image: string
-  isPost?: boolean
   children: ReactNode
   location: Location
 }
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -41,10 +40,8 @@ const Template = ({
           <meta name="description" content={description} />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=1"
+            content="width=device-width, initial-scale=1.0"
           />
-          <meta content="yes" name="apple-mobile-web-app-capable" />
-
           <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
 
           <meta property="og:type" content="website" />
@@ -60,6 +57,12 @@ const Template = ({
           <meta name="twitter:image" content={image} />
           <meta name="twitter:site" content="@사용자이름" />
           <meta name="twitter:creator" content="@사용자이름" />
+
+          <meta
+            name="google-site-verification"
+            content="qHPW4tQItfmWapVjvbkaO_AMO3PAaSb6JOQxOfGt8fo"
+          />
+          <html lang="ko" />
         </Helmet>
         <Layout location={location} children={children} />
       </RecoilRoot>

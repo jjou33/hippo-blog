@@ -9,7 +9,7 @@ export const AnimationWrapper = styled.div`
 export const PostHeadWrapper = styled.div`
   position: relative;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 
   @media (max-width: 768px) {
     height: 500px;
@@ -27,7 +27,7 @@ export const BackgroundImage = styled((props: GatsbyImgProps) => (
 ))`
   z-index: 1;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   object-fit: cover;
   filter: brightness(0.25);
 

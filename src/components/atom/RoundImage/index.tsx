@@ -20,6 +20,7 @@ const RoundImage = ({
       height={height}
       radius={radius}
       mediasize={imagemediasize}
+      alt="recommendCategory"
     />
   )
 }

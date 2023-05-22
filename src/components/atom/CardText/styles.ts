@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-
+import { themedPalette } from 'styles/themeVariables'
 interface CardTitlePropsType {
   fontSize: number
   fontWeight?: number
@@ -12,7 +12,7 @@ export const Title = styled.div`
   font-size: ${(props: CardTitlePropsType) => `${props.fontSize}px`};
   font-weight: ${(props: CardTitlePropsType) => props.fontWeight};
   color: ${(props: CardTitlePropsType) =>
-    props.fontColor ? props.fontColor : ''};
+    props.fontColor ? props.fontColor : themedPalette.text2};
   ${(props: CardTitlePropsType) =>
     props.mediasize
       ? css`

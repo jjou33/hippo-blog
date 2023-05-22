@@ -47,14 +47,22 @@ export const RecentPostsWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
-    height: 500px;
+    height: 700px;
   }
 `
 
 export const VerticalPostWrapper = styled.div`
   margin-right: 20px;
+  width: 50%;
+
+  @media (max-width: 1400px) {
+    margin-right: 0px;
+    width: 100%;
+  }
+
   @media screen and (max-width: 768px) {
     margin-right: 0px;
+    width: 100%;
   }
 `
 

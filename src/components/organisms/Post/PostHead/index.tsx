@@ -23,9 +23,6 @@ const PostHead = ({
     <S.PostHeadWrapper>
       <S.BackgroundImage image={thumbnail} alt="thumbnail" />
       <PostHeadText title={title} date={date} categories={categories} />
-      <S.AnimationWrapper>
-        <WaveImageAnimation imagePath={imagePath} />
-      </S.AnimationWrapper>
     </S.PostHeadWrapper>
   )
 }

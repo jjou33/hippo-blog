@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `개발 일기장`,
-    description: `열심히 노력합니다.`,
+    title: `HIPPO-DEV의 개발 일기장`,
+    description: `이 공간은 저만의 개발 놀이터 입니다.`,
     author: `HIPPO`,
-    siteUrl: "https://hippo-dev.vercel.app/", // 배포 후 변경 예정
+    siteUrl: "https://hippo-dev.vercel.app/",
   },
   plugins: [
     {
@@ -68,7 +68,12 @@ module.exports = {
         stripQueryString: true,
       },
     },
-
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

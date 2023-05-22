@@ -26,7 +26,7 @@ const ProjectDiary = ({ imagePath }: ImagePathPropsType) => {
         />
         <ImageBackgroundCard
           imagePath={imagePath['reactProject']}
-          slug="VueProject"
+          slug="ReactProject"
           categories={['React', 'Gatsby', 'Blog']}
           fontSize={20}
           summary="이 공간은 Gatsby 와 React 를 활용하여 만들고 있는 블로그에 대한 개발 일기를 포스팅 합니다."

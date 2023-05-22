@@ -11,6 +11,9 @@ interface GatsbyLinkProps {
 
 export const CardTitleWrapper = styled.div`
   padding: 200px 20px 0 20px;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `
 
 export const BadgeWrapper = styled.div`
@@ -35,13 +38,13 @@ export const ProjectDiaryItemComtainer = styled(
   border: none;
   height: 350px;
   margin: 50px;
+
   position: relative;
   width: calc((100vw - calc((100vw - 1200px))) / 2 - 20px);
   border-radius: 20px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  // padding: 150px 20px 0px 20px;
   box-shadow: 0px 9px 10px -2px rgb(0 0 0 / 10%);
   transition: all 0.3s ease 0s;
   cursor: pointer;

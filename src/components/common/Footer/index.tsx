@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { themedPalette } from 'styles/themeVariables'
 
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.footer`
   display: grid;
   place-items: center;
   margin-top: auto;

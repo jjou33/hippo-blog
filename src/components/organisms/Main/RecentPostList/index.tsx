@@ -33,7 +33,7 @@ const RecentPostList = ({ posts }: RecentPostPropsType) => {
             textmediasize={15}
             width={100}
             height={350}
-            mediasize={200}
+            mediasize={500}
             inViewAnimation={true}
           />
         </S.VerticalPostWrapper>

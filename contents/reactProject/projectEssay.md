@@ -1,12 +1,12 @@
 ---
-date: "2022-05-22"
+date: "2023-05-23"
 title: "[React Project] 프로젝트 회고"
 categories: ["ReactProject", "Project Essay"]
 index: 4
 domain: "React"
 sideTitle: "ReactProject"
 summary: "[React] 내가 블로그를 만들게 된 계기"
-thumbnail: "./thumbnail/mainImage.png"
+thumbnail: "./thumbnail/react.png"
 categoryIcon: "../sumnail.png"
 ---
 
@@ -30,7 +30,7 @@ categoryIcon: "../sumnail.png"
 
 그래서 시작하게 된게 본 프로젝트이다. 
 
-### 기술 셋
+### Skill Set
 ---
 
 이번 프로젝트를 진행하면서 사용한 **기술**에 대한 간단한 개념과 정의를 진행한다.

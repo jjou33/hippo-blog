@@ -45,6 +45,7 @@ const ImageBackgroundCard = ({
           fontSize={fontSize}
           opacity={opacity}
           fontColor={fontColor}
+          mediasize={fontSize - 5}
         />
       </S.CardTitleWrapper>
     </S.ProjectDiaryItemComtainer>
