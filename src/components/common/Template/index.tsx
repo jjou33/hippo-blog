@@ -62,6 +62,10 @@ const Template = ({
             name="google-site-verification"
             content="qHPW4tQItfmWapVjvbkaO_AMO3PAaSb6JOQxOfGt8fo"
           />
+          <meta
+            name="naver-site-verification"
+            content="f30fb04ae2f6fa0378bb48ef3536d30633970b95"
+          />
           <html lang="ko" />
         </Helmet>
         <Layout location={location} children={children} />
