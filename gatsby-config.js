@@ -61,7 +61,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
-    "gatsby-plugin-sitemap",
+    "gatsby-plugin-advanced-sitemap",
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
