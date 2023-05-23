@@ -35,6 +35,31 @@ interface IndexPageProps {
   }
 }
 
+interface IndexPageProps {
+  location: Location
+  data: {
+    site: Temp
+    allMarkdownRemark: {
+      edges: PostListItemType[]
+    }
+    allFile: {
+      edges: {
+        node: {
+          [key: string]: string
+        }
+      }[]
+    }
+  }
+}
+
+interface Temp {
+  siteMetadata: {
+    title: string
+    description: string
+    siteUrl: string
+  }
+}
+
 const IndexPage = ({
   location,
   data: {

@@ -34,7 +34,6 @@ const defaultStyle = css`
 `
 
 const GlobalStyle = () => {
-  useThemeEffect()
   return <Global styles={defaultStyle} />
 }
 

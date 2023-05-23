@@ -26,6 +26,7 @@
     "gatsby-plugin-canonical-urls": "^4.23.0",
     "gatsby-plugin-emotion": "^7.23.0",
     "gatsby-plugin-image": "^2.23.1",
+    "gatsby-plugin-react-helmet": "^6.10.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^4.23.1",
     "gatsby-plugin-sitemap": "^5.23.1",
