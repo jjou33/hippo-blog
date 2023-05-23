@@ -13,6 +13,7 @@ module.exports = {
         allExtensions: true,
       },
     },
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-pnpm',
     {
       resolve: `gatsby-transformer-remark`,
