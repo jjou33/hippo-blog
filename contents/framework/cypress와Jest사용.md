@@ -6,7 +6,7 @@ index: 4
 domain: "FrameWork"
 sideTitle: "framework"
 summary: "Test FrameWork 에 대한 내용을 포스팅 합니다."
-thumbnail: "./thumbnail/mainImage.png"
+thumbnail: "./thumbnail/testframework.png"
 categoryIcon: "../sumnail.png"
 ---
 

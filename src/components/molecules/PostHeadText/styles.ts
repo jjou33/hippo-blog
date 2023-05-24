@@ -19,7 +19,7 @@ export const PostHeadInfoWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 40px 20px;
+    padding: 0px 10px;
   }
 `
 

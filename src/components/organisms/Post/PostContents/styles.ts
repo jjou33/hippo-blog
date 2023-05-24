@@ -76,9 +76,13 @@ export const MarkdownRenderer = styled.div`
   h3 {
     font-size: 45px;
     &::before {
-      content: '📘';
+      content: '';
       padding-left: 5px;
-      margin-right: 15px;
+      background-color: #539dfd;
+      margin-right: 25px;
+      @media screen and (max-width: 768px) {
+        margin-right: 10px;
+      }
     }
     @media screen and (max-width: 768px) {
       font-size: 20px;
@@ -89,12 +93,16 @@ export const MarkdownRenderer = styled.div`
   h4 {
     font-size: 35px;
     &::before {
-      content: '📒';
+      content: '';
       padding-left: 5px;
-      margin-right: 15px;
+      background-color: #ffd381;
+      margin-right: 25px;
+      @media screen and (max-width: 768px) {
+        margin-right: 10px;
+      }
     }
     @media (max-width: 768px) {
-      font-size: 20px;
+      font-size: 18px;
       margin: 10px 0 0 0;
     }
   }
@@ -102,7 +110,7 @@ export const MarkdownRenderer = styled.div`
   h5 {
     font-size: 25px;
     &::before {
-      content: '📕';
+      content: '';
       padding-left: 5px;
       margin-right: 15px;
     }

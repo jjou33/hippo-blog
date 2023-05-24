@@ -21,6 +21,9 @@ export const BadgeWrapper = styled.div`
 
 export const ProjectDiaryContainer = styled.div`
   width: 100%;
+  @media screen and (max-width: 768px){
+    display: none;
+  }
 `
 
 export const ProjectDiaryItemWrapper = styled.div`

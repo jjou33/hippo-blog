@@ -8,11 +8,13 @@ export interface BadgeColorType {
   fontSize?: number
   radius?: string
   text: string
+  mediaFontSize?: number
 }
 
 const Badge = ({
   color,
   backgroundColor,
+  mediaFontSize,
   borderStyle,
   fontSize = 6,
   fontWeight = 0,
@@ -27,6 +29,7 @@ const Badge = ({
       fontSize={fontSize}
       fontWeight={fontWeight}
       radius={radius}
+      mediaFontSize={mediaFontSize}
     >
       {text ? text.toUpperCase() : text}
     </S.BadgeWrapper>

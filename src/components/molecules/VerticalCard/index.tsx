@@ -74,10 +74,11 @@ const VerticalCard = ({
                 fontSize={fontSize - 5}
                 fontWeight={700}
                 key={index}
+                mediaFontSize={fontSize - 10}
               />
             ))}
           </S.Category>
-          <CardText text={summary} fontSize={fontSize - 4} opacity={0.8} />
+          <CardText text={summary} fontSize={fontSize - 4} opacity={0.8} mediasize={fontSize - 6}/>
         </S.PostItemContent>
       </S.VerticalCardWrapper>
     </S.VerticalCardContainer>

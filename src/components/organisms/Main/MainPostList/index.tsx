@@ -64,7 +64,6 @@ const AllPostList = ({ selectedCategory, posts }: PostCardListPropsType) => {
         <Button
           width={150}
           height={50}
-          borderStyle="1px solid"
           radius={50}
           fontWeight={800}
           fontSize={20}

@@ -18,6 +18,7 @@ const PostHeadText = ({ title, date, categories }: PostHeadInfoProps) => {
           fontSize={15}
           color=""
           fontWeight={700}
+          mediaFontSize={10}
           radius="7px"
           backgroundColor=""
           text={categories.join(' / ')}
@@ -32,7 +33,7 @@ const PostHeadText = ({ title, date, categories }: PostHeadInfoProps) => {
           mediasize={20}
           fontColor="#ffd381"
         />
-        <CardText text={`${date} By HIPPO DEV`} fontSize={18} mediasize={15} />
+        <CardText text={`${date} By HIPPO DEV`} fontSize={18} mediasize={15} fontColor="white"/>
       </S.CategoryWrapper>
     </S.PostHeadInfoWrapper>
   )

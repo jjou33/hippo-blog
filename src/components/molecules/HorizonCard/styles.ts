@@ -37,6 +37,9 @@ export const ThumbnailWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 export const Category = styled.div`
   display: flex;

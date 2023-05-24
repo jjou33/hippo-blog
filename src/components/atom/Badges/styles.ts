@@ -8,6 +8,7 @@ export interface BadgeColorType {
   fontWeight?: number
   fontSize: number
   radius: string
+  mediaFontSize?: number
 }
 
 export const BadgeWrapper = styled.div`
@@ -22,14 +23,13 @@ export const BadgeWrapper = styled.div`
   border: ${(props: BadgeColorType) =>
     props.borderStyle ? props.borderStyle : ''};
   font-size: ${(props: BadgeColorType) => `${props.fontSize}px`};
+  font-weight: ${(props: BadgeColorType) => props.fontWeight};
   border-radius: ${(props: BadgeColorType) => props.radius};
   padding: 2px 10px;
   margin: 2.5px 5px;
-  ${(props: BadgeColorType) => {
-    return css`
-      border-radius: ${props.radius};
-      border: ${props.borderStyle};
-      font-weight: ${props.fontWeight};
-    `
-  }}
+
+  @media screen and (max-width: 768px) {
+    font-size: ${(props: BadgeColorType) => props.mediaFontSize ? `${props.mediaFontSize}px` : ''}  
+  }
+  
 `

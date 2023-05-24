@@ -18,7 +18,9 @@ export const Button = styled.button`
       ? css`
           border: ${props.borderStyle};
         `
-      : css``}
+      : css`
+        border: none;
+      `}
   border-radius: ${(props: ButtonOptionType) => `${props.radius}px`};
   font-weight: ${(props: ButtonOptionType) => props.fontWeight};
   font-size: ${(props: ButtonOptionType) => `${props.fontSize}px`};

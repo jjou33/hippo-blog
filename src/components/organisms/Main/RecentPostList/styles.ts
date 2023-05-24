@@ -40,6 +40,9 @@ export const PostSeqenceWrapper = styled.div`
 
 export const RecentPostContainer = styled.div`
   width: 100%;
+  @media screen and (max-width: 768px){
+    display: none;
+  }
 `
 export const RecentPostsWrapper = styled.div`
   display: flex;

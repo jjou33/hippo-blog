@@ -46,7 +46,6 @@ export const PostWrapper = styled.div`
 const PostTemplate = ({
   location,
   data: {
-    site: { siteMetadata },
     allMarkdownRemark: { edges },
     allFile,
   },
