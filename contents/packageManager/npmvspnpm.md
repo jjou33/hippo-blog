@@ -1,5 +1,5 @@
 ---
-date: "2022-09-02"
+date: "2023-05-24"
 title: "[PackageManager] npm vs pnpm 비교 및 사용기"
 categories: ["packageManager", "pnpm"]
 index: 4

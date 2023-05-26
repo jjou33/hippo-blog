@@ -3,7 +3,7 @@ import reset from './reset'
 import fontStyle from '../assets/fonts/index'
 import { Global, css } from '@emotion/react'
 import { themes } from './themeVariables'
-import { useThemeEffect } from 'hooks/useThemeEffect'
+// import { useThemeEffect } from 'hooks/useThemeEffect'
 const defaultStyle = css`
   ${reset}
   ${fontStyle}

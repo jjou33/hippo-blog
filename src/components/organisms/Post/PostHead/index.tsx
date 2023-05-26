@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './styles'
 import PostHeadText from 'components/molecules/PostHeadText'
-import WaveImageAnimation from 'components/molecules/WaveAnimation'
 import CirCleNavigator from 'components/atom/CircleNavigator'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 

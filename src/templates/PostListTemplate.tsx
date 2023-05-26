@@ -43,7 +43,6 @@ const PostListMapper = ({
   }, [location])
   return (
     <Template
-      isPost={true}
       title={title}
       description={description}
       url={siteUrl}
