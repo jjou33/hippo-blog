@@ -1,11 +1,11 @@
 ---
 date: "2023-05-26"
-title: "[Vue Project] 프로젝트 기술구성 (1) :  React vs Vue"
+title: "프로젝트 기술구성 (1) :  React vs Vue"
 categories: ["VueProject", "Framework"]
 index: 4
 domain: "Vue"
 sideTitle: "VueProject"
-summary: "Vue3 에 대한 기술내용을 포스팅합니다."
+summary: "차세대 프로젝트에서 진행하고 생각했던 내용을 정리합니다."
 thumbnail: "./thumbnail/mainImage.png"
 categoryIcon: "../sumnail.png"
 ---

@@ -60,7 +60,7 @@ const HorizonCard = ({
           {categories.map((category, index) => (
             <Badge
               text={category}
-              fontSize={fontSize - 5}
+              fontSize={fontSize - 8}
               fontWeight={700}
               key={index}
             />

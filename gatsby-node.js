@@ -93,21 +93,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Generate Post Page And Passing Slug Props for Query
   posts.forEach(generatePostPage);
 
-  const PostListTemplateComponent = path.resolve(
-    __dirname,
-    "src/templates/PostListTemplate.tsx"
-  );
+  // const PostListTemplateComponent = path.resolve(
+  //   __dirname,
+  //   "src/templates/PostListTemplate.tsx"
+  // );
 
-  const gereatePostListPage = () => {
-    const pageOptions = {
-      path: "/postList",
-      component: PostListTemplateComponent
-    };
+  // const gereatePostListPage = () => {
+  //   const pageOptions = {
+  //     path: "/postList",
+  //     component: PostListTemplateComponent
+  //   };
 
-    createPage(pageOptions);
-  };
+  //   createPage(pageOptions);
+  // };
 
-  gereatePostListPage();
+  // gereatePostListPage();
 };
 
 // Generate a Slug Each Post Data
