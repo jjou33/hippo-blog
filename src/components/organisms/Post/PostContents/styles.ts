@@ -48,7 +48,7 @@ export const MarkdownRenderer = styled.div`
   h5 {
     /* font-weight: 800; */
     margin: 60px 0 10px 0;
-    font-family: MaplestoryLight;
+    /* font-family: MaplestoryLight; */
   }
 
   * + h1,
@@ -74,8 +74,8 @@ export const MarkdownRenderer = styled.div`
   }
 
   h3 {
-    font-size: 45px;
-    &::before {
+    font-size: 35px;
+    /* &::before {
       content: '';
       padding-left: 5px;
       background-color: #539dfd;
@@ -83,7 +83,7 @@ export const MarkdownRenderer = styled.div`
       @media screen and (max-width: 768px) {
         margin-right: 10px;
       }
-    }
+    } */
     @media screen and (max-width: 768px) {
       font-size: 20px;
       margin: 10px 0 0 0;
@@ -91,8 +91,8 @@ export const MarkdownRenderer = styled.div`
   }
 
   h4 {
-    font-size: 35px;
-    &::before {
+    font-size: 25px;
+    /* &::before {
       content: '';
       padding-left: 5px;
       background-color: #ffd381;
@@ -100,7 +100,7 @@ export const MarkdownRenderer = styled.div`
       @media screen and (max-width: 768px) {
         margin-right: 10px;
       }
-    }
+    } */
     @media (max-width: 768px) {
       font-size: 18px;
       margin: 10px 0 0 0;

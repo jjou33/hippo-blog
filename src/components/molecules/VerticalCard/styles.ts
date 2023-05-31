@@ -65,7 +65,4 @@ export const VerticalCardContainer = styled.div`
           transform: scale(85%);
           transition: 2s;
         `}
-  @media screen and (max-width: 768px) {
-    height: 350px;
-  }
 `

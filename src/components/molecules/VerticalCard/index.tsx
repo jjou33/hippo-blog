@@ -78,7 +78,12 @@ const VerticalCard = ({
               />
             ))}
           </S.Category>
-          <CardText text={summary} fontSize={fontSize - 4} opacity={0.8} mediasize={fontSize - 6}/>
+          <CardText
+            text={summary}
+            fontSize={fontSize - 4}
+            opacity={0.8}
+            mediasize={fontSize - 6}
+          />
         </S.PostItemContent>
       </S.VerticalCardWrapper>
     </S.VerticalCardContainer>

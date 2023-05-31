@@ -44,6 +44,7 @@ const HorizonCard = ({
       setInviewState(true)
     }
   })
+
   return (
     <S.HorizonCardWrapper to={link} type={type}>
       <S.HorizonCardContent>
@@ -75,6 +76,7 @@ const HorizonCard = ({
           height={height}
           radius={radius}
           mediasize={mediasize}
+          type={type}
         />
       </S.ThumbnailWrapper>
     </S.HorizonCardWrapper>
