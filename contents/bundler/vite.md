@@ -1,7 +1,7 @@
 ---
-date: "2022-07-27"
-title: "[Vite] Vite 는 무엇이 다를까?"
-categories: ["vite"]
+date: "2023-06-01"
+title: "[Vite] Vite 새로운 번들러"
+categories: ["vite", "Bundler"]
 index: 4
 domain: "Vite"
 sideTitle: "vite"
@@ -46,7 +46,7 @@ categoryIcon: "../sumnail.png"
 
 두번째로, 앞선 내용에서 설명했듯이 수만은 **ESM** 모듈이 존재한다고 가정하자.
 
-예를 들어 아래와 같이 **loadash-es** 는 내부적으로 **600개** 이상의 내무 **Module** 을 가지고 있고 우리는 아래와 같이 필요에 의해 사용하게 된다.
+예를 들어 아래와 같이 **loadash-es** 는 내부적으로 **600개** 이상의 내부 **Module** 을 가지고 있고 우리는 아래와 같이 필요에 의해 사용하게 된다.
 
 ```js
 import { debounce } from 'lodash-es'
@@ -144,7 +144,7 @@ cli
 
 먼저 기존 **Webpack** 의 내용과 현재 **Vite** 의 내용을 비교해서 확인해보자.
 
-##### webpack
+#### Webpack
 ---
 
 ![image](https://user-images.githubusercontent.com/56063287/180706390-5addf526-9a7e-44c1-8bb0-6499fda11c64.png)
@@ -201,7 +201,27 @@ cli
   ): Promise<TransformResult | null>
 ```
 
-위 소스는 자세하게 보지는 않았지만, 이러한 기능을 하는 부분인것 같아 추후 확인을 할 예정이다.
+### 실제 성능 비교
+---
+
+현재까지 진행된 프로젝트에 **Webpack**과 **Vite** 를 각각 탑재하여 성능 테스트를 진행해보았다.
+
+#### Webpack
+---
+
+![image](https://github.com/jjou33/jjou33/assets/56063287/30204c85-1d84-49b7-891f-4f2bc85ca5cc)
+
+#### Vite
+---
+
+![image](https://github.com/jjou33/jjou33/assets/56063287/b222e3ac-a695-4e2f-b2ab-ccdc06e6b5cc)
+
+두 표본 모두 **cli 를 통해 기본 셋팅**을 진행한 후 돌린 결과이다.
+
+결과와 같이 각각 **1.2초 와 0.3초** 로 유의미한 차이가 발생했다.
+
+복잡해지고 프로젝트가 진행될 수록 모듈이 많아지게 된다면 더 유의미한 결과가 나올것이다.
+
 
 ### 참고 사이트
 
