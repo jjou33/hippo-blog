@@ -32,6 +32,14 @@ const ProjectDiary = ({ imagePath }: ImagePathPropsType) => {
           summary="이 공간은 Gatsby 와 React 를 활용하여 만들고 있는 블로그에 대한 개발 일기를 포스팅 합니다."
           fontColor="white"
         />
+        <ImageBackgroundCard
+          imagePath={imagePath['sideProject']}
+          slug="NextJS"
+          categories={['React', 'NextJS', 'SideProject']}
+          fontSize={20}
+          summary="이 공간은 Next JS 로 개발하고 있는 사이드 프로젝트 내용을 포스팅 합니다."
+          fontColor="white"
+        />
       </S.ProjectDiaryItemWrapper>
     </S.ProjectDiaryContainer>
   )

@@ -16,6 +16,7 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "reinstall": "rm -rf ./node_modules && rm -rf pnpm-lock.yaml && pnpm install",
     "lint": "eslint --cache --max-warnings 0 \"./src/**/*.{ts,tsx}\" --fix",
     "typecheck": "tsc --noEmit"
   },
@@ -71,7 +72,7 @@
       "string-similarity": "1",
       "stable": "0",
       "core-js": "2",
-      "async-cache":"1",
+      "async-cache": "1",
       "request": "2",
       "uuid": "3",
       "har-validator": "5",
