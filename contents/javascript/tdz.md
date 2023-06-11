@@ -22,7 +22,7 @@ categoryIcon: "../sumnail.png"
 
 결과적으로 정답은 **아니오** 이다.
 
-**let,const** 또한 호이스팅이 일어나지만 **TDZ(Temporal Dead Zone)**에 의해 **Reference Error**가 발상하는 것이다. 일종의 방어가 된다고 보면 될 것이다.
+**let,const** 또한 호이스팅이 일어나지만 **TDZ(Temporal Dead Zone)** 에 의해 **Reference Error**가 발상하는 것이다. 일종의 방어가 된다고 보면 될 것이다.
 
 이부분에 대하여 추가적으로 기록해 보겠다.
 
@@ -155,7 +155,7 @@ const myCar = new MuscleCar("blue", "300HP");
 myCar.power; // => '300HP'
 ```
 
-이 코드를 보면 **constructor()** 안에서 **super()**가 호출되기 전까지 **this**를 사용할 수 없다.
+이 코드를 보면 **constructor()** 안에서 **super()** 가 호출되기 전까지 **this**를 사용할 수 없다.
 
 **TDZ**는 인스턴스를 초기화하기 위해 부모 클래스의 생성자를 호출할 것을 제안한다.
 
@@ -163,7 +163,7 @@ myCar.power; // => '300HP'
 
 4. 기본 함수 매개변수(Default Function Parameter)
 
-기본 매개변수는 글로벌과 함수 스코프 사이의 **중간 스코프(intermidiate scope)**에 위치한다. 기본 매개변수 또한 **TDZ** 제한이 있다.
+기본 매개변수는 글로벌과 함수 스코프 사이의 **중간 스코프(intermidiate scope)** 에 위치한다. 기본 매개변수 또한 **TDZ** 제한이 있다.
 
 ```js
 const a = 2;
