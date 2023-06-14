@@ -1,19 +1,16 @@
-import { MutableRefObject, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { useSetRecoilState } from 'recoil'
 import { recoilDropdownState } from 'states/recoilDropdownState'
-export interface useDropdownEffectType {
-  isOpen: boolean
-  toggleTitle: () => void
-  titleRef: MutableRefObject<HTMLDivElement | null>
-}
 
 interface OpenStateType {
   [key: string]: boolean
 }
+
 export const useCategoryState = () => {
-  const setState = useSetRecoilState(recoilDropdownState)
   const [isOpen, setIsOpen] = useState(false)
+
+  const setState = useSetRecoilState(recoilDropdownState)
 
   const titleRef = useRef(null)
 

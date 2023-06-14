@@ -19,10 +19,10 @@
 
 | Name               | Description                                      |
 | ------------------ | ------------------------------------------------ |
-| React              | Frontend Library                               |
-| Recoil             | 상태 관리                                   |
-| Type-script        | 작성 언어                                        |
-| gatsby, webpack... | 환경 구성 관련 (서버사이드, 번들링, 플러그인 등) |
+| React              | Frontend Library                                 | 
+| Recoil             | 상태 관리                                          |
+| Type-script        | 작성 언어                                          |
+| gatsby, webpack... | 환경 구성 관련 (서버사이드, 번들링, 플러그인 등)           |
 | PNPM               | Package Manager                                  |
 | Emotion Styled     | Styled Component FrameWork                       |
 
