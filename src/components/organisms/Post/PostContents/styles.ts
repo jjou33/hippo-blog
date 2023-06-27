@@ -31,7 +31,7 @@ export const MarkdownRenderer = styled.div`
   p {
     padding: 10px 0;
     margin: 5px 0;
-    font-size: 20px;
+    font-size: 25px;
     strong {
       color: ${themedPalette.strong_text_color};
     }
@@ -74,7 +74,7 @@ export const MarkdownRenderer = styled.div`
   }
 
   h3 {
-    font-size: 35px;
+    font-size: 40px;
     /* &::before {
       content: '';
       padding-left: 5px;
@@ -91,7 +91,7 @@ export const MarkdownRenderer = styled.div`
   }
 
   h4 {
-    font-size: 25px;
+    font-size: 30px;
     /* &::before {
       content: '';
       padding-left: 5px;

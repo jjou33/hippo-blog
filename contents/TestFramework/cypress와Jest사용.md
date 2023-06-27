@@ -1,10 +1,10 @@
 ---
 date: "2023-04-13"
 title: "[Test FrameWork] Cypress + Jest 사용 트러블 슈팅"
-categories: ["framework", "react"]
+categories: ["TestFramework", "Cypress", "Jest"]
 index: 4
-domain: "FrameWork"
-sideTitle: "framework"
+domain: "TestFramework"
+sideTitle: "TestFramework"
 summary: "Test FrameWork 에 대한 내용을 포스팅 합니다."
 thumbnail: "./thumbnail/testframework.png"
 categoryIcon: "../sumnail.png"
@@ -18,7 +18,7 @@ categoryIcon: "../sumnail.png"
 
 ---
 
-프로젝트를 진행하면서 **TDD** 의 개념을 도입하여 프로젝트를 진행하고자 요청이 있었다.
+프로젝트를 진행하면서 **QA 프로세스**에 대한 부담을 줄이기 위한 자동화에 대한 요청이 있었다.
 
 우리는 **End to End 통합 테스트** 는 **Cypress** 로 정하였고, 개발자들이 개발하는 기능에 대한 단위 테스트는 **Jest** 를 활용하기로 하였다.
 
