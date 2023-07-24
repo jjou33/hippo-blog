@@ -8,7 +8,6 @@ export const MainAnimationContainer = styled.div`
   @media (max-width: 768px) {
     height: 60vh;
   }
-  /* overflow: hidden; */
 `
 
 export const CommentTextWrapper = styled.div`
