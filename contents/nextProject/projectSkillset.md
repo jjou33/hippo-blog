@@ -14,7 +14,7 @@ categoryIcon: "../sumnail.png"
 
 최근에 시간이 많이 없어 현재 프로젝트의 기술 셋에 대하여 간략하게 정하였고, 이에 대한 포스팅을 진행한다.
 
-### NextJS v13 이 맞을까?
+### NextJS App Directory VS Page Directory
 ---
 
 ![image](https://github.com/jjou33/hippo-blog/assets/134469187/ee007c65-cb25-424d-81c1-64f00eaeb925)
@@ -28,11 +28,17 @@ categoryIcon: "../sumnail.png"
 
 ![image](https://github.com/jjou33/hippo-blog/assets/134469187/bd638ef7-8cd5-455c-bfc3-5c0bf983bf6d)
 
-원래는 **Emotion** 을 사용하고 싶었으나, 현재 버전업이 된 지 오래되지 않아서 아직 Next 진영에서 **Emotion** 에 대한 대응작업을 진행중이어서 안정화 단계는 아닌것 같다.
+현재 공식 홈페이지에서는 SSR 을 활용하기 위해서는 styled-component 는 불가능하다고 한다.
 
-또한, 아직까지 **App** 디렉토리에 대한 안정성과 호환성 그리고 기존 **page** 기반 디렉토리와 변화가 많아 현재 실무에서는 아직까지 신규프로젝트가 아닌 이상 13 app 으로 마이그레이션 하는 부분은 아직까지는 많지 않을것 같다.
+개인적으로 `CSS-in-JS(styled component)` 를 선호하기 때문에 이는 치명적일 수 밖에 없었다.
 
-따라서, 기존 12버전의 **page** 디렉토리를 사용해서 진행하되, 추후 안정화가 되면 **app** 디렉토리로 다시 마이그레이션을 하는게 맞다는 생각이 든다.
+13버전에 주요 변경사항인 **App Directory** 를 활용하기 위해서는 **CSS Module** 혹은 **Tailwind** 를 사용하라고 권장한다.
+
+추후에 **SSR** 에도 **Styled Component** 가 적용될 가능성도 있지 않을까 하는 생각에 이번에는 **NextJS** 13버전 **Page Directory** 를 사용할 예정이다.
+
+아직까지 **APP Directory** 와 **Page Directory** 둘다 사용이 가능하고, 현재까지 많은 회사들이 아마도 **Page Directory** 를 사용하고 있을 거라 생각한다.
+
+**App Directory** 는 변경사항이 많기 떄문에 커뮤니티의 의견을 들어보면 신규 프로젝트가 아닌 이상 대부분의 회사가 점진적인 마이그레이션을 진행 할 것으로 생각된다.
 
 ### 전역 상태관리 TOOL
 ---
@@ -51,7 +57,7 @@ solutions that output CSS files, like PostCSS or Tailwind CSS.
 
 즉, **서버 컴포넌트**를 스타일링 하기 위해서는 아직까지는 CSS Modules 혹은 Tailwind Css 를 활용하라는 뜻이다.
 
-결국 12버전을 사용할 예정이기 때문에 기존과 같이 **Emotion** 프레임워크로 진행 할 예정이다.
+13버전 이지만 Page Directory 를 사용할 예정이기 때문에 기존과 같이 **Emotion** 프레임워크로 진행 할 예정이다.
 
 ### Package Manager(Pnpm) / Language(Typescript)
 ---
